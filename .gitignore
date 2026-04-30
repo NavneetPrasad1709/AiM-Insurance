@@ -43,6 +43,12 @@ yarn-error.log*
 # Curated brand assets live in public/brand/ and ARE committed.
 /figma-assets
 
+# Illustration seed batches — keep only the chosen winner in public/brand/
+/tmp
+scripts/illustration-log.jsonl
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel

@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Logo } from "@/components/layout/logo";
 import { useLockBodyScroll } from "@/hooks/useLockBodyScroll";
+import { useQuoteModal } from "@/lib/quote-modal-context";
 import { NAV_LINKS, SITE_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
 import { ICONS, getIcon } from "@/lib/icons";
 import { cn } from "@/lib/utils";
@@ -29,6 +30,7 @@ const FOCUSABLE_SELECTOR =
 export function MobileNav({ open, onClose }: MobileNavProps) {
   const pathname = usePathname();
   const router = useRouter();
+  const { openModal } = useQuoteModal();
   const panelRef = useRef<HTMLDivElement>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
   const lastFocusRef = useRef<HTMLElement | null>(null);
@@ -215,7 +217,10 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
               size="lg"
               fullWidth
               className="mt-5"
-              onClick={() => navigate("/contact")}
+              onClick={() => {
+                onClose();
+                openModal();
+              }}
               rightIcon={<ICONS.ArrowRight className="size-4" aria-hidden />}
             >
               Get Free Quote

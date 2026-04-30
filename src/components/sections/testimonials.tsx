@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ScrollReveal, ScrollZoom, StaggerGroup, StaggerItem } from "@/components/ui/scroll-effects";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
+import { CornerOrnament, QuoteMarkAccent } from "@/components/illustrations/ambience";
 import { ICONS } from "@/lib/icons";
 
 interface Testimonial {
@@ -147,6 +148,15 @@ export function Testimonials() {
                 background:
                   "radial-gradient(closest-side, rgb(255 200 61 / 0.32), rgb(255 200 61 / 0.18) 55%, transparent 80%)",
               }}
+            />
+            {/* Decorative corner ornaments framing the featured testimonial */}
+            <CornerOrnament position="tl" size={160} opacity={0.35} />
+            <CornerOrnament position="br" size={160} opacity={0.35} />
+            {/* Ghosted quote glyph behind the blockquote */}
+            <QuoteMarkAccent
+              className="right-8 top-8"
+              size={120}
+              opacity={0.12}
             />
 
             {/* Character */}

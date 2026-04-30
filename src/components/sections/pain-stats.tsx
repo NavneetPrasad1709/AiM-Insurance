@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { CountUp } from "@/components/ui/count-up";
 import { ScrollReveal, ScrollZoom, StaggerGroup, StaggerItem } from "@/components/ui/scroll-effects";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
+import { AuroraStrands } from "@/components/illustrations/ambience";
 import { ICONS } from "@/lib/icons";
 
 const PAIN_POINTS = [
@@ -58,6 +59,8 @@ export function PainStats() {
               "radial-gradient(closest-side, rgb(255 200 61 / 0.14), transparent 70%)",
           }}
         />
+        {/* Slow-drifting aurora ribbons behind heading */}
+        <AuroraStrands opacity={0.28} />
       </div>
 
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">

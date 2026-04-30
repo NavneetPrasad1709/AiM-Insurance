@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Accordion, AccordionItem } from "@/components/ui/accordion";
+import { CornerOrnament } from "@/components/illustrations/ambience";
 import { ICONS } from "@/lib/icons";
 import { SITE_CONFIG } from "@/lib/constants";
 
@@ -39,6 +40,9 @@ export function FaqSection() {
           }}
         />
       </div>
+      {/* Decorative corner ornaments */}
+      <CornerOrnament position="tl" size={140} opacity={0.3} />
+      <CornerOrnament position="br" size={140} opacity={0.3} />
 
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14">

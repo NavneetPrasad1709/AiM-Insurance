@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   useEffect,
   useRef,
@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Logo } from "@/components/layout/logo";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
+import { useQuoteModal } from "@/lib/quote-modal-context";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
 import { ICONS, getIcon } from "@/lib/icons";
 import { cn } from "@/lib/utils";
@@ -187,8 +188,8 @@ function CircleArrowCta({ onClick, label }: { onClick?: () => void; label: strin
 
 export function Header() {
   const pathname = usePathname();
-  const router = useRouter();
   const { isScrolled } = useScrollPosition();
+  const { openModal } = useQuoteModal();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const isHome = pathname === "/";
@@ -242,7 +243,7 @@ export function Header() {
             </a>
             <CircleArrowCta
               label="Get Free Quote"
-              onClick={() => router.push("/contact")}
+              onClick={() => openModal()}
             />
           </div>
 

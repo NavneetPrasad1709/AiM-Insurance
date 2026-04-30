@@ -1,9 +1,75 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { ScrollReveal } from "@/components/ui/scroll-effects";
+import { CountUp } from "@/components/ui/count-up";
+import {
+  GoldParticleField,
+  CornerOrnament,
+} from "@/components/illustrations/ambience";
 import { ICONS } from "@/lib/icons";
+
+/* Animated savings-curve SVG that draws in on view */
+function SavingsCurve() {
+  const ref = useRef<SVGSVGElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const reduce = useReducedMotion();
+  return (
+    <svg
+      ref={ref}
+      viewBox="0 0 220 80"
+      className="mt-4 h-12 w-full"
+      aria-hidden
+    >
+      <defs>
+        <linearGradient id="curveGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#ffc83d" stopOpacity="0" />
+          <stop offset="40%" stopColor="#ffc83d" stopOpacity="1" />
+          <stop offset="100%" stopColor="#4fe0b0" stopOpacity="1" />
+        </linearGradient>
+      </defs>
+      {/* Drop fill */}
+      <motion.path
+        d="M 4,20 Q 60,18 110,38 T 216,68 L 216,80 L 4,80 Z"
+        fill="url(#curveGrad)"
+        fillOpacity="0.18"
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.8, delay: 0.6 }}
+      />
+      {/* Curve */}
+      <motion.path
+        d="M 4,20 Q 60,18 110,38 T 216,68"
+        fill="none"
+        stroke="url(#curveGrad)"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        initial={{ pathLength: 0 }}
+        animate={inView ? { pathLength: reduce ? 1 : 1 } : {}}
+        transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
+      />
+      {/* Anchor dots */}
+      {[
+        { cx: 4, cy: 20, delay: 0 },
+        { cx: 110, cy: 38, delay: 0.8 },
+        { cx: 216, cy: 68, delay: 1.4 },
+      ].map((d, i) => (
+        <motion.circle
+          key={i}
+          cx={d.cx}
+          cy={d.cy}
+          r="3.5"
+          fill="#ffc83d"
+          initial={{ scale: 0 }}
+          animate={inView ? { scale: 1 } : {}}
+          transition={{ duration: 0.4, delay: d.delay, ease: "backOut" }}
+        />
+      ))}
+    </svg>
+  );
+}
 
 export function CalculatorPreview() {
   return (
@@ -19,7 +85,12 @@ export function CalculatorPreview() {
               "radial-gradient(closest-side, rgb(79 224 176 / 0.14), rgb(255 200 61 / 0.10) 55%, transparent 75%)",
           }}
         />
+        {/* Drifting gold particles for kinetic energy */}
+        <GoldParticleField density={20} opacity={0.45} />
       </div>
+      {/* Decorative corner ornaments */}
+      <CornerOrnament position="tl" size={140} opacity={0.25} />
+      <CornerOrnament position="br" size={140} opacity={0.25} />
 
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
         <motion.div
@@ -106,41 +177,89 @@ export function CalculatorPreview() {
                     className="inline-flex items-center gap-1 rounded-full bg-[#0a1612] border border-[#4fe0b0]/30 px-2.5 py-0.5 text-[#4fe0b0] font-bold text-[11px]"
                     style={{ fontFamily: "var(--font-inter)" }}
                   >
-                    <span className="size-1.5 rounded-full bg-[#4fe0b0]" />
+                    <motion.span
+                      className="size-1.5 rounded-full bg-[#4fe0b0]"
+                      animate={{
+                        opacity: [1, 0.4, 1],
+                        scale: [1, 1.4, 1],
+                      }}
+                      transition={{
+                        duration: 1.6,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                      style={{ boxShadow: "0 0 8px rgb(79 224 176 / 0.8)" }}
+                    />
                     Live
                   </span>
                 </div>
 
                 <dl className="mt-5 space-y-2.5">
-                  <div className="flex items-center justify-between rounded-md bg-[#111113] border border-[#1a1a1f] px-4 py-3">
+                  <motion.div
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="flex items-center justify-between rounded-md bg-[#111113] border border-[#1a1a1f] px-4 py-3"
+                  >
                     <dt className="text-sm text-white">Initial premium</dt>
                     <dd className="font-bold text-white tabular-nums">
-                      $3,214
+                      <CountUp value="$3,214" />
                     </dd>
-                  </div>
-                  <div className="flex items-center justify-between rounded-md bg-[#111113] border border-[#1a1a1f] px-4 py-3">
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    className="flex items-center justify-between rounded-md bg-[#111113] border border-[#1a1a1f] px-4 py-3"
+                  >
                     <dt className="text-sm text-white">After AiM</dt>
                     <dd className="font-bold text-white tabular-nums">
-                      $2,400
+                      <CountUp value="$2,400" />
                     </dd>
-                  </div>
-                  <div className="flex items-center justify-between rounded-md border border-[#ffc83d]/40 bg-[#160d09] px-4 py-3">
-                    <dt className="text-sm font-semibold text-white">
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.55, delay: 0.85 }}
+                    className="relative flex items-center justify-between rounded-md border border-[#ffc83d]/40 bg-[#160d09] px-4 py-3 overflow-hidden"
+                  >
+                    {/* Pulse glow inside the savings row */}
+                    <motion.span
+                      aria-hidden
+                      className="absolute inset-0 rounded-md"
+                      style={{
+                        background:
+                          "radial-gradient(closest-side, rgb(255 200 61 / 0.30), transparent 70%)",
+                      }}
+                      animate={{ opacity: [0.4, 0.9, 0.4] }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    />
+                    <dt className="relative text-sm font-semibold text-white">
                       Your savings
                     </dt>
                     <dd
-                      className="font-extrabold text-[#ffc83d] text-xl tabular-nums"
+                      className="relative font-extrabold text-[#ffc83d] text-xl tabular-nums"
                       style={{ fontFamily: "var(--font-inter)" }}
                     >
-                      $814
+                      <CountUp value="$814" />
                     </dd>
-                  </div>
+                  </motion.div>
                 </dl>
+
+                {/* Animated savings curve under the table */}
+                <SavingsCurve />
 
                 <div className="mt-4 pt-4 border-t border-[#232328] flex items-center justify-between text-xs">
                   <span className="text-white">AiM service fee</span>
                   <span className="font-bold text-white tabular-nums">
-                    $204{" "}
+                    <CountUp value="$204" />{" "}
                     <span className="text-white font-semibold">(25%)</span>
                   </span>
                 </div>

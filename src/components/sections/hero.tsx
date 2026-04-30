@@ -6,6 +6,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import { CountUp } from "@/components/ui/count-up";
 import { ScrollZoom } from "@/components/ui/scroll-effects";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
+import { GoldParticleField, GrainTexture } from "@/components/illustrations/ambience";
+import { useQuoteModal } from "@/lib/quote-modal-context";
 import { ICONS } from "@/lib/icons";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -18,6 +20,7 @@ const TRUST_PILLS = [
 
 export function Hero() {
   const reduce = useReducedMotion();
+  const { openModal } = useQuoteModal();
 
   const fadeUp = (delay = 0) => ({
     initial: { opacity: 0, y: reduce ? 0 : 24 },
@@ -58,6 +61,10 @@ export function Hero() {
         />
         {/* Hairline grid masked */}
         <div className="absolute inset-0 bg-grid opacity-50 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
+        {/* Drifting gold particles across full hero */}
+        <GoldParticleField density={28} opacity={0.5} />
+        {/* Subtle film grain for tactility */}
+        <GrainTexture opacity={0.08} />
       </div>
 
       <div className="relative mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-10 pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 lg:pb-24">
@@ -118,8 +125,9 @@ export function Hero() {
               {...fadeUp(0.4)}
               className="flex flex-col sm:flex-row flex-wrap gap-3 pt-1"
             >
-              <Link
-                href="/contact"
+              <button
+                type="button"
+                onClick={() => openModal()}
                 className="btn-shine cta-primary inline-flex items-center justify-center gap-2 px-7 py-4 font-semibold text-base"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
@@ -137,7 +145,7 @@ export function Hero() {
                 >
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
-              </Link>
+              </button>
               <Link
                 href="/contact?intent=call"
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-[#232328] bg-[#111113] hover:border-[#9a9aa3]/50 hover:bg-[#1a1a1f] text-white px-7 py-4 font-semibold text-base transition-colors duration-150"

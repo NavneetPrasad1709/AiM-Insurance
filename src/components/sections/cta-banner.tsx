@@ -5,9 +5,16 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ScrollReveal, ScrollZoom } from "@/components/ui/scroll-effects";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
+import {
+  GoldParticleField,
+  CornerOrnament,
+  GrainTexture,
+} from "@/components/illustrations/ambience";
+import { useQuoteModal } from "@/lib/quote-modal-context";
 import { ICONS } from "@/lib/icons";
 
 export function CtaBanner() {
+  const { openModal } = useQuoteModal();
   return (
     <section
       aria-labelledby="cta-banner-heading"
@@ -17,7 +24,16 @@ export function CtaBanner() {
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-1/2 h-[640px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-blob blur-3xl" />
         <div className="absolute inset-x-0 top-0 h-px bg-[#232328]" />
+        {/* Drifting gold particles for celebratory feel */}
+        <GoldParticleField density={32} opacity={0.55} />
+        {/* Subtle grain */}
+        <GrainTexture opacity={0.08} />
       </div>
+      {/* Decorative corner ornaments framing the CTA */}
+      <CornerOrnament position="tl" size={180} opacity={0.4} />
+      <CornerOrnament position="tr" size={180} opacity={0.4} />
+      <CornerOrnament position="bl" size={180} opacity={0.4} />
+      <CornerOrnament position="br" size={180} opacity={0.4} />
 
       <div className="relative mx-auto max-w-3xl px-5 sm:px-8 lg:px-12 text-center">
 
@@ -80,8 +96,9 @@ export function CtaBanner() {
           transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3"
         >
-          <Link
-            href="/contact"
+          <button
+            type="button"
+            onClick={() => openModal()}
             className="btn-shine cta-primary inline-flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 text-base font-semibold"
             style={{ fontFamily: "var(--font-inter)" }}
           >
@@ -99,7 +116,7 @@ export function CtaBanner() {
             >
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
-          </Link>
+          </button>
           <Link
             href="/contact?intent=call"
             className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#232328] bg-[#111113] hover:border-[#9a9aa3]/40 hover:bg-[#1a1a1f] text-white px-7 py-4 text-base font-semibold transition-colors duration-150"

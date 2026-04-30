@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Logo } from "@/components/layout/logo";
 import { NewsletterForm } from "@/components/layout/newsletter-form";
 import { FooterBackgroundGradient } from "@/components/ui/hover-footer";
+import { MonogramMark } from "@/components/illustrations/ambience";
 import { SERVICES, SITE_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
 import { ICONS, getIcon } from "@/lib/icons";
 
@@ -141,7 +142,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-center text-xs text-white/50 sm:flex-row sm:text-left">
+        {/* Brand monogram mark */}
+        <div className="mt-10 flex justify-center">
+          <MonogramMark size={56} opacity={0.65} />
+        </div>
+
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-center text-xs text-white/50 sm:flex-row sm:text-left">
           <p>
             © {CURRENT_YEAR} {SITE_CONFIG.name} — Product by Car Concierge Pro
           </p>

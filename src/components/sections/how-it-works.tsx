@@ -1,19 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { ScrollReveal, ScrollStack } from "@/components/ui/scroll-effects";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
+import { SectionDividerArc } from "@/components/illustrations/ambience";
+import { useQuoteModal } from "@/lib/quote-modal-context";
 import { PROCESS_STEPS } from "@/lib/constants";
 import { ICONS, getIcon } from "@/lib/icons";
 
 export function HowItWorks() {
+  const { openModal } = useQuoteModal();
   return (
     <section
       aria-labelledby="how-heading"
       id="how-it-works"
       className="relative bg-background-cream py-24 sm:py-32 lg:py-40"
     >
+      {/* Decorative arc divider entering this section */}
+      <div className="pointer-events-none absolute inset-x-0 top-0">
+        <SectionDividerArc />
+      </div>
+
       {/* Ambient orbs wrapped in their own clipped layer so sticky still works */}
       <div
         aria-hidden
@@ -148,8 +155,9 @@ export function HowItWorks() {
         {/* Closer CTA */}
         <ScrollReveal direction="up" delay={0.1} className="mt-16 lg:mt-20">
           <div className="flex flex-col items-start gap-3">
-            <Link
-              href="/contact"
+            <button
+              type="button"
+              onClick={() => openModal()}
               className="btn-shine cta-primary inline-flex items-center gap-2 px-7 py-4 font-semibold text-base"
               style={{ fontFamily: "var(--font-inter)" }}
             >
@@ -167,7 +175,7 @@ export function HowItWorks() {
               >
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
-            </Link>
+            </button>
             <span className="text-sm text-white">
               5 min · No credit card · No commitment
             </span>

@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { montserrat } from "@/lib/fonts";
 import { SITE_CONFIG } from "@/lib/constants";
+import { QuoteModalProvider } from "@/lib/quote-modal-context";
+import { QuoteModal } from "@/components/forms/quote-modal";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -34,7 +36,10 @@ export default function RootLayout({
         className="min-h-full flex flex-col bg-background text-white antialiased"
         suppressHydrationWarning
       >
-        {children}
+        <QuoteModalProvider>
+          {children}
+          <QuoteModal />
+        </QuoteModalProvider>
       </body>
     </html>
   );

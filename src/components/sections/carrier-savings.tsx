@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { ScrollReveal, ScrollZoom, StaggerGroup, StaggerItem } from "@/components/ui/scroll-effects";
 import { PremiumGauge } from "@/components/illustrations/decorations";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
+import { FloatingCardsBackdrop } from "@/components/illustrations/ambience";
+import { useQuoteModal } from "@/lib/quote-modal-context";
 import { ICONS } from "@/lib/icons";
 
 interface SavingsRow {
@@ -31,6 +32,7 @@ function fmt(n: number) {
 }
 
 export function CarrierSavings() {
+  const { openModal } = useQuoteModal();
   return (
     <section
       aria-labelledby="savings-heading"
@@ -52,6 +54,8 @@ export function CarrierSavings() {
               "radial-gradient(closest-side, rgb(79 224 176 / 0.14), transparent 70%)",
           }}
         />
+        {/* Drifting frosted-glass cards backdrop */}
+        <FloatingCardsBackdrop opacity={0.18} />
       </div>
 
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
@@ -200,8 +204,9 @@ export function CarrierSavings() {
 
             <ScrollReveal direction="up" delay={0.2}>
               <div className="mt-4 flex flex-wrap items-center gap-4">
-                <Link
-                  href="/contact"
+                <button
+                  type="button"
+                  onClick={() => openModal()}
                   className="btn-shine cta-primary inline-flex items-center gap-2 px-7 py-3.5 font-semibold"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
@@ -219,7 +224,7 @@ export function CarrierSavings() {
                   >
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
-                </Link>
+                </button>
                 <span className="text-sm text-white">
                   5 min · No obligation
                 </span>
