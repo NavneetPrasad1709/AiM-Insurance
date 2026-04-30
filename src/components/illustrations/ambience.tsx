@@ -160,8 +160,8 @@ export function CornerOrnament({
         { angle: 55, r: 78, size: 1.5 },
         { angle: 80, r: 78, size: 1.5 },
       ].map((d, i) => {
-        const x = d.r * Math.cos((d.angle * Math.PI) / 180);
-        const y = d.r * Math.sin((d.angle * Math.PI) / 180);
+        const x = Number((d.r * Math.cos((d.angle * Math.PI) / 180)).toFixed(3));
+        const y = Number((d.r * Math.sin((d.angle * Math.PI) / 180)).toFixed(3));
         return (
           <motion.circle
             key={i}

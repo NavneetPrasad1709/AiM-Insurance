@@ -11,17 +11,21 @@ import { ICONS } from "@/lib/icons";
 
 interface SavingsRow {
   carrier: string;
+  domain: string;
   before: number;
   after: number;
   saved: number;
 }
 
 const SAVINGS: SavingsRow[] = [
-  { carrier: "Allstate", before: 3214, after: 2400, saved: 814 },
-  { carrier: "Endurance", before: 4650, after: 3375, saved: 1275 },
-  { carrier: "GEICO", before: 3987, after: 2775, saved: 1212 },
-  { carrier: "USAA", before: 3120, after: 2104, saved: 1016 },
+  { carrier: "Allstate", domain: "allstate.com", before: 3214, after: 2400, saved: 814 },
+  { carrier: "Endurance", domain: "endurancewarranty.com", before: 4650, after: 3375, saved: 1275 },
+  { carrier: "GEICO", domain: "geico.com", before: 3987, after: 2775, saved: 1212 },
+  { carrier: "USAA", domain: "usaa.com", before: 3120, after: 2104, saved: 1016 },
 ];
+
+const logoUrl = (domain: string) =>
+  `https://logo.clearbit.com/${domain}?size=64`;
 
 function fmt(n: number) {
   return n.toLocaleString("en-US", {
@@ -158,13 +162,27 @@ export function CarrierSavings() {
 
                     <div className="col-span-2 sm:col-span-4 flex items-center gap-3">
                       <span
-                        className="inline-flex size-7 items-center justify-center rounded-md bg-[#1a1a1f] border border-[#232328] text-[11px] font-bold text-white tabular-nums"
+                        className="inline-flex size-7 shrink-0 items-center justify-center rounded-md bg-[#1a1a1f] border border-[#232328] text-[11px] font-bold text-white tabular-nums"
                         style={{ fontFamily: "var(--font-inter)" }}
                       >
                         {String(i + 1).padStart(2, "0")}
                       </span>
+                      <span className="inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-md bg-white p-1 ring-1 ring-[#232328]">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={logoUrl(s.domain)}
+                          alt={`${s.carrier} logo`}
+                          width={32}
+                          height={32}
+                          loading="lazy"
+                          className="h-full w-full object-contain"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).style.display = "none";
+                          }}
+                        />
+                      </span>
                       <span
-                        className="font-semibold text-white text-base sm:text-lg"
+                        className="font-semibold text-white text-base sm:text-lg truncate"
                         style={{ fontFamily: "var(--font-inter)" }}
                       >
                         {s.carrier}

@@ -5,6 +5,15 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Accordion, AccordionItem } from "@/components/ui/accordion";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/ui/scroll-effects";
+import {
+  ServiceHeroAmbience,
+  ServiceCtaAmbience,
+} from "@/components/sections/service-page-ambience";
+import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
+import {
+  SectionDividerArc,
+  FloatingCardsBackdrop,
+} from "@/components/illustrations/ambience";
 import { useQuoteModal } from "@/lib/quote-modal-context";
 import { SERVICES } from "@/lib/constants";
 import { ICONS, getIcon } from "@/lib/icons";
@@ -115,7 +124,7 @@ export function ServicePageTemplate({
         aria-labelledby="service-hero-heading"
         className="relative overflow-hidden bg-background pt-32 pb-24 sm:pt-40 sm:pb-32"
       >
-        <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
           <div
             className="absolute -top-32 left-1/2 h-[640px] w-[800px] -translate-x-1/2 rounded-full blur-3xl"
             style={{
@@ -123,6 +132,7 @@ export function ServicePageTemplate({
                 "radial-gradient(closest-side, rgb(255 200 61 / 0.18), transparent 70%)",
             }}
           />
+          <ServiceHeroAmbience />
           <div className="absolute inset-x-0 bottom-0 h-px bg-[#232328]" />
         </div>
 
@@ -236,6 +246,7 @@ export function ServicePageTemplate({
                         priority
                         className="w-full h-auto"
                       />
+                      <FloatingOrbs variant="hero" />
                     </div>
                     {comingSoon && (
                       <div className="absolute -top-3 -right-3 rotate-6 rounded-full bg-[#ffc83d] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-[#0a0a0a] shadow-coral">
@@ -291,6 +302,7 @@ export function ServicePageTemplate({
               "radial-gradient(ellipse at center, black, transparent 75%)",
           }}
         />
+        <FloatingCardsBackdrop opacity={0.18} />
         <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
           <div className="max-w-2xl">
             <ScrollReveal direction="up">
@@ -361,6 +373,10 @@ export function ServicePageTemplate({
           </StaggerGroup>
         </div>
       </section>
+
+      <div className="relative bg-background">
+        <SectionDividerArc />
+      </div>
 
       {/* ─────────────────────────────────── COVERAGE ─── */}
       <section
@@ -835,10 +851,12 @@ export function ServicePageTemplate({
         aria-labelledby="service-cta-heading"
         className="relative bg-background py-28 sm:py-36 overflow-hidden"
       >
-        <div aria-hidden className="pointer-events-none absolute inset-0">
+        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
           <div className="absolute left-1/2 top-1/2 h-[640px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-blob blur-3xl" />
+          <ServiceCtaAmbience />
           <div className="absolute inset-x-0 top-0 h-px bg-[#232328]" />
         </div>
+        <FloatingOrbs variant="cta" className="z-[1]" />
 
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}

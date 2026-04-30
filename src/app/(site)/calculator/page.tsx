@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SavingsCalculator } from "@/components/sections/savings-calculator";
 import { CalculatorPageAmbience } from "@/components/sections/calculator-page-ambience";
+import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
+import { SectionDividerArc } from "@/components/illustrations/ambience";
 import { SITE_CONFIG } from "@/lib/constants";
 
 const PAGE_URL = `${SITE_CONFIG.url}/calculator`;
@@ -56,9 +58,10 @@ export default function CalculatorPage() {
           </ol>
         </nav>
 
-        <div className="max-w-2xl mb-10">
+        <div className="relative max-w-2xl mb-10">
+          <FloatingOrbs variant="hero" />
           <h1
-            className="text-white text-balance"
+            className="relative text-white text-balance"
             style={{
               fontSize: "clamp(2.2rem, 5vw, 3.4rem)",
               fontFamily: "var(--font-inter)",
@@ -77,11 +80,13 @@ export default function CalculatorPage() {
             </span>
             .
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-white/70 leading-[1.55]">
+          <p className="relative mt-4 text-base sm:text-lg text-white/70 leading-[1.55]">
             Four questions. Live benchmark against 50+ carrier rate filings.
             Zero commitment.
           </p>
         </div>
+
+        <SectionDividerArc className="mb-4" />
 
         <SavingsCalculator />
       </div>

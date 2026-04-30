@@ -28,14 +28,14 @@ export function Footer() {
       <FooterBackgroundGradient />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
             <Logo variant="light" />
-            <p className="max-w-xs text-[16px] leading-relaxed text-white/70">
+            <p className="max-w-xs text-[15px] leading-relaxed text-white/70">
               Unlock Savings with Unbiased &amp; Ongoing Insurance Monitoring.
             </p>
-            <div className="flex flex-col gap-1.5 text-xs text-white/50">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-white/55">
               <span className="inline-flex items-center gap-2">
                 <ICONS.Shield className="size-4 text-cta" aria-hidden />
                 BBB Accredited Business
@@ -65,7 +65,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-[16px] text-white/70 transition-colors hover:text-cta"
+                    className="text-[15px] text-white/70 transition-colors hover:text-cta"
                   >
                     {l.label}
                   </Link>
@@ -84,7 +84,7 @@ export function Footer() {
                 <li key={s.slug}>
                   <Link
                     href={`/${s.slug}`}
-                    className="text-[16px] text-white/70 transition-colors hover:text-cta"
+                    className="text-[15px] text-white/70 transition-colors hover:text-cta"
                   >
                     {s.name}
                   </Link>
@@ -94,7 +94,7 @@ export function Footer() {
           </nav>
 
           {/* Contact + Newsletter + Social */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 sm:col-span-2 lg:col-span-1 min-w-0">
             <h2 className="font-heading text-xs font-semibold uppercase tracking-widest text-cta">
               Get in Touch
             </h2>
@@ -102,16 +102,16 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
-                  className="inline-flex items-center gap-2 text-[16px] text-white/70 transition-colors hover:text-cta break-all"
+                  className="inline-flex max-w-full items-center gap-2 text-[15px] text-white/70 transition-colors hover:text-cta break-words"
                 >
                   <ICONS.Mail className="size-4 shrink-0" aria-hidden />
-                  {SITE_CONFIG.email}
+                  <span className="min-w-0 break-words">{SITE_CONFIG.email}</span>
                 </a>
               </li>
               <li>
                 <a
                   href={`tel:${SITE_CONFIG.phone.replace(/[^+\d]/g, "")}`}
-                  className="inline-flex items-center gap-2 text-[16px] text-white/70 transition-colors hover:text-cta"
+                  className="inline-flex items-center gap-2 text-[15px] text-white/70 transition-colors hover:text-cta"
                 >
                   <ICONS.Phone className="size-4 shrink-0" aria-hidden />
                   {SITE_CONFIG.phone}
@@ -148,15 +148,15 @@ export function Footer() {
         </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-center text-xs text-white/50 sm:flex-row sm:text-left">
-          <p>
+          <p className="px-2">
             © {CURRENT_YEAR} {SITE_CONFIG.name} — Product by Car Concierge Pro
           </p>
-          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+          <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:justify-end">
             {LEGAL_LINKS.map((l) => (
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="text-[16px] text-white/70 transition-colors hover:text-cta"
+                  className="text-xs text-white/60 transition-colors hover:text-cta"
                 >
                   {l.label}
                 </Link>

@@ -3,6 +3,13 @@ import Link from "next/link";
 import { ContactForm } from "@/components/forms/contact-form";
 import { ICONS, getIcon } from "@/lib/icons";
 import { SITE_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
+import {
+  GoldParticleField,
+  AuroraStrands,
+  CornerOrnament,
+  GrainTexture,
+} from "@/components/illustrations/ambience";
+import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
 
 const PAGE_URL = `${SITE_CONFIG.url}/contact`;
 const TITLE = "Contact Us";
@@ -31,15 +38,38 @@ export default async function ContactPage({ searchParams }: PageProps) {
   const intent = params.intent;
 
   return (
-    <div className="relative bg-background pt-12 pb-24 sm:pt-16 sm:pb-32">
-      <div aria-hidden className="pointer-events-none absolute inset-0">
+    <div className="relative bg-background pt-12 pb-24 sm:pt-16 sm:pb-32 overflow-hidden">
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Warm gold glow — top-left */}
         <div
           className="absolute -top-32 left-1/4 h-[460px] w-[460px] rounded-full blur-3xl"
           style={{
             background:
-              "radial-gradient(closest-side, rgb(255 200 61 / 0.16), transparent 70%)",
+              "radial-gradient(closest-side, rgb(255 200 61 / 0.18), transparent 70%)",
           }}
         />
+        {/* Cool teal glow — bottom-right, balances the warm gold */}
+        <div
+          className="absolute bottom-0 -right-32 h-[520px] w-[520px] rounded-full blur-3xl"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgb(79 224 176 / 0.12), transparent 70%)",
+          }}
+        />
+        {/* Soft coral wash — mid-left */}
+        <div
+          className="absolute top-1/2 -left-32 h-[420px] w-[420px] -translate-y-1/2 rounded-full blur-3xl"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgb(255 140 66 / 0.08), transparent 70%)",
+          }}
+        />
+
+        <GoldParticleField density={20} opacity={0.4} />
+        <AuroraStrands opacity={0.16} />
+        <GrainTexture opacity={0.06} />
+        <CornerOrnament position="tl" size={180} opacity={0.28} />
+        <CornerOrnament position="br" size={180} opacity={0.28} />
       </div>
 
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
@@ -57,9 +87,10 @@ export default async function ContactPage({ searchParams }: PageProps) {
           </ol>
         </nav>
 
-        <div className="max-w-2xl">
+        <div className="relative max-w-2xl">
+          <FloatingOrbs variant="hero" />
           <h1
-            className="text-white"
+            className="relative text-white"
             style={{
               fontSize: "clamp(2.4rem, 5.6vw, 4rem)",
               fontFamily: "var(--font-inter)",
@@ -71,7 +102,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
             Let&rsquo;s talk{" "}
             <span className="text-[#ffc83d]">savings.</span>
           </h1>
-          <p className="mt-5 text-base sm:text-lg text-white/80 leading-[1.55]">
+          <p className="relative mt-5 text-base sm:text-lg text-white/80 leading-[1.55]">
             Send us a message — quote, existing policy, partnership, anything. A
             real human replies within one business day.
           </p>
@@ -84,7 +115,15 @@ export default async function ContactPage({ searchParams }: PageProps) {
 
           <aside className="lg:col-span-5">
             <div className="lg:sticky lg:top-28 flex flex-col gap-5">
-              <div className="rounded-[14px] border border-[#232328] bg-[#111113] p-6 sm:p-8">
+              <div className="relative overflow-hidden rounded-[14px] border border-[#232328] bg-[#111113] p-6 sm:p-8">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -top-12 -right-12 h-40 w-40 rounded-full blur-3xl"
+                  style={{
+                    background:
+                      "radial-gradient(closest-side, rgb(255 200 61 / 0.22), transparent 70%)",
+                  }}
+                />
                 <h2
                   className="text-white"
                   style={{
@@ -184,7 +223,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                   className="absolute inset-0"
                   style={{
                     background:
-                      "radial-gradient(120% 80% at 50% 100%, rgb(255 200 61 / 0.25) 0%, transparent 60%), linear-gradient(135deg, #111113 0%, #0a0a0a 100%)",
+                      "radial-gradient(120% 80% at 50% 100%, rgb(255 200 61 / 0.28) 0%, transparent 60%), radial-gradient(80% 60% at 0% 0%, rgb(79 224 176 / 0.18) 0%, transparent 60%), linear-gradient(135deg, #111113 0%, #0a0a0a 100%)",
                   }}
                 />
                 <div className="absolute inset-0 bg-grid opacity-30 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
