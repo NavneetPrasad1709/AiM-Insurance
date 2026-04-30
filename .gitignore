@@ -36,6 +36,13 @@ yarn-error.log*
 # vercel
 .vercel
 
+# claude code local settings (may contain tokens)
+.claude/
+
+# Local-only Figma raw asset dump (too large for git/Vercel deploy).
+# Curated brand assets live in public/brand/ and ARE committed.
+/figma-assets
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

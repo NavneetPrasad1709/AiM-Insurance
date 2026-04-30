@@ -1,0 +1,517 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   AIM Insurance — Premium Dark Design System v2.
+   Pure black foundation, single Ember accent, restrained.
+   Inspired by Linear / Vercel / Raycast / Superhuman / Arc.
+--------------------------------------------------------------------------- */
+
+@theme {
+  /* Foundation — luminance ladder (no shadows on dark, depth via lightness) */
+  --color-background: #0a0a0a;        /* Pitch Black — page bg */
+  --color-background-cream: #0d0d10;  /* alternating section bg, 1 step lighter */
+  --color-surface: #111113;            /* Carbon — elevated surfaces / cards */
+  --color-surface-2: #1a1a1f;          /* Graphite — modals, dropdowns */
+
+  /* Borders */
+  --color-border: #232328;             /* Hairline — 1px, only border color */
+  --color-border-light: #1a1a1f;       /* alternative subtler border */
+
+  /* Text */
+  --color-text-primary: #e8e8ec;       /* Bone — default body */
+  --color-text-secondary: #9a9aa3;     /* Ash — secondary, captions */
+  --color-text-muted: #5c5c66;         /* Smoke — tertiary */
+  --color-primary: #ffffff;            /* White — H1 + stats only */
+  --color-primary-hover: #e8e8ec;
+  --color-primary-light: #9a9aa3;
+
+  /* Signal — one accent, used sparingly */
+  --color-cta: #ffc83d;                /* Citrine — primary CTA */
+  --color-cta-hover: #ffd75a;          /* lighter yellow for distinct hover */
+  --color-cta-light: #14110a;          /* dark surface tint */
+  --color-ember: #ffc83d;
+  --color-ember-hover: #ffd75a;
+
+  /* Support accents — never together in the same viewport */
+  --color-accent: #ffc83d;             /* Citrine — number highlights */
+  --color-accent-light: #14110a;
+  --color-citrine: #ffc83d;
+  --color-mint: #4fe0b0;
+  --color-orange: #ffc83d;             /* alias for legacy class names */
+  --color-teal: #4fe0b0;
+  --color-brand: #ffc83d;
+  --color-brand-hover: #ffc83d;
+  --color-brand-light: #ffc83d;
+
+  /* Functional */
+  --color-success: #4fe0b0;
+  --color-success-light: #0a1612;
+  --color-error: #ff6a6a;
+  --color-error-light: #1a0a0a;
+  --color-warning: #ffc83d;
+  --color-warning-light: #14110a;
+
+  /* Gradient stops (legacy class compat — used for accent washes only) */
+  --color-grad-coral: #ffc83d;
+  --color-grad-orange: #ffc83d;
+  --color-grad-yellow: #ffc83d;
+  --color-grad-teal: #4fe0b0;
+  --color-grad-blue: #ffc83d;
+  --color-grad-purple: #ffc83d;
+
+  /* Fonts — Montserrat everywhere */
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  /* Compat: any inline var(--font-inter) refs now resolve to Montserrat */
+  --font-inter: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+
+  /* Container */
+  --container-7xl: 1280px;
+  --container-8xl: 1440px;
+
+  /* Radii — sharp on dark */
+  --radius-sm: 4px;
+  --radius-md: 6px;          /* buttons */
+  --radius-lg: 8px;          /* cards */
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 20px;
+
+  /* Shadows — restrict use; only primary CTA */
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+  --shadow-coral: 0 8px 24px rgb(255 200 61 / 0.32);
+  --shadow-yellow: none;
+  --shadow-card-hover: none;
+  --shadow-glow-coral: 0 12px 32px rgb(255 200 61 / 0.48);
+
+  /* Animations */
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 400ms;
+  --duration-slower: 700ms;
+
+  --animate-fade-in: fadeIn var(--duration-normal) ease-out both;
+  --animate-slide-up: slideUp 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-marquee: marquee 60s linear infinite;
+  --animate-marquee-slow: marquee 90s linear infinite;
+  --animate-pulse-glow: pulseGlow 3s ease-in-out infinite;
+  --animate-blob: blobShift 22s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 8px 24px rgb(255 200 61 / 0.32); }
+  50%      { box-shadow: 0 12px 36px rgb(255 200 61 / 0.5); }
+}
+@keyframes blobShift {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50%      { transform: scale(1.04); opacity: 0.7; }
+}
+@keyframes scrollProgress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+--------------------------------------------------------------------------- */
+@layer base {
+  html {
+    /* Tuned for 110% browser zoom comfort — root rem shrinks ~9% so
+       all rem-based sizing (Tailwind utilities, clamp(), fonts, paddings)
+       feels right at the user's preferred 110% zoom. */
+    font-size: 91%;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color-scheme: dark;
+    background-color: var(--color-background);
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    overflow-x: clip;
+    /* 1.5% white SVG noise — kills banding, adds warmth, applied once globally */
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.015'/></svg>");
+    background-size: 240px 240px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+    color: #ffffff;
+  }
+
+  h1 {
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+  }
+
+  /* Initial-cap optical kerning on H1 (NYT trick) */
+  h1::first-letter {
+    letter-spacing: -0.06em;
+  }
+
+  /* Tabular numerals everywhere numbers matter */
+  [data-tabular],
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::selection {
+    background-color: var(--color-cta);
+    color: #ffffff;
+  }
+
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--color-background); }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-cta); }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-cta);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Components / utilities
+--------------------------------------------------------------------------- */
+@layer components {
+  /* Backwards-compat: legacy gradient-text classes now resolve to solid colors.
+     This avoids touching every template while honoring the no-gradient-text rule. */
+  .text-gradient-warm { color: #ffc83d; }
+  .text-gradient-yellow { color: #ffc83d; font-variant-numeric: tabular-nums; }
+  .text-gradient-teal { color: #4fe0b0; }
+  .text-gradient-coral { color: #ffc83d; }
+
+  /* Solid background tokens — keep names for compat */
+  .bg-gradient-coral { background-color: #ffc83d; }
+  .bg-gradient-warm { background-color: #ffc83d; }
+  .bg-gradient-navy { background-color: #111113; }
+  .bg-gradient-black { background-color: #0a0a0a; }
+  .bg-gradient-lavender { background-color: #111113; }
+  .bg-gradient-believe {
+    background:
+      radial-gradient(120% 80% at 50% 100%, rgb(255 200 61 / 0.18) 0%, transparent 60%),
+      #0a0a0a;
+  }
+
+  /* Hero ambient — reserved for hero only, NOT applied to other sections */
+  .bg-gradient-blob {
+    background:
+      radial-gradient(50% 50% at 50% 40%, rgb(255 200 61 / 0.18) 0%, transparent 70%);
+  }
+
+  .animate-blob { animation: blobShift 22s ease-in-out infinite; }
+  .animate-blob-slow { animation: blobShift 36s ease-in-out infinite; }
+
+  /* Hairline grid — subtle, masked at edges, used SPARINGLY (one section) */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .bg-dot-grid {
+    background-image: radial-gradient(
+      rgb(255 255 255 / 0.05) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+  }
+
+  /* Noise utility — body already applies global noise; this is for accent surfaces */
+  .bg-noise {
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    background-size: 240px 240px;
+  }
+
+  .animate-marquee { animation: marquee 60s linear infinite; }
+  .animate-marquee-slow { animation: marquee 90s linear infinite; }
+  .marquee-pause:hover .animate-marquee,
+  .marquee-pause:hover .animate-marquee-slow {
+    animation-play-state: paused;
+  }
+
+  /* Sweeping highlight on primary CTAs */
+  .btn-shine {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .btn-shine::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-110%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 255 255 / 0.18),
+      transparent
+    );
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .btn-shine:hover::before,
+  .btn-shine:focus-visible::before {
+    transform: translateX(110%);
+  }
+  .btn-shine > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Pulsing CTA halo */
+  .btn-pulse-glow {
+    animation: pulseGlow 2.6s ease-in-out infinite;
+  }
+
+  /* Editorial smart-quote — Stripe-style oversized U+201C */
+  .quote-glyph {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 0.6;
+    letter-spacing: -0.08em;
+    color: #ffc83d;
+    opacity: 0.32;
+  }
+
+  /* Underline grow on hover (link microinteraction) */
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -2px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  /* Sticky-stack helpers */
+  .stack-card {
+    will-change: transform, opacity;
+    transform-origin: 50% 0;
+  }
+
+  /* ───────────────────────────────────────────────────────────────
+     Continuous gentle float — applies to illustration wrappers
+     so every illustration has a subtle living motion
+     ─────────────────────────────────────────────────────────────── */
+  .illu-float {
+    animation: illuFloat 6s ease-in-out infinite;
+    will-change: transform;
+  }
+  .illu-float-slow {
+    animation: illuFloat 9s ease-in-out infinite;
+    will-change: transform;
+  }
+  @keyframes illuFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33%      { transform: translateY(-8px) rotate(-0.4deg); }
+    66%      { transform: translateY(4px) rotate(0.4deg); }
+  }
+
+  /* ───────────────────────────────────────────────────────────────
+     Card shimmer sweep — diagonal light pass on hover
+     ─────────────────────────────────────────────────────────────── */
+  .card-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .card-shimmer > * {
+    position: relative;
+    z-index: 1;
+  }
+  .card-shimmer::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 60%;
+    height: 200%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgb(255 200 61 / 0.15) 50%,
+      transparent 100%
+    );
+    transform: translateX(-200%) rotate(20deg);
+    transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .card-shimmer:hover::before {
+    transform: translateX(450%) rotate(20deg);
+  }
+
+  /* ───────────────────────────────────────────────────────────────
+     Card hover lift — used on every card across the site
+     ─────────────────────────────────────────────────────────────── */
+  .card-hover {
+    position: relative;
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 300ms ease,
+                box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1);
+    isolation: isolate;
+  }
+  .card-hover::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #ffc83d, #ff8c42, #4fe0b0);
+    opacity: 0;
+    transition: opacity 350ms ease;
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .card-hover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: 0 20px 60px -20px rgb(255 200 61 / 0);
+    transition: box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    z-index: -1;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+  }
+  .card-hover:hover::before {
+    opacity: 0.6;
+  }
+  .card-hover:hover::after {
+    box-shadow: 0 24px 64px -16px rgb(255 200 61 / 0.28);
+  }
+  .card-hover-strong:hover {
+    transform: translateY(-6px) scale(1.012);
+  }
+  .card-hover-strong:hover::before {
+    opacity: 0.85;
+  }
+  .card-hover-strong:hover::after {
+    box-shadow: 0 30px 80px -16px rgb(255 200 61 / 0.4);
+  }
+
+  /* ───────────────────────────────────────────────────────────────
+     Illustration backdrop — animated multi-color radial behind images
+     ─────────────────────────────────────────────────────────────── */
+  .illu-backdrop {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: visible;
+    z-index: 0;
+  }
+  .illu-backdrop::before,
+  .illu-backdrop::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+  }
+  .illu-backdrop::before {
+    inset: 5% 10% 30% 10%;
+    background: radial-gradient(closest-side,
+      rgb(255 200 61 / 0.35),
+      rgb(255 140 66 / 0.25) 50%,
+      transparent 80%);
+    animation: illuPulseA 7s ease-in-out infinite;
+  }
+  .illu-backdrop::after {
+    inset: 25% 0% 5% 0%;
+    background: radial-gradient(closest-side,
+      rgb(79 224 176 / 0.18),
+      rgb(255 140 66 / 0.10) 55%,
+      transparent 80%);
+    animation: illuPulseB 9s ease-in-out infinite;
+  }
+  .illu-backdrop-cool::before {
+    background: radial-gradient(closest-side,
+      rgb(79 224 176 / 0.30),
+      rgb(255 200 61 / 0.18) 55%,
+      transparent 80%);
+  }
+  .illu-backdrop-warm::before {
+    background: radial-gradient(closest-side,
+      rgb(255 140 66 / 0.40),
+      rgb(255 200 61 / 0.30) 50%,
+      transparent 80%);
+  }
+
+  @keyframes illuPulseA {
+    0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.85; }
+    50%      { transform: scale(1.08) translate(-12px, -8px); opacity: 1; }
+  }
+  @keyframes illuPulseB {
+    0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.7; }
+    50%      { transform: scale(1.1) translate(14px, 10px); opacity: 0.95; }
+  }
+
+  /* Premium CTA — yellow bg + dark text for AAA contrast */
+  .cta-primary {
+    background-color: #ffc83d;
+    color: #0a0a0a;
+    border-radius: 9999px;
+    box-shadow: 0 8px 24px rgb(255 200 61 / 0.32);
+    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .cta-primary:hover {
+    background-color: #ffd75a;
+    transform: translateY(-1px);
+    box-shadow: 0 12px 32px rgb(255 200 61 / 0.55);
+  }
+}
