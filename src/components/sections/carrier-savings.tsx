@@ -11,21 +11,18 @@ import { ICONS } from "@/lib/icons";
 
 interface SavingsRow {
   carrier: string;
-  domain: string;
+  logo: string;
   before: number;
   after: number;
   saved: number;
 }
 
 const SAVINGS: SavingsRow[] = [
-  { carrier: "Allstate", domain: "allstate.com", before: 3214, after: 2400, saved: 814 },
-  { carrier: "Endurance", domain: "endurancewarranty.com", before: 4650, after: 3375, saved: 1275 },
-  { carrier: "GEICO", domain: "geico.com", before: 3987, after: 2775, saved: 1212 },
-  { carrier: "USAA", domain: "usaa.com", before: 3120, after: 2104, saved: 1016 },
+  { carrier: "Allstate", logo: "/brand/carriers/allstate.png", before: 3214, after: 2400, saved: 814 },
+  { carrier: "Endurance", logo: "/brand/carriers/endurance.png", before: 4650, after: 3375, saved: 1275 },
+  { carrier: "GEICO", logo: "/brand/carriers/geico.png", before: 3987, after: 2775, saved: 1212 },
+  { carrier: "USAA", logo: "/brand/carriers/usaa.png", before: 3120, after: 2104, saved: 1016 },
 ];
-
-const logoUrl = (domain: string) =>
-  `https://logo.clearbit.com/${domain}?size=64`;
 
 function fmt(n: number) {
   return n.toLocaleString("en-US", {
@@ -167,18 +164,13 @@ export function CarrierSavings() {
                       >
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="inline-flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-md bg-white p-1 ring-1 ring-[#232328]">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={logoUrl(s.domain)}
+                      <span className="inline-flex h-16 w-24 sm:h-20 sm:w-28 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-2 ring-1 ring-[#232328]">
+                        <Image
+                          src={s.logo}
                           alt={`${s.carrier} logo`}
-                          width={32}
-                          height={32}
-                          loading="lazy"
+                          width={128}
+                          height={80}
                           className="h-full w-full object-contain"
-                          onError={(e) => {
-                            (e.currentTarget as HTMLImageElement).style.display = "none";
-                          }}
                         />
                       </span>
                       <span
