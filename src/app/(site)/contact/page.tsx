@@ -128,8 +128,63 @@ export default async function ContactPage({ searchParams }: PageProps) {
         <div className="mt-10">
           <TrustStrip variant="compact" />
         </div>
+      </div>
+    </div>
 
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+    {/* Cream form section */}
+    <section className="relative overflow-hidden bg-[#fbfaf5] py-20 sm:py-24">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-32 left-1/4 h-[460px] w-[460px] rounded-full opacity-70 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgb(255 200 61 / 0.18), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 -right-32 h-[460px] w-[460px] rounded-full opacity-60 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(closest-side, rgb(79 224 176 / 0.12), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgb(0 0 0 / 0.6) 1px, transparent 1px), linear-gradient(90deg, rgb(0 0 0 / 0.6) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+          maskImage:
+            "radial-gradient(ellipse at center, black, transparent 75%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, black, transparent 75%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
+        <div className="mb-10 max-w-2xl">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#0a0a0a]/12 bg-white px-3.5 py-1.5 text-[11px] font-heading font-bold uppercase tracking-[0.2em] text-[#0a0a0a]">
+            <ICONS.MessageSquare
+              className="size-3.5 text-[#ffc83d]"
+              aria-hidden
+            />
+            Send a message
+          </span>
+          <h2
+            className="mt-4 font-heading font-extrabold text-[#0a0a0a] tracking-[-0.03em] leading-[1.05]"
+            style={{ fontSize: "clamp(1.8rem, 4vw, 2.6rem)" }}
+          >
+            Tell us where you&rsquo;re overpaying.
+          </h2>
+          <p className="mt-3 text-base sm:text-lg leading-[1.6] text-[#3a3a44]">
+            Drop a few details below — declarations page is helpful but not
+            required. We reply with a real human, not a bot.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           <div className="lg:col-span-7">
             <ContactForm defaultIntent={intent} />
           </div>
@@ -264,7 +319,8 @@ export default async function ContactPage({ searchParams }: PageProps) {
           </aside>
         </div>
       </div>
-    </div>
+    </section>
+
     <WhyAimCream
       heading="One message away. One thousand dollars closer."
       intro="Most clients hear back within hours. Send your declarations page and we'll ballpark your savings on the same call."
