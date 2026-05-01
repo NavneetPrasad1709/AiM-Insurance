@@ -78,7 +78,7 @@ export function Hero() {
               id="hero-heading"
               className="text-white"
               style={{
-                fontSize: "clamp(2.6rem, 6.4vw, 5.4rem)",
+                fontSize: "clamp(2rem, 4.8vw, 4rem)",
                 fontFamily: "var(--font-inter)",
                 fontWeight: 700,
                 letterSpacing: "-0.04em",
