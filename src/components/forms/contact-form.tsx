@@ -66,18 +66,18 @@ export function ContactForm({ defaultIntent }: ContactFormProps) {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="rounded-[14px] border border-[#232328] bg-[#111113] p-8 text-center"
+        className="rounded-[14px] border border-[#0a0a0a]/10 bg-white p-8 text-center shadow-[0_30px_80px_-30px_rgba(0,0,0,0.18)]"
       >
         <div
           className="mx-auto inline-flex size-14 items-center justify-center rounded-full"
-          style={{ backgroundColor: "rgba(5, 150, 105, 0.15)" }}
+          style={{ backgroundColor: "rgba(79, 224, 176, 0.18)" }}
         >
           <svg
             width="28"
             height="28"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#059669"
+            stroke="#0a8a5f"
             strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -87,7 +87,7 @@ export function ContactForm({ defaultIntent }: ContactFormProps) {
           </svg>
         </div>
         <h3
-          className="mt-5 text-white"
+          className="mt-5 text-[#0a0a0a]"
           style={{
             fontSize: "1.4rem",
             fontFamily: "var(--font-inter)",
@@ -97,7 +97,7 @@ export function ContactForm({ defaultIntent }: ContactFormProps) {
         >
           Message sent
         </h3>
-        <p className="mt-2 text-sm text-white/75 leading-[1.6]">
+        <p className="mt-2 text-base text-[#3a3a44] leading-[1.6]">
           Thanks — we&rsquo;ll be in touch within one business day.
         </p>
         <button
@@ -106,7 +106,7 @@ export function ContactForm({ defaultIntent }: ContactFormProps) {
             resetForm();
             reset();
           }}
-          className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#232328] bg-[#0a0a0a] px-5 py-2.5 text-sm font-semibold text-white hover:border-[#ffc83d]/40"
+          className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#0a0a0a]/15 bg-[#fbfaf5] px-5 py-2.5 text-sm font-semibold text-[#0a0a0a] transition-colors hover:border-[#ffc83d] hover:bg-[#fff5d4]"
           style={{ fontFamily: "var(--font-inter)" }}
         >
           Send another
@@ -116,10 +116,11 @@ export function ContactForm({ defaultIntent }: ContactFormProps) {
   }
 
   return (
-    <div className="rounded-[14px] border border-[#232328] bg-[#111113] p-6 sm:p-8">
+    <div className="rounded-[14px] border border-[#0a0a0a]/10 bg-white p-6 sm:p-8 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.20)]">
       <form onSubmit={onSubmit} noValidate className="flex flex-col gap-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Input
+            light
             label="Name"
             required
             autoComplete="name"
@@ -127,6 +128,7 @@ export function ContactForm({ defaultIntent }: ContactFormProps) {
             register={register("name")}
           />
           <Input
+            light
             label="Email"
             type="email"
             required
@@ -136,6 +138,7 @@ export function ContactForm({ defaultIntent }: ContactFormProps) {
           />
         </div>
         <Input
+          light
           label="Phone (optional)"
           type="tel"
           autoComplete="tel"
@@ -147,6 +150,7 @@ export function ContactForm({ defaultIntent }: ContactFormProps) {
           control={control}
           render={({ field }) => (
             <Select
+              light
               label="Subject"
               required
               placeholder="Choose a topic"
@@ -160,6 +164,7 @@ export function ContactForm({ defaultIntent }: ContactFormProps) {
           )}
         />
         <Textarea
+          light
           label="Message"
           required
           rows={5}
@@ -170,7 +175,7 @@ export function ContactForm({ defaultIntent }: ContactFormProps) {
         {isError && (
           <div
             role="alert"
-            className="rounded-xl border border-[#DC2626]/40 bg-[#DC2626]/10 px-4 py-3 text-sm text-[#fecaca]"
+            className="rounded-xl border border-[#DC2626]/30 bg-[#DC2626]/8 px-4 py-3 text-sm text-[#9b1c1c]"
           >
             {errorMessage ?? "Something went wrong. Please try again."}
           </div>

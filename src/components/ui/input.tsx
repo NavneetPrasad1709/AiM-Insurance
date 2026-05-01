@@ -19,6 +19,7 @@ interface FieldShellProps {
   helperText?: string;
   children: ReactNode;
   className?: string;
+  light?: boolean;
 }
 
 function FieldShell({
@@ -29,6 +30,7 @@ function FieldShell({
   helperText,
   children,
   className,
+  light,
 }: FieldShellProps) {
   const describedById = error
     ? `${id}-error`
@@ -41,7 +43,10 @@ function FieldShell({
       {label && (
         <label
           htmlFor={id}
-          className="text-sm font-heading font-semibold text-text-primary"
+          className={cn(
+            "text-sm font-heading font-semibold",
+            light ? "text-[#0a0a0a]" : "text-text-primary",
+          )}
         >
           {label}
           {required && (
@@ -57,7 +62,10 @@ function FieldShell({
           {error}
         </p>
       ) : helperText ? (
-        <p id={`${id}-helper`} className="text-sm text-text-muted">
+        <p
+          id={`${id}-helper`}
+          className={cn("text-sm", light ? "text-[#5a5a64]" : "text-text-muted")}
+        >
           {helperText}
         </p>
       ) : null}
@@ -66,10 +74,19 @@ function FieldShell({
 }
 
 const baseFieldClasses =
-  "w-full rounded-xl border bg-surface px-4 py-3 text-base text-text-primary placeholder:text-text-muted transition-colors focus:outline-none focus:ring-4 disabled:opacity-60 disabled:cursor-not-allowed";
+  "w-full rounded-xl border px-4 py-3 text-base transition-colors focus:outline-none focus:ring-4 disabled:opacity-60 disabled:cursor-not-allowed";
+
+const darkSurfaceClasses =
+  "bg-surface text-text-primary placeholder:text-text-muted";
+
+const lightSurfaceClasses =
+  "bg-white text-[#0a0a0a] placeholder:text-[#7a7a82]";
 
 const okFieldClasses =
   "border-border-light focus:border-cta focus:ring-cta/20";
+
+const okLightFieldClasses =
+  "border-[#0a0a0a]/15 focus:border-cta focus:ring-cta/25";
 
 const errorFieldClasses =
   "border-error focus:border-error focus:ring-error/20";
@@ -84,6 +101,7 @@ export interface InputProps
   leftIcon?: ReactNode;
   register?: UseFormRegisterReturn;
   containerClassName?: string;
+  light?: boolean;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
@@ -97,6 +115,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     className,
     containerClassName,
     register,
+    light,
     ...rest
   },
   ref
@@ -118,11 +137,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       error={error}
       helperText={helperText}
       className={containerClassName}
+      light={light}
     >
       <div className="relative">
         {leftIcon && (
           <span
-            className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-text-muted"
+            className={cn(
+              "pointer-events-none absolute inset-y-0 left-3 flex items-center",
+              light ? "text-[#5a5a64]" : "text-text-muted",
+            )}
             aria-hidden
           >
             {leftIcon}
@@ -136,7 +159,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           required={required}
           className={cn(
             baseFieldClasses,
-            isInvalid ? errorFieldClasses : okFieldClasses,
+            light ? lightSurfaceClasses : darkSurfaceClasses,
+            isInvalid
+              ? errorFieldClasses
+              : light
+                ? okLightFieldClasses
+                : okFieldClasses,
             leftIcon && "pl-10",
             className
           )}
@@ -157,6 +185,7 @@ export interface TextareaProps
   helperText?: string;
   register?: UseFormRegisterReturn;
   containerClassName?: string;
+  light?: boolean;
 }
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
@@ -170,6 +199,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       className,
       containerClassName,
       register,
+      light,
       rows = 4,
       ...rest
     },
@@ -192,6 +222,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         error={error}
         helperText={helperText}
         className={containerClassName}
+        light={light}
       >
         <textarea
           id={fieldId}
@@ -202,7 +233,12 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           required={required}
           className={cn(
             baseFieldClasses,
-            isInvalid ? errorFieldClasses : okFieldClasses,
+            light ? lightSurfaceClasses : darkSurfaceClasses,
+            isInvalid
+              ? errorFieldClasses
+              : light
+                ? okLightFieldClasses
+                : okFieldClasses,
             "resize-y",
             className
           )}
@@ -231,6 +267,7 @@ export interface SelectProps
   placeholder?: string;
   register?: UseFormRegisterReturn;
   containerClassName?: string;
+  light?: boolean;
 }
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
@@ -246,6 +283,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       className,
       containerClassName,
       register,
+      light,
       ...rest
     },
     ref
@@ -259,6 +297,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         ? `${fieldId}-helper`
         : undefined;
 
+    const arrowColor = light ? "%230a0a0a" : "%2394A3B8";
+
     return (
       <FieldShell
         id={fieldId}
@@ -267,6 +307,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         error={error}
         helperText={helperText}
         className={containerClassName}
+        light={light}
       >
         <select
           id={fieldId}
@@ -277,13 +318,17 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           defaultValue={rest.defaultValue ?? (placeholder ? "" : undefined)}
           className={cn(
             baseFieldClasses,
-            isInvalid ? errorFieldClasses : okFieldClasses,
+            light ? lightSurfaceClasses : darkSurfaceClasses,
+            isInvalid
+              ? errorFieldClasses
+              : light
+                ? okLightFieldClasses
+                : okFieldClasses,
             "appearance-none pr-10 bg-[length:16px_16px] bg-no-repeat bg-[right_1rem_center]",
             className
           )}
           style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>\")",
+            backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='${arrowColor}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>")`,
           }}
           {...register}
           {...rest}
