@@ -135,23 +135,7 @@ export default async function BlogPage() {
             style={{ fontSize: "clamp(2.4rem, 6vw, 4.4rem)" }}
           >
             Tips, stories, and{" "}
-            <span className="relative inline-block text-cta">
-              savings playbooks
-              <svg
-                aria-hidden
-                viewBox="0 0 200 12"
-                preserveAspectRatio="none"
-                className="absolute -bottom-2 left-0 h-2.5 w-full"
-              >
-                <path
-                  d="M2 8 Q 50 2 100 6 T 198 6"
-                  fill="none"
-                  stroke="#ffc83d"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </span>
+            <span className="text-cta">savings playbooks</span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-lg sm:text-xl text-text-secondary leading-relaxed">
             Notes from the negotiation desk — what works, what carriers

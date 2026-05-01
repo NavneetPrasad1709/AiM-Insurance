@@ -62,13 +62,15 @@ export function BlogIndexClient({ posts, featured }: BlogIndexClientProps) {
 
   return (
     <>
-      <div className="mx-auto mb-10 flex max-w-2xl flex-col gap-4">
-        <SearchBar value={search} onChange={handleSearch} />
+      <div className="mx-auto mb-10 flex max-w-4xl flex-col gap-4">
+        <div className="mx-auto w-full max-w-2xl">
+          <SearchBar value={search} onChange={handleSearch} />
+        </div>
         <CategoryFilter
           active={active}
           onChange={handleCategory}
           counts={counts}
-          className="justify-start sm:justify-center"
+          className="justify-start lg:justify-center"
         />
       </div>
 

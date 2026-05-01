@@ -87,12 +87,12 @@ export function WhyAimCream({
             href="https://www.newswire.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2.5 rounded-full border border-[#ffc83d] bg-white px-4 py-2 transition-colors hover:bg-[#fff5d4]"
+            className="group inline-flex items-center gap-2.5 rounded-full border border-[#0a0a0a] bg-[#0a0a0a] px-4 py-2 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.4)] transition-all hover:-translate-y-0.5 hover:border-[#ffc83d]"
           >
             <span className="inline-flex size-5 items-center justify-center rounded-full bg-[#ffc83d] text-[#0a0a0a]">
               <ICONS.Award className="size-3" aria-hidden />
             </span>
-            <span className="font-heading text-[10px] font-bold uppercase tracking-[0.22em] text-[#0a0a0a]">
+            <span className="font-heading text-[10px] font-bold uppercase tracking-[0.22em] text-[#ffc83d]">
               As featured on
             </span>
             <Image
@@ -101,6 +101,7 @@ export function WhyAimCream({
               width={92}
               height={22}
               className="h-5 w-auto"
+              style={{ width: "auto" }}
             />
           </Link>
           <span aria-hidden className="h-px flex-1 bg-[#0a0a0a]/15" />
@@ -180,25 +181,44 @@ export function WhyAimCream({
         </ul>
 
         {/* Bottom CTA pair */}
-        <div className="mx-auto mt-12 flex max-w-md flex-col items-center justify-center gap-3 sm:flex-row">
+        <div className="mx-auto mt-12 flex w-full max-w-xl flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
           <button
             type="button"
             onClick={() => openModal()}
-            className="btn-shine cta-primary inline-flex w-full items-center justify-center gap-2 px-7 py-3.5 text-base font-heading font-semibold sm:w-auto"
+            className="btn-shine cta-primary group inline-flex h-14 min-w-[14rem] items-center justify-center gap-2 px-8 text-base font-heading font-bold tracking-tight"
           >
             Get my free quote
-            <ICONS.ArrowRight className="size-4" aria-hidden />
+            <ICONS.ArrowRight
+              className="size-4 transition-transform duration-200 group-hover:translate-x-0.5"
+              aria-hidden
+            />
           </button>
           <Link
             href="/calculator"
-            className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#0a0a0a]/15 bg-white px-7 py-3.5 text-base font-heading font-semibold text-[#0a0a0a] transition-colors hover:border-[#ffc83d] hover:bg-[#fff5d4] sm:w-auto"
+            className="group inline-flex h-14 min-w-[14rem] items-center justify-center gap-2 rounded-full border-2 border-[#0a0a0a]/12 bg-white px-8 text-base font-heading font-bold tracking-tight text-[#0a0a0a] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#ffc83d] hover:bg-[#fff5d4] hover:shadow-[0_12px_32px_-12px_rgba(255,200,61,0.45)]"
           >
-            <ICONS.Calculator className="size-4 text-[#ffc83d]" aria-hidden />
+            <ICONS.Calculator
+              className="size-4 text-[#ffc83d] transition-transform duration-200 group-hover:scale-110"
+              aria-hidden
+            />
             Estimate savings
           </Link>
         </div>
-        <p className="mt-5 text-center text-xs font-heading font-semibold tabular-nums text-[#5a5a64]">
-          $0 if no savings · No obligation · Results in 24 hours
+        <p className="mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-sm font-heading font-semibold tabular-nums text-[#5a5a64]">
+          <span className="inline-flex items-center gap-1.5">
+            <ICONS.CheckCircle2 className="size-4 text-[#4fe0b0]" aria-hidden />
+            $0 if no savings
+          </span>
+          <span aria-hidden className="text-[#0a0a0a]/20">·</span>
+          <span className="inline-flex items-center gap-1.5">
+            <ICONS.CheckCircle2 className="size-4 text-[#4fe0b0]" aria-hidden />
+            No obligation
+          </span>
+          <span aria-hidden className="text-[#0a0a0a]/20">·</span>
+          <span className="inline-flex items-center gap-1.5">
+            <ICONS.CheckCircle2 className="size-4 text-[#4fe0b0]" aria-hidden />
+            Results in 24 hours
+          </span>
         </p>
       </div>
     </section>

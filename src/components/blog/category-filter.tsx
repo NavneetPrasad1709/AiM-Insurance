@@ -23,7 +23,7 @@ export function CategoryFilter({
         role="tablist"
         aria-label="Filter posts by category"
         className={cn(
-          "flex items-center gap-2 overflow-x-auto pb-1 -mx-4 px-4 sm:mx-0 sm:px-0",
+          "flex w-full flex-nowrap items-center gap-1.5 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0",
           "[&::-webkit-scrollbar]:hidden [scrollbar-width:none]",
           className,
         )}
@@ -39,7 +39,7 @@ export function CategoryFilter({
               aria-selected={isActive}
               onClick={() => onChange(cat.slug)}
               className={cn(
-                "relative shrink-0 rounded-full px-4 py-2 text-sm font-heading font-semibold transition-colors duration-200",
+                "relative shrink-0 whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-heading font-semibold transition-colors duration-200",
                 "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cta",
                 isActive
                   ? "text-background"
