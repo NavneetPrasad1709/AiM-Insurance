@@ -15,6 +15,8 @@ import {
   localBusinessSchema,
   breadcrumbSchema,
 } from "@/components/seo/structured-data";
+import { WhyAimCream } from "@/components/sections/why-aim-cream";
+import { TrustStrip } from "@/components/sections/trust-strip";
 
 const PAGE_URL = `${SITE_CONFIG.url}/contact`;
 const TITLE = "Contact Us";
@@ -117,10 +119,14 @@ export default async function ContactPage({ searchParams }: PageProps) {
             Let&rsquo;s talk{" "}
             <span className="text-[#ffc83d]">savings.</span>
           </h1>
-          <p className="relative mt-5 text-base sm:text-lg text-white/80 leading-[1.55]">
+          <p className="relative mt-5 text-lg sm:text-xl text-white/85 leading-[1.55]">
             Send us a message — quote, existing policy, partnership, anything. A
             real human replies within one business day.
           </p>
+        </div>
+
+        <div className="mt-10">
+          <TrustStrip variant="compact" />
         </div>
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
@@ -259,6 +265,10 @@ export default async function ContactPage({ searchParams }: PageProps) {
         </div>
       </div>
     </div>
+    <WhyAimCream
+      heading="One message away. One thousand dollars closer."
+      intro="Most clients hear back within hours. Send your declarations page and we'll ballpark your savings on the same call."
+    />
     </>
   );
 }
