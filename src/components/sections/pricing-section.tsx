@@ -34,7 +34,6 @@ const TIERS: Tier[] = [
     ctaHref: "/contact",
   },
   {
-    badge: "Most Popular",
     amount: "$149",
     unit: "flat",
     title: "New Policy",
@@ -45,7 +44,6 @@ const TIERS: Tier[] = [
       "Best carrier match",
       "Concierge handles the switch",
     ],
-    highlight: true,
     cta: "Start my negotiation",
     ctaHref: "/contact",
   },
