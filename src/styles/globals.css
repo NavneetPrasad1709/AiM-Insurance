@@ -17,10 +17,10 @@
   --color-border: #232328;             /* Hairline — 1px, only border color */
   --color-border-light: #1a1a1f;       /* alternative subtler border */
 
-  /* Text */
-  --color-text-primary: #e8e8ec;       /* Bone — default body */
-  --color-text-secondary: #9a9aa3;     /* Ash — secondary, captions */
-  --color-text-muted: #5c5c66;         /* Smoke — tertiary */
+  /* Text — bumped warmer/lighter for readability on dark */
+  --color-text-primary: #f4f4f8;       /* Bone+ — default body */
+  --color-text-secondary: #d8d8de;     /* Ash → near-white for body copy */
+  --color-text-muted: #a0a0aa;         /* Smoke → still readable for captions */
   --color-primary: #ffffff;            /* White — H1 + stats only */
   --color-primary-hover: #e8e8ec;
   --color-primary-light: #9a9aa3;
@@ -132,10 +132,9 @@
 --------------------------------------------------------------------------- */
 @layer base {
   html {
-    /* Tuned for 110% browser zoom comfort — root rem shrinks ~9% so
-       all rem-based sizing (Tailwind utilities, clamp(), fonts, paddings)
-       feels right at the user's preferred 110% zoom. */
-    font-size: 91%;
+    /* Default 100% — body text reads cleanly without browser zoom.
+       Headings + body sizes scale uniformly off this root. */
+    font-size: 100%;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

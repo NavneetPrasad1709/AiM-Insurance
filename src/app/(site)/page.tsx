@@ -9,8 +9,15 @@ import { PricingSection } from "@/components/sections/pricing-section";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CalculatorPreview } from "@/components/sections/calculator-preview";
 import { FaqSection } from "@/components/sections/faq-section";
+import { HOMEPAGE_FAQS } from "@/lib/homepage-faqs";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { SITE_CONFIG } from "@/lib/constants";
+import {
+  StructuredData,
+  organizationSchema,
+  websiteSchema,
+  faqSchema,
+} from "@/components/seo/structured-data";
 
 export const metadata: Metadata = {
   title: {
@@ -37,8 +44,20 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const ld = [
+    organizationSchema(),
+    websiteSchema(),
+    faqSchema({
+      qas: HOMEPAGE_FAQS.map((f) => ({
+        question: f.q,
+        answer: f.a,
+      })),
+    }),
+  ];
+
   return (
     <>
+      <StructuredData data={ld} />
       <Hero />
       <TrustBanner />
       <PainStats />

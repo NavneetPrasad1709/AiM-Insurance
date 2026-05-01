@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useRef } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, useWatch } from "react-hook-form";
 import type { UseFormRegisterReturn } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -75,7 +75,6 @@ export function QuoteModal() {
     register,
     handleSubmit,
     control,
-    watch,
     formState: { errors },
     reset: resetForm,
   } = useForm<QuoteFormValues>({
@@ -92,7 +91,7 @@ export function QuoteModal() {
     },
   });
 
-  const notesValue = watch("notes") ?? "";
+  const notesValue = useWatch({ control, name: "notes" }) ?? "";
 
   useLockBodyScroll(isOpen);
 

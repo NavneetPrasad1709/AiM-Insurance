@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/ui/scroll-effects";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
 import { ICONS } from "@/lib/icons";
@@ -85,7 +84,7 @@ export function PricingSection() {
 
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
         {/* Heading */}
-        <div className="max-w-3xl">
+        <div className="max-w-3xl mx-auto text-center">
           <ScrollReveal direction="up">
             <span
               className="inline-flex items-center gap-2 rounded-full border border-[#232328] bg-[#111113] px-3.5 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase text-white"
@@ -121,7 +120,7 @@ export function PricingSection() {
 
         {/* Tiers */}
         <StaggerGroup
-          className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl items-stretch"
+          className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto items-stretch"
           delay={0.05}
         >
           {TIERS.map((t) => (
@@ -240,7 +239,7 @@ export function PricingSection() {
 
         {/* Footnote */}
         <ScrollReveal direction="up" delay={0.2}>
-          <p className="mt-12 text-sm text-white max-w-2xl">
+          <p className="mt-12 text-sm text-white max-w-2xl mx-auto text-center">
             Fees are payable once your new premium is shared. Our team handles
             the switch and update on your behalf — zero hassle.
           </p>

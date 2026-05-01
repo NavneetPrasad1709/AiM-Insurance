@@ -14,6 +14,11 @@ import {
   SectionDividerArc,
   FloatingCardsBackdrop,
 } from "@/components/illustrations/ambience";
+import { TrustStrip } from "@/components/sections/trust-strip";
+import {
+  StructuredData,
+  faqSchema,
+} from "@/components/seo/structured-data";
 import { useQuoteModal } from "@/lib/quote-modal-context";
 import { SERVICES } from "@/lib/constants";
 import { ICONS, getIcon } from "@/lib/icons";
@@ -89,7 +94,7 @@ export function ServicePageTemplate({
   const { openModal } = useQuoteModal();
   const insuranceTypeKey = serviceSlug.replace("-insurance", "");
 
-  const PrimaryCta = ({ className }: { className?: string }) =>
+  const renderPrimaryCta = (className?: string) =>
     comingSoon ? (
       <Link
         href={ctaHref}
@@ -117,8 +122,13 @@ export function ServicePageTemplate({
       </button>
     );
 
+  const faqLd = faqSchema({
+    qas: faqs.map((f) => ({ question: f.question, answer: f.answer })),
+  });
+
   return (
     <>
+      <StructuredData data={faqLd} />
       {/* ─────────────────────────────────────────── HERO ─── */}
       <section
         aria-labelledby="service-hero-heading"
@@ -202,14 +212,14 @@ export function ServicePageTemplate({
               </ScrollReveal>
 
               <ScrollReveal direction="up" delay={0.16}>
-                <p className="mt-6 max-w-2xl text-base sm:text-lg text-white/85 leading-[1.55]">
+                <p className="mt-6 max-w-2xl text-lg sm:text-xl text-white leading-[1.55]">
                   {heroDescription}
                 </p>
               </ScrollReveal>
 
               <ScrollReveal direction="up" delay={0.24}>
                 <div className="mt-10 flex flex-col sm:flex-row gap-3">
-                  <PrimaryCta />
+                  {renderPrimaryCta()}
                   {!comingSoon && (
                     <Link
                       href="/calculator"
@@ -259,9 +269,16 @@ export function ServicePageTemplate({
             )}
           </div>
 
+          {/* Trust signals — Newswire-led */}
+          <ScrollReveal direction="up" delay={0.28}>
+            <div className="mt-16">
+              <TrustStrip variant="full" />
+            </div>
+          </ScrollReveal>
+
           {stats && stats.length > 0 && (
-            <ScrollReveal direction="up" delay={0.3}>
-              <ul className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#232328] bg-[#232328]">
+            <ScrollReveal direction="up" delay={0.34}>
+              <ul className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#232328] bg-[#232328]">
                 {stats.map((s) => (
                   <li
                     key={s.label}
@@ -895,7 +912,7 @@ export function ServicePageTemplate({
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <PrimaryCta className="w-full sm:w-auto" />
+            {renderPrimaryCta("w-full sm:w-auto")}
             <Link
               href="/contact?intent=call"
               className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#232328] bg-[#111113] px-7 py-4 text-base font-semibold text-white transition-colors duration-150 hover:border-[#9a9aa3]/40 hover:bg-[#1a1a1f]"

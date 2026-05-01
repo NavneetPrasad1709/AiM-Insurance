@@ -10,6 +10,11 @@ import {
   GrainTexture,
 } from "@/components/illustrations/ambience";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
+import {
+  StructuredData,
+  localBusinessSchema,
+  breadcrumbSchema,
+} from "@/components/seo/structured-data";
 
 const PAGE_URL = `${SITE_CONFIG.url}/contact`;
 const TITLE = "Contact Us";
@@ -37,7 +42,17 @@ export default async function ContactPage({ searchParams }: PageProps) {
   const params = await searchParams;
   const intent = params.intent;
 
+  const ld = [
+    localBusinessSchema(),
+    breadcrumbSchema([
+      { name: "Home", url: "/" },
+      { name: "Contact", url: "/contact" },
+    ]),
+  ];
+
   return (
+    <>
+      <StructuredData data={ld} />
     <div className="relative bg-background pt-12 pb-24 sm:pt-16 sm:pb-32 overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
         {/* Warm gold glow — top-left */}
@@ -244,5 +259,6 @@ export default async function ContactPage({ searchParams }: PageProps) {
         </div>
       </div>
     </div>
+    </>
   );
 }

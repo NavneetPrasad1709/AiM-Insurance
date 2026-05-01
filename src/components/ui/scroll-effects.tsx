@@ -34,7 +34,6 @@ interface ScrollRevealProps {
   duration?: number;
   distance?: number;
   className?: string;
-  as?: ElementType;
   once?: boolean;
 }
 
@@ -53,7 +52,6 @@ export function ScrollReveal({
   duration = 0.7,
   distance,
   className,
-  as,
   once = true,
 }: ScrollRevealProps) {
   const reduce = useReducedMotion();
@@ -61,16 +59,13 @@ export function ScrollReveal({
   const x = direction === "left" || direction === "right" ? distance ?? base.x : 0;
   const y = direction === "up" || direction === "down" ? distance ?? base.y : 0;
 
-  const Tag = (as ?? "div") as ElementType;
-  const MotionTag = motion.create(Tag);
-
   const variants: Variants = {
     hidden: { opacity: 0, x: reduce ? 0 : x, y: reduce ? 0 : y },
     show: { opacity: 1, x: 0, y: 0 },
   };
 
   return (
-    <MotionTag
+    <motion.div
       className={className}
       initial="hidden"
       whileInView="show"
@@ -79,7 +74,7 @@ export function ScrollReveal({
       variants={variants}
     >
       {children}
-    </MotionTag>
+    </motion.div>
   );
 }
 

@@ -35,6 +35,11 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
   const closeBtnRef = useRef<HTMLButtonElement>(null);
   const lastFocusRef = useRef<HTMLElement | null>(null);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [prevOpen, setPrevOpen] = useState(open);
+  if (prevOpen !== open) {
+    setPrevOpen(open);
+    if (!open && servicesOpen) setServicesOpen(false);
+  }
 
   useLockBodyScroll(open);
 
@@ -55,10 +60,6 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
-
-  useEffect(() => {
-    if (!open) setServicesOpen(false);
-  }, [open]);
 
   const handleTrap = useCallback(
     (e: ReactKeyboardEvent<HTMLDivElement>) => {

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { CountUp } from "@/components/ui/count-up";
 import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/ui/scroll-effects";
 import { ICONS } from "@/lib/icons";
