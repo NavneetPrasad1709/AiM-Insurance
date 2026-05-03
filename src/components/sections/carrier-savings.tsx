@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { ScrollReveal, ScrollZoom, StaggerGroup, StaggerItem } from "@/components/ui/scroll-effects";
 import { PremiumGauge } from "@/components/illustrations/decorations";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
@@ -263,6 +263,7 @@ export function CarrierSavings() {
                   alt="Before and after — client switched carriers and saved $1,534 annually with AiM"
                   width={1024}
                   height={1024}
+                  sizes="(min-width: 1024px) 480px, 92vw"
                   className="w-full h-auto"
                 />
               </div>

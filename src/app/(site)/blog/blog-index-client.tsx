@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
+import { m as motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { CategoryFilter } from "@/components/blog/category-filter";
 import { SearchBar } from "@/components/blog/search-bar";
 import { PostCard, type PostCardData } from "@/components/blog/post-card";
@@ -45,8 +45,10 @@ export function BlogIndexClient({ posts, featured }: BlogIndexClientProps) {
     });
   }, [posts, active, search]);
 
-  const visible = filtered.slice(0, page * PAGE_SIZE);
-  const hasMore = visible.length < filtered.length;
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const visible = filtered.slice(start, start + PAGE_SIZE);
 
   const handleCategory = (slug: MockCategorySlug) => {
     setActive(slug);
@@ -139,21 +141,99 @@ export function BlogIndexClient({ posts, featured }: BlogIndexClientProps) {
           </LayoutGroup>
         )}
 
-        {hasMore && (
-          <div className="mt-12 flex justify-center">
-            <button
-              type="button"
-              onClick={() => setPage((p) => p + 1)}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-heading font-semibold text-white transition-colors hover:border-cta hover:text-cta"
-            >
-              Load more
-              <ICONS.ChevronDown className="size-4" aria-hidden />
-            </button>
-          </div>
+        {totalPages > 1 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onChange={(p) => {
+              setPage(p);
+              if (typeof window !== "undefined") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          />
         )}
       </section>
     </>
   );
+}
+
+function Pagination({
+  currentPage,
+  totalPages,
+  onChange,
+}: {
+  currentPage: number;
+  totalPages: number;
+  onChange: (page: number) => void;
+}) {
+  const pages = pageList(currentPage, totalPages);
+  const baseBtn =
+    "inline-flex h-10 min-w-10 items-center justify-center rounded-full border px-3 text-sm font-heading font-semibold transition-colors";
+  return (
+    <nav
+      aria-label="Pagination"
+      className="mt-12 flex flex-wrap items-center justify-center gap-2"
+    >
+      <button
+        type="button"
+        onClick={() => onChange(currentPage - 1)}
+        disabled={currentPage <= 1}
+        className={`${baseBtn} border-border bg-surface text-white hover:border-cta hover:text-cta disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:text-white`}
+        aria-label="Previous page"
+      >
+        <ICONS.ChevronRight className="size-4 rotate-180" aria-hidden />
+      </button>
+      {pages.map((p, i) =>
+        p === "…" ? (
+          <span
+            key={`gap-${i}`}
+            className="inline-flex h-10 min-w-6 items-center justify-center text-sm text-text-muted"
+            aria-hidden
+          >
+            …
+          </span>
+        ) : (
+          <button
+            key={p}
+            type="button"
+            onClick={() => onChange(p)}
+            aria-current={p === currentPage ? "page" : undefined}
+            className={
+              p === currentPage
+                ? `${baseBtn} border-cta bg-cta text-background`
+                : `${baseBtn} border-border bg-surface text-white hover:border-cta hover:text-cta`
+            }
+          >
+            {p}
+          </button>
+        ),
+      )}
+      <button
+        type="button"
+        onClick={() => onChange(currentPage + 1)}
+        disabled={currentPage >= totalPages}
+        className={`${baseBtn} border-border bg-surface text-white hover:border-cta hover:text-cta disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-border disabled:hover:text-white`}
+        aria-label="Next page"
+      >
+        <ICONS.ChevronRight className="size-4" aria-hidden />
+      </button>
+    </nav>
+  );
+}
+
+function pageList(current: number, total: number): (number | "…")[] {
+  const window = 1;
+  const pages = new Set<number>([1, total, current - window, current, current + window]);
+  const sorted = [...pages].filter((n) => n >= 1 && n <= total).sort((a, b) => a - b);
+  const out: (number | "…")[] = [];
+  let prev = 0;
+  for (const n of sorted) {
+    if (n - prev > 1) out.push("…");
+    out.push(n);
+    prev = n;
+  }
+  return out;
 }
 
 function EmptyState({ onReset }: { onReset: () => void }) {

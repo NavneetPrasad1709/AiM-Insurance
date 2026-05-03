@@ -13,7 +13,7 @@
  *   ivory     #fbfaf5
  */
 
-import { motion, useReducedMotion } from "framer-motion";
+import { m as motion, useReducedMotion } from "framer-motion";
 import { useId } from "react";
 import { cn } from "@/lib/utils";
 

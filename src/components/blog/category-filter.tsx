@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, LayoutGroup } from "framer-motion";
+import { m as motion, LayoutGroup } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { mockCategories, type MockCategorySlug } from "@/data/mock-posts";
 

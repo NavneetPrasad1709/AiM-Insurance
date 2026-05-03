@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { ICONS } from "@/lib/icons";
 import { MonogramMark } from "@/components/illustrations/ambience";
 

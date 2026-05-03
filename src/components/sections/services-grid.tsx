@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/ui/section-heading";
 import {
@@ -84,6 +84,7 @@ export function ServicesGrid() {
                           alt={`${s.name} — premium ${s.name.toLowerCase()} concierge service`}
                           width={1024}
                           height={1024}
+                          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.08] group-hover:-rotate-[0.6deg]"
                         />
                       ) : (

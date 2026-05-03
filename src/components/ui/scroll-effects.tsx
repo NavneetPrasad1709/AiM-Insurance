@@ -1,7 +1,7 @@
 "use client";
 
 import {
-  motion,
+  m as motion,
   useReducedMotion,
   useScroll,
   useTransform,

@@ -1,3 +1,9 @@
+type RuleBuilder = {
+  required: () => RuleBuilder;
+  max: (n: number) => RuleBuilder;
+  min: (n: number) => RuleBuilder;
+};
+
 export const post = {
   name: "post",
   title: "Blog Post",
@@ -7,38 +13,43 @@ export const post = {
       name: "title",
       title: "Title",
       type: "string",
-      validation: (Rule: { required: () => unknown; max: (n: number) => unknown }) =>
-        (Rule.required() as { max: (n: number) => unknown }).max(120),
+      validation: (Rule: RuleBuilder) => Rule.required().max(100),
     },
     {
       name: "slug",
       title: "Slug",
       type: "slug",
       options: { source: "title", maxLength: 96 },
-      validation: (Rule: { required: () => unknown }) => Rule.required(),
+      validation: (Rule: RuleBuilder) => Rule.required(),
     },
     {
       name: "excerpt",
       title: "Excerpt",
       type: "text",
       rows: 3,
-      validation: (Rule: { required: () => unknown; max: (n: number) => unknown }) =>
-        (Rule.required() as { max: (n: number) => unknown }).max(220),
+      validation: (Rule: RuleBuilder) => Rule.required().max(200),
     },
     {
       name: "mainImage",
       title: "Main image",
       type: "image",
       options: { hotspot: true },
-      fields: [{ name: "alt", title: "Alt text", type: "string" }],
+      fields: [
+        {
+          name: "alt",
+          title: "Alt text",
+          type: "string",
+          validation: (Rule: RuleBuilder) => Rule.required(),
+        },
+        { name: "caption", title: "Caption", type: "string" },
+      ],
     },
     {
       name: "categories",
       title: "Categories",
       type: "array",
       of: [{ type: "reference", to: [{ type: "category" }] }],
-      validation: (Rule: { required: () => unknown; min: (n: number) => unknown }) =>
-        (Rule.required() as { min: (n: number) => unknown }).min(1),
+      validation: (Rule: RuleBuilder) => Rule.required().min(1),
     },
     {
       name: "author",
@@ -50,7 +61,14 @@ export const post = {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
-      validation: (Rule: { required: () => unknown }) => Rule.required(),
+      initialValue: () => new Date().toISOString(),
+      validation: (Rule: RuleBuilder) => Rule.required(),
+    },
+    {
+      name: "featured",
+      title: "Featured",
+      type: "boolean",
+      initialValue: false,
     },
     {
       name: "body",
@@ -58,7 +76,14 @@ export const post = {
       type: "array",
       of: [
         { type: "block" },
-        { type: "image", options: { hotspot: true } },
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            { name: "alt", title: "Alt text", type: "string" },
+            { name: "caption", title: "Caption", type: "string" },
+          ],
+        },
       ],
     },
     {
@@ -73,8 +98,13 @@ export const post = {
       title: "SEO",
       type: "object",
       fields: [
-        { name: "title", type: "string", title: "Meta title" },
-        { name: "description", type: "text", rows: 2, title: "Meta description" },
+        { name: "metaTitle", type: "string", title: "Meta title" },
+        {
+          name: "metaDescription",
+          type: "text",
+          rows: 2,
+          title: "Meta description",
+        },
         {
           name: "keywords",
           type: "array",

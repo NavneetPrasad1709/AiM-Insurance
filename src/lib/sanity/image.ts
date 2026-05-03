@@ -1,4 +1,4 @@
-import imageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder } from "@sanity/image-url";
 import type {
   ImageUrlBuilder,
   SanityImageSource,
@@ -7,16 +7,16 @@ import { isSanityConfigured } from "./client";
 import { sanityConfig } from "./config";
 import type { SanityImage } from "@/types";
 
-let _builder: ReturnType<typeof imageUrlBuilder> | null = null;
+let _builder: ReturnType<typeof createImageUrlBuilder> | null = null;
 
-function getBuilder(): ReturnType<typeof imageUrlBuilder> {
+function getBuilder(): ReturnType<typeof createImageUrlBuilder> {
   if (_builder) return _builder;
   if (!isSanityConfigured()) {
     throw new Error(
       "Sanity is not configured — call urlFor() only when isSanityConfigured() is true.",
     );
   }
-  _builder = imageUrlBuilder({
+  _builder = createImageUrlBuilder({
     projectId: sanityConfig.projectId,
     dataset: sanityConfig.dataset,
   });

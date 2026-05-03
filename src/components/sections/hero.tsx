@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
+import { m as motion, useReducedMotion } from "framer-motion";
 import { CountUp } from "@/components/ui/count-up";
 import { ScrollZoom } from "@/components/ui/scroll-effects";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
@@ -173,7 +173,7 @@ export function Hero() {
               className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-3"
             >
               <div className="flex items-center gap-2">
-                <span className="inline-flex" aria-label="5 star rating">
+                <span className="inline-flex" role="img" aria-label="5 star rating">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <ICONS.Star
                       key={i}

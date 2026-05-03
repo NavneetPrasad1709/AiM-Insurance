@@ -33,12 +33,15 @@ export const metadata: Metadata = {
   },
 };
 
+import type { SanityImage } from "@/types";
+
 interface SanityListPost {
   _id: string;
   title: string;
   slug: string;
   excerpt: string;
   publishedAt: string;
+  mainImage?: SanityImage;
   category?: { title?: string };
   author?: { name?: string };
   readingTime?: number;
@@ -51,18 +54,22 @@ const VALID_CATEGORIES = new Set([
   "Industry News",
 ]);
 
+function mapCategory(raw: string | undefined): PostCardData["category"] {
+  if (raw && VALID_CATEGORIES.has(raw)) return raw as PostCardData["category"];
+  return "Guides";
+}
+
 function normalizeSanityPost(p: SanityListPost): PostCardData | null {
   if (!p.slug || !p.title) return null;
-  const cat = p.category?.title;
-  if (!cat || !VALID_CATEGORIES.has(cat)) return null;
   return {
     title: p.title,
     slug: p.slug,
     excerpt: p.excerpt ?? "",
-    category: cat as PostCardData["category"],
+    category: mapCategory(p.category?.title),
     author: p.author?.name ?? "AiM Team",
     publishedAt: p.publishedAt ?? new Date().toISOString(),
     readingTime: p.readingTime ?? 5,
+    mainImage: p.mainImage ?? null,
   };
 }
 

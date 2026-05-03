@@ -4,7 +4,7 @@ import { Loader2 } from "lucide-react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { Input, Select, Textarea } from "@/components/ui/input";
 import { useFormSubmit } from "@/hooks/useFormSubmit";
 import { ICONS } from "@/lib/icons";

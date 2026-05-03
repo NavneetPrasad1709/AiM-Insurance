@@ -5,6 +5,10 @@ export interface HomepageFaq {
 
 export const HOMEPAGE_FAQS: HomepageFaq[] = [
   {
+    q: "How does pricing work?",
+    a: "Three simple options: 25% of the savings we negotiate (only when we save you money), $149 flat for placing a brand-new policy, or $0 if we can't beat your current premium. No upfront cost, no subscription, no card required.",
+  },
+  {
     q: "Do you charge for negotiating insurance?",
     a: "Our consultation and negotiation service is free for our clients. We're paid by partner carriers when we place your business — and only if the coverage and price are genuinely better than what you have. If we can't beat your current policy, you owe us nothing.",
   },

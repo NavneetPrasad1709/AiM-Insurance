@@ -3,7 +3,7 @@
 import { useId, useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, m as motion, useReducedMotion } from "framer-motion";
 import {
   Anchor,
   ArrowLeft,

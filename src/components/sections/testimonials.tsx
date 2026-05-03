@@ -60,6 +60,7 @@ const SECONDARY: Testimonial[] = [
 function StarRow({ size = "size-3.5" }: { size?: string }) {
   return (
     <div
+      role="img"
       className="inline-flex items-center gap-0.5"
       aria-label="5 out of 5 stars"
     >
@@ -179,6 +180,7 @@ export function Testimonials() {
                     alt="Daniel R., AiM client — saved $1,236 a year on auto insurance"
                     width={1024}
                     height={1024}
+                    sizes="(min-width: 1024px) 460px, 92vw"
                     className="w-full h-auto"
                   />
                 </div>

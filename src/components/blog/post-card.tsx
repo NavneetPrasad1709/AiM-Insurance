@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { ICONS } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import { categoryGradient, type MockCategory } from "@/data/mock-posts";
+import type { SanityImage } from "@/types";
+import { urlFor } from "@/lib/sanity/image";
 
 export interface PostCardData {
   title: string;
@@ -15,6 +17,7 @@ export interface PostCardData {
   author: string;
   publishedAt: string;
   readingTime: number;
+  mainImage?: SanityImage | null;
 }
 
 interface PostCardProps {
@@ -128,11 +131,52 @@ function CategoryMotif({
 function CardArtwork({
   category,
   isFeatured,
+  mainImage,
+  title,
 }: {
   category: MockCategory;
   isFeatured: boolean;
+  mainImage?: SanityImage | null;
+  title: string;
 }) {
   const accent = CATEGORY_ACCENT[category];
+
+  if (mainImage?.asset?._ref) {
+    const src = urlFor(mainImage).width(isFeatured ? 1280 : 800).fit("max").auto("format").url();
+    return (
+      <div
+        className={cn(
+          "relative w-full overflow-hidden",
+          isFeatured ? "aspect-[16/9]" : "aspect-[16/10]",
+        )}
+      >
+        <Image
+          src={src}
+          alt={mainImage.alt ?? title}
+          fill
+          sizes={isFeatured ? "(min-width: 1024px) 720px, 100vw" : "(min-width: 1024px) 380px, 100vw"}
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/20 to-transparent"
+        />
+        <div className="absolute left-4 top-4 z-10">
+          <span
+            className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-background/85 px-3 py-1 text-[11px] font-heading font-bold uppercase tracking-[0.22em] backdrop-blur-md"
+            style={{ color: accent.primary }}
+          >
+            <span
+              className="size-1 rounded-full"
+              style={{ backgroundColor: accent.primary }}
+              aria-hidden
+            />
+            {category}
+          </span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -346,7 +390,12 @@ export function PostCard({ post, variant = "default", className }: PostCardProps
         className="block focus-visible:outline-none"
         aria-label={`Read article: ${post.title}`}
       >
-        <CardArtwork category={post.category} isFeatured={isFeatured} />
+        <CardArtwork
+          category={post.category}
+          isFeatured={isFeatured}
+          mainImage={post.mainImage}
+          title={post.title}
+        />
 
         <div className={cn("flex flex-col gap-3 p-6", isCompact && "p-5 gap-2.5")}>
           <h3

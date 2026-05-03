@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { m as motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import { ScrollReveal } from "@/components/ui/scroll-effects";
 import { CountUp } from "@/components/ui/count-up";

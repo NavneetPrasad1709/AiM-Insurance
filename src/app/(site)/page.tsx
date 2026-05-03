@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
 import { TrustBanner } from "@/components/sections/trust-banner";
-import { PainStats } from "@/components/sections/pain-stats";
 import { CarrierSavings } from "@/components/sections/carrier-savings";
 import { ServicesGrid } from "@/components/sections/services-grid";
 import { HowItWorks } from "@/components/sections/how-it-works";
-import { PricingSection } from "@/components/sections/pricing-section";
 import { Testimonials } from "@/components/sections/testimonials";
-import { CalculatorPreview } from "@/components/sections/calculator-preview";
 import { FaqSection } from "@/components/sections/faq-section";
 import { HOMEPAGE_FAQS } from "@/lib/homepage-faqs";
 import { CtaBanner } from "@/components/sections/cta-banner";
@@ -60,13 +57,10 @@ export default function HomePage() {
       <StructuredData data={ld} />
       <Hero />
       <TrustBanner />
-      <PainStats />
-      <CarrierSavings />
       <ServicesGrid />
+      <CarrierSavings />
       <HowItWorks />
-      <PricingSection />
       <Testimonials />
-      <CalculatorPreview />
       <FaqSection />
       <CtaBanner />
     </>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { CountUp } from "@/components/ui/count-up";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { STATS } from "@/lib/constants";

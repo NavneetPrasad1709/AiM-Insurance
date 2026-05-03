@@ -28,7 +28,7 @@ function buildClient(preview = false): SanityClient {
  * configured projectId will throw, exactly as expected.
  */
 export const sanityClient: SanityClient = new Proxy({} as SanityClient, {
-  get(_target, prop, receiver) {
+  get(_target, prop) {
     if (!_client) {
       if (!isSanityConfigured()) {
         throw new Error(
@@ -37,12 +37,13 @@ export const sanityClient: SanityClient = new Proxy({} as SanityClient, {
       }
       _client = buildClient(false);
     }
-    return Reflect.get(_client, prop, receiver);
+    const value = Reflect.get(_client, prop);
+    return typeof value === "function" ? value.bind(_client) : value;
   },
 });
 
 export const previewClient: SanityClient = new Proxy({} as SanityClient, {
-  get(_target, prop, receiver) {
+  get(_target, prop) {
     if (!_previewClient) {
       if (!isSanityConfigured()) {
         throw new Error(
@@ -51,7 +52,8 @@ export const previewClient: SanityClient = new Proxy({} as SanityClient, {
       }
       _previewClient = buildClient(true);
     }
-    return Reflect.get(_previewClient, prop, receiver);
+    const value = Reflect.get(_previewClient, prop);
+    return typeof value === "function" ? value.bind(_previewClient) : value;
   },
 });
 

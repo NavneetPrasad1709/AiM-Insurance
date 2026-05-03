@@ -113,7 +113,7 @@ export default function RequestAConciergePage() {
                     BBB Accredited
                   </span>
                   <span className="inline-flex items-center gap-1.5">
-                    <span className="inline-flex" aria-label="5 star rating">
+                    <span className="inline-flex" role="img" aria-label="5 star rating">
                       {Array.from({ length: 5 }).map((_, i) => (
                         <ICONS.Star
                           key={i}

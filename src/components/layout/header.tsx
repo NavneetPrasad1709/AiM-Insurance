@@ -8,7 +8,7 @@ import {
   useState,
   type KeyboardEvent as ReactKeyboardEvent,
 } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m as motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Logo } from "@/components/layout/logo";
 import { MobileNav } from "@/components/layout/mobile-nav";
@@ -34,9 +34,9 @@ function PillLink({ href, active, children, onClick }: PillLinkProps) {
       href={href}
       onClick={onClick}
       className={cn(
-        "px-4 py-2 text-sm font-semibold rounded-full transition-colors",
+        "px-4 py-2.5 text-sm font-semibold rounded-full transition-colors",
         active
-          ? "bg-cta text-white shadow-coral"
+          ? "bg-cta text-background shadow-coral"
           : "text-white/75 hover:bg-white/10 hover:text-white"
       )}
     >
@@ -101,9 +101,9 @@ function PillDropdown({ link, pathname }: { link: NavLink; pathname: string }) {
         onClick={() => setOpen(true)}
         onKeyDown={handleKey}
         className={cn(
-          "inline-flex items-center gap-1 px-4 py-2 text-sm font-semibold rounded-full transition-colors",
+          "inline-flex items-center gap-1 px-4 py-2.5 text-sm font-semibold rounded-full transition-colors",
           isAnyChildActive
-            ? "bg-cta text-white shadow-coral"
+            ? "bg-cta text-background shadow-coral"
             : "text-white/75 hover:bg-white/10 hover:text-white"
         )}
       >

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { useQuoteModal } from "@/lib/quote-modal-context";
 import { ICONS } from "@/lib/icons";
 import { cn } from "@/lib/utils";

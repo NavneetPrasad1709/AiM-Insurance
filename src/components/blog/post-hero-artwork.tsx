@@ -1,11 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { categoryGradient, type MockCategory } from "@/data/mock-posts";
+import type { SanityImage } from "@/types";
+import { urlFor } from "@/lib/sanity/image";
 
 interface PostHeroArtworkProps {
   category: MockCategory;
+  mainImage?: SanityImage | null;
+  title?: string;
 }
 
 const ACCENTS: Record<MockCategory, { primary: string; secondary: string }> = {
@@ -15,8 +19,24 @@ const ACCENTS: Record<MockCategory, { primary: string; secondary: string }> = {
   "Industry News": { primary: "#ff8c42", secondary: "#ffc83d" },
 };
 
-export function PostHeroArtwork({ category }: PostHeroArtworkProps) {
+export function PostHeroArtwork({ category, mainImage, title }: PostHeroArtworkProps) {
   const accent = ACCENTS[category];
+
+  if (mainImage?.asset?._ref) {
+    const src = urlFor(mainImage).width(1600).fit("max").auto("format").url();
+    return (
+      <div className="relative aspect-[16/8] w-full overflow-hidden rounded-2xl border border-border">
+        <Image
+          src={src}
+          alt={mainImage.alt ?? title ?? ""}
+          fill
+          sizes="(min-width: 1024px) 960px, 100vw"
+          priority
+          className="object-cover"
+        />
+      </div>
+    );
+  }
 
   return (
     <div

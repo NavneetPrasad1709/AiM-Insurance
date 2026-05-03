@@ -3,6 +3,7 @@ import { montserrat } from "@/lib/fonts";
 import { SITE_CONFIG } from "@/lib/constants";
 import { QuoteModalProvider } from "@/lib/quote-modal-context";
 import { QuoteModal } from "@/components/forms/quote-modal";
+import { MotionProvider } from "@/components/providers/motion-provider";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -36,10 +37,12 @@ export default function RootLayout({
         className="min-h-full flex flex-col bg-background text-white antialiased"
         suppressHydrationWarning
       >
-        <QuoteModalProvider>
-          {children}
-          <QuoteModal />
-        </QuoteModalProvider>
+        <MotionProvider>
+          <QuoteModalProvider>
+            {children}
+            <QuoteModal />
+          </QuoteModalProvider>
+        </MotionProvider>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m as motion, AnimatePresence } from "framer-motion";
 import { ICONS } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import type { ParsedHeading } from "./post-content";

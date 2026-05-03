@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { sanityClient, isSanityConfigured } from "@/lib/sanity/client";
-import { postBySlugQuery, relatedPostsQuery } from "@/lib/sanity/queries";
+import type { SanityImage } from "@/types";
+import {
+  postBySlugQuery,
+  relatedPostsQuery,
+  postSlugsQuery,
+} from "@/lib/sanity/queries";
 import {
   mockPosts,
   getRelatedMockPosts,
@@ -52,6 +57,7 @@ interface ResolvedPost {
   readingTime: number;
   tags: string[];
   body: string | unknown[];
+  mainImage?: SanityImage | null;
 }
 
 interface SanityFullPost {
@@ -61,6 +67,7 @@ interface SanityFullPost {
   publishedAt: string;
   body: unknown[];
   tags?: string[];
+  mainImage?: SanityImage;
   category?: { title?: string };
   author?: { name?: string; role?: string; bio?: string };
   readingTime?: number;
@@ -74,6 +81,7 @@ interface SanityRelated {
   slug: string;
   excerpt: string;
   publishedAt: string;
+  mainImage?: SanityImage;
   category?: { title?: string };
   author?: { name?: string };
   readingTime?: number;
@@ -86,6 +94,11 @@ const VALID_CATEGORIES = new Set([
   "Industry News",
 ]);
 
+function mapCategory(raw: string | undefined): MockPost["category"] {
+  if (raw && VALID_CATEGORIES.has(raw)) return raw as MockPost["category"];
+  return "Guides";
+}
+
 async function getPost(slug: string): Promise<ResolvedPost | null> {
   if (isSanityConfigured()) {
     try {
@@ -93,12 +106,12 @@ async function getPost(slug: string): Promise<ResolvedPost | null> {
         postBySlugQuery,
         { slug },
       );
-      if (sp && sp.title && VALID_CATEGORIES.has(sp.category?.title ?? "")) {
+      if (sp && sp.title) {
         return {
           title: sp.title,
           slug: sp.slug,
           excerpt: sp.excerpt ?? "",
-          category: sp.category!.title as MockPost["category"],
+          category: mapCategory(sp.category?.title),
           author: {
             name: sp.author?.name ?? "AiM Team",
             role: sp.author?.role ?? "Insurance Negotiator",
@@ -108,6 +121,7 @@ async function getPost(slug: string): Promise<ResolvedPost | null> {
           readingTime: sp.readingTime ?? 5,
           tags: sp.tags ?? [],
           body: sp.body ?? [],
+          mainImage: sp.mainImage ?? null,
         };
       }
     } catch {
@@ -131,49 +145,53 @@ async function getPost(slug: string): Promise<ResolvedPost | null> {
 }
 
 async function getRelated(slug: string): Promise<PostCardData[]> {
-  // Sanity related is keyed by category id, which we don't have without
-  // an extra query. Keep it simple: fall back to mock-driven related list.
-  const related = getRelatedMockPosts(slug);
-  if (related.length) {
-    return related.map((p) => ({
-      title: p.title,
-      slug: p.slug,
-      excerpt: p.excerpt,
-      category: p.category,
-      author: p.author.name,
-      publishedAt: p.publishedAt,
-      readingTime: p.readingTime,
-    }));
-  }
-  // If Sanity is configured and mock has nothing, do best-effort related.
   if (isSanityConfigured()) {
     try {
       const rs = await sanityClient.fetch<SanityRelated[]>(relatedPostsQuery, {
         slug,
         categoryIds: [],
       });
-      return (rs ?? [])
-        .filter(
-          (p) =>
-            p.slug && p.title && VALID_CATEGORIES.has(p.category?.title ?? ""),
-        )
+      const mapped = (rs ?? [])
+        .filter((p) => p.slug && p.title)
         .map((p) => ({
           title: p.title,
           slug: p.slug,
           excerpt: p.excerpt ?? "",
-          category: p.category!.title as MockPost["category"],
+          category: mapCategory(p.category?.title),
           author: p.author?.name ?? "AiM Team",
           publishedAt: p.publishedAt,
           readingTime: p.readingTime ?? 5,
+          mainImage: p.mainImage ?? null,
         }));
+      if (mapped.length) return mapped;
     } catch {
-      return [];
+      // fall through to mock
     }
   }
-  return [];
+
+  const related = getRelatedMockPosts(slug);
+  return related.map((p) => ({
+    title: p.title,
+    slug: p.slug,
+    excerpt: p.excerpt,
+    category: p.category,
+    author: p.author.name,
+    publishedAt: p.publishedAt,
+    readingTime: p.readingTime,
+  }));
 }
 
 export async function generateStaticParams() {
+  if (isSanityConfigured()) {
+    try {
+      const slugs = await sanityClient.fetch<string[]>(postSlugsQuery);
+      if (slugs && slugs.length) {
+        return slugs.filter(Boolean).map((slug) => ({ slug }));
+      }
+    } catch {
+      // fall through to mock
+    }
+  }
   return mockPosts.map((p) => ({ slug: p.slug }));
 }
 
@@ -308,7 +326,11 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       {/* Featured artwork */}
       <div className="relative mx-auto mt-10 max-w-5xl px-5 sm:px-8">
-        <PostHeroArtwork category={post.category} />
+        <PostHeroArtwork
+          category={post.category}
+          mainImage={post.mainImage}
+          title={post.title}
+        />
       </div>
 
       {/* Trust signals — Newswire-led, compact under hero */}

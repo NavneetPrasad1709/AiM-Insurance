@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { ScrollReveal, ScrollZoom } from "@/components/ui/scroll-effects";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
 import {
@@ -45,6 +45,7 @@ export function CtaBanner() {
               alt="Happy AiM family standing beside their car — same coverage, lower premium"
               width={1024}
               height={768}
+              sizes="(min-width: 640px) 520px, 92vw"
               className="w-full h-auto"
             />
           </div>

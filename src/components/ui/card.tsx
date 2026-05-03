@@ -1,7 +1,7 @@
 "use client";
 
 import { forwardRef, type ElementType, type ReactNode } from "react";
-import { motion, type HTMLMotionProps } from "framer-motion";
+import { m as motion, type HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export type CardVariant = "default" | "elevated" | "glass" | "premium";

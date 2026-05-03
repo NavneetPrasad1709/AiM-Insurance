@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { CountUp } from "@/components/ui/count-up";
 import { ICONS } from "@/lib/icons";
 import type { IconName } from "@/lib/icons";

@@ -66,15 +66,13 @@ export function HowItWorks() {
                 lineHeight: 1.05,
               }}
             >
-              Six steps from{" "}
-              <span className="text-[#ffc83d]">overpaying</span> to{" "}
-              <span className="text-[#ffc83d]">forever-saving.</span>
+              Four steps.{" "}
+              <span className="text-[#ffc83d]">One lower premium.</span>
             </h2>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.18}>
             <p className="mt-5 text-base sm:text-lg text-white leading-[1.55]">
-              Hand over your policy. Watch us work. Switch when you’re happy.
-              Stay on autopilot.
+              Send your policy. We negotiate. You save.
             </p>
           </ScrollReveal>
         </div>
@@ -87,16 +85,17 @@ export function HowItWorks() {
               alt="Six-step journey from sharing your policy to staying on autopilot with AiM"
               width={1600}
               height={900}
+              sizes="(min-width: 1024px) 896px, 92vw"
               className="w-full h-auto"
             />
             <FloatingOrbs variant="journey" />
           </div>
         </ScrollReveal>
 
-        {/* Stacked cards */}
+        {/* Stacked cards — first 4 steps; later detail lives in /about + quote flow */}
         <div className="mt-16 lg:mt-20 max-w-4xl mx-auto">
           <ScrollStack topOffset="14vh" stepOffset={20} scaleStep={0.018} gap="14vh">
-            {PROCESS_STEPS.map((step) => {
+            {PROCESS_STEPS.slice(0, 4).map((step) => {
               const Icon = getIcon(step.icon) ?? ICONS.Shield;
               return (
                 <article
@@ -121,7 +120,7 @@ export function HowItWorks() {
                         className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-[#232328] bg-[#0a0a0a] px-3 py-1 text-[10px] uppercase tracking-[0.18em] font-bold text-white tabular-nums"
                         style={{ fontFamily: "var(--font-inter)" }}
                       >
-                        Step {step.step} / {PROCESS_STEPS.length}
+                        Step {step.step} / 4
                       </span>
                     </div>
 

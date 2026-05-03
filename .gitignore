@@ -47,6 +47,10 @@ yarn-error.log*
 /tmp
 scripts/illustration-log.jsonl
 
+# WordPress migration artifacts (dev-only)
+scripts/migration*.log
+scripts/migration-errors.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
