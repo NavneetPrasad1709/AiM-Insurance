@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 
 export interface CountUpProps {
-  /** Display string like "$1,247", "$4.8M+", "800+", "5.0". The numeric portion is animated. */
+  /** Display string like "$1,247", "$5.4M+", "1000+", "5.0". The numeric portion is animated. */
   value: string;
   /** Total animation time in ms */
   durationMs?: number;

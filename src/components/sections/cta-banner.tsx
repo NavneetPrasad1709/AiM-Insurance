@@ -83,7 +83,7 @@ export function CtaBanner() {
           <p className="mt-6 text-base sm:text-lg text-white leading-[1.55]">
             Join{" "}
             <span className="font-semibold text-white tabular-nums">
-              800+ clients
+              1000+ clients
             </span>{" "}
             across US, Canada, and UAE who trust AiM to negotiate better rates
             — same coverage, lower cost.

@@ -183,7 +183,7 @@ export function Hero() {
                   ))}
                 </span>
                 <span className="text-sm font-semibold text-[#e8e8ec] tabular-nums">
-                  800+
+                  1000+
                 </span>
                 <span className="text-sm text-white">
                   clients · USA · Canada · UAE

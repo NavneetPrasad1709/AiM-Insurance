@@ -108,13 +108,13 @@ export function CarrierSavings() {
             {/* Summary gauge card */}
             <ScrollReveal direction="up" delay={0.2}>
               <div className="mt-4 flex items-center gap-5 rounded-[12px] border border-[#232328] bg-[#111113] p-5 max-w-md">
-                <PremiumGauge size={150} percent={39} />
+                <PremiumGauge size={150} percent={31} />
                 <div className="flex flex-col">
                   <span
                     className="text-[10px] uppercase tracking-[0.18em] font-bold text-white"
                     style={{ fontFamily: "var(--font-inter)" }}
                   >
-                    Average across 800+ clients
+                    Average across 1000+ clients
                   </span>
                   <span
                     className="mt-1.5 text-2xl font-extrabold text-white tabular-nums leading-tight"
@@ -174,7 +174,7 @@ export function CarrierSavings() {
                         />
                       </span>
                       <span
-                        className="font-semibold text-white text-base sm:text-lg truncate"
+                        className="min-w-0 font-semibold text-white text-base sm:text-lg leading-tight break-words"
                         style={{ fontFamily: "var(--font-inter)" }}
                       >
                         {s.carrier}

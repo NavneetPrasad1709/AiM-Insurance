@@ -102,7 +102,7 @@ function Hero() {
           AiM · Car insurance
         </span>
         <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/55 sm:block">
-          USA &amp; Canada · 600+ clients
+          USA &amp; Canada · 1000+ clients
         </span>
       </div>
 
@@ -165,12 +165,12 @@ function Hero() {
               </span>
             </Link>
             <a
-              href="tel:+18005551234"
+              href="tel:+16029102500"
               className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
             >
               <ICONS.Phone className="size-4" aria-hidden />
               <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                Or call — 1-800-555-1234
+                Or call — 602-910-2500
               </span>
             </a>
           </motion.div>
@@ -199,10 +199,10 @@ function Hero() {
 function TrustStrip() {
   const items: { label: string; icon: keyof typeof ICONS }[] = [
     { label: "USA & Canada", icon: "Car" },
-    { label: "600+ clients", icon: "Award" },
+    { label: "1000+ clients", icon: "Award" },
     { label: "50+ carriers", icon: "BarChart3" },
     { label: "Same coverage", icon: "Shield" },
-    { label: "6-month re-shop", icon: "Clock" },
+    { label: "3-month re-shop", icon: "Clock" },
   ];
 
   return (
@@ -335,9 +335,9 @@ function Coverage() {
     },
     {
       n: "04",
-      title: "6-month rate re-shop",
+      title: "3-month rate re-shop",
       body:
-        "Carriers raise rates quietly at renewal. We benchmark your policy every six months and flag better deals.",
+        "Carriers raise rates quietly at renewal. We benchmark your policy every three months and flag better deals.",
       image: ASSET.c4,
       alt: ALT.c4,
     },
@@ -385,7 +385,7 @@ function Coverage() {
           >
             We strip carrier markup, not coverage. Average client pockets
             $1,200 a year for the exact same protection — and we keep
-            re-shopping every six months.
+            re-shopping every three months.
           </motion.p>
         </div>
 
@@ -546,21 +546,21 @@ function WhyMatters() {
 function Pricing() {
   const tiers = [
     {
-      tag: "No upfront cost",
+      tag: "No savings, no fee",
       figure: "$0",
       figureSuffix: "",
-      title: "You pay nothing",
+      title: "If we can't save you money",
       body:
-        "If we don't reduce your premium by more than $500 on your annual policy, you owe us nothing.",
+        "If we don't reduce your premium, you owe us nothing — no risk, no commitment.",
       filled: false,
     },
     {
-      tag: "Fixed percentage",
-      figure: "25",
-      figureSuffix: "%",
-      title: "Of negotiated savings",
+      tag: "Success-based",
+      figure: "Small",
+      figureSuffix: "",
+      title: "A share of your savings",
       body:
-        "Of all negotiated savings above $500 on your annual insurance premium — first year only.",
+        "Only when we save you money, we keep a small portion of the negotiated savings on your annual premium — first year only. You always come out ahead.",
       filled: true,
     },
   ];
@@ -952,10 +952,7 @@ function Process() {
                   letterSpacing: "-0.02em",
                 }}
               >
-                No upfront cost.{" "}
-                <span className="text-cta">
-                  No fee unless we save you over $500.
-                </span>
+                No upfront cost.
               </h3>
             </div>
             <div className="flex sm:col-span-5 sm:justify-end">
@@ -1018,7 +1015,7 @@ function SocialProof() {
             color: CREAM_INK,
           }}
         >
-          <span style={{ color: CREAM_GOLD }}>600+</span> drivers served
+          <span style={{ color: CREAM_GOLD }}>1000+</span> clients served
           &mdash; and counting.
         </motion.h2>
 
@@ -1058,7 +1055,7 @@ function SocialProof() {
             </span>
           </Link>
           <a
-            href="tel:+18005551234"
+            href="tel:+16029102500"
             className="inline-flex items-center gap-2 text-sm transition-colors"
             style={{ color: CREAM_GOLD }}
           >
@@ -1067,7 +1064,7 @@ function SocialProof() {
               className="border-b pb-0.5"
               style={{ borderColor: CREAM_GOLD }}
             >
-              Call us — 1-800-555-1234
+              Call us — 602-910-2500
             </span>
           </a>
         </motion.div>
@@ -1080,11 +1077,11 @@ function Faq() {
   const items = [
     {
       q: "How much can I actually save on car insurance?",
-      a: "Our 600+ auto clients average $1,200 in yearly savings, with about a 30% drop on the typical policy. Multi-car households tend to land higher — $1,800 to $2,400 a year is common when we consolidate everything onto a single optimised policy.",
+      a: "Our 1000+ auto clients average $1,200 in yearly savings, with about a 30% drop on the typical policy. Multi-car households tend to land higher — $1,800 to $2,400 a year is common when we consolidate everything onto a single optimised policy.",
     },
     {
       q: "Do you handle the entire switching process?",
-      a: "Yes. Once you approve the new policy, AiM files the application, coordinates effective dates so you're never uninsured, cancels your old policy, and chases the prorated refund from your prior carrier. You sign two documents — that's it.",
+      a: "We help you get the policy switched. Once you approve the new policy, our team walks you through the switch, coordinates effective dates so you're never uninsured, and guides the cancellation of the old policy. After that, every 3 months we re-shop your rate against the live market — if we find a better deal at the same coverage, we help you switch again. You stay in control; we do the heavy lifting.",
     },
     {
       q: "What information do you need to start the audit?",
@@ -1092,7 +1089,7 @@ function Faq() {
     },
     {
       q: "How often do you re-shop my rate after I switch?",
-      a: "Every 6 months we benchmark your policy against the live market. If we spot a better rate at the same coverage level, we email you a 1-page comparison. You decide whether to move — there's no auto-switching without your approval.",
+      a: "Every 3 months we benchmark your policy against the live market. If we spot a better rate at the same coverage level, we email you a 1-page comparison. You decide whether to move — there's no auto-switching without your approval.",
     },
   ];
   return (
@@ -1265,12 +1262,12 @@ function Cta() {
                 </span>
               </Link>
               <a
-                href="tel:+18005551234"
+                href="tel:+16029102500"
                 className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
               >
                 <ICONS.Phone className="size-4" aria-hidden />
                 <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                  Or call — 1-800-555-1234
+                  Or call — 602-910-2500
                 </span>
               </a>
             </div>

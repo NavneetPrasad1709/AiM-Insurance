@@ -29,67 +29,6 @@ const CURRENT_YEAR = new Date().getFullYear();
 export function Footer() {
   return (
     <footer className="relative bg-[#0a0a0a] text-white">
-      {/* ─────────── Top CTA strip ─────────── */}
-      <section
-        aria-label="Free insurance review"
-        className="relative border-y border-white/10"
-        style={{
-          background:
-            "radial-gradient(120% 80% at 80% 0%, rgba(255,200,61,0.10), transparent 60%), #0d0d10",
-        }}
-      >
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-14 sm:px-10 md:flex-row md:items-center md:justify-between md:py-16 lg:px-12">
-          <div className="max-w-2xl">
-            <p className="mb-3 inline-flex items-center gap-3 font-heading text-[10px] font-semibold uppercase tracking-[0.36em] text-cta">
-              <span aria-hidden className="h-px w-10 bg-cta" />
-              Free, no-obligation review
-            </p>
-            <h2
-              className="font-heading font-extrabold uppercase text-white"
-              style={{
-                fontSize: "clamp(1.6rem, 3.6vw, 2.6rem)",
-                lineHeight: 1.05,
-                letterSpacing: "-0.025em",
-              }}
-            >
-              Stop overpaying.{" "}
-              <span className="text-cta">Start saving today.</span>
-            </h2>
-            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/70">
-              Send us your current declarations page. We&rsquo;ll show you
-              exactly where you&rsquo;re overpaying — no fee unless we save
-              you over $500.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-5">
-            <Link
-              href="/contact?intent=quote"
-              className="group inline-flex items-center gap-3 rounded-full bg-cta px-8 py-4 font-heading text-[12px] font-bold uppercase tracking-[0.16em] text-background transition-transform duration-200 hover:-translate-y-0.5 hover:bg-cta-hover"
-              style={{
-                boxShadow: "0 24px 50px -20px rgba(255,200,61,0.55)",
-              }}
-            >
-              Get my free review
-              <span
-                aria-hidden
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              >
-                →
-              </span>
-            </Link>
-            <a
-              href={`tel:${SITE_CONFIG.phone.replace(/[^+\d]/g, "")}`}
-              className="inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
-            >
-              <ICONS.Phone className="size-4" aria-hidden />
-              <span className="border-b border-white/30 pb-0.5">
-                {SITE_CONFIG.phone}
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* ─────────── Brand + Newsletter row ─────────── */}
       <div className="mx-auto max-w-7xl px-6 pb-10 pt-16 sm:px-10 sm:pt-20 lg:px-12">
         <div className="grid gap-12 lg:grid-cols-12">
@@ -139,7 +78,7 @@ export function Footer() {
                   aria-hidden
                   className="font-heading text-base font-extrabold tabular-nums text-cta"
                 >
-                  600+
+                  1000+
                 </span>
                 <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
                   Clients served

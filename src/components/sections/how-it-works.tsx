@@ -153,7 +153,7 @@ export function HowItWorks() {
 
         {/* Closer CTA */}
         <ScrollReveal direction="up" delay={0.1} className="mt-16 lg:mt-20">
-          <div className="flex flex-col items-start gap-3">
+          <div className="flex flex-col items-center gap-3 text-center">
             <button
               type="button"
               onClick={() => openModal()}

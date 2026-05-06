@@ -167,12 +167,12 @@ function Hero() {
               </span>
             </Link>
             <a
-              href="tel:+18005551234"
+              href="tel:+16029102500"
               className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
             >
               <ICONS.Phone className="size-4" aria-hidden />
               <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                Or call — 1-800-555-1234
+                Or call — 602-910-2500
               </span>
             </a>
           </motion.div>
@@ -994,7 +994,7 @@ function SocialProof() {
             </span>
           </Link>
           <a
-            href="tel:+18005551234"
+            href="tel:+16029102500"
             className="inline-flex items-center gap-2 text-sm transition-colors"
             style={{ color: CREAM_GOLD }}
           >
@@ -1003,7 +1003,7 @@ function SocialProof() {
               className="border-b pb-0.5"
               style={{ borderColor: CREAM_GOLD }}
             >
-              Call us — 1-800-555-1234
+              Call us — 602-910-2500
             </span>
           </a>
         </motion.div>
@@ -1201,12 +1201,12 @@ function Cta() {
                 </span>
               </Link>
               <a
-                href="tel:+18005551234"
+                href="tel:+16029102500"
                 className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
               >
                 <ICONS.Phone className="size-4" aria-hidden />
                 <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                  Or call — 1-800-555-1234
+                  Or call — 602-910-2500
                 </span>
               </a>
             </div>

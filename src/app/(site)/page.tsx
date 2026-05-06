@@ -7,6 +7,7 @@ import { HowItWorks } from "@/components/sections/how-it-works";
 import { Testimonials } from "@/components/sections/testimonials";
 import { FaqSection } from "@/components/sections/faq-section";
 import { HOMEPAGE_FAQS } from "@/lib/homepage-faqs";
+import { PricingCalculator } from "@/components/sections/pricing-calculator";
 import { CtaBanner } from "@/components/sections/cta-banner";
 import { SITE_CONFIG } from "@/lib/constants";
 import {
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     absolute: "AiM Insurance | Never Overpay Your Insurance Premiums",
   },
   description:
-    "AiM Insurance connects you with expert negotiators who fight for the best deal to lower your monthly insurance premiums. Serving 800+ clients across USA, Canada & UAE.",
+    "AiM Insurance connects you with expert negotiators who fight for the best deal to lower your monthly insurance premiums. Serving 1000+ clients across USA, Canada & UAE.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "AiM Insurance | Never Overpay Your Insurance Premiums",
@@ -60,6 +61,7 @@ export default function HomePage() {
       <ServicesGrid />
       <CarrierSavings />
       <HowItWorks />
+      <PricingCalculator />
       <Testimonials />
       <FaqSection />
       <CtaBanner />

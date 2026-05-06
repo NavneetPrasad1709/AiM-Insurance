@@ -187,7 +187,7 @@ export default async function BlogPage() {
 
       <WhyAimCream
         heading="Reading is great. Saving is better."
-        intro="Same content carriers don't want you to know — but the real magic is letting AiM run the negotiation for you. 800+ clients. Average savings: $1,200 a year."
+        intro="Same content carriers don't want you to know — but the real magic is letting AiM run the negotiation for you. 1000+ clients. Average savings: $1,200 a year."
       />
     </>
   );

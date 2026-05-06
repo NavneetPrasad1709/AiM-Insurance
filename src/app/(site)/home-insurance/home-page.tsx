@@ -173,12 +173,12 @@ function Hero() {
               </span>
             </Link>
             <a
-              href="tel:+18005551234"
+              href="tel:+16029102500"
               className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
             >
               <ICONS.Phone className="size-4" aria-hidden />
               <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                Or call — 1-800-555-1234
+                Or call — 602-910-2500
               </span>
             </a>
           </motion.div>
@@ -564,21 +564,21 @@ function WhyMatters() {
 function Pricing() {
   const tiers = [
     {
-      tag: "No upfront cost",
+      tag: "No savings, no fee",
       figure: "$0",
       figureSuffix: "",
-      title: "You pay nothing",
+      title: "If we can't save you money",
       body:
-        "If we don't reduce your premium by more than $500 on your annual policy, you owe us nothing.",
+        "If we don't reduce your premium, you owe us nothing — no risk, no commitment.",
       filled: false,
     },
     {
-      tag: "Fixed percentage",
-      figure: "25",
-      figureSuffix: "%",
-      title: "Of negotiated savings",
+      tag: "Success-based",
+      figure: "Small",
+      figureSuffix: "",
+      title: "A share of your savings",
       body:
-        "Of all negotiated savings above $500 on your annual home insurance premium — first year only.",
+        "Only when we save you money, we keep a small portion of the negotiated savings on your annual home insurance premium — first year only. You always come out ahead.",
       filled: true,
     },
   ];
@@ -970,10 +970,7 @@ function Process() {
                   letterSpacing: "-0.02em",
                 }}
               >
-                No upfront cost.{" "}
-                <span className="text-cta">
-                  No fee unless we save you over $500.
-                </span>
+                No upfront cost.
               </h3>
             </div>
             <div className="flex sm:col-span-5 sm:justify-end">
@@ -1084,7 +1081,7 @@ function SocialProof() {
             </span>
           </Link>
           <a
-            href="tel:+18005551234"
+            href="tel:+16029102500"
             className="inline-flex items-center gap-2 text-sm transition-colors"
             style={{ color: CREAM_GOLD }}
           >
@@ -1093,7 +1090,7 @@ function SocialProof() {
               className="border-b pb-0.5"
               style={{ borderColor: CREAM_GOLD }}
             >
-              Call us — 1-800-555-1234
+              Call us — 602-910-2500
             </span>
           </a>
         </motion.div>
@@ -1277,8 +1274,7 @@ function Cta() {
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-text-secondary sm:text-[15.5px]">
               Send us your declarations page. We&rsquo;ll show you exactly
-              where you&rsquo;re overpaying — no fee unless we save you over
-              $500.
+              where you&rsquo;re overpaying — no upfront cost.
             </p>
             <div className="mt-9 flex flex-col gap-5 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
               <Link
@@ -1295,12 +1291,12 @@ function Cta() {
                 </span>
               </Link>
               <a
-                href="tel:+18005551234"
+                href="tel:+16029102500"
                 className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
               >
                 <ICONS.Phone className="size-4" aria-hidden />
                 <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                  Or call — 1-800-555-1234
+                  Or call — 602-910-2500
                 </span>
               </a>
             </div>

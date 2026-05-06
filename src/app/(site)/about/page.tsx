@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About AiM Insurance — Expert Insurance Negotiators",
     description:
-      "We don't sell insurance. We negotiate what's best for you. 800+ clients across the US, Canada and UAE — averaging $1,200+ in annual savings.",
+      "We don't sell insurance. We negotiate what's best for you. 1000+ clients across the US, Canada and UAE — averaging $1,200+ in annual savings.",
     url: `${SITE_CONFIG.url}/about`,
     type: "website",
   },

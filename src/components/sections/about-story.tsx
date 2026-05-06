@@ -25,9 +25,9 @@ const MILESTONES = [
   },
   {
     year: "2025",
-    title: "$4.8M+ negotiated for clients",
+    title: "$5.4M+ negotiated for clients",
     description:
-      "800+ clients across the US, Canada, and UAE — averaging $1,200+ in annual savings each.",
+      "1000+ clients across the US, Canada, and UAE — averaging $1,200+ in annual savings each.",
   },
 ];
 

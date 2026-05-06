@@ -72,7 +72,7 @@ export function TrustStrip({ variant = "full", className }: TrustStripProps) {
         <span aria-hidden className="hidden h-4 w-px bg-border md:inline" />
         <span className="inline-flex items-center gap-2 text-sm font-heading font-semibold text-white tabular-nums">
           <ICONS.HeartHandshake className="size-4 text-cta" aria-hidden />
-          800+ clients
+          1000+ clients
         </span>
       </motion.div>
     );
@@ -118,18 +118,18 @@ export function TrustStrip({ variant = "full", className }: TrustStripProps) {
       <ul className="mx-auto grid max-w-4xl grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
         <SignalCard
           icon={<ICONS.HeartHandshake className="size-5 text-cta" aria-hidden />}
-          big="800+"
+          big="1000+"
           label="Clients served"
         />
         <SignalCard
           icon={<ICONS.TrendingUp className="size-5 text-cta" aria-hidden />}
-          big="$4.8M+"
+          big="$5.4M+"
           label="Saved for clients"
         />
         <SignalCard
-          icon={STAR_ROW}
-          big="5.0"
-          label="Google rating"
+          icon={<ICONS.Sparkles className="size-5 text-cta" aria-hidden />}
+          big="$1,247+"
+          label="Avg. annual savings"
         />
         <SignalCard
           icon={

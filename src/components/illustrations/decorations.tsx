@@ -248,7 +248,7 @@ export function CoinStack({
 export function PremiumGauge({
   className,
   size = 140,
-  percent = 39,
+  percent = 31,
 }: {
   className?: string;
   size?: number;

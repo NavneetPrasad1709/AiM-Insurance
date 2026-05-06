@@ -132,7 +132,7 @@ export function Testimonials() {
               <span className="font-semibold text-[#ffc83d] tabular-nums">
                 $1,247/yr
               </span>{" "}
-              across 800+ clients in USA, Canada, and UAE.
+              across 1000+ clients in USA, Canada, and UAE.
             </p>
           </ScrollReveal>
         </div>

@@ -36,7 +36,7 @@ export interface MockPost {
 const TEAM_AUTHOR: MockAuthor = {
   name: "AiM Team",
   role: "Insurance Negotiators",
-  bio: "Independent negotiators who fight for better insurance rates on behalf of 800+ clients across the US, Canada, and UAE.",
+  bio: "Independent negotiators who fight for better insurance rates on behalf of 1000+ clients across the US, Canada, and UAE.",
 };
 
 const ANALYST_AUTHOR: MockAuthor = {

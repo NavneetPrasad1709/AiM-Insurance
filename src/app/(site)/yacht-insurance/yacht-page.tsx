@@ -104,7 +104,7 @@ function Hero() {
           AiM · Yacht insurance
         </span>
         <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/55 sm:block">
-          USA &amp; Canada · 600+ clients
+          USA &amp; Canada · 1000+ clients
         </span>
       </div>
 
@@ -169,12 +169,12 @@ function Hero() {
               </span>
             </Link>
             <a
-              href="tel:+18005551234"
+              href="tel:+16029102500"
               className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
             >
               <ICONS.Phone className="size-4" aria-hidden />
               <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                Or call — 1-800-555-1234
+                Or call — 602-910-2500
               </span>
             </a>
           </motion.div>
@@ -206,7 +206,7 @@ function Hero() {
 function TrustStrip() {
   const items: { label: string; icon: keyof typeof ICONS }[] = [
     { label: "USA & Canada", icon: "Anchor" },
-    { label: "600+ clients", icon: "Award" },
+    { label: "1000+ clients", icon: "Award" },
     { label: "Ongoing monitoring", icon: "Eye" },
     { label: "Same coverage", icon: "Shield" },
     { label: "Annual reviews", icon: "Clock" },
@@ -273,7 +273,7 @@ function Stats() {
   const STATS = [
     { value: "60%", label: "Yacht owners overpay" },
     { value: "15–40%", label: "Average annual saving" },
-    { value: "600+", label: "Clients served" },
+    { value: "1000+", label: "Clients served" },
   ];
   return (
     <section
@@ -560,21 +560,21 @@ function WhyMatters() {
 function Pricing() {
   const tiers = [
     {
-      tag: "No upfront cost",
+      tag: "No savings, no fee",
       figure: "$0",
       figureSuffix: "",
-      title: "You pay nothing",
+      title: "If we can't save you money",
       body:
-        "If we don't reduce your premium by more than $500 on your annual policy, you owe us nothing.",
+        "If we don't reduce your premium, you owe us nothing — no risk, no commitment.",
       filled: false,
     },
     {
-      tag: "Fixed percentage",
-      figure: "25",
-      figureSuffix: "%",
-      title: "Of negotiated savings",
+      tag: "Success-based",
+      figure: "Small",
+      figureSuffix: "",
+      title: "A share of your savings",
       body:
-        "Of all negotiated savings above $500 on your annual insurance premium — first year only.",
+        "Only when we save you money, we keep a small portion of the negotiated savings on your annual premium — first year only. You always come out ahead.",
       filled: true,
     },
   ];
@@ -989,10 +989,7 @@ function Process() {
                   letterSpacing: "-0.02em",
                 }}
               >
-                No upfront cost.{" "}
-                <span className="text-cta">
-                  No fee unless we save you over $500.
-                </span>
+                No upfront cost.
               </h3>
             </div>
             <div className="flex sm:col-span-5 sm:justify-end">
@@ -1059,7 +1056,7 @@ function SocialProof() {
             color: CREAM_INK,
           }}
         >
-          <span style={{ color: CREAM_GOLD }}>600+</span> clients served
+          <span style={{ color: CREAM_GOLD }}>1000+</span> clients served
           &mdash; and counting.
         </motion.h2>
 
@@ -1099,7 +1096,7 @@ function SocialProof() {
             </span>
           </Link>
           <a
-            href="tel:+18005551234"
+            href="tel:+16029102500"
             className="inline-flex items-center gap-2 text-sm transition-colors"
             style={{ color: CREAM_GOLD }}
           >
@@ -1108,7 +1105,7 @@ function SocialProof() {
               className="border-b pb-0.5"
               style={{ borderColor: CREAM_GOLD }}
             >
-              Call us — 1-800-555-1234
+              Call us — 602-910-2500
             </span>
           </a>
         </motion.div>
@@ -1131,7 +1128,7 @@ function Faq() {
     },
     {
       q: "What does it cost?",
-      a: "Nothing upfront. If we can't find at least $500 in annual savings, you owe nothing. If we save you more, our fee is 25% of the savings — first year only.",
+      a: "Nothing upfront. If we can't reduce your premium, you owe nothing. When we do save you money, we keep a small portion of the negotiated savings — first year only. You always pay less than before.",
     },
     {
       q: "How often do you re-check my premium?",
@@ -1314,12 +1311,12 @@ function Cta() {
                 </span>
               </Link>
               <a
-                href="tel:+18005551234"
+                href="tel:+16029102500"
                 className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
               >
                 <ICONS.Phone className="size-4" aria-hidden />
                 <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                  Or call — 1-800-555-1234
+                  Or call — 602-910-2500
                 </span>
               </a>
             </div>

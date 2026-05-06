@@ -551,7 +551,7 @@ function PitchPanel({ reduce, hidden }: { reduce: boolean; hidden: boolean }) {
         >
           {[
             { icon: Shield, label: "BBB Accredited" },
-            { icon: Sparkles, label: "800+ clients" },
+            { icon: Sparkles, label: "1000+ clients" },
           ].map((p) => {
             const Icon = p.icon;
             return (

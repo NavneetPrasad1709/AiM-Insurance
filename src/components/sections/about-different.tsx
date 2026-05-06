@@ -31,7 +31,7 @@ const ROWS: ComparisonRow[] = [
   },
   {
     traditional: "Pays out only what the policy forces",
-    aim: "Advocates for you at claim time",
+    aim: "Advocates you at claim time",
   },
 ];
 

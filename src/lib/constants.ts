@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
     "AiM Insurance connects you with expert negotiators who fight for the best deal on car, home, boat, yacht & jet insurance — same coverage, lower premiums.",
   url: "https://aimcarinsurance.com",
   email: "info@aimcarinsurance.com",
-  phone: "+1-XXX-XXX-XXXX",
+  phone: "+1-602-910-2500",
 } as const;
 
 export const NAV_LINKS: NavLink[] = [
@@ -139,8 +139,8 @@ export const SERVICES: ServiceType[] = [
 ];
 
 export const STATS: Stat[] = [
-  { value: "800+", label: "Clients Served" },
-  { value: "$4.8M+", label: "Negotiated Savings" },
+  { value: "1000+", label: "Clients Served" },
+  { value: "$5.4M+", label: "Negotiated Savings" },
   { value: "$1200+", label: "Avg. Annual Savings" },
   { value: "50+", label: "Providers Compared" },
 ];
