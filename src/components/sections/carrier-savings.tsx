@@ -133,83 +133,125 @@ export function CarrierSavings() {
             </ScrollReveal>
 
             {/* Savings rows */}
-            <StaggerGroup className="mt-2 flex flex-col gap-2.5">
+            <StaggerGroup className="mt-2 flex flex-col gap-3">
               {/* Header — desktop */}
               <div
-                className="hidden sm:grid grid-cols-12 gap-3 px-5 text-[10px] uppercase tracking-[0.18em] font-semibold text-white"
+                className="hidden sm:grid grid-cols-12 gap-4 px-6 text-[10px] uppercase tracking-[0.22em] font-semibold text-white/55"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
-                <div className="col-span-4">Former Carrier</div>
-                <div className="col-span-3 text-right">Before</div>
-                <div className="col-span-3 text-right">After</div>
-                <div className="col-span-2 text-right">Saved</div>
+                <div className="col-span-5">Former Carrier</div>
+                <div className="col-span-2 text-right">Before</div>
+                <div className="col-span-2 text-right">After</div>
+                <div className="col-span-3 text-right">You Saved</div>
               </div>
 
-              {SAVINGS.map((s, i) => (
-                <StaggerItem key={s.carrier}>
-                  <motion.div
-                    whileHover={{ x: 2 }}
-                    transition={{ duration: 0.15, ease: [0.4, 0, 0.2, 1] }}
-                    className="group relative grid grid-cols-2 sm:grid-cols-12 gap-3 items-center rounded-[8px] border border-[#232328] bg-[#111113] px-5 py-5 sm:py-4 hover:border-[#9a9aa3]/40 transition-colors duration-150 overflow-hidden"
-                  >
-                    <div
-                      aria-hidden
-                      className="absolute left-0 top-0 h-full w-1 bg-[#ffc83d] scale-y-0 group-hover:scale-y-100 origin-bottom transition-transform duration-300"
-                    />
+              {SAVINGS.map((s, i) => {
+                const pct = Math.round((s.saved / s.before) * 100);
+                return (
+                  <StaggerItem key={s.carrier}>
+                    <motion.div
+                      whileHover={{ y: -2 }}
+                      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                      className="group relative grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-4 sm:items-center rounded-[12px] border border-[#232328] bg-gradient-to-br from-[#13131a] via-[#111113] to-[#0d0d10] px-5 py-4 sm:px-6 sm:py-5 hover:border-[#ffc83d]/40 hover:shadow-[0_18px_50px_-30px_rgba(255,200,61,0.45)] transition-[border-color,box-shadow,transform] duration-300 overflow-hidden"
+                    >
+                      {/* Left accent strip on hover */}
+                      <div
+                        aria-hidden
+                        className="absolute left-0 top-0 h-full w-[3px] bg-gradient-to-b from-[#ffc83d] via-[#ffc83d]/60 to-transparent scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-400"
+                      />
 
-                    <div className="col-span-2 sm:col-span-4 flex items-center gap-3">
-                      <span
-                        className="inline-flex size-7 shrink-0 items-center justify-center rounded-md bg-[#1a1a1f] border border-[#232328] text-[11px] font-bold text-white tabular-nums"
-                        style={{ fontFamily: "var(--font-inter)" }}
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="inline-flex h-16 w-24 sm:h-20 sm:w-28 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-2 ring-1 ring-[#232328]">
-                        <Image
-                          src={s.logo}
-                          alt={`${s.carrier} logo`}
-                          width={128}
-                          height={80}
-                          className="h-full w-full object-contain"
-                        />
-                      </span>
-                      <span
-                        className="min-w-0 font-semibold text-white text-base sm:text-lg leading-tight break-words"
-                        style={{ fontFamily: "var(--font-inter)" }}
-                      >
-                        {s.carrier}
-                      </span>
-                    </div>
+                      {/* Carrier identity */}
+                      <div className="sm:col-span-5 flex items-center gap-4 min-w-0">
+                        <span
+                          className="inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-[#0a0a0a] ring-1 ring-[#232328] text-[10px] font-bold tabular-nums text-[#ffc83d]"
+                          style={{ fontFamily: "var(--font-inter)" }}
+                          aria-hidden
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="inline-flex size-12 sm:size-14 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-2 ring-1 ring-[#232328] shadow-[inset_0_-1px_0_rgba(0,0,0,0.05)]">
+                          <Image
+                            src={s.logo}
+                            alt={`${s.carrier} logo`}
+                            width={96}
+                            height={96}
+                            className="h-full w-full object-contain"
+                          />
+                        </span>
+                        <div className="min-w-0 flex flex-col gap-0.5">
+                          <span
+                            className="font-bold text-white text-base sm:text-lg leading-tight tracking-[-0.01em] truncate"
+                            style={{ fontFamily: "var(--font-inter)" }}
+                            title={s.carrier}
+                          >
+                            {s.carrier}
+                          </span>
+                          <span className="text-[11px] sm:text-xs text-white/50 uppercase tracking-[0.16em] font-semibold">
+                            Switched · {pct}% off
+                          </span>
+                        </div>
+                      </div>
 
-                    <div className="sm:col-span-3 flex flex-col sm:items-end">
-                      <span className="sm:hidden text-[10px] uppercase tracking-[0.18em] font-bold text-white">
-                        Before
-                      </span>
-                      <span className="text-white line-through font-semibold tabular-nums">
-                        {fmt(s.before)}
-                      </span>
-                    </div>
+                      {/* Mobile: before/after/saved row */}
+                      <div className="grid grid-cols-3 gap-3 sm:hidden border-t border-[#232328] pt-3">
+                        <div className="flex flex-col gap-1">
+                          <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-white/45">
+                            Before
+                          </span>
+                          <span className="text-white/60 line-through font-semibold tabular-nums text-sm">
+                            {fmt(s.before)}
+                          </span>
+                        </div>
+                        <div className="flex flex-col gap-1">
+                          <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-white/45">
+                            After
+                          </span>
+                          <span className="text-white font-bold tabular-nums text-sm">
+                            {fmt(s.after)}
+                          </span>
+                        </div>
+                        <div className="flex flex-col gap-1 items-end">
+                          <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-[#4fe0b0]/80">
+                            Saved
+                          </span>
+                          <span
+                            className="inline-flex items-center rounded-full bg-[#0a1612] border border-[#4fe0b0]/40 px-2.5 py-0.5 text-[#4fe0b0] font-bold text-xs tabular-nums"
+                            style={{ fontFamily: "var(--font-inter)" }}
+                          >
+                            −{fmt(s.saved)}
+                          </span>
+                        </div>
+                      </div>
 
-                    <div className="sm:col-span-3 flex flex-col sm:items-end">
-                      <span className="sm:hidden text-[10px] uppercase tracking-[0.18em] font-bold text-white">
-                        After
-                      </span>
-                      <span className="text-white font-bold tabular-nums">
-                        {fmt(s.after)}
-                      </span>
-                    </div>
+                      {/* Desktop: before */}
+                      <div className="hidden sm:flex sm:col-span-2 justify-end">
+                        <span className="text-white/55 line-through font-semibold tabular-nums text-[15px]">
+                          {fmt(s.before)}
+                        </span>
+                      </div>
 
-                    <div className="col-span-2 sm:col-span-2 sm:text-right">
-                      <span
-                        className="inline-flex items-center gap-1 rounded-full bg-[#0a1612] border border-[#4fe0b0]/30 px-3 py-1 text-[#4fe0b0] font-bold text-sm tabular-nums"
-                        style={{ fontFamily: "var(--font-inter)" }}
-                      >
-                        −{fmt(s.saved)}
-                      </span>
-                    </div>
-                  </motion.div>
-                </StaggerItem>
-              ))}
+                      {/* Desktop: after */}
+                      <div className="hidden sm:flex sm:col-span-2 justify-end items-center gap-2">
+                        <ICONS.ArrowRight className="size-3.5 text-[#ffc83d]/70 shrink-0" aria-hidden />
+                        <span className="text-white font-bold tabular-nums text-[15px]">
+                          {fmt(s.after)}
+                        </span>
+                      </div>
+
+                      {/* Desktop: saved */}
+                      <div className="hidden sm:flex sm:col-span-3 justify-end">
+                        <span
+                          className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#0a1612] to-[#0d1a14] border border-[#4fe0b0]/40 px-3.5 py-1.5 text-[#4fe0b0] font-extrabold text-sm tabular-nums shadow-[0_6px_20px_-10px_rgba(79,224,176,0.5)]"
+                          style={{ fontFamily: "var(--font-inter)" }}
+                        >
+                          <ICONS.TrendingUp className="size-3.5" aria-hidden />
+                          −{fmt(s.saved)}
+                        </span>
+                      </div>
+                    </motion.div>
+                  </StaggerItem>
+                );
+              })}
             </StaggerGroup>
 
             <ScrollReveal direction="up" delay={0.2}>
