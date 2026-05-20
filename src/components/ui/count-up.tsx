@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
 
 export interface CountUpProps {
   /** Display string like "$1,247", "$5.4M+", "1000+", "5.0". The numeric portion is animated. */
@@ -53,7 +52,6 @@ export function CountUp({
   const parsed = parse(value);
   const finalDecimals = decimals ?? parsed.decimals;
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
   // Render the FINAL value as the initial state — no "0" flash on SSR or
   // before the element scrolls into view. When inView fires, we snap to 0
   // and animate up.
@@ -62,20 +60,46 @@ export function CountUp({
   const [display, setDisplay] = useState<string>(finalDisplay);
 
   useEffect(() => {
-    if (!inView) return;
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") return;
+
     let frame = 0;
-    const start = performance.now();
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / durationMs);
-      // ease-out cubic
-      const eased = 1 - Math.pow(1 - t, 3);
-      const n = parsed.number * eased;
-      setDisplay(parsed.prefix + format(n, finalDecimals) + parsed.suffix);
-      if (t < 1) frame = requestAnimationFrame(tick);
+    let observer: IntersectionObserver | null = null;
+    const reduce =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
+    const runAnimation = () => {
+      const start = performance.now();
+      const tick = (now: number) => {
+        const t = Math.min(1, (now - start) / durationMs);
+        const eased = 1 - Math.pow(1 - t, 3);
+        const n = parsed.number * eased;
+        setDisplay(parsed.prefix + format(n, finalDecimals) + parsed.suffix);
+        if (t < 1) frame = requestAnimationFrame(tick);
+      };
+      frame = requestAnimationFrame(tick);
     };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [inView, parsed.number, parsed.prefix, parsed.suffix, finalDecimals, durationMs]);
+
+    observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry && entry.isIntersecting) {
+          observer?.disconnect();
+          runAnimation();
+        }
+      },
+      { rootMargin: "-80px" },
+    );
+    observer.observe(el);
+
+    return () => {
+      observer?.disconnect();
+      cancelAnimationFrame(frame);
+    };
+  }, [parsed.number, parsed.prefix, parsed.suffix, finalDecimals, durationMs]);
 
   return (
     <span

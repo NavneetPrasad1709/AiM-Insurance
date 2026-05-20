@@ -1,17 +1,11 @@
 "use client";
 
 import {
-  m as motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-  type MotionValue,
-  type Variants,
-} from "framer-motion";
-import {
   Children,
   isValidElement,
+  useEffect,
   useRef,
+  useState,
   type CSSProperties,
   type ElementType,
   type MouseEvent,
@@ -20,10 +14,9 @@ import {
 } from "react";
 import { cn } from "@/lib/utils";
 
-const EASE = [0.16, 1, 0.3, 1] as const;
-
 /* ---------------------------------------------------------------------------
    ScrollReveal — fade/slide on viewport entry.
+   IntersectionObserver + CSS animation. Zero framer-motion footprint.
 --------------------------------------------------------------------------- */
 type Direction = "up" | "down" | "left" | "right" | "none";
 
@@ -37,13 +30,44 @@ interface ScrollRevealProps {
   once?: boolean;
 }
 
-const offsets: Record<Direction, { x: number; y: number }> = {
-  up: { x: 0, y: 36 },
-  down: { x: 0, y: -28 },
-  left: { x: 36, y: 0 },
-  right: { x: -36, y: 0 },
-  none: { x: 0, y: 0 },
+const transforms: Record<Direction, string> = {
+  up: "translate3d(0, 32px, 0)",
+  down: "translate3d(0, -28px, 0)",
+  left: "translate3d(32px, 0, 0)",
+  right: "translate3d(-32px, 0, 0)",
+  none: "none",
 };
+
+function useInViewOnce(
+  ref: React.RefObject<HTMLElement | null>,
+  margin = "-80px",
+  once = true,
+) {
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const e = entries[0];
+        if (e?.isIntersecting) {
+          setInView(true);
+          if (once) obs.disconnect();
+        } else if (!once) {
+          setInView(false);
+        }
+      },
+      { rootMargin: margin },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [ref, margin, once]);
+  return inView;
+}
 
 export function ScrollReveal({
   children,
@@ -54,121 +78,71 @@ export function ScrollReveal({
   className,
   once = true,
 }: ScrollRevealProps) {
-  const reduce = useReducedMotion();
-  const base = offsets[direction];
-  const x = direction === "left" || direction === "right" ? distance ?? base.x : 0;
-  const y = direction === "up" || direction === "down" ? distance ?? base.y : 0;
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInViewOnce(ref, "-80px", once);
 
-  const variants: Variants = {
-    hidden: { opacity: 0, x: reduce ? 0 : x, y: reduce ? 0 : y },
-    show: { opacity: 1, x: 0, y: 0 },
+  let hiddenTransform = transforms[direction];
+  if (distance != null && direction !== "none") {
+    if (direction === "up") hiddenTransform = `translate3d(0, ${distance}px, 0)`;
+    else if (direction === "down")
+      hiddenTransform = `translate3d(0, ${-distance}px, 0)`;
+    else if (direction === "left")
+      hiddenTransform = `translate3d(${distance}px, 0, 0)`;
+    else hiddenTransform = `translate3d(${-distance}px, 0, 0)`;
+  }
+
+  const style: CSSProperties = {
+    opacity: inView ? 1 : 0,
+    transform: inView ? "none" : hiddenTransform,
+    transition: `opacity ${duration}s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform ${duration}s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
+    willChange: inView ? undefined : "opacity, transform",
   };
 
   return (
-    <motion.div
-      className={className}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once, margin: "-80px" }}
-      transition={{ duration, delay, ease: EASE }}
-      variants={variants}
-    >
+    <div ref={ref} className={className} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }
 
 /* ---------------------------------------------------------------------------
-   ScrollZoom — element scales based on scroll progress.
-   Use for hero images / mascot cards that grow into view.
+   ScrollZoom — was a JS-driven scale-on-scroll. Removed for perf; renders
+   children directly. The visual effect cost more than it gave.
 --------------------------------------------------------------------------- */
 interface ScrollZoomProps {
   children: ReactNode;
   className?: string;
   from?: number;
   to?: number;
-  /** scroll offsets — see framer-motion useScroll */
   offset?: [string, string];
 }
 
-export function ScrollZoom({
-  children,
-  className,
-  from = 0.85,
-  to = 1.05,
-  offset = ["start end", "end start"],
-}: ScrollZoomProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: offset as Parameters<typeof useScroll>[0] extends infer T
-      ? T extends { offset?: infer O }
-        ? O
-        : never
-      : never,
-  });
-
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [from, to, from]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.85, 1], [0.6, 1, 1, 0.7]);
-
-  return (
-    <div ref={ref} className={cn("relative will-change-transform", className)}>
-      <motion.div
-        style={
-          reduce
-            ? undefined
-            : ({ scale, opacity } as { scale: MotionValue<number>; opacity: MotionValue<number> })
-        }
-      >
-        {children}
-      </motion.div>
-    </div>
-  );
+export function ScrollZoom({ children, className }: ScrollZoomProps) {
+  return <div className={cn("relative", className)}>{children}</div>;
 }
 
 /* ---------------------------------------------------------------------------
-   Parallax — slow-scrolling background element.
+   Parallax — removed for perf. Pass-through.
 --------------------------------------------------------------------------- */
 interface ParallaxProps {
   children: ReactNode;
   className?: string;
-  speed?: number; // -1 to 1 — negative = scrolls slower than page
+  speed?: number;
 }
 
-export function Parallax({ children, className, speed = 0.3 }: ParallaxProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [`${speed * 80}px`, `${-speed * 80}px`]);
-
-  return (
-    <div ref={ref} className={cn("relative", className)}>
-      <motion.div style={reduce ? undefined : { y }}>{children}</motion.div>
-    </div>
-  );
+export function Parallax({ children, className }: ParallaxProps) {
+  return <div className={cn("relative", className)}>{children}</div>;
 }
 
 /* ---------------------------------------------------------------------------
-   ScrollStack — Wix-style sticky stacked cards.
-   Each child becomes a sticky card; later cards land on top of earlier ones,
-   while earlier ones scale + dim slightly. Mobile-friendly: cards stack
-   vertically on small screens with the same sticky behavior.
+   ScrollStack — sticky stacked cards (pure CSS).
 --------------------------------------------------------------------------- */
 interface ScrollStackProps {
   children: ReactNode;
   className?: string;
-  /** Top offset of the FIRST card (sticky top value). */
   topOffset?: string;
-  /** Pixels each subsequent card is offset further down — creates "deck" effect. */
   stepOffset?: number;
-  /** Scale shrink applied per step (earlier cards look further "behind"). */
   scaleStep?: number;
-  /** Vertical gap (margin-bottom) between cards in scroll length. */
   gap?: string;
 }
 
@@ -233,10 +207,11 @@ export function MagneticButton({
   ariaLabel,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLElement>(null);
-  const reduce = useReducedMotion();
 
   const handleMove = (e: MouseEvent<HTMLElement>) => {
-    if (reduce || !ref.current) return;
+    if (!ref.current) return;
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const r = ref.current.getBoundingClientRect();
     const dx = ((e.clientX - r.left) / r.width - 0.5) * strength;
     const dy = ((e.clientY - r.top) / r.height - 0.5) * strength;
@@ -262,7 +237,8 @@ export function MagneticButton({
 }
 
 /* ---------------------------------------------------------------------------
-   StaggerGroup — wraps a list, animates children in sequence.
+   StaggerGroup — wraps a list, IntersectionObserver fires CSS animation
+   on children when the parent enters the viewport.
 --------------------------------------------------------------------------- */
 interface StaggerGroupProps {
   children: ReactNode;
@@ -277,21 +253,23 @@ export function StaggerGroup({
   delay = 0,
   stagger = 0.08,
 }: StaggerGroupProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInViewOnce(ref, "-80px", true);
+
+  const style = {
+    "--stagger-delay-base": `${delay}s`,
+    "--stagger-step": `${stagger}s`,
+  } as CSSProperties;
+
   return (
-    <motion.div
-      className={className}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "-80px" }}
-      variants={{
-        hidden: {},
-        show: {
-          transition: { staggerChildren: stagger, delayChildren: delay },
-        },
-      }}
+    <div
+      ref={ref}
+      className={cn(className, inView && "is-revealed")}
+      style={style}
+      data-stagger
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
@@ -304,21 +282,18 @@ export function StaggerItem({
   className?: string;
   direction?: Direction;
 }) {
-  const base = offsets[direction];
+  const hidden = transforms[direction];
   return (
-    <motion.div
-      className={className}
-      variants={{
-        hidden: { opacity: 0, x: base.x, y: base.y },
-        show: {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          transition: { duration: 0.7, ease: EASE },
-        },
+    <div
+      className={cn("stagger-item", className)}
+      style={{
+        opacity: 0,
+        transform: hidden,
+        transition:
+          "opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1)",
       }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

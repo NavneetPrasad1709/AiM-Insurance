@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import {
   useEffect,
@@ -8,10 +9,15 @@ import {
   useState,
   type KeyboardEvent as ReactKeyboardEvent,
 } from "react";
-import { AnimatePresence, m as motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Logo } from "@/components/layout/logo";
-import { MobileNav } from "@/components/layout/mobile-nav";
+
+// MobileNav pulls in framer-motion for the slide-in drawer. Defer it
+// until the hamburger actually opens — keeps the header chunk lean.
+const MobileNav = dynamic(
+  () => import("@/components/layout/mobile-nav").then((m) => m.MobileNav),
+  { ssr: false },
+);
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { useQuoteModal } from "@/lib/quote-modal-context";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
@@ -117,56 +123,55 @@ function PillDropdown({ link, pathname }: { link: NavLink; pathname: string }) {
         />
       </button>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.18, ease: "easeOut" }}
-            className="absolute left-1/2 top-full -translate-x-1/2 pt-3 w-[640px]"
-            role="menu"
-          >
-            <div className="rounded-2xl border border-white/10 bg-surface/95 backdrop-blur-xl shadow-card-hover p-3 grid grid-cols-2 gap-1.5">
-              {(link.children ?? []).map((child) => {
-                const Icon = getIcon(child.icon);
-                return (
-                  <Link
-                    key={child.href}
-                    href={child.href}
-                    role="menuitem"
-                    onClick={() => setOpen(false)}
-                    className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-white/5"
-                  >
-                    {Icon && (
-                      <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-xl bg-cta/15 text-cta transition-colors group-hover:bg-gradient-warm group-hover:text-white">
-                        <Icon className="size-5" aria-hidden />
-                      </span>
-                    )}
-                    <span className="flex flex-col gap-0.5">
-                      <span className="flex items-center gap-2">
-                        <span className="font-heading font-semibold text-white">
-                          {child.label}
-                        </span>
-                        {child.badge && (
-                          <Badge variant="coral" size="sm">
-                            {child.badge}
-                          </Badge>
-                        )}
-                      </span>
-                      {child.description && (
-                        <span className="text-sm text-white/60">
-                          {child.description}
-                        </span>
-                      )}
-                    </span>
-                  </Link>
-                );
-              })}
-            </div>
-          </motion.div>
+      <div
+        className={cn(
+          "absolute left-1/2 top-full w-[640px] -translate-x-1/2 pt-3 transition-[opacity,transform] duration-200 ease-out",
+          open
+            ? "pointer-events-auto opacity-100 translate-y-0"
+            : "pointer-events-none opacity-0 -translate-y-2",
         )}
-      </AnimatePresence>
+        role="menu"
+        aria-hidden={!open}
+      >
+        <div className="grid grid-cols-2 gap-1.5 rounded-2xl border border-white/10 bg-surface/95 p-3 shadow-card-hover backdrop-blur-xl">
+          {(link.children ?? []).map((child) => {
+            const Icon = getIcon(child.icon);
+            return (
+              <Link
+                key={child.href}
+                href={child.href}
+                role="menuitem"
+                tabIndex={open ? 0 : -1}
+                onClick={() => setOpen(false)}
+                className="group flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-white/5"
+              >
+                {Icon && (
+                  <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-xl bg-cta/15 text-cta transition-colors group-hover:bg-gradient-warm group-hover:text-white">
+                    <Icon className="size-5" aria-hidden />
+                  </span>
+                )}
+                <span className="flex flex-col gap-0.5">
+                  <span className="flex items-center gap-2">
+                    <span className="font-heading font-semibold text-white">
+                      {child.label}
+                    </span>
+                    {child.badge && (
+                      <Badge variant="coral" size="sm">
+                        {child.badge}
+                      </Badge>
+                    )}
+                  </span>
+                  {child.description && (
+                    <span className="text-sm text-white/60">
+                      {child.description}
+                    </span>
+                  )}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
@@ -191,6 +196,8 @@ export function Header() {
   const { isScrolled } = useScrollPosition();
   const { openModal } = useQuoteModal();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileEverOpened, setMobileEverOpened] = useState(false);
+  if (mobileOpen && !mobileEverOpened) setMobileEverOpened(true);
 
   const isHome = pathname === "/";
   const transparent = isHome && !isScrolled;
@@ -264,7 +271,9 @@ export function Header() {
       {/* Spacer on inner pages so content isn't hidden under the fixed header */}
       {!isHome && <div aria-hidden className="h-20" />}
 
-      <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
+      {mobileEverOpened && (
+        <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
+      )}
     </>
   );
 }
