@@ -59,13 +59,18 @@
   --color-grad-blue: #ffc83d;
   --color-grad-purple: #ffc83d;
 
-  /* Fonts — Montserrat everywhere */
-  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
-  /* Compat: any inline var(--font-inter) refs now resolve to Montserrat */
-  --font-inter: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  /* Fonts — Montserrat for headings & emphasis; system stack for body
+     so paragraphs paint immediately at FCP without waiting for the
+     Montserrat web-font round-trip (was causing the LCP element to
+     be measured at font-swap, ~2s after FCP on mobile). */
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Compat: anywhere code still says var(--font-inter), resolve it
+     to the brand stack (Montserrat-led) so labels/CTAs keep the
+     designed look. Default body inheritance stays on system fonts. */
+  --font-inter: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* Container */
   --container-7xl: 1280px;
