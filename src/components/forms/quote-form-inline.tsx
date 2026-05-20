@@ -52,7 +52,7 @@ export function QuoteFormInline({ className }: QuoteFormInlineProps) {
         placeholder="Your name"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        className="min-w-0 flex-1 rounded-xl border border-transparent bg-[#0a0a0a] px-4 py-3 text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-[#ffc83d] focus:ring-2 focus:ring-[#ffc83d]/30"
+        className="min-w-0 flex-1 rounded-xl border border-transparent bg-[#0a0a0a] px-4 py-3 text-base sm:text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-[#ffc83d] focus:ring-2 focus:ring-[#ffc83d]/30"
       />
       <label className="sr-only" htmlFor="inline-quote-email">
         Email
@@ -64,7 +64,7 @@ export function QuoteFormInline({ className }: QuoteFormInlineProps) {
         placeholder="you@email.com"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="min-w-0 flex-1 rounded-xl border border-transparent bg-[#0a0a0a] px-4 py-3 text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-[#ffc83d] focus:ring-2 focus:ring-[#ffc83d]/30"
+        className="min-w-0 flex-1 rounded-xl border border-transparent bg-[#0a0a0a] px-4 py-3 text-base sm:text-sm text-white placeholder:text-white/45 focus:outline-none focus:border-[#ffc83d] focus:ring-2 focus:ring-[#ffc83d]/30"
       />
       <label className="sr-only" htmlFor="inline-quote-type">
         Insurance type
@@ -73,7 +73,7 @@ export function QuoteFormInline({ className }: QuoteFormInlineProps) {
         id="inline-quote-type"
         value={insuranceType}
         onChange={(e) => setInsuranceType(e.target.value)}
-        className="min-w-0 flex-1 rounded-xl border border-transparent bg-[#0a0a0a] px-4 py-3 text-sm text-white focus:outline-none focus:border-[#ffc83d] focus:ring-2 focus:ring-[#ffc83d]/30"
+        className="min-w-0 flex-1 rounded-xl border border-transparent bg-[#0a0a0a] px-4 py-3 text-base sm:text-sm text-white focus:outline-none focus:border-[#ffc83d] focus:ring-2 focus:ring-[#ffc83d]/30"
       >
         {INSURANCE_OPTIONS.map((o) => (
           <option key={o.value} value={o.value} disabled={o.value === ""}>

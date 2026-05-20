@@ -11,9 +11,10 @@ export const SITE_CONFIG = {
   tagline: "Get Insurance Without the Stress — We Negotiate for You",
   description:
     "AiM Insurance connects you with expert negotiators who fight for the best deal on car, home, boat, yacht & jet insurance — same coverage, lower premiums.",
-  url: "https://aimcarinsurance.com",
-  email: "info@aimcarinsurance.com",
+  url: "https://getaiminsurance.com",
+  email: "info@getaiminsurance.com",
   phone: "+1-602-910-2500",
+  twitterHandle: "@carconciergepro",
 } as const;
 
 export const NAV_LINKS: NavLink[] = [
@@ -52,7 +53,6 @@ export const NAV_LINKS: NavLink[] = [
         href: "/jet-insurance",
         icon: "Plane",
         description: "Aviation insurance",
-        badge: "Coming Soon",
       },
     ],
   },
@@ -91,7 +91,7 @@ export const SERVICES: ServiceType[] = [
     icon: "Car",
     shortDescription:
       "We help you lock down the best car insurance deal.",
-    heroTitle: "Expert Car Insurance Negotiation — Save $1200+ Annually",
+    heroTitle: "Expert Car Insurance Negotiation — Save $1,247+ Annually",
     heroDescription:
       "AiM negotiates with top providers to get you the best car insurance rates with the same coverage.",
   },
@@ -134,14 +134,13 @@ export const SERVICES: ServiceType[] = [
     heroTitle: "Private Jet Insurance — Elite Protection at the Right Price",
     heroDescription:
       "Luxury jets need elite protection — we negotiate premium coverage at the right price.",
-    comingSoon: true,
   },
 ];
 
 export const STATS: Stat[] = [
   { value: "1000+", label: "Clients Served" },
   { value: "$5.4M+", label: "Negotiated Savings" },
-  { value: "$1200+", label: "Avg. Annual Savings" },
+  { value: "$1,247+", label: "Avg. Annual Savings" },
   { value: "50+", label: "Providers Compared" },
 ];
 

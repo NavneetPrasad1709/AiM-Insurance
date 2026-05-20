@@ -440,7 +440,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 </h3>
                 <p className="mt-3 max-w-md text-sm leading-relaxed text-background/80">
                   We negotiate with carriers on your behalf — same coverage,
-                  lower premium. Average client saves $1,200 a year.
+                  lower premium. Average client saves $1,247 a year.
                 </p>
                 <Link
                   href="/contact?intent=quote"

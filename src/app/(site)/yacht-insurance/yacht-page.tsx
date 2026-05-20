@@ -1238,7 +1238,7 @@ function Cta() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           poster={ASSET.ctaPoster}
           aria-label="Yacht sailing into open water"
           className="absolute inset-0 h-full w-full object-cover"

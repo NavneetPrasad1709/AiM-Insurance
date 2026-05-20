@@ -607,7 +607,7 @@ function FloatingInput({
           onChange={onChange}
           maxLength={maxLength}
           className={cn(
-            "peer w-full bg-transparent rounded-xl border-0 outline-none ring-0 text-[15px] text-[#0a0a0a] placeholder-transparent",
+            "peer w-full bg-transparent rounded-xl border-0 outline-none ring-0 text-base sm:text-[15px] text-[#0a0a0a] placeholder-transparent",
             "pt-6 pb-2",
             prefix ? "pl-9 pr-4" : "px-4"
           )}

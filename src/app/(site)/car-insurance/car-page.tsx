@@ -142,7 +142,7 @@ function Hero() {
           >
             We monitor your auto insurance across 50+ carriers — same
             coverage, lower premium. The average AiM client saves
-            $1,200 a year without lifting a finger.
+            $1,247 a year without lifting a finger.
           </motion.p>
 
           <motion.div
@@ -260,7 +260,7 @@ function TrustStrip() {
 
 function Stats() {
   const STATS = [
-    { value: "$1,200", label: "Avg. annual savings" },
+    { value: "$1,247", label: "Avg. annual savings" },
     { value: "30%", label: "Avg. premium drop" },
     { value: "50+", label: "Carriers compared" },
   ];
@@ -384,7 +384,7 @@ function Coverage() {
             className="text-[15px] leading-relaxed text-text-secondary sm:col-span-5"
           >
             We strip carrier markup, not coverage. Average client pockets
-            $1,200 a year for the exact same protection — and we keep
+            $1,247 a year for the exact same protection — and we keep
             re-shopping every three months.
           </motion.p>
         </div>
@@ -1077,7 +1077,7 @@ function Faq() {
   const items = [
     {
       q: "How much can I actually save on car insurance?",
-      a: "Our 1000+ auto clients average $1,200 in yearly savings, with about a 30% drop on the typical policy. Multi-car households tend to land higher — $1,800 to $2,400 a year is common when we consolidate everything onto a single optimised policy.",
+      a: "Our 1000+ auto clients average $1,247 in yearly savings, with about a 30% drop on the typical policy. Multi-car households tend to land higher — $1,800 to $2,400 a year is common when we consolidate everything onto a single optimised policy.",
     },
     {
       q: "Do you handle the entire switching process?",
@@ -1192,7 +1192,7 @@ function Cta() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           poster={ASSET.ctaPoster}
           aria-label={ALT.cta}
           className="absolute inset-0 h-full w-full object-cover"

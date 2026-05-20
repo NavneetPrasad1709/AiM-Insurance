@@ -10,7 +10,7 @@ import {
   type KeyboardEvent,
   type ReactNode,
 } from "react";
-import { AnimatePresence, m as motion } from "framer-motion";
+import { m as motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -136,28 +136,26 @@ export function AccordionItem({
           </motion.span>
         </button>
       </h3>
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            key="content"
-            id={panelId}
-            role="region"
-            aria-labelledby={headerId}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{
-              height: { duration: 0.3 },
-              opacity: { duration: 0.2, delay: 0.1 },
-            }}
-            className="overflow-hidden"
-          >
-            <div className="pb-5 text-text-secondary leading-relaxed">
-              {children}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        id={panelId}
+        role="region"
+        aria-labelledby={headerId}
+        initial={false}
+        animate={
+          isOpen
+            ? { height: "auto", opacity: 1 }
+            : { height: 0, opacity: 0 }
+        }
+        transition={{
+          height: { duration: 0.3 },
+          opacity: { duration: 0.2, delay: isOpen ? 0.1 : 0 },
+        }}
+        className="overflow-hidden"
+      >
+        <div className="pb-5 text-text-secondary leading-relaxed">
+          {children}
+        </div>
+      </motion.div>
     </div>
   );
 }

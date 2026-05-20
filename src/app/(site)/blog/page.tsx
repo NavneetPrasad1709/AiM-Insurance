@@ -31,6 +31,12 @@ export const metadata: Metadata = {
     url: `${SITE_CONFIG.url}/blog`,
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "AiM Insurance Blog — Tips, News & Savings Guides",
+    description:
+      "Insurance tips, savings stories, and industry analysis from the negotiation team at AiM Insurance.",
+  },
 };
 
 import type { SanityImage } from "@/types";
@@ -187,7 +193,7 @@ export default async function BlogPage() {
 
       <WhyAimCream
         heading="Reading is great. Saving is better."
-        intro="Same content carriers don't want you to know — but the real magic is letting AiM run the negotiation for you. 1000+ clients. Average savings: $1,200 a year."
+        intro="Same content carriers don't want you to know — but the real magic is letting AiM run the negotiation for you. 1000+ clients. Average savings: $1,247 a year."
       />
     </>
   );

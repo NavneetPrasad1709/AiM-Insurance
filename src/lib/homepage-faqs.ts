@@ -14,7 +14,7 @@ export const HOMEPAGE_FAQS: HomepageFaq[] = [
   },
   {
     q: "Can you really get me a better rate than going direct?",
-    a: "Most of the time, yes. Direct quotes are anchored to whatever the carrier's website algorithm spits out — they don't account for negotiation, multi-line discounts, or underwriter relationships. Our team works the levers carriers won't show you. Average client savings: $1,200+ per year for the same coverage.",
+    a: "Most of the time, yes. Direct quotes are anchored to whatever the carrier's website algorithm spits out — they don't account for negotiation, multi-line discounts, or underwriter relationships. Our team works the levers carriers won't show you. Average client savings: $1,247 per year for the same coverage.",
   },
   {
     q: "Do I still sign up with the insurance company directly?",

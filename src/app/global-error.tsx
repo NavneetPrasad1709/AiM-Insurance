@@ -67,10 +67,10 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
           >
             Sorry — try reloading the page. If this keeps happening, email{" "}
             <a
-              href="mailto:info@aimcarinsurance.com"
+              href="mailto:info@getaiminsurance.com"
               style={{ color: "#ffc83d" }}
             >
-              info@aimcarinsurance.com
+              info@getaiminsurance.com
             </a>
             .
           </p>

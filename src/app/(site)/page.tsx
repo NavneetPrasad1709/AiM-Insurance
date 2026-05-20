@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AiM Insurance | Never Overpay Your Insurance Premiums",
     description:
-      "Same coverage, lower premiums. AiM negotiates car, home, boat, yacht & jet insurance — averaging $1,200+ in annual savings per client.",
+      "Same coverage, lower premiums. AiM negotiates car, home, boat, yacht & jet insurance — averaging $1,247+ in annual savings per client.",
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
     type: "website",

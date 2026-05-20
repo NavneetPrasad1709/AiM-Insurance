@@ -1222,7 +1222,7 @@ function Cta() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           poster={ASSET.ctaPoster}
           aria-label={ALT.cta}
           className="absolute inset-0 h-full w-full object-cover"

@@ -6,6 +6,8 @@ import { QuoteModal } from "@/components/forms/quote-modal";
 import { MotionProvider } from "@/components/providers/motion-provider";
 import "@/styles/globals.css";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? SITE_CONFIG.url;
+
 export const metadata: Metadata = {
   title: {
     default: "AiM Insurance | Expert Insurance Negotiation",
@@ -13,9 +15,31 @@ export const metadata: Metadata = {
   },
   description:
     "Get insurance without the stress. AiM connects you with expert negotiators who fight for the best deal on car, home, boat, yacht & jet insurance.",
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? SITE_CONFIG.url
-  ),
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_CONFIG.name,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: SITE_CONFIG.name,
+    locale: "en_US",
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: SITE_CONFIG.twitterHandle,
+    creator: SITE_CONFIG.twitterHandle,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export const viewport: Viewport = {

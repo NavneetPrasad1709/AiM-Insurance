@@ -51,7 +51,7 @@ export function NewsletterForm({ className, helperText }: NewsletterFormProps) {
           placeholder="you@email.com"
           aria-invalid={isError || undefined}
           disabled={isLoading || isSuccess}
-          className="flex-1 min-w-[180px] rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-[#ffc83d] focus:ring-2 focus:ring-[#ffc83d]/30 disabled:opacity-60"
+          className="flex-1 min-w-[180px] rounded-full border border-white/15 bg-white/5 px-4 py-3 text-base sm:text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-[#ffc83d] focus:ring-2 focus:ring-[#ffc83d]/30 disabled:opacity-60"
         />
         <button
           type="submit"

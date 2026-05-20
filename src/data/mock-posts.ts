@@ -60,7 +60,7 @@ export const mockPosts: MockPost[] = [
       "A four-driver Austin family was paying $4,820 a year for the exact coverage they could get for $3,310. Here's the negotiation, line by line.",
     category: "Savings Stories",
     author: CASE_STUDY_AUTHOR,
-    publishedAt: "2025-03-15T09:00:00.000Z",
+    publishedAt: "2026-05-12T09:00:00.000Z",
     readingTime: 5,
     tags: ["car insurance", "savings", "case study", "auto"],
     content: `## The starting point
@@ -91,7 +91,7 @@ Carriers will re-rate existing customers when shown evidence that they're losing
       "Most drivers overpay because of five fixable mistakes — usage class, deductible math, coverage stacking, paid-in-full discounts, and bundling traps.",
     category: "Insurance Tips",
     author: ANALYST_AUTHOR,
-    publishedAt: "2025-03-08T09:00:00.000Z",
+    publishedAt: "2026-04-22T09:00:00.000Z",
     readingTime: 6,
     tags: ["car insurance", "tips", "premiums"],
     content: `## 1. Letting your usage classification go stale
@@ -122,7 +122,7 @@ Multi-policy bundling discounts are real, but they are not always the cheapest p
       "Even with a clean record, your premium climbs. The reason is rarely you — it's loss cost adjustments, reinsurance pricing, and insurer churn.",
     category: "Industry News",
     author: ANALYST_AUTHOR,
-    publishedAt: "2025-02-26T09:00:00.000Z",
+    publishedAt: "2026-04-08T09:00:00.000Z",
     readingTime: 7,
     tags: ["industry", "premiums", "rates"],
     content: `## The "loss cost" cycle nobody explains to consumers
@@ -153,7 +153,7 @@ You cannot control loss cost filings or reinsurance pricing. You can control whe
       "Replacement cost vs. market value, the dwelling-coverage trap, and the four endorsements most homeowners discover only after a claim.",
     category: "Guides",
     author: TEAM_AUTHOR,
-    publishedAt: "2025-02-18T09:00:00.000Z",
+    publishedAt: "2026-03-25T09:00:00.000Z",
     readingTime: 9,
     tags: ["home insurance", "guide", "homeowner"],
     content: `## Replacement cost is not market value
@@ -184,7 +184,7 @@ Increasing your personal liability limit from $100,000 to $500,000 usually costs
       "Lay-up periods, navigation territory limits, and the survey timing trick that most owners only learn after their second renewal.",
     category: "Insurance Tips",
     author: TEAM_AUTHOR,
-    publishedAt: "2025-02-04T09:00:00.000Z",
+    publishedAt: "2026-03-10T09:00:00.000Z",
     readingTime: 6,
     tags: ["boat insurance", "marine", "savings"],
     content: `## Use a lay-up period if your boat is seasonal
@@ -211,7 +211,7 @@ The combined policy your agent quotes is convenient but rarely optimal. Hull cov
       "Loyal customers pay an average $890 a year more than shoppers, according to multi-state filings. Compounded, that is real money.",
     category: "Savings Stories",
     author: CASE_STUDY_AUTHOR,
-    publishedAt: "2025-01-22T09:00:00.000Z",
+    publishedAt: "2026-02-18T09:00:00.000Z",
     readingTime: 5,
     tags: ["savings", "case study", "comparison shopping"],
     content: `## The loyalty penalty is measurable
@@ -238,7 +238,7 @@ You do not have to switch carriers to capture the savings. Pulling two or three 
       "We pull declarations pages, run carrier-side rate comparisons, and present a written counter. Here is the actual workflow, step by step.",
     category: "Guides",
     author: TEAM_AUTHOR,
-    publishedAt: "2025-01-12T09:00:00.000Z",
+    publishedAt: "2026-01-30T09:00:00.000Z",
     readingTime: 8,
     tags: ["how it works", "negotiation", "AiM"],
     content: `## Step one — declarations page audit
@@ -259,7 +259,7 @@ We present our findings to your existing carrier in writing, with the competitiv
 
 ## Step five — the switch, only if it wins
 
-If the existing carrier will not match, we handle the switch end-to-end: bind the new policy, time the cancellation to avoid a coverage lapse, transfer any prepaid balances, and update your lender or DMV if required. Most clients see savings of $1,200 or more annually with no change in coverage limits or deductibles.`,
+If the existing carrier will not match, we handle the switch end-to-end: bind the new policy, time the cancellation to avoid a coverage lapse, transfer any prepaid balances, and update your lender or DMV if required. Most clients see savings of $1,247 or more annually with no change in coverage limits or deductibles.`,
   },
   {
     _id: "post-8",
@@ -269,7 +269,7 @@ If the existing carrier will not match, we handle the switch end-to-end: bind th
       "Minimum liability limits vary wildly by state. Here is what is actually required, what you should carry instead, and where the new 2025 rules apply.",
     category: "Guides",
     author: ANALYST_AUTHOR,
-    publishedAt: "2024-12-30T09:00:00.000Z",
+    publishedAt: "2026-01-14T09:00:00.000Z",
     readingTime: 10,
     tags: ["car insurance", "guide", "state requirements"],
     content: `## Minimums vs. recommended
@@ -300,7 +300,7 @@ Roughly 14 percent of US drivers are uninsured. Another 30 percent carry only st
       "Hull valuation methods, P&I limits, captain endorsements, and the four flag-state quirks that decide your premium more than the boat itself.",
     category: "Insurance Tips",
     author: ANALYST_AUTHOR,
-    publishedAt: "2024-12-15T09:00:00.000Z",
+    publishedAt: "2025-12-20T09:00:00.000Z",
     readingTime: 9,
     tags: ["yacht insurance", "high net worth", "marine"],
     content: `## Agreed value vs. actual cash value
@@ -331,7 +331,7 @@ Your homeowner umbrella does not extend over your yacht by default. You need eit
       "Telematics expansion, AI claims handling, climate re-rating, and the carrier consolidation wave — what each means for what you actually pay.",
     category: "Industry News",
     author: ANALYST_AUTHOR,
-    publishedAt: "2024-12-02T09:00:00.000Z",
+    publishedAt: "2025-11-25T09:00:00.000Z",
     readingTime: 8,
     tags: ["industry", "trends", "2025", "premiums"],
     content: `## Telematics is no longer optional

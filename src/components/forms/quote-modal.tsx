@@ -673,7 +673,7 @@ function FloatingInput({
           }
           placeholder=" "
           className={cn(
-            "peer w-full bg-transparent rounded-xl border-0 outline-none ring-0 text-[15px] text-[#0a0a0a] placeholder-transparent",
+            "peer w-full bg-transparent rounded-xl border-0 outline-none ring-0 text-base sm:text-[15px] text-[#0a0a0a] placeholder-transparent",
             "pt-6 pb-2",
             prefix ? "pl-9 pr-4" : "px-4"
           )}
@@ -744,7 +744,7 @@ function FloatingTextarea({
           aria-invalid={hasError || undefined}
           placeholder=" "
           className={cn(
-            "peer w-full bg-transparent rounded-xl border-0 outline-none resize-y text-[15px] text-[#0a0a0a] placeholder-transparent leading-[1.55]",
+            "peer w-full bg-transparent rounded-xl border-0 outline-none resize-y text-base sm:text-[15px] text-[#0a0a0a] placeholder-transparent leading-[1.55]",
             "pt-7 pb-3 px-4"
           )}
           {...reg}

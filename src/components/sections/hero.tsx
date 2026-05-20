@@ -246,8 +246,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Bottom carrier marquee — desktop only */}
-        <div className="hidden md:block mt-16 lg:mt-20">
+        {/* Bottom carrier marquee — social proof on every screen */}
+        <div className="mt-12 sm:mt-16 lg:mt-20">
           <p
             className="text-center text-[10px] uppercase tracking-[0.22em] font-semibold text-white mb-4"
             style={{ fontFamily: "var(--font-inter)" }}

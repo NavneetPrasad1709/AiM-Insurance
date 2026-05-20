@@ -55,4 +55,5 @@ scripts/migration-errors.json
 *.tsbuildinfo
 next-env.d.ts
 
-.vercel
+# Audit reports — kept locally only
+GetAIMInsurance_Technical-SEO-Audit.pdf

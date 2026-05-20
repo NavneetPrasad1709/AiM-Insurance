@@ -32,7 +32,7 @@ const ROWS: StatRow[] = [
     accentBg: "rgb(79 224 176 / 0.14)",
   },
   {
-    value: "$1,200+",
+    value: "$1,247+",
     label: "Average annual savings",
     icon: "Award",
     description: "Same coverage, lower premium.",

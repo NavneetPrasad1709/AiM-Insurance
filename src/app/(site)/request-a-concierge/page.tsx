@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const TRUST_STATS = [
   { v: "1000+", l: "Clients served" },
   { v: "$5.4M+", l: "Negotiated savings" },
-  { v: "$1,200+", l: "Avg. annual savings" },
+  { v: "$1,247+", l: "Avg. annual savings" },
 ];
 
 const WHAT_YOU_GET = [
