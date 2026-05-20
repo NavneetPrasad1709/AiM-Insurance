@@ -237,7 +237,9 @@ export function Hero() {
                     width={1600}
                     height={1200}
                     priority
-                    sizes="(max-width: 1024px) 92vw, 50vw"
+                    fetchPriority="high"
+                    quality={70}
+                    sizes="(max-width: 480px) 88vw, (max-width: 1024px) 56vw, 640px"
                     className="relative z-10 w-full h-auto max-w-[640px] lg:max-w-none mx-auto"
                   />
                 </div>

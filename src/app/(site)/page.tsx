@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/hero";
 import { TrustBanner } from "@/components/sections/trust-banner";
-import { CarrierSavings } from "@/components/sections/carrier-savings";
 import { ServicesGrid } from "@/components/sections/services-grid";
-import { HowItWorks } from "@/components/sections/how-it-works";
-import { Testimonials } from "@/components/sections/testimonials";
-import { FaqSection } from "@/components/sections/faq-section";
 import { HOMEPAGE_FAQS } from "@/lib/homepage-faqs";
-import { PricingCalculator } from "@/components/sections/pricing-calculator";
-import { CtaBanner } from "@/components/sections/cta-banner";
 import { SITE_CONFIG } from "@/lib/constants";
 import {
   StructuredData,
@@ -16,6 +11,29 @@ import {
   websiteSchema,
   faqSchema,
 } from "@/components/seo/structured-data";
+
+// Below-fold sections: still SSR'd for SEO, but their client JS
+// loads as separate async chunks so the homepage TTI/TBT stays low.
+const CarrierSavings = dynamic(() =>
+  import("@/components/sections/carrier-savings").then((m) => m.CarrierSavings),
+);
+const HowItWorks = dynamic(() =>
+  import("@/components/sections/how-it-works").then((m) => m.HowItWorks),
+);
+const PricingCalculator = dynamic(() =>
+  import("@/components/sections/pricing-calculator").then(
+    (m) => m.PricingCalculator,
+  ),
+);
+const Testimonials = dynamic(() =>
+  import("@/components/sections/testimonials").then((m) => m.Testimonials),
+);
+const FaqSection = dynamic(() =>
+  import("@/components/sections/faq-section").then((m) => m.FaqSection),
+);
+const CtaBanner = dynamic(() =>
+  import("@/components/sections/cta-banner").then((m) => m.CtaBanner),
+);
 
 export const metadata: Metadata = {
   title: {

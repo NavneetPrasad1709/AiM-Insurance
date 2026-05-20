@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { montserrat } from "@/lib/fonts";
 import { SITE_CONFIG } from "@/lib/constants";
 import { QuoteModalProvider } from "@/lib/quote-modal-context";
-import { QuoteModal } from "@/components/forms/quote-modal";
+import { QuoteModalMount } from "@/components/forms/quote-modal-mount";
 import { MotionProvider } from "@/components/providers/motion-provider";
 import "@/styles/globals.css";
 
@@ -64,7 +64,7 @@ export default function RootLayout({
         <MotionProvider>
           <QuoteModalProvider>
             {children}
-            <QuoteModal />
+            <QuoteModalMount />
           </QuoteModalProvider>
         </MotionProvider>
       </body>

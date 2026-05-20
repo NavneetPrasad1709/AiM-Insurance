@@ -271,12 +271,12 @@ export function Footer() {
               </li>
             ))}
           </ul>
-          <p className="order-1 text-center text-[12px] leading-relaxed text-white/45 sm:order-1 sm:text-left">
+          <p className="order-1 text-center text-[12px] leading-relaxed text-white/70 sm:order-1 sm:text-left">
             © {CURRENT_YEAR} {SITE_CONFIG.name}
             <span className="hidden sm:inline">
               {" "}— A Car Concierge Pro product. All rights reserved.
             </span>
-            <span className="sm:hidden block">
+            <span className="block sm:hidden">
               A Car Concierge Pro product.
             </span>
           </p>
