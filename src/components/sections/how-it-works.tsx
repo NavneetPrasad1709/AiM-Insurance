@@ -92,7 +92,7 @@ export function HowItWorks() {
           </div>
         </ScrollReveal>
 
-        {/* Stacked cards — first 4 steps; later detail lives in /about + quote flow */}
+        {/* Stacked cards - first 4 steps; later detail lives in /about + quote flow */}
         <div className="mt-16 lg:mt-20 max-w-4xl mx-auto">
           <ScrollStack topOffset="14vh" stepOffset={20} scaleStep={0.018} gap="14vh">
             {PROCESS_STEPS.slice(0, 4).map((step) => {
@@ -102,7 +102,7 @@ export function HowItWorks() {
                   key={step.step}
                   className="card-hover relative rounded-[12px] border border-[#232328] bg-[#111113]"
                 >
-                  {/* Top accent strip — single Ember */}
+                  {/* Top accent strip - single Ember */}
                   <div
                     aria-hidden
                     className="absolute inset-x-0 top-0 h-px bg-[#ffc83d]"
@@ -160,7 +160,7 @@ export function HowItWorks() {
               className="btn-shine cta-primary inline-flex items-center gap-2 px-7 py-4 font-semibold text-base"
               style={{ fontFamily: "var(--font-inter)" }}
             >
-              Start step 1 — share my policy
+              Start step 1: share my policy
               <svg
                 width="14"
                 height="14"

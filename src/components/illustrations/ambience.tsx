@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 /* ─────────────────────────────────────────────────────────────────────────
-   GoldParticleField — drifting gold dots as a hero overlay.
+   GoldParticleField - drifting gold dots as a hero overlay.
    Suggested: hero right column, CTA banner, calculator preview.
 ───────────────────────────────────────────────────────────────────────── */
 export function GoldParticleField({
@@ -94,7 +94,7 @@ export function GoldParticleField({
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   CornerOrnament — three nested gold quarter-arcs + dots in a corner.
+   CornerOrnament - three nested gold quarter-arcs + dots in a corner.
    Suggested: testimonial card, CTA banner, hero corner accent.
 ───────────────────────────────────────────────────────────────────────── */
 export function CornerOrnament({
@@ -181,7 +181,7 @@ export function CornerOrnament({
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   SectionDividerArc — full-width sweeping gold arc with 5 rest-points.
+   SectionDividerArc - full-width sweeping gold arc with 5 rest-points.
    Suggested: drop between any two sections as a visual breath.
 ───────────────────────────────────────────────────────────────────────── */
 export function SectionDividerArc({ className }: { className?: string }) {
@@ -231,7 +231,7 @@ export function SectionDividerArc({ className }: { className?: string }) {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   AuroraStrands — three slow-flowing translucent gold ribbons.
+   AuroraStrands - three slow-flowing translucent gold ribbons.
    Suggested: behind major heading sections, after pain-stats.
 ───────────────────────────────────────────────────────────────────────── */
 export function AuroraStrands({
@@ -299,7 +299,7 @@ export function AuroraStrands({
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   QuoteMarkAccent — sculpted decorative quote glyph (two teardrops).
+   QuoteMarkAccent - sculpted decorative quote glyph (two teardrops).
    Suggested: behind testimonial blocks at low opacity.
 ───────────────────────────────────────────────────────────────────────── */
 export function QuoteMarkAccent({
@@ -341,7 +341,7 @@ export function QuoteMarkAccent({
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   MonogramMark — geometric medallion. Footer mark, watermark accent.
+   MonogramMark - geometric medallion. Footer mark, watermark accent.
 ───────────────────────────────────────────────────────────────────────── */
 export function MonogramMark({
   className,
@@ -417,7 +417,7 @@ export function MonogramMark({
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   GrainTexture — subtle film-grain overlay using SVG turbulence.
+   GrainTexture - subtle film-grain overlay using SVG turbulence.
    Suggested: hero or any dark section to add tactility.
 ───────────────────────────────────────────────────────────────────────── */
 export function GrainTexture({
@@ -457,7 +457,7 @@ export function GrainTexture({
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   PaperPlaneAccent — sleek paper plane in flight w/ gold trail.
+   PaperPlaneAccent - sleek paper plane in flight w/ gold trail.
    Suggested: beside newsletter form.
 ───────────────────────────────────────────────────────────────────────── */
 export function PaperPlaneAccent({
@@ -525,7 +525,7 @@ export function PaperPlaneAccent({
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   FloatingCardsBackdrop — frosted glass cards drifting at varied depths.
+   FloatingCardsBackdrop - frosted glass cards drifting at varied depths.
    Pure CSS, no SVG. Drop behind any card grid for "depth" feel.
 ───────────────────────────────────────────────────────────────────────── */
 export function FloatingCardsBackdrop({
@@ -587,7 +587,7 @@ export function FloatingCardsBackdrop({
 }
 
 /* ─────────────────────────────────────────────────────────────────────────
-   OrbitLoader — small three-arc orbital spinner.
+   OrbitLoader - small three-arc orbital spinner.
    Suggested: quote modal submit, blog skeletons.
 ───────────────────────────────────────────────────────────────────────── */
 export function OrbitLoader({

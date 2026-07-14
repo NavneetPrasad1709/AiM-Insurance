@@ -1,11 +1,11 @@
 import { Montserrat } from "next/font/google";
 
-// Reduced weight set: 400 (body fallback for spots that explicitly use
-// Montserrat), 600 (UI labels/CTAs), 700 (H2/H3), 800 (H1 hero).
-// Dropping 500 cut one WOFF2 file from the critical font payload.
-// `display: swap` lets text paint with the system fallback at FCP
-// (see globals.css: --font-body is a system stack so LCP body text
-// doesn't pay for the Montserrat round-trip).
+// Montserrat powers the whole site (body + headings). Weight set:
+// 400 (body copy), 600 (UI labels/CTAs), 700 (H2/H3), 800 (H1 hero).
+// 500 is intentionally omitted to keep one WOFF2 out of the critical
+// payload; `font-medium` gracefully falls back to 400.
+// `display: swap` + adjustFontFallback paint the size-matched system
+// fallback at FCP (no CLS) before Montserrat swaps in.
 export const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "600", "700", "800"],

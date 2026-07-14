@@ -32,7 +32,7 @@ export function ServicesGrid() {
         <SectionHeading
           subtitle="Insurance Services"
           title="Five categories. One team. Same coverage."
-          description="Whatever you insure — car, home, boat, yacht, jet — we negotiate it down. Same carriers you already trust."
+          description="Whatever you insure (car, home, boat, yacht, jet), we negotiate it down. Same carriers you already trust."
         />
 
         <ul className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
@@ -53,7 +53,7 @@ export function ServicesGrid() {
                       {imgSrc ? (
                         <Image
                           src={imgSrc}
-                          alt={`${s.name} — premium ${s.name.toLowerCase()} concierge service`}
+                          alt={`${s.name}, premium ${s.name.toLowerCase()} concierge service`}
                           width={1024}
                           height={1024}
                           quality={70}

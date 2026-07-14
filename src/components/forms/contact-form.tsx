@@ -97,8 +97,8 @@ export function ContactForm({ defaultIntent }: ContactFormProps) {
         >
           Message sent
         </h3>
-        <p className="mt-2 text-base text-[#3a3a44] leading-[1.6]">
-          Thanks — we&rsquo;ll be in touch within one business day.
+        <p className="mt-2 text-base text-[#1f1f26] leading-[1.6]">
+          Thanks, we&rsquo;ll be in touch within one business day.
         </p>
         <button
           type="button"

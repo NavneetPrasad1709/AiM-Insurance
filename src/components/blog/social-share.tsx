@@ -60,7 +60,7 @@ export function SocialShare({ url, title, className }: SocialShareProps) {
       await navigator.clipboard.writeText(resolveUrl(url));
       setCopied(true);
     } catch {
-      // ignore — older browsers without clipboard permission
+      // ignore - older browsers without clipboard permission
     }
   };
 
@@ -77,7 +77,7 @@ export function SocialShare({ url, title, className }: SocialShareProps) {
           type="button"
           aria-label={label}
           onClick={() => handleShareClick(href)}
-          className="grid size-10 place-items-center rounded-full border border-border bg-surface text-text-secondary transition-colors hover:border-cta/40 hover:text-cta"
+          className="grid size-11 place-items-center rounded-full border border-border bg-surface text-text-secondary transition-colors hover:border-cta/40 hover:text-cta"
         >
           <Icon className="size-4" aria-hidden />
         </button>
@@ -88,7 +88,7 @@ export function SocialShare({ url, title, className }: SocialShareProps) {
           aria-label="Copy link"
           onClick={handleCopy}
           className={cn(
-            "grid size-10 place-items-center rounded-full border border-border bg-surface transition-colors",
+            "grid size-11 place-items-center rounded-full border border-border bg-surface transition-colors",
             copied
               ? "border-success/40 text-success"
               : "text-text-secondary hover:border-cta/40 hover:text-cta",

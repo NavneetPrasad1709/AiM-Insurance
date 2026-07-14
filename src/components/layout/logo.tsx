@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 export interface LogoProps {
-  /** "light" — white tagline for dark backgrounds. "dark" — black tagline for light backgrounds. */
+  /** "light": white tagline for dark backgrounds. "dark": black tagline for light backgrounds. */
   variant?: "dark" | "light";
   showCaption?: boolean;
   className?: string;
@@ -39,7 +39,7 @@ export function Logo({
     >
       <Image
         src={src}
-        alt="AiM — Product by Car Concierge Pro"
+        alt="AiM, a Car Concierge Pro product"
         width={dims.w}
         height={dims.h}
         priority

@@ -155,7 +155,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                                     <button
                                       type="button"
                                       onClick={() => navigate(child.href)}
-                                      className="w-full flex items-center gap-3 py-2.5 text-left text-lg text-white/85 hover:text-cta transition-colors"
+                                      className="w-full flex items-center gap-3 py-2.5 text-left text-lg text-white/90 hover:text-cta transition-colors"
                                     >
                                       {Icon && (
                                         <Icon
@@ -205,7 +205,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
             <a
               href={`tel:${SITE_CONFIG.phone.replace(/[^+\d]/g, "")}`}
               onClick={onClose}
-              className="inline-flex items-center gap-3 text-white/85 hover:text-cta transition-colors"
+              className="inline-flex items-center gap-3 text-white/90 hover:text-cta transition-colors"
             >
               <ICONS.Phone className="size-5 text-cta" aria-hidden />
               <span className="font-heading font-semibold text-lg">
@@ -238,7 +238,7 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="inline-flex size-10 items-center justify-center rounded-full border border-white/20 text-white/80 hover:text-cta hover:border-cta transition-colors"
+                    className="inline-flex size-10 items-center justify-center rounded-full border border-white/20 text-white/90 hover:text-cta hover:border-cta transition-colors"
                   >
                     <Icon className="size-5" aria-hidden />
                   </a>

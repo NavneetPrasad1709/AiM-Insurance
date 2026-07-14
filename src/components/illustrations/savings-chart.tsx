@@ -13,7 +13,7 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 
 export function SavingsChart({ className }: SavingsChartProps) {
 
-  // Premium per month — high pre-switch, drops at index 8 (Sept), stays low.
+  // Premium per month: high pre-switch, drops at index 8 (Sept), stays low.
   const points = [
     268, 268, 268, 268, 268, 268, 268, 268, // Jan-Aug @ $268/mo (= $3,214/yr)
     197, 197, 197, 197, // Sep-Dec @ $197/mo (= $2,367/yr)

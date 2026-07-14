@@ -15,6 +15,7 @@ import { ExploreMoreServices } from "@/components/sections/explore-more-services
 const CREAM = "#faf6ee";
 const CREAM_INK = "#0c1626";
 const CREAM_GOLD = "#b8842a";
+const CREAM_GOLD_TEXT = "#8a6410"; // AA-contrast gold for text on cream (>=4.6:1)
 
 const ASSET = {
   heroPoster: "/car/car-hero.jpg",
@@ -98,11 +99,11 @@ function Hero() {
       />
 
       <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-6 py-4 sm:px-12 sm:py-5">
-        <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/85">
+        <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/90">
           AiM · Car insurance
         </span>
-        <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/55 sm:block">
-          USA &amp; Canada · 1000+ clients
+        <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/90 sm:block">
+          USA &amp; Canada · 1100+ clients
         </span>
       </div>
 
@@ -140,7 +141,7 @@ function Hero() {
             transition={{ duration: 0.85, ease, delay: 0.32 }}
             className="mt-7 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg"
           >
-            We monitor your auto insurance across 50+ carriers — same
+            We monitor your auto insurance across 50+ carriers. Same
             coverage, lower premium. The average AiM client saves
             $1,247 a year without lifting a finger.
           </motion.p>
@@ -166,11 +167,11 @@ function Hero() {
             </Link>
             <a
               href="tel:+16029102500"
-              className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
+              className="group inline-flex items-center gap-2 text-sm text-white/90 transition-colors hover:text-cta"
             >
               <ICONS.Phone className="size-4" aria-hidden />
               <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                Or call — 602-910-2500
+                Or call: 602-910-2500
               </span>
             </a>
           </motion.div>
@@ -186,7 +187,7 @@ function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white/55"
+          className="flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white/90"
         >
           <span>Scroll</span>
           <span className="h-8 w-px bg-white/40" aria-hidden />
@@ -199,7 +200,7 @@ function Hero() {
 function TrustStrip() {
   const items: { label: string; icon: keyof typeof ICONS }[] = [
     { label: "USA & Canada", icon: "Car" },
-    { label: "1000+ clients", icon: "Award" },
+    { label: "1100+ clients", icon: "Award" },
     { label: "50+ carriers", icon: "BarChart3" },
     { label: "Same coverage", icon: "Shield" },
     { label: "3-month re-shop", icon: "Clock" },
@@ -213,7 +214,7 @@ function TrustStrip() {
       <div className="mx-auto max-w-7xl px-6 pb-10 pt-14 sm:px-12 sm:pt-20">
         <p
           className="mb-7 text-center font-heading text-[10px] font-semibold uppercase tracking-[0.36em] sm:mb-9"
-          style={{ color: CREAM_GOLD }}
+          style={{ color: CREAM_GOLD_TEXT }}
         >
           <span
             aria-hidden
@@ -244,7 +245,7 @@ function TrustStrip() {
                 {Icon && (
                   <Icon
                     className="size-3.5 shrink-0 sm:size-4"
-                    style={{ color: CREAM_GOLD }}
+                    style={{ color: CREAM_GOLD_TEXT }}
                     aria-hidden
                   />
                 )}
@@ -313,7 +314,7 @@ function Coverage() {
       n: "01",
       title: "50+ carrier benchmark",
       body:
-        "Geico, Progressive, State Farm, Allstate, Liberty Mutual and 45 more — we benchmark them all on your exact risk profile.",
+        "Geico, Progressive, State Farm, Allstate, Liberty Mutual and 45 more. We benchmark them all on your exact risk profile.",
       image: ASSET.c1,
       alt: ALT.c1,
     },
@@ -321,7 +322,7 @@ function Coverage() {
       n: "02",
       title: "Coverage stays bulletproof",
       body:
-        "Liability limits, deductibles, comprehensive, collision — every line stays. We negotiate price, not safety.",
+        "Liability limits, deductibles, comprehensive, collision. Every line stays. We negotiate price, not safety.",
       image: ASSET.c2,
       alt: ALT.c2,
     },
@@ -384,7 +385,7 @@ function Coverage() {
             className="text-[15px] leading-relaxed text-text-secondary sm:col-span-5"
           >
             We strip carrier markup, not coverage. Average client pockets
-            $1,247 a year for the exact same protection — and we keep
+            $1,247 a year for the exact same protection, and we keep
             re-shopping every three months.
           </motion.p>
         </div>
@@ -496,7 +497,7 @@ function WhyMatters() {
           >
             <p
               className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-              style={{ color: CREAM_GOLD }}
+              style={{ color: CREAM_GOLD_TEXT }}
             >
               <span
                 className="mr-3 inline-block h-px w-10 align-middle"
@@ -515,15 +516,15 @@ function WhyMatters() {
               }}
             >
               Auto rates jumped{" "}
-              <span style={{ color: CREAM_GOLD }}>
+              <span style={{ color: CREAM_GOLD_TEXT }}>
                 26% in the last 24 months.
               </span>
             </h3>
             <p
               className="text-[15px] leading-relaxed"
-              style={{ color: `${CREAM_INK}b8` }}
+              style={{ color: `${CREAM_INK}e6` }}
             >
-              Insurers quietly push premiums up at renewal — most drivers
+              Insurers quietly push premiums up at renewal. Most drivers
               never notice. Households that actively benchmark their policy
               save{" "}
               <span className="font-semibold" style={{ color: CREAM_INK }}>
@@ -551,7 +552,7 @@ function Pricing() {
       figureSuffix: "",
       title: "If we can't save you money",
       body:
-        "If we don't reduce your premium, you owe us nothing — no risk, no commitment.",
+        "If we don't reduce your premium, you owe us nothing. No risk, no commitment.",
       filled: false,
     },
     {
@@ -560,7 +561,7 @@ function Pricing() {
       figureSuffix: "",
       title: "A share of your savings",
       body:
-        "Only when we save you money, we keep a small portion of the negotiated savings on your annual premium — first year only. You always come out ahead.",
+        "Only when we save you money, we keep a small portion of the negotiated savings on your annual premium, first year only. You always come out ahead.",
       filled: true,
     },
   ];
@@ -581,7 +582,7 @@ function Pricing() {
         >
           <p
             className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-            style={{ color: CREAM_GOLD }}
+            style={{ color: CREAM_GOLD_TEXT }}
           >
             <span
               className="mr-3 inline-block h-px w-12 align-middle"
@@ -600,11 +601,11 @@ function Pricing() {
             }}
           >
             Aligned with{" "}
-            <span style={{ color: CREAM_GOLD }}>your savings.</span>
+            <span style={{ color: CREAM_GOLD_TEXT }}>your savings.</span>
           </h2>
           <p
             className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed"
-            style={{ color: `${CREAM_INK}b0` }}
+            style={{ color: `${CREAM_INK}e6` }}
           >
             Our pricing structure is designed around the savings we deliver.
             You only pay when you benefit.
@@ -629,7 +630,7 @@ function Pricing() {
             >
               <p
                 className="font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-                style={{ color: t.filled ? "#ffc83d" : CREAM_GOLD }}
+                style={{ color: t.filled ? "#ffc83d" : CREAM_GOLD_TEXT }}
               >
                 {t.tag}
               </p>
@@ -652,7 +653,7 @@ function Pricing() {
                     style={{
                       fontSize: "clamp(1.4rem, 2.8vw, 2.2rem)",
                       lineHeight: 1,
-                      color: t.filled ? "#ffc83d" : CREAM_GOLD,
+                      color: t.filled ? "#ffc83d" : CREAM_GOLD_TEXT,
                     }}
                   >
                     {t.figureSuffix}
@@ -674,8 +675,8 @@ function Pricing() {
                 className="mt-3 text-[15px] leading-relaxed"
                 style={{
                   color: t.filled
-                    ? "rgba(255,255,255,0.75)"
-                    : `${CREAM_INK}b0`,
+                    ? "rgba(255,255,255,0.9)"
+                    : `${CREAM_INK}e6`,
                 }}
               >
                 {t.body}
@@ -811,21 +812,21 @@ function Process() {
       n: "01",
       title: "Send your dec page",
       body:
-        "Upload your current declarations page — the 1-page renewal summary. Five minutes. Fully encrypted.",
+        "Upload your current declarations page, the 1-page renewal summary. Five minutes. Fully encrypted.",
       meta: "≈ 5 min",
     },
     {
       n: "02",
       title: "We benchmark 50+ carriers",
       body:
-        "Our system prices your exact risk profile against every major auto carrier — same coverage, lower rate.",
-      meta: "2 – 3 days",
+        "Our system prices your exact risk profile against every major auto carrier. Same coverage, lower rate.",
+      meta: "2 to 3 days",
     },
     {
       n: "03",
       title: "Savings report",
       body:
-        "If we find a better rate, we email a 1-page side-by-side comparison — in plain English.",
+        "If we find a better rate, we email a 1-page side-by-side comparison, in plain English.",
       meta: "Same week",
     },
     {
@@ -881,7 +882,7 @@ function Process() {
                 letterSpacing: "-0.03em",
               }}
             >
-              Four steps —
+              Four steps,
               <br />
               <span className="text-cta">about a week.</span>
             </h2>
@@ -991,7 +992,7 @@ function SocialProof() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.85, ease }}
           className="font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-          style={{ color: CREAM_GOLD }}
+          style={{ color: CREAM_GOLD_TEXT }}
         >
           <span
             className="mr-3 inline-block h-px w-12 align-middle"
@@ -1015,8 +1016,8 @@ function SocialProof() {
             color: CREAM_INK,
           }}
         >
-          <span style={{ color: CREAM_GOLD }}>1000+</span> clients served
-          &mdash; and counting.
+          <span style={{ color: CREAM_GOLD_TEXT }}>1100+</span> clients served,
+          and counting.
         </motion.h2>
 
         <motion.p
@@ -1026,11 +1027,11 @@ function SocialProof() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.85, ease, delay: 0.16 }}
           className="mx-auto mt-7 max-w-2xl text-[16px] leading-relaxed"
-          style={{ color: `${CREAM_INK}b8` }}
+          style={{ color: `${CREAM_INK}e6` }}
         >
-          Auto premiums climb at every renewal — most drivers never notice.
+          Auto premiums climb at every renewal. Most drivers never notice.
           Households across the USA and Canada are letting AiM monitor their
-          policies — quietly, continuously, in the background.
+          policies, quietly, continuously, in the background.
         </motion.p>
 
         <motion.div
@@ -1057,14 +1058,14 @@ function SocialProof() {
           <a
             href="tel:+16029102500"
             className="inline-flex items-center gap-2 text-sm transition-colors"
-            style={{ color: CREAM_GOLD }}
+            style={{ color: CREAM_GOLD_TEXT }}
           >
             <ICONS.Phone className="size-4" aria-hidden />
             <span
               className="border-b pb-0.5"
               style={{ borderColor: CREAM_GOLD }}
             >
-              Call us — 602-910-2500
+              Call us: 602-910-2500
             </span>
           </a>
         </motion.div>
@@ -1077,11 +1078,11 @@ function Faq() {
   const items = [
     {
       q: "How much can I actually save on car insurance?",
-      a: "Our 1000+ auto clients average $1,247 in yearly savings, with about a 30% drop on the typical policy. Multi-car households tend to land higher — $1,800 to $2,400 a year is common when we consolidate everything onto a single optimised policy.",
+      a: "Our 1100+ auto clients average $1,247 in yearly savings, with about a 30% drop on the typical policy. Multi-car households tend to land higher. $1,800 to $2,400 a year is common when we consolidate everything onto a single optimised policy.",
     },
     {
       q: "Do you handle the entire switching process?",
-      a: "We help you get the policy switched. Once you approve the new policy, our team walks you through the switch, coordinates effective dates so you're never uninsured, and guides the cancellation of the old policy. After that, every 3 months we re-shop your rate against the live market — if we find a better deal at the same coverage, we help you switch again. You stay in control; we do the heavy lifting.",
+      a: "We help you get the policy switched. Once you approve the new policy, our team walks you through the switch, coordinates effective dates so you're never uninsured, and guides the cancellation of the old policy. After that, every 3 months we re-shop your rate against the live market. If we find a better deal at the same coverage, we help you switch again. You stay in control; we do the heavy lifting.",
     },
     {
       q: "What information do you need to start the audit?",
@@ -1089,7 +1090,7 @@ function Faq() {
     },
     {
       q: "How often do you re-shop my rate after I switch?",
-      a: "Every 3 months we benchmark your policy against the live market. If we spot a better rate at the same coverage level, we email you a 1-page comparison. You decide whether to move — there's no auto-switching without your approval.",
+      a: "Every 3 months we benchmark your policy against the live market. If we spot a better rate at the same coverage level, we email you a 1-page comparison. You decide whether to move. There's no auto-switching without your approval.",
     },
   ];
   return (
@@ -1245,7 +1246,7 @@ function Cta() {
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-text-secondary sm:text-[15.5px]">
               Send us your current dec page and let AiM start saving you
-              money today — knowing you&rsquo;re never overpaying.
+              money today, knowing you&rsquo;re never overpaying.
             </p>
             <div className="mt-9 flex flex-col gap-5 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
               <Link
@@ -1263,11 +1264,11 @@ function Cta() {
               </Link>
               <a
                 href="tel:+16029102500"
-                className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
+                className="group inline-flex items-center gap-2 text-sm text-white/90 transition-colors hover:text-cta"
               >
                 <ICONS.Phone className="size-4" aria-hidden />
                 <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                  Or call — 602-910-2500
+                  Or call: 602-910-2500
                 </span>
               </a>
             </div>

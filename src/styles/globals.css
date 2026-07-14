@@ -1,39 +1,39 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   AIM Insurance — Premium Dark Design System v2.
+   AIM Insurance - Premium Dark Design System v2.
    Pure black foundation, single Ember accent, restrained.
    Inspired by Linear / Vercel / Raycast / Superhuman / Arc.
 --------------------------------------------------------------------------- */
 
 @theme {
-  /* Foundation — luminance ladder (no shadows on dark, depth via lightness) */
-  --color-background: #0a0a0a;        /* Pitch Black — page bg */
+  /* Foundation - luminance ladder (no shadows on dark, depth via lightness) */
+  --color-background: #0a0a0a;        /* Pitch Black - page bg */
   --color-background-cream: #0d0d10;  /* alternating section bg, 1 step lighter */
-  --color-surface: #111113;            /* Carbon — elevated surfaces / cards */
-  --color-surface-2: #1a1a1f;          /* Graphite — modals, dropdowns */
+  --color-surface: #111113;            /* Carbon - elevated surfaces / cards */
+  --color-surface-2: #1a1a1f;          /* Graphite - modals, dropdowns */
 
   /* Borders */
-  --color-border: #232328;             /* Hairline — 1px, only border color */
+  --color-border: #232328;             /* Hairline - 1px, only border color */
   --color-border-light: #1a1a1f;       /* alternative subtler border */
 
-  /* Text — bumped warmer/lighter for readability on dark */
-  --color-text-primary: #f4f4f8;       /* Bone+ — default body */
+  /* Text - bumped warmer/lighter for readability on dark */
+  --color-text-primary: #f4f4f8;       /* Bone+ - default body */
   --color-text-secondary: #d8d8de;     /* Ash → near-white for body copy */
-  --color-text-muted: #a0a0aa;         /* Smoke → still readable for captions */
-  --color-primary: #ffffff;            /* White — H1 + stats only */
+  --color-text-muted: #c4c4ce;         /* Smoke+, high-contrast captions (~11:1 on black) */
+  --color-primary: #ffffff;            /* White - H1 + stats only */
   --color-primary-hover: #e8e8ec;
   --color-primary-light: #9a9aa3;
 
-  /* Signal — one accent, used sparingly */
-  --color-cta: #ffc83d;                /* Citrine — primary CTA */
+  /* Signal - one accent, used sparingly */
+  --color-cta: #ffc83d;                /* Citrine - primary CTA */
   --color-cta-hover: #ffd75a;          /* lighter yellow for distinct hover */
   --color-cta-light: #14110a;          /* dark surface tint */
   --color-ember: #ffc83d;
   --color-ember-hover: #ffd75a;
 
-  /* Support accents — never together in the same viewport */
-  --color-accent: #ffc83d;             /* Citrine — number highlights */
+  /* Support accents - never together in the same viewport */
+  --color-accent: #ffc83d;             /* Citrine - number highlights */
   --color-accent-light: #14110a;
   --color-citrine: #ffc83d;
   --color-mint: #4fe0b0;
@@ -51,7 +51,7 @@
   --color-warning: #ffc83d;
   --color-warning-light: #14110a;
 
-  /* Gradient stops (legacy class compat — used for accent washes only) */
+  /* Gradient stops (legacy class compat - used for accent washes only) */
   --color-grad-coral: #ffc83d;
   --color-grad-orange: #ffc83d;
   --color-grad-yellow: #ffc83d;
@@ -59,14 +59,15 @@
   --color-grad-blue: #ffc83d;
   --color-grad-purple: #ffc83d;
 
-  /* Fonts — Montserrat for headings & emphasis; system stack for body
-     so paragraphs paint immediately at FCP without waiting for the
-     Montserrat web-font round-trip (was causing the LCP element to
-     be measured at font-swap, ~2s after FCP on mobile). */
+  /* Fonts - Montserrat across the entire site (headings and body).
+     Loaded via next/font (self-hosted, display:swap, size-adjusted
+     fallback) so there is no CLS and the system stack paints instantly
+     at FCP before Montserrat swaps in. The 400 weight is already in the
+     critical payload, so body-on-Montserrat adds no new font download. */
   --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-display: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   /* Compat: anywhere code still says var(--font-inter), resolve it
      to the brand stack (Montserrat-led) so labels/CTAs keep the
      designed look. Default body inheritance stays on system fonts. */
@@ -76,7 +77,7 @@
   --container-7xl: 1280px;
   --container-8xl: 1440px;
 
-  /* Radii — sharp on dark */
+  /* Radii - sharp on dark */
   --radius-sm: 4px;
   --radius-md: 6px;          /* buttons */
   --radius-lg: 8px;          /* cards */
@@ -84,7 +85,7 @@
   --radius-2xl: 16px;
   --radius-3xl: 20px;
 
-  /* Shadows — restrict use; only primary CTA */
+  /* Shadows - restrict use; only primary CTA */
   --shadow-sm: none;
   --shadow-md: none;
   --shadow-lg: none;
@@ -137,7 +138,7 @@
 --------------------------------------------------------------------------- */
 @layer base {
   html {
-    /* Default 100% — body text reads cleanly without browser zoom.
+    /* Default 100% - body text reads cleanly without browser zoom.
        Headings + body sizes scale uniformly off this root. */
     font-size: 100%;
     scroll-behavior: smooth;
@@ -152,7 +153,7 @@
     color: var(--color-text-primary);
     background-color: var(--color-background);
     overflow-x: clip;
-    /* 1.5% white SVG noise — kills banding, adds warmth, applied once globally */
+    /* 1.5% white SVG noise - kills banding, adds warmth, applied once globally */
     background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.015'/></svg>");
     background-size: 240px 240px;
   }
@@ -219,7 +220,7 @@
   .text-gradient-teal { color: #4fe0b0; }
   .text-gradient-coral { color: #ffc83d; }
 
-  /* Solid background tokens — keep names for compat */
+  /* Solid background tokens - keep names for compat */
   .bg-gradient-coral { background-color: #ffc83d; }
   .bg-gradient-warm { background-color: #ffc83d; }
   .bg-gradient-navy { background-color: #111113; }
@@ -231,7 +232,7 @@
       #0a0a0a;
   }
 
-  /* Hero ambient — reserved for hero only, NOT applied to other sections */
+  /* Hero ambient - reserved for hero only, NOT applied to other sections */
   .bg-gradient-blob {
     background:
       radial-gradient(50% 50% at 50% 40%, rgb(255 200 61 / 0.18) 0%, transparent 70%);
@@ -240,7 +241,7 @@
   .animate-blob { animation: blobShift 22s ease-in-out infinite; }
   .animate-blob-slow { animation: blobShift 36s ease-in-out infinite; }
 
-  /* Hairline grid — subtle, masked at edges, used SPARINGLY (one section) */
+  /* Hairline grid - subtle, masked at edges, used SPARINGLY (one section) */
   .bg-grid {
     background-image:
       linear-gradient(rgb(255 255 255 / 0.04) 1px, transparent 1px),
@@ -256,7 +257,7 @@
     background-size: 32px 32px;
   }
 
-  /* Noise utility — body already applies global noise; this is for accent surfaces */
+  /* Noise utility - body already applies global noise; this is for accent surfaces */
   .bg-noise {
     background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
     background-size: 240px 240px;
@@ -304,7 +305,7 @@
     animation: pulseGlow 2.6s ease-in-out infinite;
   }
 
-  /* Editorial smart-quote — Stripe-style oversized U+201C */
+  /* Editorial smart-quote - Stripe-style oversized U+201C */
   .quote-glyph {
     font-family: var(--font-display);
     font-weight: 700;
@@ -341,7 +342,7 @@
     transform-origin: 50% 0;
   }
 
-  /* Stagger reveal — once parent has .is-revealed, children animate in
+  /* Stagger reveal - once parent has .is-revealed, children animate in
      using their index for delay. CSS-only; pairs with StaggerGroup
      IntersectionObserver in scroll-effects.tsx. */
   [data-stagger].is-revealed > .stagger-item {
@@ -360,7 +361,7 @@
   [data-stagger].is-revealed > .stagger-item:nth-child(10) { transition-delay: calc(var(--stagger-delay-base, 0s) + var(--stagger-step, 0.08s) * 9); }
 
   /* ───────────────────────────────────────────────────────────────
-     Continuous gentle float — applies to illustration wrappers
+     Continuous gentle float - applies to illustration wrappers
      so every illustration has a subtle living motion
      ─────────────────────────────────────────────────────────────── */
   .illu-float {
@@ -378,7 +379,7 @@
   }
 
   /* ───────────────────────────────────────────────────────────────
-     Card shimmer sweep — diagonal light pass on hover
+     Card shimmer sweep - diagonal light pass on hover
      ─────────────────────────────────────────────────────────────── */
   .card-shimmer {
     position: relative;
@@ -411,7 +412,7 @@
   }
 
   /* ───────────────────────────────────────────────────────────────
-     Card hover lift — used on every card across the site
+     Card hover lift - used on every card across the site
      ─────────────────────────────────────────────────────────────── */
   .card-hover {
     position: relative;
@@ -467,7 +468,7 @@
   }
 
   /* ───────────────────────────────────────────────────────────────
-     Illustration backdrop — animated multi-color radial behind images
+     Illustration backdrop - animated multi-color radial behind images
      ─────────────────────────────────────────────────────────────── */
   .illu-backdrop {
     position: absolute;
@@ -521,7 +522,7 @@
     50%      { transform: scale(1.1) translate(14px, 10px); opacity: 0.95; }
   }
 
-  /* Premium CTA — yellow bg + dark text for AAA contrast */
+  /* Premium CTA - yellow bg + dark text for AAA contrast */
   .cta-primary {
     background-color: #ffc83d;
     color: #0a0a0a;

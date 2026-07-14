@@ -1,7 +1,7 @@
 import type { Variants } from "framer-motion";
 
 /**
- * Shared easing — smooth deceleration curve, used everywhere for a consistent feel.
+ * Shared easing: smooth deceleration curve, used everywhere for a consistent feel.
  */
 export const EASE_OUT_EXPO: [number, number, number, number] = [
   0.16, 1, 0.3, 1,
@@ -83,7 +83,7 @@ export const VARIANTS: Record<AnimationVariant, Variants> = {
 
 /**
  * Returns false when the user has set prefers-reduced-motion.
- * On the server (no window) we conservatively allow animations — the
+ * On the server (no window) we conservatively allow animations. The
  * AnimatedSection / motion components also respect useReducedMotion()
  * which gives the per-component, real-time signal during the React render.
  */

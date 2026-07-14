@@ -14,20 +14,20 @@ import {
 } from "@/components/seo/structured-data";
 
 export const metadata: Metadata = {
-  title: "About AiM Insurance — Expert Insurance Negotiators",
+  title: "About AiM Insurance | Expert Insurance Negotiators",
   description:
-    "Founded by Neel Mehta of Car Concierge Pro, AiM Insurance negotiates lower premiums on car, home, boat, yacht and jet insurance — same coverage, lower cost.",
+    "Founded by Neel Mehta of Car Concierge Pro, AiM Insurance negotiates lower premiums on car, home, boat, yacht and jet insurance. Same coverage, lower cost.",
   alternates: { canonical: "/about" },
   openGraph: {
-    title: "About AiM Insurance — Expert Insurance Negotiators",
+    title: "About AiM Insurance | Expert Insurance Negotiators",
     description:
-      "We don't sell insurance. We negotiate what's best for you. 1000+ clients across the US, Canada and UAE — averaging $1,247 in annual savings.",
+      "We don't sell insurance. We negotiate what's best for you. 1100+ clients across the US, Canada and UAE, averaging $1,247 in annual savings.",
     url: `${SITE_CONFIG.url}/about`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About AiM Insurance — Expert Insurance Negotiators",
+    title: "About AiM Insurance | Expert Insurance Negotiators",
     description:
       "We don't sell insurance. We negotiate what's best for you.",
   },

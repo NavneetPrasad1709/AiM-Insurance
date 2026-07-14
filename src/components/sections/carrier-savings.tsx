@@ -61,7 +61,7 @@ export function CarrierSavings() {
 
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* LEFT — copy + table */}
+          {/* LEFT - copy + table */}
           <div className="lg:col-span-7 flex flex-col gap-7">
             <ScrollReveal direction="up">
               <span
@@ -100,7 +100,7 @@ export function CarrierSavings() {
             </ScrollReveal>
             <ScrollReveal direction="up" delay={0.16}>
               <p className="text-white text-base sm:text-lg leading-[1.55] max-w-xl">
-                A snapshot of recent client wins — actual carriers, actual
+                A snapshot of recent client wins, actual carriers, actual
                 annual savings, identical coverage.
               </p>
             </ScrollReveal>
@@ -114,7 +114,7 @@ export function CarrierSavings() {
                     className="text-[10px] uppercase tracking-[0.18em] font-bold text-white"
                     style={{ fontFamily: "var(--font-inter)" }}
                   >
-                    Average across 1000+ clients
+                    Average across 1100+ clients
                   </span>
                   <span
                     className="mt-1.5 text-2xl font-extrabold text-white tabular-nums leading-tight"
@@ -134,9 +134,9 @@ export function CarrierSavings() {
 
             {/* Savings rows */}
             <StaggerGroup className="mt-2 flex flex-col gap-3">
-              {/* Header — desktop */}
+              {/* Header - desktop */}
               <div
-                className="hidden sm:grid grid-cols-12 gap-4 px-6 text-[10px] uppercase tracking-[0.22em] font-semibold text-white/55"
+                className="hidden sm:grid grid-cols-12 gap-4 px-6 text-[10px] uppercase tracking-[0.22em] font-semibold text-white/90"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
                 <div className="col-span-5">Former Carrier</div>
@@ -186,7 +186,7 @@ export function CarrierSavings() {
                           >
                             {s.carrier}
                           </span>
-                          <span className="text-[11px] sm:text-xs text-white/50 uppercase tracking-[0.16em] font-semibold">
+                          <span className="text-[11px] sm:text-xs text-white/90 uppercase tracking-[0.16em] font-semibold">
                             Switched · {pct}% off
                           </span>
                         </div>
@@ -195,15 +195,15 @@ export function CarrierSavings() {
                       {/* Mobile: before/after/saved row */}
                       <div className="grid grid-cols-3 gap-3 sm:hidden border-t border-[#232328] pt-3">
                         <div className="flex flex-col gap-1">
-                          <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-white/45">
+                          <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-white/90">
                             Before
                           </span>
-                          <span className="text-white/60 line-through font-semibold tabular-nums text-sm">
+                          <span className="text-white/90 line-through font-semibold tabular-nums text-sm">
                             {fmt(s.before)}
                           </span>
                         </div>
                         <div className="flex flex-col gap-1">
-                          <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-white/45">
+                          <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-white/90">
                             After
                           </span>
                           <span className="text-white font-bold tabular-nums text-sm">
@@ -225,7 +225,7 @@ export function CarrierSavings() {
 
                       {/* Desktop: before */}
                       <div className="hidden sm:flex sm:col-span-2 justify-end">
-                        <span className="text-white/55 line-through font-semibold tabular-nums text-[15px]">
+                        <span className="text-white/90 line-through font-semibold tabular-nums text-[15px]">
                           {fmt(s.before)}
                         </span>
                       </div>
@@ -284,7 +284,7 @@ export function CarrierSavings() {
             </ScrollReveal>
           </div>
 
-          {/* RIGHT — savings illustration */}
+          {/* RIGHT - savings illustration */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
             <div
               aria-hidden
@@ -302,7 +302,7 @@ export function CarrierSavings() {
               <div className="illu-float">
                 <Image
                   src="/brand/illustrations/savings-comparison.webp"
-                  alt="Before and after — client switched carriers and saved $1,534 annually with AiM"
+                  alt="Before and after: client switched carriers and saved $1,534 annually with AiM"
                   width={1024}
                   height={1024}
                   sizes="(min-width: 1024px) 480px, 92vw"

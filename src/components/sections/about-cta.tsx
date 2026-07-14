@@ -57,10 +57,10 @@ export function AboutCta() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, delay: 0.16 }}
-          className="mt-6 text-base sm:text-lg leading-relaxed text-white/80"
+          className="mt-6 text-base sm:text-lg leading-relaxed text-white"
         >
           Book a 15-minute call or send us your declarations page. Either way,
-          we&rsquo;ll tell you exactly what you can save — no obligation.
+          we&rsquo;ll tell you exactly what you can save, no obligation.
         </motion.p>
 
         <motion.div
@@ -87,7 +87,7 @@ export function AboutCta() {
           </Link>
         </motion.div>
 
-        <p className="mt-6 text-xs font-heading font-semibold tabular-nums text-white/70">
+        <p className="mt-6 text-xs font-heading font-semibold tabular-nums text-white/90">
           $0 if no savings · No obligation · Results in 24 hours
         </p>
       </div>

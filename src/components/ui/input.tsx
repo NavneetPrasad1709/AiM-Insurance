@@ -64,7 +64,7 @@ function FieldShell({
       ) : helperText ? (
         <p
           id={`${id}-helper`}
-          className={cn("text-sm", light ? "text-[#5a5a64]" : "text-text-muted")}
+          className={cn("text-sm", light ? "text-[#2e2e36]" : "text-text-muted")}
         >
           {helperText}
         </p>
@@ -144,7 +144,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           <span
             className={cn(
               "pointer-events-none absolute inset-y-0 left-3 flex items-center",
-              light ? "text-[#5a5a64]" : "text-text-muted",
+              light ? "text-[#2e2e36]" : "text-text-muted",
             )}
             aria-hidden
           >

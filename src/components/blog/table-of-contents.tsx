@@ -71,7 +71,7 @@ export function TableOfContents({ headings, className }: TableOfContentsProps) {
 
   return (
     <nav aria-label="Table of contents" className={cn("text-sm", className)}>
-      {/* Desktop — always visible */}
+      {/* Desktop - always visible */}
       <div className="hidden lg:block">
         <div className="mb-4 flex items-center gap-2">
           <ICONS.BookOpen className="size-4 text-cta" aria-hidden />
@@ -82,7 +82,7 @@ export function TableOfContents({ headings, className }: TableOfContentsProps) {
         {list}
       </div>
 
-      {/* Mobile — collapsible */}
+      {/* Mobile - collapsible */}
       <div className="lg:hidden">
         <button
           type="button"

@@ -17,15 +17,15 @@ const FEATURES: MediaFeature[] = [
     title:
       "AiM Insurance Helps Clients Save Thousands Through Expert Negotiation",
     excerpt:
-      "How a small Texas-based negotiation desk is taking on the carrier rate machine — and winning, one declarations page at a time.",
+      "How a small Texas-based negotiation desk is taking on the carrier rate machine, and winning, one declarations page at a time.",
     href: "https://www.issuewire.com/",
     date: "2024",
   },
   {
     publication: "Newswire",
-    title: "Car Concierge Pro Launches AiM — Insurance Negotiation as a Service",
+    title: "Car Concierge Pro Launches AiM: Insurance Negotiation as a Service",
     excerpt:
-      "Founder Neel Mehta on why insurance shoppers leave money on the table at every renewal — and what AiM does differently.",
+      "Founder Neel Mehta on why insurance shoppers leave money on the table at every renewal, and what AiM does differently.",
     href: "https://www.newswire.com/",
     date: "2024",
   },
@@ -88,14 +88,14 @@ export function MediaFeatures() {
                 <span className="inline-flex items-center gap-2 rounded-full bg-[#fff5d4] ring-1 ring-[#ffc83d]/40 px-3 py-1 text-[11px] font-heading font-bold uppercase tracking-[0.2em] text-[#0a0a0a]">
                   {f.publication}
                 </span>
-                <span className="text-xs font-heading font-bold uppercase tracking-[0.18em] text-[#5a5a64] tabular-nums">
+                <span className="text-xs font-heading font-bold uppercase tracking-[0.18em] text-[#2e2e36] tabular-nums">
                   {f.date}
                 </span>
               </div>
               <h3 className="mt-5 font-heading text-xl font-bold text-[#0a0a0a] leading-snug transition-colors group-hover:text-[#0a0a0a]">
                 {f.title}
               </h3>
-              <p className="mt-3 text-base leading-[1.6] text-[#3a3a44]">
+              <p className="mt-3 text-base leading-[1.6] text-[#1f1f26]">
                 {f.excerpt}
               </p>
               <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-heading font-bold text-[#0a0a0a] group-hover:text-[#ffc83d] transition-colors">

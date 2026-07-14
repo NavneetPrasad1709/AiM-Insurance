@@ -12,7 +12,7 @@ interface NewsletterFormProps {
 }
 
 /**
- * Footer newsletter form — dark surface, gold submit, success state in green.
+ * Footer newsletter form: dark surface, gold submit, success state in green.
  * Wires into the shared lead-capture pipeline via useFormSubmit.
  */
 export function NewsletterForm({ className, helperText }: NewsletterFormProps) {
@@ -80,7 +80,7 @@ export function NewsletterForm({ className, helperText }: NewsletterFormProps) {
             ? "#059669"
             : isError
               ? "#DC2626"
-              : "rgb(255 255 255 / 0.55)",
+              : "rgb(255 255 255 / 0.9)",
         }}
       >
         {isSuccess

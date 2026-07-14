@@ -104,7 +104,7 @@ export function AboutHero() {
           </motion.p>
         </div>
 
-        {/* Trust signals — Newswire-led */}
+        {/* Trust signals: Newswire-led */}
         <div className="relative mx-auto mt-12 max-w-4xl">
           <TrustStrip variant="full" />
         </div>

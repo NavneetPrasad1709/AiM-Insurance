@@ -4,7 +4,7 @@ import { m as motion, useReducedMotion } from "framer-motion";
 import { useId, type ReactElement } from "react";
 
 /**
- * Per-service signature motif — small decorative SVG (~180–220px) that lives
+ * Per-service signature motif: small decorative SVG (~180 to 220px) that lives
  * behind the hero copy. Subtle, low opacity, brand-gold + service-accent thread.
  *
  * Each motif uses unique gradient IDs (via useId) so multiple services can
@@ -151,7 +151,7 @@ export function HomeMotif({
         viewport={{ once: true }}
         transition={{ duration: reduce ? 0 : 1.4, delay: 0.4, ease: EASE }}
       />
-      {/* Glowing window — hearth */}
+      {/* Glowing window: hearth */}
       <motion.rect
         x="86"
         y="125"
@@ -235,7 +235,7 @@ export function BoatMotif({
           }}
         />
       ))}
-      {/* Sailboat — hull */}
+      {/* Sailboat: hull */}
       <motion.path
         d="M 70,108 L 150,108 L 130,118 L 90,118 Z"
         fill="#0a0a0a"
@@ -465,7 +465,7 @@ export function JetMotif({
         viewport={{ once: true }}
         transition={{ duration: reduce ? 0 : 2, ease: EASE }}
       />
-      {/* Cloud puffs — soft white with sky tint */}
+      {/* Cloud puffs: soft white with sky tint */}
       {[
         { x: 32, y: 96, r: 5, d: 0.6 },
         { x: 60, y: 90, r: 4, d: 0.9 },
@@ -484,7 +484,7 @@ export function JetMotif({
           transition={{ duration: 0.5, delay: c.d, ease: "backOut" }}
         />
       ))}
-      {/* Jet silhouette — minimal triangle nose with wings */}
+      {/* Jet silhouette: minimal triangle nose with wings */}
       <motion.path
         d="M 198,32 L 188,28 L 184,32 L 180,30 L 174,40 L 180,42 L 184,44 L 188,40 L 198,36 Z"
         fill="#ffc83d"

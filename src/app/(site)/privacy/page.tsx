@@ -81,33 +81,33 @@ export default function PrivacyPage() {
             <p>We collect the following categories of personal information:</p>
             <ul>
               <li>
-                <strong>Contact information</strong> — name, email address,
+                <strong>Contact information:</strong> name, email address,
                 phone number, mailing address, and preferred contact method.
               </li>
               <li>
-                <strong>Insurance information</strong> — your current
+                <strong>Insurance information:</strong> your current
                 declarations page, policy numbers, coverage limits,
                 deductibles, premium amounts, renewal dates, and claims
                 history.
               </li>
               <li>
-                <strong>Underwriting information</strong> — driver&rsquo;s
+                <strong>Underwriting information:</strong> driver&rsquo;s
                 license number, date of birth, vehicle VINs, vehicle
                 make/model/year, property address and characteristics, vessel
                 or aircraft registration details, and similar information
                 required by carriers to provide a quote.
               </li>
               <li>
-                <strong>Household information</strong> — names, dates of birth,
+                <strong>Household information:</strong> names, dates of birth,
                 and license details of co-insureds (spouses, dependents, named
                 drivers) that you provide.
               </li>
               <li>
-                <strong>Communications</strong> — emails, text messages, phone
+                <strong>Communications:</strong> emails, text messages, phone
                 call notes, and form submissions you exchange with our team.
               </li>
               <li>
-                <strong>Usage and device information</strong> — IP address,
+                <strong>Usage and device information:</strong> IP address,
                 browser type and version, operating system, referring URLs,
                 pages viewed, and time stamps. We collect this through cookies
                 and similar technologies (see Section 7).
@@ -158,12 +158,12 @@ export default function PrivacyPage() {
             <p>We share personal information only as follows:</p>
             <ul>
               <li>
-                <strong>Licensed insurance carriers and brokers</strong> — to
+                <strong>Licensed insurance carriers and brokers:</strong> to
                 request quotes, place coverage, and finalize policies on your
                 behalf. Each carrier has its own privacy practices.
               </li>
               <li>
-                <strong>Service providers</strong> who process data for us —
+                <strong>Service providers</strong> who process data for us:
                 hosting, email delivery, analytics, CRM, scheduling, and
                 payment processing. They are contractually bound to use the
                 information only for the services they provide to us.
@@ -173,12 +173,12 @@ export default function PrivacyPage() {
                 of brands, for the purposes described in this policy.
               </li>
               <li>
-                <strong>Legal and safety</strong> — to comply with applicable
+                <strong>Legal and safety:</strong> to comply with applicable
                 law, valid legal process, or to protect the rights, property,
                 or safety of you, us, or others.
               </li>
               <li>
-                <strong>Business transfers</strong> — in connection with a
+                <strong>Business transfers:</strong> in connection with a
                 merger, acquisition, financing, or sale of assets. We will
                 notify you of any such change and your choices.
               </li>
@@ -202,7 +202,7 @@ export default function PrivacyPage() {
             <h2 className="font-heading text-white">6. Security</h2>
             <p>
               We use administrative, technical, and physical safeguards
-              designed to protect personal information — including TLS in
+              designed to protect personal information, including TLS in
               transit, encryption at rest for sensitive fields, least-privilege
               access controls, and routine reviews. No system is perfectly
               secure, so we cannot guarantee absolute security. If we learn of
@@ -229,15 +229,15 @@ export default function PrivacyPage() {
             <h2 className="font-heading text-white">8. Your choices</h2>
             <ul>
               <li>
-                <strong>Marketing emails</strong> — you can unsubscribe at any
+                <strong>Marketing emails:</strong> you can unsubscribe at any
                 time using the link in any marketing email or by emailing us.
               </li>
               <li>
-                <strong>SMS</strong> — reply STOP to opt out of any text
+                <strong>SMS:</strong> reply STOP to opt out of any text
                 messages we send you.
               </li>
               <li>
-                <strong>Account information</strong> — you may ask us to
+                <strong>Account information:</strong> you may ask us to
                 update, correct, or delete your information by contacting us.
               </li>
             </ul>

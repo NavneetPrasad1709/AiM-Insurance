@@ -20,7 +20,7 @@ export function CtaBanner() {
       aria-labelledby="cta-banner-heading"
       className="relative bg-background py-28 sm:py-36 lg:py-48 overflow-hidden"
     >
-      {/* Single ambient — soft Ember radial */}
+      {/* Single ambient - soft Ember radial */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-1/2 h-[640px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-blob blur-3xl" />
         <div className="absolute inset-x-0 top-0 h-px bg-[#232328]" />
@@ -42,7 +42,7 @@ export function CtaBanner() {
           <div className="illu-float-slow">
             <Image
               src="/brand/illustrations/cta-family.webp"
-              alt="Happy AiM family standing beside their car — same coverage, lower premium"
+              alt="Happy AiM family standing beside their car, same coverage, lower premium"
               width={1024}
               height={768}
               sizes="(min-width: 640px) 520px, 92vw"
@@ -83,10 +83,10 @@ export function CtaBanner() {
           <p className="mt-6 text-base sm:text-lg text-white leading-[1.55]">
             Join{" "}
             <span className="font-semibold text-white tabular-nums">
-              1000+ clients
+              1100+ clients
             </span>{" "}
-            across US, Canada, and UAE who trust AiM to negotiate better rates
-            — same coverage, lower cost.
+            across US, Canada, and UAE who trust AiM to negotiate better rates,
+            same coverage, lower cost.
           </p>
         </ScrollReveal>
 

@@ -6,7 +6,7 @@ export interface PageTransitionProps {
 
 /**
  * Pass-through. We previously wrapped every page in a framer-motion
- * fade — that set opacity:0 on the page root and delayed paint of the
+ * fade that set opacity:0 on the page root and delayed paint of the
  * LCP element until framer-motion's runtime finished loading and the
  * animation completed (Lighthouse measured ~2.7s of element render
  * delay). The visual gain wasn't worth a 30+ point hit to mobile perf.

@@ -79,7 +79,7 @@ export function PostHeroArtwork({ category, mainImage, title }: PostHeroArtworkP
         />
       </svg>
 
-      {/* Concentric arcs — top-left */}
+      {/* Concentric arcs - top-left */}
       <svg
         aria-hidden
         viewBox="0 0 240 240"
@@ -166,7 +166,7 @@ export function PostHeroArtwork({ category, mainImage, title }: PostHeroArtworkP
         ))}
       </svg>
 
-      {/* AiM brand mark — real logo, subtle on artwork */}
+      {/* AiM brand mark - real logo, subtle on artwork */}
       <motion.div
         initial={{ opacity: 0, x: 12 }}
         animate={{ opacity: 0.92, x: 0 }}

@@ -40,7 +40,7 @@ const TIERS: Tier[] = [
     description:
       "Simple, predictable fee for placing a brand new policy with the best carrier we negotiate.",
     bullets: [
-      "Flat $149 — no surprises",
+      "Flat $149, no surprises",
       "Best carrier match",
       "Concierge handles the switch",
     ],
@@ -110,8 +110,8 @@ export function PricingSection() {
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.18}>
             <p className="mt-5 text-base sm:text-lg text-white leading-[1.55]">
-              No upfront fees. No subscriptions. No tricks. Three clean options
-              — pick the one that fits your situation.
+              No upfront fees. No subscriptions. No tricks. Three clean options,
+              pick the one that fits your situation.
             </p>
           </ScrollReveal>
         </div>
@@ -239,7 +239,7 @@ export function PricingSection() {
         <ScrollReveal direction="up" delay={0.2}>
           <p className="mt-12 text-sm text-white max-w-2xl mx-auto text-center">
             Fees are payable once your new premium is shared. Our team handles
-            the switch and update on your behalf — zero hassle.
+            the switch and update on your behalf, zero hassle.
           </p>
         </ScrollReveal>
       </div>

@@ -56,12 +56,12 @@ export function Footer() {
           <div className="lg:col-span-7">
             <Logo variant="light" />
 
-            {/* Tagline — short on mobile, full on lg */}
-            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/70 lg:hidden">
-              Expert negotiators fight for the best deal — same coverage,
+            {/* Tagline: short on mobile, full on lg */}
+            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/90 lg:hidden">
+              Expert negotiators fight for the best deal: same coverage,
               lower premiums.
             </p>
-            <p className="mt-5 hidden max-w-md text-[15px] leading-relaxed text-white/70 lg:block">
+            <p className="mt-5 hidden max-w-md text-[15px] leading-relaxed text-white/90 lg:block">
               {SITE_CONFIG.description}
             </p>
 
@@ -75,7 +75,7 @@ export function Footer() {
                   <ICONS.Phone className="size-4" aria-hidden />
                 </span>
                 <span className="flex min-w-0 flex-col">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/55">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90">
                     Call us
                   </span>
                   <span className="text-base font-semibold text-white tabular-nums">
@@ -91,7 +91,7 @@ export function Footer() {
                   <ICONS.Mail className="size-4" aria-hidden />
                 </span>
                 <span className="flex min-w-0 flex-col">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/55">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90">
                     Email us
                   </span>
                   <span className="truncate text-[15px] font-semibold text-white">
@@ -101,7 +101,7 @@ export function Footer() {
               </a>
             </div>
 
-            {/* Get-quote CTA — mobile only */}
+            {/* Get-quote CTA, mobile only */}
             <Link
               href="/contact?intent=quote"
               className="btn-shine mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full bg-cta px-6 py-3.5 text-[15px] font-heading font-bold text-[#0a0a0a] transition-transform duration-150 hover:-translate-y-0.5 active:translate-y-0 lg:hidden"
@@ -110,7 +110,7 @@ export function Footer() {
               <ICONS.ArrowRight className="size-4" aria-hidden />
             </Link>
 
-            {/* Trust strip — tight on mobile, generous on lg */}
+            {/* Trust strip: tight on mobile, generous on lg */}
             <ul className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 sm:gap-x-7 lg:mt-7 lg:gap-x-8 lg:gap-y-4">
               <li className="flex items-center gap-2.5">
                 <Image
@@ -120,7 +120,7 @@ export function Footer() {
                   height={28}
                   className="h-6 w-auto opacity-80 sm:h-7"
                 />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90">
                   Accredited
                 </span>
               </li>
@@ -139,7 +139,7 @@ export function Footer() {
                     />
                   ))}
                 </span>
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90">
                   Google
                 </span>
               </li>
@@ -149,16 +149,16 @@ export function Footer() {
                   aria-hidden
                   className="font-heading text-[15px] font-extrabold tabular-nums text-cta sm:text-base"
                 >
-                  1000+
+                  1100+
                 </span>
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90">
                   Clients
                 </span>
               </li>
             </ul>
           </div>
 
-          {/* Newsletter — slimmer on mobile */}
+          {/* Newsletter: slimmer on mobile */}
           <div className="lg:col-span-5">
             <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-7">
               <p className="font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-cta sm:tracking-[0.36em]">
@@ -172,9 +172,9 @@ export function Footer() {
                   lineHeight: 1.15,
                 }}
               >
-                Insurance insights — monthly.
+                Insurance insights, monthly.
               </h3>
-              <p className="mt-2 text-[13px] leading-relaxed text-white/65 sm:mt-3 sm:text-[14px]">
+              <p className="mt-2 text-[13px] leading-relaxed text-white/90 sm:mt-3 sm:text-[14px]">
                 Premium-saving plays and market shifts. Quietly delivered.
                 No spam.
               </p>
@@ -215,7 +215,7 @@ export function Footer() {
             ))}
           </FooterColumn>
 
-          {/* Resources — full-width on mobile, normal column on sm+ */}
+          {/* Resources: full-width on mobile, normal column on sm+ */}
           <div className="col-span-2 sm:col-span-1">
             <FooterColumn title="Resources">
               {RESOURCE_LINKS.map((l) => (
@@ -226,19 +226,19 @@ export function Footer() {
             </FooterColumn>
           </div>
 
-          {/* Desktop-only "Get in touch" column — mobile has the card up top */}
+          {/* Desktop-only "Get in touch" column, mobile has the card up top */}
           <div className="hidden lg:flex lg:flex-col lg:gap-4">
             <ColumnTitle>Get in touch</ColumnTitle>
             <a
               href={MAIL_HREF}
-              className="inline-flex items-start gap-2 text-[14px] text-white/75 transition-colors hover:text-cta"
+              className="inline-flex items-start gap-2 text-[14px] text-white/90 transition-colors hover:text-cta"
             >
               <ICONS.Mail className="mt-0.5 size-4 shrink-0" aria-hidden />
               <span className="break-all">{SITE_CONFIG.email}</span>
             </a>
             <a
               href={TEL_HREF}
-              className="inline-flex items-center gap-2 text-[14px] text-white/75 transition-colors hover:text-cta"
+              className="inline-flex items-center gap-2 text-[14px] text-white/90 transition-colors hover:text-cta"
             >
               <ICONS.Phone className="size-4 shrink-0" aria-hidden />
               {SITE_CONFIG.phone}
@@ -247,7 +247,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Mobile social row — centered, below the link grid */}
+        {/* Mobile social row, centered below the link grid */}
         <div className="mt-10 flex justify-center lg:hidden">
           <SocialRow alignment="center" />
         </div>
@@ -264,17 +264,17 @@ export function Footer() {
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="text-[13px] font-medium text-white/65 transition-colors hover:text-cta sm:text-[12px]"
+                  className="text-[13px] font-medium text-white/90 transition-colors hover:text-cta sm:text-[12px]"
                 >
                   {l.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <p className="order-1 text-center text-[12px] leading-relaxed text-white/70 sm:order-1 sm:text-left">
+          <p className="order-1 text-center text-[12px] leading-relaxed text-white/90 sm:order-1 sm:text-left">
             © {CURRENT_YEAR} {SITE_CONFIG.name}
             <span className="hidden sm:inline">
-              {" "}— A Car Concierge Pro product. All rights reserved.
+              {" "}· A Car Concierge Pro product. All rights reserved.
             </span>
             <span className="block sm:hidden">
               A Car Concierge Pro product.
@@ -326,7 +326,7 @@ function FooterLink({
     <li>
       <Link
         href={href}
-        className="group inline-flex items-center gap-2 py-1 text-[15px] text-white/80 transition-colors hover:text-cta sm:text-[14px]"
+        className="group inline-flex items-center gap-2 py-1 text-[15px] text-white/90 transition-colors hover:text-cta sm:text-[14px]"
       >
         <span
           aria-hidden
@@ -355,7 +355,7 @@ function SocialRow({ alignment }: { alignment: "start" | "center" }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.label}
-            className="inline-flex size-11 items-center justify-center rounded-full border border-white/15 text-white/75 transition-all duration-200 hover:-translate-y-0.5 hover:border-cta hover:text-cta active:translate-y-0 sm:size-10"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-white/15 text-white/90 transition-all duration-200 hover:-translate-y-0.5 hover:border-cta hover:text-cta active:translate-y-0 sm:size-10"
           >
             <Icon className="size-[18px] sm:size-4" aria-hidden />
           </a>

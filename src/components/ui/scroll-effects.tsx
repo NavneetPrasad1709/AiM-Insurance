@@ -15,7 +15,7 @@ import {
 import { cn } from "@/lib/utils";
 
 /* ---------------------------------------------------------------------------
-   ScrollReveal — fade/slide on viewport entry.
+   ScrollReveal - fade/slide on viewport entry.
    IntersectionObserver + CSS animation. Zero framer-motion footprint.
 --------------------------------------------------------------------------- */
 type Direction = "up" | "down" | "left" | "right" | "none";
@@ -106,7 +106,7 @@ export function ScrollReveal({
 }
 
 /* ---------------------------------------------------------------------------
-   ScrollZoom — was a JS-driven scale-on-scroll. Removed for perf; renders
+   ScrollZoom - was a JS-driven scale-on-scroll. Removed for perf; renders
    children directly. The visual effect cost more than it gave.
 --------------------------------------------------------------------------- */
 interface ScrollZoomProps {
@@ -122,7 +122,7 @@ export function ScrollZoom({ children, className }: ScrollZoomProps) {
 }
 
 /* ---------------------------------------------------------------------------
-   Parallax — removed for perf. Pass-through.
+   Parallax - removed for perf. Pass-through.
 --------------------------------------------------------------------------- */
 interface ParallaxProps {
   children: ReactNode;
@@ -135,7 +135,7 @@ export function Parallax({ children, className }: ParallaxProps) {
 }
 
 /* ---------------------------------------------------------------------------
-   ScrollStack — sticky stacked cards (pure CSS).
+   ScrollStack - sticky stacked cards (pure CSS).
 --------------------------------------------------------------------------- */
 interface ScrollStackProps {
   children: ReactNode;
@@ -185,7 +185,7 @@ export function ScrollStack({
 }
 
 /* ---------------------------------------------------------------------------
-   MagneticButton — cursor-attracted CTA on pointer devices.
+   MagneticButton - cursor-attracted CTA on pointer devices.
 --------------------------------------------------------------------------- */
 interface MagneticButtonProps {
   children: ReactNode;
@@ -237,7 +237,7 @@ export function MagneticButton({
 }
 
 /* ---------------------------------------------------------------------------
-   StaggerGroup — wraps a list, IntersectionObserver fires CSS animation
+   StaggerGroup - wraps a list, IntersectionObserver fires CSS animation
    on children when the parent enters the viewport.
 --------------------------------------------------------------------------- */
 interface StaggerGroupProps {

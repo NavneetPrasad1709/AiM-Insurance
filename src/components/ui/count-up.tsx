@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 export interface CountUpProps {
-  /** Display string like "$1,247", "$5.4M+", "1000+", "5.0". The numeric portion is animated. */
+  /** Display string like "$1,247", "$6.14M+", "1100+", "5.0". The numeric portion is animated. */
   value: string;
   /** Total animation time in ms */
   durationMs?: number;
@@ -26,7 +26,7 @@ function parse(value: string): Parsed {
   if (!m) return { prefix: "", number: 0, suffix: value, decimals: 0 };
   const [, prefix, num, suffix] = m;
   const decimalsMatch = num.match(/\.(\d+)/);
-  // Strip thousands commas before parseFloat — toLocaleString re-inserts them on output.
+  // Strip thousands commas before parseFloat; toLocaleString re-inserts them on output.
   const cleanNum = num.replace(/,/g, "");
   return {
     prefix,
@@ -52,7 +52,7 @@ export function CountUp({
   const parsed = parse(value);
   const finalDecimals = decimals ?? parsed.decimals;
   const ref = useRef<HTMLSpanElement>(null);
-  // Render the FINAL value as the initial state — no "0" flash on SSR or
+  // Render the FINAL value as the initial state: no "0" flash on SSR or
   // before the element scrolls into view. When inView fires, we snap to 0
   // and animate up.
   const finalDisplay =

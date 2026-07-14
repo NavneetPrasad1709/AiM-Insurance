@@ -16,7 +16,7 @@ interface StatRow {
 
 const ROWS: StatRow[] = [
   {
-    value: "1000+",
+    value: "1100+",
     label: "Clients served",
     icon: "HeartHandshake",
     description: "Across the US, Canada, and UAE.",
@@ -24,7 +24,7 @@ const ROWS: StatRow[] = [
     accentBg: "rgb(255 200 61 / 0.12)",
   },
   {
-    value: "$5.4M+",
+    value: "$6.14M+",
     label: "Total savings negotiated",
     icon: "TrendingUp",
     description: "Real money back in client pockets.",

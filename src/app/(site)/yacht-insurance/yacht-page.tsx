@@ -13,7 +13,7 @@ import { ICONS } from "@/lib/icons";
 import { ExploreMoreServices } from "@/components/sections/explore-more-services";
 
 /* ---------------------------------------------------------------------------
-   Yacht Insurance — Montserrat only, alternating dark + cream sections.
+   Yacht Insurance: Montserrat only, alternating dark + cream sections.
    Smooth blend: each section has rounded-top corners and overlaps the
    previous via negative margin, creating a curved-page transition.
 --------------------------------------------------------------------------- */
@@ -21,6 +21,7 @@ import { ExploreMoreServices } from "@/components/sections/explore-more-services
 const CREAM = "#faf6ee";    // light section bg
 const CREAM_INK = "#0c1626"; // text color on cream
 const CREAM_GOLD = "#b8842a"; // deeper gold for legible accent text on cream
+const CREAM_GOLD_TEXT = "#8a6410"; // AA-contrast gold for text on cream (>=4.6:1)
 
 const ASSET = {
   heroPoster: "/yacht/yacht-hero.jpg",
@@ -100,11 +101,11 @@ function Hero() {
 
       {/* Top bar */}
       <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-6 py-4 sm:px-12 sm:py-5">
-        <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/85">
+        <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white">
           AiM · Yacht insurance
         </span>
-        <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/55 sm:block">
-          USA &amp; Canada · 1000+ clients
+        <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/90 sm:block">
+          USA &amp; Canada · 1100+ clients
         </span>
       </div>
 
@@ -144,7 +145,7 @@ function Hero() {
             className="mt-7 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg"
           >
             We monitor your existing yacht insurance to make sure
-            you&rsquo;re getting the best premium for the same coverage —
+            you&rsquo;re getting the best premium for the same coverage,
             continuously comparing rates across major providers so you never
             overpay.
           </motion.p>
@@ -170,11 +171,11 @@ function Hero() {
             </Link>
             <a
               href="tel:+16029102500"
-              className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
+              className="group inline-flex items-center gap-2 py-2 text-sm text-white transition-colors hover:text-cta"
             >
               <ICONS.Phone className="size-4" aria-hidden />
               <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                Or call — 602-910-2500
+                Or call: 602-910-2500
               </span>
             </a>
           </motion.div>
@@ -191,7 +192,7 @@ function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white/55"
+          className="flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white/90"
         >
           <span>Scroll</span>
           <span className="h-8 w-px bg-white/40" aria-hidden />
@@ -206,7 +207,7 @@ function Hero() {
 function TrustStrip() {
   const items: { label: string; icon: keyof typeof ICONS }[] = [
     { label: "USA & Canada", icon: "Anchor" },
-    { label: "1000+ clients", icon: "Award" },
+    { label: "1100+ clients", icon: "Award" },
     { label: "Ongoing monitoring", icon: "Eye" },
     { label: "Same coverage", icon: "Shield" },
     { label: "Annual reviews", icon: "Clock" },
@@ -221,7 +222,7 @@ function TrustStrip() {
         {/* Eyebrow */}
         <p
           className="mb-7 text-center font-heading text-[10px] font-semibold uppercase tracking-[0.36em] sm:mb-9"
-          style={{ color: CREAM_GOLD }}
+          style={{ color: CREAM_GOLD_TEXT }}
         >
           <span
             aria-hidden
@@ -253,7 +254,7 @@ function TrustStrip() {
                 {Icon && (
                   <Icon
                     className="size-3.5 shrink-0 sm:size-4"
-                    style={{ color: CREAM_GOLD }}
+                    style={{ color: CREAM_GOLD_TEXT }}
                     aria-hidden
                   />
                 )}
@@ -272,8 +273,8 @@ function TrustStrip() {
 function Stats() {
   const STATS = [
     { value: "60%", label: "Yacht owners overpay" },
-    { value: "15–40%", label: "Average annual saving" },
-    { value: "1000+", label: "Clients served" },
+    { value: "15 to 40%", label: "Average annual saving" },
+    { value: "1100+", label: "Clients served" },
   ];
   return (
     <section
@@ -306,7 +307,7 @@ function Stats() {
               </span>
               <span
                 className="mt-4 block font-heading text-[10px] font-semibold uppercase tracking-[0.32em]"
-                style={{ color: `${CREAM_INK}cc` }}
+                style={{ color: `${CREAM_INK}e6` }}
               >
                 {s.label}
               </span>
@@ -326,28 +327,28 @@ function Coverage() {
       n: "01",
       title: "Ongoing price monitoring",
       body:
-        "We continuously check rates across major providers — so the moment a better price appears, you know.",
+        "We continuously check rates across major providers, so the moment a better price appears, you know.",
       image: ASSET.coverage1,
     },
     {
       n: "02",
       title: "No coverage changes",
       body:
-        "Keep the same protection, just at a lower cost. We compare like-for-like — never trim cover.",
+        "Keep the same protection, just at a lower cost. We compare like-for-like, never trim cover.",
       image: ASSET.coverage2,
     },
     {
       n: "03",
       title: "Seamless adjustments",
       body:
-        "If a better price is available, we guide the switch smoothly — every form, every signature.",
+        "If a better price is available, we guide the switch smoothly, every form, every signature.",
       image: ASSET.coverage3,
     },
     {
       n: "04",
       title: "Annual policy reviews",
       body:
-        "Renewal-time check that ensures you never pay more than necessary — year after year.",
+        "Renewal-time check that ensures you never pay more than necessary, year after year.",
       image: ASSET.coverage4,
     },
   ];
@@ -393,7 +394,7 @@ function Coverage() {
             className="text-[15px] leading-relaxed text-text-secondary sm:col-span-5"
           >
             We monitor your existing yacht insurance to make sure
-            you&rsquo;re getting the best premium for the same protection —
+            you&rsquo;re getting the best premium for the same protection,
             comparing rates across major providers so you never overpay.
           </motion.p>
         </div>
@@ -507,7 +508,7 @@ function WhyMatters() {
           >
             <p
               className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-              style={{ color: CREAM_GOLD }}
+              style={{ color: CREAM_GOLD_TEXT }}
             >
               <span
                 className="mr-3 inline-block h-px w-10 align-middle"
@@ -526,17 +527,17 @@ function WhyMatters() {
               }}
             >
               Over 60% of yacht owners are{" "}
-              <span style={{ color: CREAM_GOLD }}>
+              <span style={{ color: CREAM_GOLD_TEXT }}>
                 unknowingly overpaying.
               </span>
             </h3>
             <p
               className="text-[15px] leading-relaxed"
-              style={{ color: `${CREAM_INK}b8` }}
+              style={{ color: `${CREAM_INK}e6` }}
             >
               Many policies increase in cost over time, even when the risk
               factors stay the same. Insurers rarely tell you when cheaper
-              options become available — and a 2024 study found policyholders
+              options become available, and a 2024 study found policyholders
               who actively compare prices save{" "}
               <span className="font-semibold" style={{ color: CREAM_INK }}>
                 $23,000 to $31,000
@@ -565,7 +566,7 @@ function Pricing() {
       figureSuffix: "",
       title: "If we can't save you money",
       body:
-        "If we don't reduce your premium, you owe us nothing — no risk, no commitment.",
+        "If we don't reduce your premium, you owe us nothing, no risk, no commitment.",
       filled: false,
     },
     {
@@ -574,7 +575,7 @@ function Pricing() {
       figureSuffix: "",
       title: "A share of your savings",
       body:
-        "Only when we save you money, we keep a small portion of the negotiated savings on your annual premium — first year only. You always come out ahead.",
+        "Only when we save you money, we keep a small portion of the negotiated savings on your annual premium, first year only. You always come out ahead.",
       filled: true,
     },
   ];
@@ -595,7 +596,7 @@ function Pricing() {
         >
           <p
             className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-            style={{ color: CREAM_GOLD }}
+            style={{ color: CREAM_GOLD_TEXT }}
           >
             <span
               className="mr-3 inline-block h-px w-12 align-middle"
@@ -614,11 +615,11 @@ function Pricing() {
             }}
           >
             Aligned with{" "}
-            <span style={{ color: CREAM_GOLD }}>your savings.</span>
+            <span style={{ color: CREAM_GOLD_TEXT }}>your savings.</span>
           </h2>
           <p
             className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed"
-            style={{ color: `${CREAM_INK}b0` }}
+            style={{ color: `${CREAM_INK}e6` }}
           >
             Our pricing structure is designed around the savings we deliver.
             You only pay when you benefit.
@@ -643,7 +644,7 @@ function Pricing() {
             >
               <p
                 className="font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-                style={{ color: t.filled ? "#ffc83d" : CREAM_GOLD }}
+                style={{ color: t.filled ? "#ffc83d" : CREAM_GOLD_TEXT }}
               >
                 {t.tag}
               </p>
@@ -666,7 +667,7 @@ function Pricing() {
                     style={{
                       fontSize: "clamp(1.4rem, 2.8vw, 2.2rem)",
                       lineHeight: 1,
-                      color: t.filled ? "#ffc83d" : CREAM_GOLD,
+                      color: t.filled ? "#ffc83d" : CREAM_GOLD_TEXT,
                     }}
                   >
                     {t.figureSuffix}
@@ -688,8 +689,8 @@ function Pricing() {
                 className="mt-3 text-[15px] leading-relaxed"
                 style={{
                   color: t.filled
-                    ? "rgba(255,255,255,0.75)"
-                    : `${CREAM_INK}b0`,
+                    ? "rgba(255,255,255,0.92)"
+                    : `${CREAM_INK}e6`,
                 }}
               >
                 {t.body}
@@ -748,7 +749,7 @@ function ProcessStepCard({ step: s, index: i }: { step: Step; index: number }) {
       transition={{ duration: 0.85, ease, delay: i * 0.12 }}
       className="group relative flex flex-col rounded-3xl border border-border bg-surface p-7 transition-[transform,border-color,background-color,box-shadow] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:border-cta/60 hover:bg-surface-2 sm:p-8"
     >
-      {/* Animated yellow numeral — scale-in + idle float */}
+      {/* Animated yellow numeral - scale-in + idle float */}
       <motion.span
         aria-hidden
         initial={{ opacity: 0, scale: 0.7, y: 12 }}
@@ -807,7 +808,7 @@ function ProcessStepCard({ step: s, index: i }: { step: Step; index: number }) {
         {s.body}
       </p>
 
-      {/* Footer meta — animates underline on hover */}
+      {/* Footer meta - animates underline on hover */}
       <div className="mt-7 flex items-center justify-between border-t border-border pt-5">
         <span className="font-heading text-[10px] font-semibold uppercase tabular-nums tracking-[0.28em] text-cta">
           {s.meta}
@@ -818,7 +819,7 @@ function ProcessStepCard({ step: s, index: i }: { step: Step; index: number }) {
         />
       </div>
 
-      {/* Hover glow — brightens on hover */}
+      {/* Hover glow - brightens on hover */}
       <span
         aria-hidden
         className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -827,7 +828,7 @@ function ProcessStepCard({ step: s, index: i }: { step: Step; index: number }) {
         }}
       />
 
-      {/* Brass corner tick — appears on hover */}
+      {/* Brass corner tick - appears on hover */}
       <span
         aria-hidden
         className="pointer-events-none absolute right-5 top-5 h-4 w-4 -rotate-45 border-t-2 border-cta opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -850,13 +851,13 @@ function Process() {
       title: "We analyse & compare",
       body:
         "Our system checks for lower-priced alternatives with the same coverage as your current policy.",
-      meta: "2 – 3 days",
+      meta: "2 to 3 days",
     },
     {
       n: "03",
       title: "Savings report",
       body:
-        "If we find a better rate, we notify you with actionable recommendations — in plain English.",
+        "If we find a better rate, we notify you with actionable recommendations, in plain English.",
       meta: "Same week",
     },
     {
@@ -870,7 +871,7 @@ function Process() {
 
   return (
     <section className="relative -mt-12 overflow-hidden rounded-t-[48px] bg-background pb-32 pt-28 sm:rounded-t-[72px] sm:pb-40 sm:pt-32">
-      {/* Ambient yellow radial glow — top center */}
+      {/* Ambient yellow radial glow - top center */}
       <span
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-0 h-[520px] w-[820px] -translate-x-1/2"
@@ -915,7 +916,7 @@ function Process() {
                 letterSpacing: "-0.03em",
               }}
             >
-              Four steps —
+              Four steps,
               <br />
               <span className="text-cta">about a week.</span>
             </h2>
@@ -928,7 +929,7 @@ function Process() {
 
         {/* Steps grid */}
         <div className="relative">
-          {/* Animated dotted connector — desktop only, sits at the height of step circles */}
+          {/* Animated dotted connector - desktop only, sits at the height of step circles */}
           <svg
             aria-hidden
             className="pointer-events-none absolute inset-x-12 top-[78px] hidden lg:block"
@@ -959,7 +960,7 @@ function Process() {
           </div>
         </div>
 
-        {/* Bottom CTA panel — 2-tone refined */}
+        {/* Bottom CTA panel - 2-tone refined */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -1032,7 +1033,7 @@ function SocialProof() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.85, ease }}
           className="font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-          style={{ color: CREAM_GOLD }}
+          style={{ color: CREAM_GOLD_TEXT }}
         >
           <span
             className="mr-3 inline-block h-px w-12 align-middle"
@@ -1056,8 +1057,8 @@ function SocialProof() {
             color: CREAM_INK,
           }}
         >
-          <span style={{ color: CREAM_GOLD }}>1000+</span> clients served
-          &mdash; and counting.
+          <span style={{ color: CREAM_GOLD_TEXT }}>1100+</span> clients served,
+          and counting.
         </motion.h2>
 
         <motion.p
@@ -1067,10 +1068,10 @@ function SocialProof() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.85, ease, delay: 0.16 }}
           className="mx-auto mt-7 max-w-2xl text-[16px] leading-relaxed"
-          style={{ color: `${CREAM_INK}b8` }}
+          style={{ color: `${CREAM_INK}e6` }}
         >
           With premiums on the rise and most owners overpaying, owners across
-          the USA and Canada are letting AiM monitor their policies — quietly,
+          the USA and Canada are letting AiM monitor their policies, quietly,
           continuously, in the background.
         </motion.p>
 
@@ -1097,15 +1098,15 @@ function SocialProof() {
           </Link>
           <a
             href="tel:+16029102500"
-            className="inline-flex items-center gap-2 text-sm transition-colors"
-            style={{ color: CREAM_GOLD }}
+            className="inline-flex items-center gap-2 py-2 text-sm transition-colors"
+            style={{ color: CREAM_GOLD_TEXT }}
           >
             <ICONS.Phone className="size-4" aria-hidden />
             <span
               className="border-b pb-0.5"
               style={{ borderColor: CREAM_GOLD }}
             >
-              Call us — 602-910-2500
+              Call us: 602-910-2500
             </span>
           </a>
         </motion.div>
@@ -1120,15 +1121,15 @@ function Faq() {
   const items = [
     {
       q: "Do I have to switch insurers?",
-      a: "Only if you want to. We show you what you could save — the choice to switch is always yours. Many clients stay put after using our report to renegotiate with their current carrier.",
+      a: "Only if you want to. We show you what you could save. The choice to switch is always yours. Many clients stay put after using our report to renegotiate with their current carrier.",
     },
     {
       q: "Will my coverage change?",
-      a: "No. We compare like-for-like — same limits, same deductibles, same endorsements. We hunt rates, not coverage gaps.",
+      a: "No. We compare like-for-like: same limits, same deductibles, same endorsements. We hunt rates, not coverage gaps.",
     },
     {
       q: "What does it cost?",
-      a: "Nothing upfront. If we can't reduce your premium, you owe nothing. When we do save you money, we keep a small portion of the negotiated savings — first year only. You always pay less than before.",
+      a: "Nothing upfront. If we can't reduce your premium, you owe nothing. When we do save you money, we keep a small portion of the negotiated savings, first year only. You always pay less than before.",
     },
     {
       q: "How often do you re-check my premium?",
@@ -1245,7 +1246,7 @@ function Cta() {
         >
           <source src={ASSET.ctaVideo} type="video/mp4" />
         </video>
-        {/* Mobile overlay — only darken the bottom for headline contrast */}
+        {/* Mobile overlay - only darken the bottom for headline contrast */}
         <div
           aria-hidden
           className="absolute inset-0 sm:hidden"
@@ -1254,7 +1255,7 @@ function Cta() {
               "linear-gradient(180deg, transparent 0%, transparent 35%, rgba(10,10,10,0.78) 100%)",
           }}
         />
-        {/* Desktop side-weighted overlay — only darken the left half */}
+        {/* Desktop side-weighted overlay - only darken the left half */}
         <div
           aria-hidden
           className="absolute inset-0 hidden sm:block"
@@ -1294,7 +1295,7 @@ function Cta() {
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-text-secondary sm:text-[15.5px]">
               Send us your current policy and let AiM start saving you money
-              today — knowing you&rsquo;re never overpaying.
+              today, knowing you&rsquo;re never overpaying.
             </p>
             <div className="mt-9 flex flex-col gap-5 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
               <Link
@@ -1312,11 +1313,11 @@ function Cta() {
               </Link>
               <a
                 href="tel:+16029102500"
-                className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
+                className="group inline-flex items-center gap-2 py-2 text-sm text-white transition-colors hover:text-cta"
               >
                 <ICONS.Phone className="size-4" aria-hidden />
                 <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                  Or call — 602-910-2500
+                  Or call: 602-910-2500
                 </span>
               </a>
             </div>

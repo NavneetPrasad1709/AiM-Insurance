@@ -13,7 +13,7 @@ function getBuilder(): ReturnType<typeof createImageUrlBuilder> {
   if (_builder) return _builder;
   if (!isSanityConfigured()) {
     throw new Error(
-      "Sanity is not configured — call urlFor() only when isSanityConfigured() is true.",
+      "Sanity is not configured. Call urlFor() only when isSanityConfigured() is true.",
     );
   }
   _builder = createImageUrlBuilder({

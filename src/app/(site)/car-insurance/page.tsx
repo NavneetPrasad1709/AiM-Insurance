@@ -3,9 +3,9 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { CarPage } from "./car-page";
 
 const PAGE_URL = `${SITE_CONFIG.url}/car-insurance`;
-const TITLE = "Car Insurance Negotiation — Save $1,247+ Annually";
+const TITLE = "Car Insurance Negotiation: Save $1,247+ Annually";
 const DESCRIPTION =
-  "AiM negotiates your car insurance rate with 50+ carriers — same coverage, average $1,247/year saved. Free audit. No obligation.";
+  "AiM negotiates your car insurance rate with 50+ carriers. Same coverage, average $1,247/year saved. Free audit. No obligation.";
 
 export const metadata: Metadata = {
   title: TITLE,

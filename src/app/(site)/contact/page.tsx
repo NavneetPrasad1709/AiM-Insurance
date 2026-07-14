@@ -21,14 +21,14 @@ import { TrustStrip } from "@/components/sections/trust-strip";
 const PAGE_URL = `${SITE_CONFIG.url}/contact`;
 const TITLE = "Contact Us";
 const DESCRIPTION =
-  "Get in touch with AiM Insurance — we negotiate the best rates on car, home, boat, yacht & jet insurance. Reply within 1 business day.";
+  "Get in touch with AiM Insurance. We negotiate the best rates on car, home, boat, yacht & jet insurance. Reply within 1 business day.";
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: `${TITLE} — AiM Insurance`,
+    title: `${TITLE} | AiM Insurance`,
     description: DESCRIPTION,
     url: PAGE_URL,
     siteName: SITE_CONFIG.name,
@@ -57,7 +57,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
       <StructuredData data={ld} />
     <div className="relative bg-background pt-12 pb-24 sm:pt-16 sm:pb-32 overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* Warm gold glow — top-left */}
+        {/* Warm gold glow - top-left */}
         <div
           className="absolute -top-32 left-1/4 h-[460px] w-[460px] rounded-full blur-3xl"
           style={{
@@ -65,7 +65,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               "radial-gradient(closest-side, rgb(255 200 61 / 0.18), transparent 70%)",
           }}
         />
-        {/* Cool teal glow — bottom-right, balances the warm gold */}
+        {/* Cool teal glow - bottom-right, balances the warm gold */}
         <div
           className="absolute bottom-0 -right-32 h-[520px] w-[520px] rounded-full blur-3xl"
           style={{
@@ -73,7 +73,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               "radial-gradient(closest-side, rgb(79 224 176 / 0.12), transparent 70%)",
           }}
         />
-        {/* Soft coral wash — mid-left */}
+        {/* Soft coral wash - mid-left */}
         <div
           className="absolute top-1/2 -left-32 h-[420px] w-[420px] -translate-y-1/2 rounded-full blur-3xl"
           style={{
@@ -91,7 +91,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
 
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
         <nav aria-label="Breadcrumb" className="mb-10">
-          <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+          <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/90">
             <li>
               <Link href="/" className="link-underline transition-colors hover:text-white">
                 Home
@@ -119,8 +119,8 @@ export default async function ContactPage({ searchParams }: PageProps) {
             Let&rsquo;s talk{" "}
             <span className="text-[#ffc83d]">savings.</span>
           </h1>
-          <p className="relative mt-5 text-lg sm:text-xl text-white/85 leading-[1.55]">
-            Send us a message — quote, existing policy, partnership, anything. A
+          <p className="relative mt-5 text-lg sm:text-xl text-white/90 leading-[1.55]">
+            Send us a message: quote, existing policy, partnership, anything. A
             real human replies within one business day.
           </p>
         </div>
@@ -140,8 +140,8 @@ export default async function ContactPage({ searchParams }: PageProps) {
           >
             Tell us where you&rsquo;re overpaying.
           </h2>
-          <p className="mt-3 text-lg leading-[1.6] text-white/85">
-            Drop a few details below — declarations page is helpful but not
+          <p className="mt-3 text-lg leading-[1.6] text-white/90">
+            Drop a few details below. Your declarations page is helpful but not
             required. We reply with a real human, not a bot.
           </p>
         </div>
@@ -184,7 +184,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                         <ICONS.Phone className="size-4" aria-hidden />
                       </span>
                       <span className="flex flex-col">
-                        <span className="text-xs uppercase tracking-[0.18em] text-white/55">
+                        <span className="text-xs uppercase tracking-[0.18em] text-white/90">
                           Phone
                         </span>
                         <span className="text-[15px] font-semibold">
@@ -202,7 +202,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                         <ICONS.Mail className="size-4" aria-hidden />
                       </span>
                       <span className="flex flex-col">
-                        <span className="text-xs uppercase tracking-[0.18em] text-white/55">
+                        <span className="text-xs uppercase tracking-[0.18em] text-white/90">
                           Email
                         </span>
                         <span className="text-[15px] font-semibold">
@@ -216,18 +216,18 @@ export default async function ContactPage({ searchParams }: PageProps) {
                       <ICONS.MessageSquare className="size-4" aria-hidden />
                     </span>
                     <span className="flex flex-col">
-                      <span className="text-xs uppercase tracking-[0.18em] text-white/55">
+                      <span className="text-xs uppercase tracking-[0.18em] text-white/90">
                         Hours
                       </span>
                       <span className="text-[15px] font-semibold">
-                        Mon–Fri · 9 AM – 6 PM EST
+                        Mon-Fri · 9 AM to 6 PM EST
                       </span>
                     </span>
                   </li>
                 </ul>
 
                 <div className="mt-6 pt-5 border-t border-[#232328]">
-                  <span className="text-xs uppercase tracking-[0.18em] text-white/55">
+                  <span className="text-xs uppercase tracking-[0.18em] text-white/90">
                     Follow us
                   </span>
                   <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -241,7 +241,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={s.label}
-                          className="inline-flex size-9 items-center justify-center rounded-full border border-[#232328] text-white/70 transition-colors hover:border-[#ffc83d]/40 hover:text-[#ffc83d]"
+                          className="inline-flex size-11 items-center justify-center rounded-full border border-[#232328] text-white/90 transition-colors hover:border-[#ffc83d]/40 hover:text-[#ffc83d]"
                         >
                           <Icon className="size-4" aria-hidden />
                         </a>
@@ -251,7 +251,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 </div>
               </div>
 
-              {/* Map placeholder — gradient with pin */}
+              {/* Map placeholder - gradient with pin */}
               <div
                 className="relative h-44 overflow-hidden rounded-[14px] border border-[#232328]"
                 aria-label="Service area map placeholder"
@@ -272,7 +272,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                   <p className="mt-3 text-sm font-semibold text-white">
                     Serving USA · Canada · UAE
                   </p>
-                  <p className="mt-1 text-xs text-white/65">
+                  <p className="mt-1 text-xs text-white/90">
                     Remote-first concierge service
                   </p>
                 </div>

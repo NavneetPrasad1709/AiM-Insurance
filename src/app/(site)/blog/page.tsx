@@ -20,12 +20,12 @@ import {
 } from "@/components/seo/structured-data";
 
 export const metadata: Metadata = {
-  title: "AiM Insurance Blog — Tips, News & Savings Guides",
+  title: "AiM Insurance Blog: Tips, News & Savings Guides",
   description:
     "Insurance tips, savings stories, and industry analysis from the negotiation team at AiM Insurance.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "AiM Insurance Blog — Tips, News & Savings Guides",
+    title: "AiM Insurance Blog: Tips, News & Savings Guides",
     description:
       "Insurance tips, savings stories, and industry analysis from the negotiation team at AiM Insurance.",
     url: `${SITE_CONFIG.url}/blog`,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AiM Insurance Blog — Tips, News & Savings Guides",
+    title: "AiM Insurance Blog: Tips, News & Savings Guides",
     description:
       "Insurance tips, savings stories, and industry analysis from the negotiation team at AiM Insurance.",
   },
@@ -151,13 +151,13 @@ export default async function BlogPage() {
             <span className="text-cta">savings playbooks</span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-lg sm:text-xl text-text-secondary leading-relaxed">
-            Notes from the negotiation desk — what works, what carriers
+            Notes from the negotiation desk: what works, what carriers
             won&rsquo;t tell you, and how to actually pay less for the same
             coverage.
           </p>
         </div>
 
-        {/* Trust signals — Newswire-led */}
+        {/* Trust signals - Newswire-led */}
         <div className="relative mx-auto mt-12 max-w-5xl px-5 sm:px-8">
           <TrustStrip variant="full" />
         </div>
@@ -193,7 +193,7 @@ export default async function BlogPage() {
 
       <WhyAimCream
         heading="Reading is great. Saving is better."
-        intro="Same content carriers don't want you to know — but the real magic is letting AiM run the negotiation for you. 1000+ clients. Average savings: $1,247 a year."
+        intro="Same content carriers don't want you to know, but the real magic is letting AiM run the negotiation for you. 1100+ clients. Average savings: $1,247 a year."
       />
     </>
   );

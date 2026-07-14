@@ -7,14 +7,14 @@ import { SITE_CONFIG } from "@/lib/constants";
 const PAGE_URL = `${SITE_CONFIG.url}/request-a-concierge`;
 const TITLE = "Request A Concierge";
 const DESCRIPTION =
-  "Request a dedicated insurance concierge from AiM. We negotiate the best rates on car, home, boat, yacht & jet insurance — same coverage, lower premium.";
+  "Request a dedicated insurance concierge from AiM. We negotiate the best rates on car, home, boat, yacht & jet insurance. Same coverage, lower premium.";
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: "/request-a-concierge" },
   openGraph: {
-    title: `${TITLE} — AiM Insurance`,
+    title: `${TITLE} | AiM Insurance`,
     description: DESCRIPTION,
     url: PAGE_URL,
     siteName: SITE_CONFIG.name,
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${TITLE} — AiM Insurance`,
+    title: `${TITLE} | AiM Insurance`,
     description: DESCRIPTION,
   },
 };
 
 const TRUST_STATS = [
-  { v: "1000+", l: "Clients served" },
-  { v: "$5.4M+", l: "Negotiated savings" },
+  { v: "1100+", l: "Clients served" },
+  { v: "$6.14M+", l: "Negotiated savings" },
   { v: "$1,247+", l: "Avg. annual savings" },
 ];
 
@@ -58,7 +58,7 @@ export default function RequestAConciergePage() {
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-10">
-          <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
+          <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/90">
             <li>
               <Link href="/" className="link-underline transition-colors hover:text-white">
                 Home
@@ -72,12 +72,12 @@ export default function RequestAConciergePage() {
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* LEFT — form (60%) */}
+          {/* LEFT: form (60%) */}
           <div className="lg:col-span-7">
             <ConciergeForm />
           </div>
 
-          {/* RIGHT — sidebar (40%) */}
+          {/* RIGHT: sidebar (40%) */}
           <aside className="lg:col-span-5">
             <div className="lg:sticky lg:top-28 flex flex-col gap-5">
               {/* Why AiM */}
@@ -101,13 +101,13 @@ export default function RequestAConciergePage() {
                       >
                         {s.v}
                       </div>
-                      <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-white/65">
+                      <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-white/90">
                         {s.l}
                       </div>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-white/65">
+                <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-white/90">
                   <span className="inline-flex items-center gap-1.5">
                     <ICONS.Shield className="size-4 text-[#ffc83d]" aria-hidden />
                     BBB Accredited
@@ -144,7 +144,7 @@ export default function RequestAConciergePage() {
                   {WHAT_YOU_GET.map((line) => (
                     <li
                       key={line}
-                      className="flex items-start gap-2.5 text-sm text-white/80"
+                      className="flex items-start gap-2.5 text-sm text-white/90"
                     >
                       <ICONS.CheckCircle2
                         className="size-4 shrink-0 mt-0.5 text-[#ffc83d]"
@@ -167,12 +167,12 @@ export default function RequestAConciergePage() {
                 </span>
                 <p className="-mt-3 text-base leading-[1.55] text-white">
                   Same coverage I had with Allstate, $1,400 less per year. AiM did
-                  all the paperwork — I literally signed two PDFs.
+                  all the paperwork. I literally signed two PDFs.
                 </p>
                 <div className="mt-4 flex items-center justify-between text-sm">
                   <span className="font-semibold text-white">
                     Sarah M.{" "}
-                    <span className="font-normal text-white/55">— Toronto</span>
+                    <span className="font-normal text-white/90">· Toronto</span>
                   </span>
                   <span
                     className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#ffc83d] tabular-nums"
@@ -215,7 +215,7 @@ export default function RequestAConciergePage() {
                       {SITE_CONFIG.email}
                     </a>
                   </li>
-                  <li className="text-white/55 mt-1">Mon–Fri · 9 AM – 6 PM EST</li>
+                  <li className="text-white/90 mt-1">Mon-Fri · 9 AM to 6 PM EST</li>
                 </ul>
               </div>
             </div>

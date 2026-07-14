@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 
 interface TrustStripProps {
   /**
-   * "full" — wide hero strip with Newswire badge + 4 trust signals.
-   * "compact" — single-row inline strip for under blog posts / service heroes.
+   * "full" - wide hero strip with Newswire badge + 4 trust signals.
+   * "compact" - single-row inline strip for under blog posts / service heroes.
    */
   variant?: "full" | "compact";
   className?: string;
@@ -72,7 +72,7 @@ export function TrustStrip({ variant = "full", className }: TrustStripProps) {
         <span aria-hidden className="hidden h-4 w-px bg-border md:inline" />
         <span className="inline-flex items-center gap-2 text-sm font-heading font-semibold text-white tabular-nums">
           <ICONS.HeartHandshake className="size-4 text-cta" aria-hidden />
-          1000+ clients
+          1100+ clients
         </span>
       </motion.div>
     );
@@ -95,7 +95,7 @@ export function TrustStrip({ variant = "full", className }: TrustStripProps) {
           target="_blank"
           rel="noopener noreferrer"
           className="group inline-flex items-center gap-3 rounded-full border border-cta/40 bg-cta-light px-5 py-2.5 transition-colors hover:border-cta/70"
-          aria-label="Featured on Newswire — read the article"
+          aria-label="Featured on Newswire, read the article"
         >
           <span className="inline-flex size-5 items-center justify-center rounded-full bg-cta text-background">
             <ICONS.Award className="size-3" aria-hidden />
@@ -118,12 +118,12 @@ export function TrustStrip({ variant = "full", className }: TrustStripProps) {
       <ul className="mx-auto grid max-w-4xl grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
         <SignalCard
           icon={<ICONS.HeartHandshake className="size-5 text-cta" aria-hidden />}
-          big="1000+"
+          big="1100+"
           label="Clients served"
         />
         <SignalCard
           icon={<ICONS.TrendingUp className="size-5 text-cta" aria-hidden />}
-          big="$5.4M+"
+          big="$6.14M+"
           label="Saved for clients"
         />
         <SignalCard

@@ -13,13 +13,14 @@ import { ICONS } from "@/lib/icons";
 import { ExploreMoreServices } from "@/components/sections/explore-more-services";
 
 /* ---------------------------------------------------------------------------
-   Home Insurance — alternating dark + cream sections, Montserrat only.
+   Home Insurance - alternating dark + cream sections, Montserrat only.
    Brand-consistent, photo-led.
 --------------------------------------------------------------------------- */
 
 const CREAM = "#faf6ee";
 const CREAM_INK = "#0c1626";
 const CREAM_GOLD = "#b8842a";
+const CREAM_GOLD_TEXT = "#8a6410"; // AA-contrast gold for text on cream (>=4.6:1)
 
 const ASSET = {
   heroPoster: "/home/home-hero.jpg",
@@ -106,10 +107,10 @@ function Hero() {
       />
 
       <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-6 py-4 sm:px-12 sm:py-5">
-        <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/85">
+        <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white">
           AiM · Home insurance
         </span>
-        <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/55 sm:block">
+        <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/90 sm:block">
           USA &amp; Canada · 200+ homeowners
         </span>
       </div>
@@ -149,7 +150,7 @@ function Hero() {
             className="mt-7 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg"
           >
             We monitor your existing home insurance to make sure
-            you&rsquo;re getting the best premium for the same protection —
+            you&rsquo;re getting the best premium for the same protection,
             comparing rates across major providers so you never overpay.
           </motion.p>
 
@@ -174,11 +175,11 @@ function Hero() {
             </Link>
             <a
               href="tel:+16029102500"
-              className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
+              className="group inline-flex min-h-[44px] items-center gap-2 text-sm text-white transition-colors hover:text-cta"
             >
               <ICONS.Phone className="size-4" aria-hidden />
               <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                Or call — 602-910-2500
+                Or call: 602-910-2500
               </span>
             </a>
           </motion.div>
@@ -194,7 +195,7 @@ function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white/55"
+          className="flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white/90"
         >
           <span>Scroll</span>
           <span className="h-8 w-px bg-white/40" aria-hidden />
@@ -223,7 +224,7 @@ function TrustStrip() {
       <div className="mx-auto max-w-7xl px-6 pb-10 pt-14 sm:px-12 sm:pt-20">
         <p
           className="mb-7 text-center font-heading text-[10px] font-semibold uppercase tracking-[0.36em] sm:mb-9"
-          style={{ color: CREAM_GOLD }}
+          style={{ color: CREAM_GOLD_TEXT }}
         >
           <span
             aria-hidden
@@ -254,7 +255,7 @@ function TrustStrip() {
                 {Icon && (
                   <Icon
                     className="size-3.5 shrink-0 sm:size-4"
-                    style={{ color: CREAM_GOLD }}
+                    style={{ color: CREAM_GOLD_TEXT }}
                     aria-hidden
                   />
                 )}
@@ -327,7 +328,7 @@ function Coverage() {
       n: "01",
       title: "Dwelling & structures",
       body:
-        "Replacement-cost protection on the home, attached and detached structures — never market value, always rebuild cost.",
+        "Replacement-cost protection on the home, attached and detached structures, never market value, always rebuild cost.",
       image: ASSET.c1,
       alt: ALT.c1,
     },
@@ -335,7 +336,7 @@ function Coverage() {
       n: "02",
       title: "Personal property",
       body:
-        "Furniture, electronics, jewellery and high-value items insured at full replacement value — scheduled where it matters.",
+        "Furniture, electronics, jewellery and high-value items insured at full replacement value, scheduled where it matters.",
       image: ASSET.c2,
       alt: ALT.c2,
     },
@@ -343,7 +344,7 @@ function Coverage() {
       n: "03",
       title: "Liability that holds up",
       body:
-        "Bodily injury and property damage caused by you, your family or your pets — including legal defence costs.",
+        "Bodily injury and property damage caused by you, your family or your pets, including legal defence costs.",
       image: ASSET.c3,
       alt: ALT.c3,
     },
@@ -351,7 +352,7 @@ function Coverage() {
       n: "04",
       title: "Disaster riders",
       body:
-        "Wildfire, flood, windstorm and earthquake riders priced for your actual ZIP — not a regional pool.",
+        "Wildfire, flood, windstorm and earthquake riders priced for your actual ZIP, not a regional pool.",
       image: ASSET.c4,
       alt: ALT.c4,
     },
@@ -512,7 +513,7 @@ function WhyMatters() {
           >
             <p
               className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-              style={{ color: CREAM_GOLD }}
+              style={{ color: CREAM_GOLD_TEXT }}
             >
               <span
                 className="mr-3 inline-block h-px w-10 align-middle"
@@ -531,19 +532,19 @@ function WhyMatters() {
               }}
             >
               New-purchase home policies are{" "}
-              <span style={{ color: CREAM_GOLD }}>
+              <span style={{ color: CREAM_GOLD_TEXT }}>
                 the most over-priced moment
               </span>{" "}
               in the entire policy lifecycle.
             </h3>
             <p
               className="text-[15px] leading-relaxed"
-              style={{ color: `${CREAM_INK}b8` }}
+              style={{ color: `${CREAM_INK}e6` }}
             >
               Lenders rush homeowners. Carriers know it. Send us your binder
               before the first renewal and we&rsquo;ll typically save{" "}
               <span className="font-semibold" style={{ color: CREAM_INK }}>
-                25–35%
+                25 to 35%
               </span>{" "}
               before the policy auto-renews.
             </p>
@@ -569,7 +570,7 @@ function Pricing() {
       figureSuffix: "",
       title: "If we can't save you money",
       body:
-        "If we don't reduce your premium, you owe us nothing — no risk, no commitment.",
+        "If we don't reduce your premium, you owe us nothing, no risk, no commitment.",
       filled: false,
     },
     {
@@ -578,7 +579,7 @@ function Pricing() {
       figureSuffix: "",
       title: "A share of your savings",
       body:
-        "Only when we save you money, we keep a small portion of the negotiated savings on your annual home insurance premium — first year only. You always come out ahead.",
+        "Only when we save you money, we keep a small portion of the negotiated savings on your annual home insurance premium, first year only. You always come out ahead.",
       filled: true,
     },
   ];
@@ -599,7 +600,7 @@ function Pricing() {
         >
           <p
             className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-            style={{ color: CREAM_GOLD }}
+            style={{ color: CREAM_GOLD_TEXT }}
           >
             <span
               className="mr-3 inline-block h-px w-12 align-middle"
@@ -618,11 +619,11 @@ function Pricing() {
             }}
           >
             Aligned with{" "}
-            <span style={{ color: CREAM_GOLD }}>your savings.</span>
+            <span style={{ color: CREAM_GOLD_TEXT }}>your savings.</span>
           </h2>
           <p
             className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed"
-            style={{ color: `${CREAM_INK}b0` }}
+            style={{ color: `${CREAM_INK}e6` }}
           >
             Our pricing structure is designed around the savings we deliver.
             You only pay when you benefit.
@@ -647,7 +648,7 @@ function Pricing() {
             >
               <p
                 className="font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-                style={{ color: t.filled ? "#ffc83d" : CREAM_GOLD }}
+                style={{ color: t.filled ? "#ffc83d" : CREAM_GOLD_TEXT }}
               >
                 {t.tag}
               </p>
@@ -670,7 +671,7 @@ function Pricing() {
                     style={{
                       fontSize: "clamp(1.4rem, 2.8vw, 2.2rem)",
                       lineHeight: 1,
-                      color: t.filled ? "#ffc83d" : CREAM_GOLD,
+                      color: t.filled ? "#ffc83d" : CREAM_GOLD_TEXT,
                     }}
                   >
                     {t.figureSuffix}
@@ -691,7 +692,7 @@ function Pricing() {
               <p
                 className="mt-3 text-[15px] leading-relaxed"
                 style={{
-                  color: t.filled ? "rgba(255,255,255,0.75)" : `${CREAM_INK}b0`,
+                  color: t.filled ? "rgba(255,255,255,0.92)" : `${CREAM_INK}e6`,
                 }}
               >
                 {t.body}
@@ -843,7 +844,7 @@ function Process() {
       n: "03",
       title: "Savings report",
       body:
-        "If we find a better rate, we notify you with actionable recommendations — in plain English.",
+        "If we find a better rate, we notify you with actionable recommendations, in plain English.",
       meta: "Same week",
     },
     {
@@ -899,7 +900,7 @@ function Process() {
                 letterSpacing: "-0.03em",
               }}
             >
-              Four steps —
+              Four steps,
               <br />
               <span className="text-cta">about a week.</span>
             </h2>
@@ -1011,7 +1012,7 @@ function SocialProof() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.85, ease }}
           className="font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-          style={{ color: CREAM_GOLD }}
+          style={{ color: CREAM_GOLD_TEXT }}
         >
           <span
             className="mr-3 inline-block h-px w-12 align-middle"
@@ -1036,7 +1037,7 @@ function SocialProof() {
           }}
         >
           Same dwelling, same liability,{" "}
-          <span style={{ color: CREAM_GOLD }}>$1,236 less.</span>
+          <span style={{ color: CREAM_GOLD_TEXT }}>$1,236 less.</span>
         </motion.h2>
 
         <motion.p
@@ -1046,16 +1047,16 @@ function SocialProof() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.85, ease, delay: 0.16 }}
           className="mx-auto mt-7 max-w-2xl text-[16px] leading-relaxed"
-          style={{ color: `${CREAM_INK}b8` }}
+          style={{ color: `${CREAM_INK}e6` }}
         >
           &ldquo;Same dwelling limit, same liability, same deductible. $1,236
           less. I don&rsquo;t know why I waited so long.&rdquo;
           <br />
           <span
             className="mt-3 inline-block font-heading text-[11px] font-semibold uppercase tracking-[0.28em]"
-            style={{ color: `${CREAM_INK}88` }}
+            style={{ color: `${CREAM_INK}cc` }}
           >
-            — Daniel R., Homeowner, Austin TX
+            Daniel R., Homeowner, Austin TX
           </span>
         </motion.p>
 
@@ -1082,15 +1083,15 @@ function SocialProof() {
           </Link>
           <a
             href="tel:+16029102500"
-            className="inline-flex items-center gap-2 text-sm transition-colors"
-            style={{ color: CREAM_GOLD }}
+            className="inline-flex min-h-[44px] items-center gap-2 text-sm transition-colors"
+            style={{ color: CREAM_GOLD_TEXT }}
           >
             <ICONS.Phone className="size-4" aria-hidden />
             <span
               className="border-b pb-0.5"
               style={{ borderColor: CREAM_GOLD }}
             >
-              Call us — 602-910-2500
+              Call us: 602-910-2500
             </span>
           </a>
         </motion.div>
@@ -1105,19 +1106,19 @@ function Faq() {
   const items = [
     {
       q: "Will I have to switch carriers to save?",
-      a: "Often, yes — but not always. About 30% of audits end with us renegotiating with your existing carrier instead of moving you, because once they see we're actively shopping, retention departments sharpen the pencil.",
+      a: "Often, yes, but not always. About 30% of audits end with us renegotiating with your existing carrier instead of moving you, because once they see we're actively shopping, retention departments sharpen the pencil.",
     },
     {
       q: "Does this work if I just bought my home?",
-      a: "Especially well. New-purchase quotes are the most over-priced moment in the entire policy lifecycle because lenders rush you. Send us your binder before the first renewal and we'll typically save 25–35% before it auto-renews.",
+      a: "Especially well. New-purchase quotes are the most over-priced moment in the entire policy lifecycle because lenders rush you. Send us your binder before the first renewal and we'll typically save 25 to 35% before it auto-renews.",
     },
     {
       q: "Do you handle landlord and rental property policies?",
-      a: "Yes — DP-1, DP-3 and full landlord packages with loss-of-rent and liability included. Multi-property investors typically save the most because we consolidate to a single carrier with portfolio pricing.",
+      a: "Yes: DP-1, DP-3 and full landlord packages with loss-of-rent and liability included. Multi-property investors typically save the most because we consolidate to a single carrier with portfolio pricing.",
     },
     {
       q: "What about flood, earthquake and hurricane coverage?",
-      a: "Standard HO-3 policies exclude all three. We add NFIP flood policies, private excess flood, earthquake and named-storm endorsements priced against your specific exposure — not a national pool.",
+      a: "Standard HO-3 policies exclude all three. We add NFIP flood policies, private excess flood, earthquake and named-storm endorsements priced against your specific exposure, not a national pool.",
     },
   ];
   return (
@@ -1274,7 +1275,7 @@ function Cta() {
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-text-secondary sm:text-[15.5px]">
               Send us your declarations page. We&rsquo;ll show you exactly
-              where you&rsquo;re overpaying — no upfront cost.
+              where you&rsquo;re overpaying, no upfront cost.
             </p>
             <div className="mt-9 flex flex-col gap-5 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
               <Link
@@ -1292,11 +1293,11 @@ function Cta() {
               </Link>
               <a
                 href="tel:+16029102500"
-                className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
+                className="group inline-flex min-h-[44px] items-center gap-2 text-sm text-white transition-colors hover:text-cta"
               >
                 <ICONS.Phone className="size-4" aria-hidden />
                 <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                  Or call — 602-910-2500
+                  Or call: 602-910-2500
                 </span>
               </a>
             </div>

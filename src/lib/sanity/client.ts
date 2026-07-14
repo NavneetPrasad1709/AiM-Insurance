@@ -24,7 +24,7 @@ function buildClient(preview = false): SanityClient {
  * so we lazy-init and gate every call site behind `isSanityConfigured()`.
  *
  * Internally this is exposed as a Proxy so legacy callers using the named
- * `sanityClient` import continue to work — but accessing it without a
+ * `sanityClient` import continue to work, but accessing it without a
  * configured projectId will throw, exactly as expected.
  */
 export const sanityClient: SanityClient = new Proxy({} as SanityClient, {

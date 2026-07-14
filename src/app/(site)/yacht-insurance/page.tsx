@@ -3,9 +3,9 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { YachtPage } from "./yacht-page";
 
 const PAGE_URL = `${SITE_CONFIG.url}/yacht-insurance`;
-const TITLE = "Yacht Insurance — Luxury Coverage Negotiated for You";
+const TITLE = "Yacht Insurance: Luxury Coverage Negotiated for You";
 const DESCRIPTION =
-  "AiM negotiates yacht insurance with Lloyd's syndicates and blue-water specialists — agreed-value hull, P&I, crew and worldwide navigation.";
+  "AiM negotiates yacht insurance with Lloyd's syndicates and blue-water specialists: agreed-value hull, P&I, crew and worldwide navigation.";
 
 export const metadata: Metadata = {
   title: TITLE,

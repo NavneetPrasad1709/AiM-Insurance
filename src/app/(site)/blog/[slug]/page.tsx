@@ -284,7 +284,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             </Link>
           </li>
           <ICONS.ChevronRight className="size-3" aria-hidden />
-          <li className="line-clamp-1 max-w-[18rem] text-text-secondary">
+          <li className="line-clamp-1 max-w-[11rem] text-text-secondary sm:max-w-[18rem]">
             {post.title}
           </li>
         </ol>
@@ -333,7 +333,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         />
       </div>
 
-      {/* Trust signals — Newswire-led, compact under hero */}
+      {/* Trust signals - Newswire-led, compact under hero */}
       <div className="relative mx-auto mt-8 max-w-5xl px-5 sm:px-8">
         <TrustStrip variant="compact" />
       </div>
@@ -365,7 +365,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               <SocialShare url={`/blog/${post.slug}`} title={post.title} />
             </div>
 
-            {/* Author card — cream block on dark page for warmth */}
+            {/* Author card - cream block on dark page for warmth */}
             <aside className="mt-12 overflow-hidden rounded-2xl border border-[#0a0a0a]/10 bg-[#fbfaf5] p-6 shadow-[0_20px_60px_-30px_rgba(255,200,61,0.35)]">
               <div className="flex items-start gap-4">
                 <div
@@ -382,11 +382,11 @@ export default async function BlogPostPage({ params }: PageProps) {
                   <p className="font-heading font-bold text-[#0a0a0a]">
                     {post.author.name}
                   </p>
-                  <p className="text-xs uppercase tracking-[0.18em] font-bold text-[#5a5a64]">
+                  <p className="text-xs uppercase tracking-[0.18em] font-bold text-[#2e2e36]">
                     {post.author.role}
                   </p>
                   {post.author.bio && (
-                    <p className="mt-2 text-base text-[#3a3a44] leading-[1.6]">
+                    <p className="mt-2 text-base text-[#1f1f26] leading-[1.6]">
                       {post.author.bio}
                     </p>
                   )}
@@ -439,7 +439,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                   Get your free insurance quote
                 </h3>
                 <p className="mt-3 max-w-md text-sm leading-relaxed text-background/80">
-                  We negotiate with carriers on your behalf — same coverage,
+                  We negotiate with carriers on your behalf. Same coverage,
                   lower premium. Average client saves $1,247 a year.
                 </p>
                 <Link
@@ -460,10 +460,10 @@ export default async function BlogPostPage({ params }: PageProps) {
         </div>
       </div>
 
-      {/* Full-width cream block — Why AiM */}
+      {/* Full-width cream block - Why AiM */}
       <WhyAimCream
         heading="You read the article. Now save the money."
-        intro="Every story above has a fix. AiM is the fix. Send us your declarations page and we'll show you exactly what you can save — same coverage, lower premium."
+        intro="Every story above has a fix. AiM is the fix. Send us your declarations page and we'll show you exactly what you can save. Same coverage, lower premium."
       />
     </article>
   );

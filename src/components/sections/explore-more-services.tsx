@@ -53,7 +53,7 @@ export function ExploreMoreServices({ currentSlug }: ExploreMoreServicesProps) {
           </div>
           <p className="text-[15px] leading-relaxed text-text-secondary sm:col-span-5">
             One team. Same monitoring playbook. Better premiums on every
-            policy in your life — auto, home, marine, aviation.
+            policy in your life: auto, home, marine, aviation.
           </p>
         </motion.div>
 

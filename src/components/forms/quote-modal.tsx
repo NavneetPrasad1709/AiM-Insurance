@@ -175,7 +175,7 @@ export function QuoteModal() {
             className="absolute inset-0 bg-black/70 backdrop-blur-md"
           />
 
-          {/* Card — horizontal split */}
+          {/* Card: horizontal split */}
           <motion.div
             ref={dialogRef}
             initial={
@@ -202,10 +202,10 @@ export function QuoteModal() {
               "grid grid-cols-1 lg:grid-cols-12"
             )}
           >
-            {/* LEFT — dark pitch panel (desktop only) */}
+            {/* LEFT: dark pitch panel (desktop only) */}
             <PitchPanel reduce={!!reduce} hidden={isSuccess || isError} />
 
-            {/* RIGHT — light form panel */}
+            {/* RIGHT: light form panel */}
             <div
               className={cn(
                 "lg:col-span-7 relative bg-[#fbfaf5] flex flex-col",
@@ -228,7 +228,7 @@ export function QuoteModal() {
                 type="button"
                 aria-label="Close"
                 onClick={closeModal}
-                className="absolute right-4 top-4 lg:right-5 lg:top-5 z-30 inline-flex size-9 items-center justify-center rounded-full border border-black/10 bg-white/70 text-[#1a1a22] backdrop-blur-md transition-all hover:border-[#0a0a0a] hover:bg-white hover:scale-105 active:scale-95"
+                className="absolute right-4 top-4 lg:right-5 lg:top-5 z-30 inline-flex size-11 items-center justify-center rounded-full border border-black/10 bg-white/70 text-[#1a1a22] backdrop-blur-md transition-all hover:border-[#0a0a0a] hover:bg-white hover:scale-105 active:scale-95"
               >
                 <X className="size-4" aria-hidden />
               </button>
@@ -270,7 +270,7 @@ export function QuoteModal() {
                         </span>{" "}
                         insurance audit
                       </h2>
-                      <p className="mt-2.5 text-[14px] text-[#5a5a64] leading-[1.55]">
+                      <p className="mt-2.5 text-[14px] text-[#2e2e36] leading-[1.55]">
                         Same coverage. Lower premium. We reply within 24 hours.
                       </p>
 
@@ -380,7 +380,7 @@ export function QuoteModal() {
 
                         <FieldRow>
                           <SubmitButton isLoading={isLoading} />
-                          <p className="mt-3 text-[11px] text-[#6a6a72] text-center tabular-nums">
+                          <p className="mt-3 text-[11px] text-[#2e2e36] text-center tabular-nums">
                             $0 if no savings · No commitment · Replies within 24h
                           </p>
                         </FieldRow>
@@ -459,7 +459,7 @@ function PitchPanel({ reduce, hidden }: { reduce: boolean; hidden: boolean }) {
         />
       </div>
 
-      {/* Top — logo */}
+      {/* Top: logo */}
       <motion.div
         initial={{ opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -476,7 +476,7 @@ function PitchPanel({ reduce, hidden }: { reduce: boolean; hidden: boolean }) {
         />
       </motion.div>
 
-      {/* Middle — savings hero */}
+      {/* Middle: savings hero */}
       <div className="relative my-8">
         <motion.span
           initial={{ opacity: 0, y: 8 }}
@@ -500,20 +500,20 @@ function PitchPanel({ reduce, hidden }: { reduce: boolean; hidden: boolean }) {
           >
             $1,247
           </span>
-          <span className="text-base font-semibold text-white/70">/yr</span>
+          <span className="text-base font-semibold text-white/90">/yr</span>
         </motion.div>
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: EASE, delay: 0.42 }}
-          className="mt-3 text-[15px] text-white/75 leading-[1.55] max-w-[18rem]"
+          className="mt-3 text-[15px] text-white/90 leading-[1.55] max-w-[18rem]"
         >
           Same coverage. Lower premium. Zero hassle. We negotiate with 50+
           carriers on your behalf.
         </motion.p>
       </div>
 
-      {/* Bottom — testimonial + trust */}
+      {/* Bottom: testimonial + trust */}
       <div className="relative flex flex-col gap-5">
         <motion.div
           initial={{ opacity: 0, y: 8 }}
@@ -530,12 +530,12 @@ function PitchPanel({ reduce, hidden }: { reduce: boolean; hidden: boolean }) {
               />
             ))}
           </div>
-          <p className="mt-3 text-sm text-white/85 leading-[1.5]">
+          <p className="mt-3 text-sm text-white/90 leading-[1.5]">
             &ldquo;Same coverage I had with Allstate, $1,400 less per year. AiM
             handled everything.&rdquo;
           </p>
-          <p className="mt-3 text-xs text-white/55">
-            <span className="font-semibold text-white/85">Sarah M.</span>{" "}
+          <p className="mt-3 text-xs text-white/90">
+            <span className="font-semibold text-white">Sarah M.</span>{" "}
             · Toronto · saved{" "}
             <span className="text-[#ffc83d] font-bold tabular-nums">
               $1,400/yr
@@ -551,7 +551,7 @@ function PitchPanel({ reduce, hidden }: { reduce: boolean; hidden: boolean }) {
         >
           {[
             { icon: Shield, label: "BBB Accredited" },
-            { icon: Sparkles, label: "1000+ clients" },
+            { icon: Sparkles, label: "1100+ clients" },
           ].map((p) => {
             const Icon = p.icon;
             return (
@@ -560,7 +560,7 @@ function PitchPanel({ reduce, hidden }: { reduce: boolean; hidden: boolean }) {
                 className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.03] px-3 py-2"
               >
                 <Icon className="size-3.5 text-[#ffc83d]" aria-hidden />
-                <span className="font-semibold text-white/85">{p.label}</span>
+                <span className="font-semibold text-white">{p.label}</span>
               </li>
             );
           })}
@@ -689,7 +689,7 @@ function FloatingInput({
             "peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-[10px] peer-focus:uppercase peer-focus:tracking-[0.16em] peer-focus:font-semibold",
             hasError
               ? "text-[#DC2626] peer-focus:text-[#DC2626]"
-              : "text-[#7a7a82] peer-focus:text-[#0a0a0a]"
+              : "text-[#7a7a82] peer-[:not(:placeholder-shown)]:text-[#2e2e36] peer-focus:text-[#0a0a0a]"
           )}
         >
           {label}
@@ -758,7 +758,7 @@ function FloatingTextarea({
             "peer-focus:top-2 peer-focus:text-[10px] peer-focus:uppercase peer-focus:tracking-[0.16em] peer-focus:font-semibold",
             hasError
               ? "text-[#DC2626] peer-focus:text-[#DC2626]"
-              : "text-[#7a7a82] peer-focus:text-[#0a0a0a]"
+              : "text-[#7a7a82] peer-[:not(:placeholder-shown)]:text-[#2e2e36] peer-focus:text-[#0a0a0a]"
           )}
         >
           {label}
@@ -770,7 +770,7 @@ function FloatingTextarea({
           <span
             className={cn(
               "tabular-nums transition-colors ml-auto",
-              overSoft ? "text-[#0a0a0a] font-semibold" : "text-[#9a9aa3]"
+              overSoft ? "text-[#0a0a0a] font-semibold" : "text-[#2e2e36]"
             )}
           >
             {currentLength}/{maxLength}
@@ -811,7 +811,7 @@ function FieldHelp({
   ) : (
     <p
       id={id ? `${id}-hlp` : undefined}
-      className="mt-1.5 text-[12px] text-[#7a7a82]"
+      className="mt-1.5 text-[12px] text-[#2e2e36]"
     >
       {helper}
     </p>
@@ -854,7 +854,7 @@ function PillGrid({ label, value, onChange, error }: PillGridProps) {
                 "relative flex flex-col items-center justify-center gap-1 rounded-xl border px-2 py-3 text-[11px] font-semibold uppercase tracking-[0.06em] transition-colors",
                 checked
                   ? "border-transparent text-[#0a0a0a]"
-                  : "border-black/10 bg-white text-[#5a5a64] hover:text-[#0a0a0a] hover:border-black/22"
+                  : "border-black/10 bg-white text-[#2e2e36] hover:text-[#0a0a0a] hover:border-black/22"
               )}
             >
               {checked && (
@@ -1146,7 +1146,7 @@ function SuccessState({ onClose }: { onClose: () => void }) {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.65 }}
-        className="mt-3 max-w-sm text-sm text-[#5a5a64] leading-[1.6]"
+        className="mt-3 max-w-sm text-sm text-[#2e2e36] leading-[1.6]"
       >
         We&rsquo;ll review your details and send a side-by-side savings audit
         within 24 hours.
@@ -1218,8 +1218,8 @@ function ErrorState({
         >
           Something went wrong
         </h3>
-        <p className="mt-2 text-sm text-[#5a5a64] leading-[1.55]">
-          {message ?? "Please try again — your details are still saved."}
+        <p className="mt-2 text-sm text-[#2e2e36] leading-[1.55]">
+          {message ?? "Please try again. Your details are still saved."}
         </p>
       </div>
       <div className="mt-5 flex w-full flex-col sm:flex-row gap-2.5">

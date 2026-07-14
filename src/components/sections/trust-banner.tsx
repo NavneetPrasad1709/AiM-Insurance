@@ -6,8 +6,8 @@ import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/ui/scroll-
 import { ICONS } from "@/lib/icons";
 
 const STATS = [
-  { value: "1000+", label: "Clients served", icon: "HeartHandshake" as const },
-  { value: "$5.4M+", label: "Negotiated savings", icon: "TrendingUp" as const },
+  { value: "1100+", label: "Clients served", icon: "HeartHandshake" as const },
+  { value: "$6.14M+", label: "Negotiated savings", icon: "TrendingUp" as const },
   { value: "$1,247+", label: "Avg. annual savings", icon: "Sparkles" as const },
   { value: "31%", label: "Avg. premium reduction", icon: "BarChart3" as const },
 ];

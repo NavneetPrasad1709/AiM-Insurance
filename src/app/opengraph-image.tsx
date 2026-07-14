@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "nodejs";
-export const alt = "AiM Insurance — Same coverage, lower premiums.";
+export const alt = "AiM Insurance: Same coverage, lower premiums.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -86,7 +86,7 @@ export default async function OpenGraphImage() {
             style={{
               fontSize: 30,
               lineHeight: 1.4,
-              color: "rgba(255,255,255,0.82)",
+              color: "rgba(255,255,255,0.95)",
               maxWidth: 880,
               display: "flex",
             }}
@@ -102,7 +102,7 @@ export default async function OpenGraphImage() {
             alignItems: "center",
             justifyContent: "space-between",
             fontSize: 22,
-            color: "rgba(255,255,255,0.68)",
+            color: "rgba(255,255,255,0.9)",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
@@ -115,7 +115,7 @@ export default async function OpenGraphImage() {
                 background: "#4fe0b0",
               }}
             />
-            1000+ clients · USA · Canada · UAE
+            1100+ clients · USA · Canada · UAE
           </div>
           <div style={{ display: "flex", fontWeight: 700, color: "#ffffff" }}>
             getaiminsurance.com

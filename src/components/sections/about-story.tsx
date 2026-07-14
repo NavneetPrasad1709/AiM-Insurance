@@ -15,7 +15,7 @@ const MILESTONES = [
     year: "2022",
     title: "Negotiation desk formalised",
     description:
-      "First dedicated team of insurance negotiators is built — moving from one-off favors to a real service.",
+      "First dedicated team of insurance negotiators is built, moving from one-off favors to a real service.",
   },
   {
     year: "2024",
@@ -25,9 +25,9 @@ const MILESTONES = [
   },
   {
     year: "2025",
-    title: "$5.4M+ negotiated for clients",
+    title: "$6.14M+ negotiated for clients",
     description:
-      "1000+ clients across the US, Canada, and UAE — averaging $1,247 in annual savings each.",
+      "1100+ clients across the US, Canada, and UAE, averaging $1,247 in annual savings each.",
   },
 ];
 
@@ -85,14 +85,14 @@ export function AboutStory() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7, delay: 0.16 }}
-            className="mt-7 space-y-5 text-lg sm:text-xl leading-[1.65] text-[#3a3a44]"
+            className="mt-7 space-y-5 text-lg sm:text-xl leading-[1.65] text-[#1f1f26]"
           >
             <p>
               Founded by{" "}
               <strong className="font-heading font-bold text-[#0a0a0a]">
                 Neel Mehta
               </strong>
-              , AiM Insurance started from a simple observation — friends and
+              , AiM Insurance started from a simple observation: friends and
               family were constantly overpaying for policies they didn&rsquo;t
               fully understand.
             </p>
@@ -101,7 +101,7 @@ export function AboutStory() {
               <strong className="font-heading font-bold text-[#0a0a0a]">
                 Car Concierge Pro
               </strong>
-              , we created a service that stands in your corner — reviewing
+              , we created a service that stands in your corner, reviewing
               quotes, challenging overpriced plans, and ensuring you never
               settle for less than you deserve.
             </p>
@@ -113,7 +113,7 @@ export function AboutStory() {
           </motion.div>
         </div>
 
-        {/* Visual column — milestone card */}
+        {/* Visual column: milestone card */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -195,7 +195,7 @@ export function AboutStory() {
                     <p className="mt-1 font-heading text-base font-bold text-[#0a0a0a]">
                       {m.title}
                     </p>
-                    <p className="mt-1.5 text-sm text-[#3a3a44] leading-relaxed">
+                    <p className="mt-1.5 text-sm text-[#1f1f26] leading-relaxed">
                       {m.description}
                     </p>
                   </motion.li>

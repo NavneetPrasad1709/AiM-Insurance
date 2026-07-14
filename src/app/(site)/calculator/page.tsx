@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   alternates: { canonical: "/calculator" },
   openGraph: {
-    title: `${TITLE} — AiM Insurance`,
+    title: `${TITLE} | AiM Insurance`,
     description: DESCRIPTION,
     url: PAGE_URL,
     siteName: SITE_CONFIG.name,
@@ -36,13 +36,13 @@ export default function CalculatorPage() {
               "radial-gradient(closest-side, rgb(255 200 61 / 0.22), transparent 70%)",
           }}
         />
-        {/* Animated decorative ambience — particles, aurora, grain, corner ornaments */}
+        {/* Animated decorative ambience: particles, aurora, grain, corner ornaments */}
         <CalculatorPageAmbience />
       </div>
 
       <div className="relative mx-auto max-w-[1100px] px-5 sm:px-8 lg:px-10">
         <nav aria-label="Breadcrumb" className="mb-8">
-          <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/55">
+          <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/90">
             <li>
               <Link
                 href="/"
@@ -80,7 +80,7 @@ export default function CalculatorPage() {
             </span>
             .
           </h1>
-          <p className="relative mt-4 text-base sm:text-lg text-white/70 leading-[1.55]">
+          <p className="relative mt-4 text-base sm:text-lg text-white/90 leading-[1.55]">
             Four questions. Live benchmark against 50+ carrier rate filings.
             Zero commitment.
           </p>

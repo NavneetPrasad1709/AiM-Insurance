@@ -38,7 +38,7 @@ export default function SiteError({ error, reset }: ErrorProps) {
           We hit an unexpected snag.
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-text-secondary">
-          The page didn&rsquo;t load correctly. Try again — or head back home
+          The page didn&rsquo;t load correctly. Try again, or head back home
           and we&rsquo;ll get you on track.
         </p>
         {error.digest && (

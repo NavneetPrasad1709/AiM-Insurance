@@ -113,8 +113,8 @@ export default function TermsPage() {
                 yourself, your household, and the assets you want covered.
               </li>
               <li>
-                Promptly tell us about changes — new drivers, vehicles, homes,
-                vessels, aircraft, or claims — that could affect coverage.
+                Promptly tell us about changes (new drivers, vehicles, homes,
+                vessels, aircraft, or claims) that could affect coverage.
               </li>
               <li>
                 Review every quote, policy document, and binder for accuracy
@@ -126,7 +126,7 @@ export default function TermsPage() {
                 cancellation procedures.
               </li>
               <li>
-                Use the site lawfully — do not attempt to disrupt it, probe its
+                Use the site lawfully: do not attempt to disrupt it, probe its
                 security, scrape it without permission, or use it to harass
                 others.
               </li>
@@ -170,7 +170,7 @@ export default function TermsPage() {
 
             <h2 className="font-heading text-white">9. User communications</h2>
             <p>
-              When you contact us — by form, email, phone, or SMS — you agree
+              When you contact us (by form, email, phone, or SMS), you agree
               that we may respond using the channels you provided. We may
               record or transcribe calls for quality assurance and
               recordkeeping where permitted by law. Standard message and data
@@ -197,7 +197,7 @@ export default function TermsPage() {
               ITS PERSONNEL WILL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL,
               SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR FOR
               ANY LOSS OF PROFITS, REVENUE, DATA, OR GOODWILL, ARISING OUT OF
-              OR RELATED TO YOUR USE OF THE SITE OR OUR SERVICES — EVEN IF WE
+              OR RELATED TO YOUR USE OF THE SITE OR OUR SERVICES, EVEN IF WE
               HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR
               AGGREGATE LIABILITY FOR ANY CLAIM WILL NOT EXCEED THE TOTAL FEES
               YOU PAID TO US IN THE TWELVE MONTHS BEFORE THE EVENT GIVING RISE

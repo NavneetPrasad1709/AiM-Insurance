@@ -3,9 +3,9 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { JetPage } from "./jet-page";
 
 const PAGE_URL = `${SITE_CONFIG.url}/jet-insurance`;
-const TITLE = "Private Jet Insurance — Elite Protection Coming Soon";
+const TITLE = "Private Jet Insurance: Elite Protection Coming Soon";
 const DESCRIPTION =
-  "Private jet insurance from AiM — hull, liability, hangar and worldwide flight cover, negotiated with global aviation underwriters. Coming soon — join the waitlist.";
+  "Private jet insurance from AiM: hull, liability, hangar and worldwide flight cover, negotiated with global aviation underwriters. Coming soon. Join the waitlist.";
 
 export const metadata: Metadata = {
   title: TITLE,

@@ -3,9 +3,9 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { BoatPage } from "./boat-page";
 
 const PAGE_URL = `${SITE_CONFIG.url}/boat-insurance`;
-const TITLE = "Boat Insurance — Navigate Savings on Coverage";
+const TITLE = "Boat Insurance: Navigate Savings on Coverage";
 const DESCRIPTION =
-  "AiM negotiates boat insurance with leading marine carriers — hull, liability, towing and personal effects coverage at a lower premium.";
+  "AiM negotiates boat insurance with leading marine carriers: hull, liability, towing and personal effects coverage at a lower premium.";
 
 export const metadata: Metadata = {
   title: TITLE,

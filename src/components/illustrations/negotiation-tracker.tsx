@@ -11,7 +11,7 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 
 /**
  * Crafted product-UI illustration. Replaces legacy cartoon mascots.
- * Looks like an internal AiM negotiation dashboard — that signal beats
+ * Looks like an internal AiM negotiation dashboard. That signal beats
  * any vector-art character at converting premium leads.
  */
 export function NegotiationTracker({ className }: NegotiationTrackerProps) {
@@ -97,7 +97,7 @@ export function NegotiationTracker({ className }: NegotiationTrackerProps) {
           </span>
         </div>
 
-        {/* Saving callout — handwritten-ish, Citrine */}
+        {/* Saving callout: handwritten-ish, Citrine */}
         <div className="mt-3 inline-flex items-center gap-2">
           <span
             className="text-[#ffc83d] text-base font-bold tabular-nums"

@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   productionBrowserSourceMaps: false,
+  // Pin the workspace root to this project. Without it, a stray lockfile
+  // higher up the tree can make Next infer the wrong root, which breaks
+  // prerendering (Invariant: Expected workStore to be initialized).
+  turbopack: {
+    root: import.meta.dirname,
+  },
   experimental: {
     optimizePackageImports: [
       "framer-motion",

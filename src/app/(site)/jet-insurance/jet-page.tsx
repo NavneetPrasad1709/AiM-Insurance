@@ -15,6 +15,7 @@ import { ExploreMoreServices } from "@/components/sections/explore-more-services
 const CREAM = "#faf6ee";
 const CREAM_INK = "#0c1626";
 const CREAM_GOLD = "#b8842a";
+const CREAM_GOLD_TEXT = "#8a6410"; // AA-contrast gold for text on cream (>=4.6:1)
 
 const ASSET = {
   heroPoster: "/jet/jet-hero.jpg",
@@ -33,7 +34,7 @@ const ALT = {
   c1: "Sleek private jet on the tarmac with ground tow tug",
   c2: "Luxurious private jet cabin with leather seats and wood trim",
   c3: "Private jet on a runway with a scenic mountain backdrop",
-  c4: "Private jet in a hangar — engine and tail detail",
+  c4: "Private jet in a hangar, engine and tail detail",
   split1: "Embraer Legacy 600 private jet illuminated on tarmac at night",
   cta: "Aerial view of a private jet parked on the tarmac",
 };
@@ -99,10 +100,10 @@ function Hero() {
       />
 
       <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-6 py-4 sm:px-12 sm:py-5">
-        <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/85">
+        <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white">
           AiM · Jet insurance
         </span>
-        <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/55 sm:block">
+        <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/90 sm:block">
           Q3 2026 · 100 founder spots
         </span>
       </div>
@@ -132,7 +133,7 @@ function Hero() {
           >
             Elite aviation cover.
             <br />
-            <span className="text-cta">Founder pricing — first.</span>
+            <span className="text-cta">Founder pricing, first.</span>
           </motion.h1>
 
           <motion.p
@@ -141,7 +142,7 @@ function Hero() {
             transition={{ duration: 0.85, ease, delay: 0.32 }}
             className="mt-7 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg"
           >
-            We&rsquo;re onboarding global aviation underwriters — Lloyd&rsquo;s,
+            We&rsquo;re onboarding global aviation underwriters: Lloyd&rsquo;s,
             AIG Aerospace, Global Aerospace, Allianz. Join the waitlist
             for founder pricing on hull, liability and worldwide flight
             cover.
@@ -168,11 +169,11 @@ function Hero() {
             </Link>
             <a
               href="tel:+16029102500"
-              className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
+              className="group inline-flex min-h-[44px] items-center gap-2 text-sm text-white transition-colors hover:text-cta"
             >
               <ICONS.Phone className="size-4" aria-hidden />
               <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                Or call — 602-910-2500
+                Or call 602-910-2500
               </span>
             </a>
           </motion.div>
@@ -188,7 +189,7 @@ function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white/55"
+          className="flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white/90"
         >
           <span>Scroll</span>
           <span className="h-8 w-px bg-white/40" aria-hidden />
@@ -215,7 +216,7 @@ function TrustStrip() {
       <div className="mx-auto max-w-7xl px-6 pb-10 pt-14 sm:px-12 sm:pt-20">
         <p
           className="mb-7 text-center font-heading text-[10px] font-semibold uppercase tracking-[0.36em] sm:mb-9"
-          style={{ color: CREAM_GOLD }}
+          style={{ color: CREAM_GOLD_TEXT }}
         >
           <span
             aria-hidden
@@ -246,7 +247,7 @@ function TrustStrip() {
                 {Icon && (
                   <Icon
                     className="size-3.5 shrink-0 sm:size-4"
-                    style={{ color: CREAM_GOLD }}
+                    style={{ color: CREAM_GOLD_TEXT }}
                     aria-hidden
                   />
                 )}
@@ -315,7 +316,7 @@ function Coverage() {
       n: "01",
       title: "Hull all-risk",
       body:
-        "Agreed-value protection for the airframe, engines and avionics — in flight, ground risk and during taxi.",
+        "Agreed-value protection for the airframe, engines and avionics: in flight, ground risk and during taxi.",
       image: ASSET.c1,
       alt: ALT.c1,
     },
@@ -323,7 +324,7 @@ function Coverage() {
       n: "02",
       title: "Combined single limit",
       body:
-        "Bodily injury, passenger and third-party property liability under one CSL — typically $50M–$300M limits.",
+        "Bodily injury, passenger and third-party property liability under one CSL, typically $50M to $300M limits.",
       image: ASSET.c2,
       alt: ALT.c2,
     },
@@ -331,7 +332,7 @@ function Coverage() {
       n: "03",
       title: "Hangar & ground risk",
       body:
-        "Aircraft on the ground, in maintenance and during fuelling — protection beyond the standard hull policy.",
+        "Aircraft on the ground, in maintenance and during fuelling. Protection beyond the standard hull policy.",
       image: ASSET.c3,
       alt: ALT.c3,
     },
@@ -386,7 +387,7 @@ function Coverage() {
             className="text-[15px] leading-relaxed text-text-secondary sm:col-span-5"
           >
             Light, midsize and heavy business jets up to $40M hull. Owner-flown,
-            fractional and managed-aircraft programmes — Part 91 to start,
+            fractional and managed-aircraft programmes: Part 91 to start,
             Part 135 charter in 2027.
           </motion.p>
         </div>
@@ -498,7 +499,7 @@ function WhyMatters() {
           >
             <p
               className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-              style={{ color: CREAM_GOLD }}
+              style={{ color: CREAM_GOLD_TEXT }}
             >
               <span
                 className="mr-3 inline-block h-px w-10 align-middle"
@@ -517,7 +518,7 @@ function WhyMatters() {
               }}
             >
               Founder pricing,{" "}
-              <span style={{ color: CREAM_GOLD }}>
+              <span style={{ color: CREAM_GOLD_TEXT }}>
                 locked for the first term.
               </span>
             </h3>
@@ -526,7 +527,7 @@ function WhyMatters() {
               style={{ color: `${CREAM_INK}b8` }}
             >
               Aviation premiums are driven by hull value, pilot experience
-              and territory — not annual mileage. We&rsquo;re negotiating
+              and territory, not annual mileage. We&rsquo;re negotiating
               founder rates with three Lloyd&rsquo;s syndicates and two
               North American aerospace specialists. The first{" "}
               <span className="font-semibold" style={{ color: CREAM_INK }}>
@@ -563,7 +564,7 @@ function Waitlist() {
         >
           <p
             className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-            style={{ color: CREAM_GOLD }}
+            style={{ color: CREAM_GOLD_TEXT }}
           >
             <span
               className="mr-3 inline-block h-px w-12 align-middle"
@@ -582,14 +583,14 @@ function Waitlist() {
             }}
           >
             100 spots.{" "}
-            <span style={{ color: CREAM_GOLD }}>No card. No contract.</span>
+            <span style={{ color: CREAM_GOLD_TEXT }}>No card. No contract.</span>
           </h2>
           <p
             className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed"
             style={{ color: `${CREAM_INK}b0` }}
           >
             Joining the waitlist secures founder pricing and priority
-            onboarding when we launch — that&rsquo;s it. Decline the audit
+            onboarding when we launch. That&rsquo;s it. Decline the audit
             or use it as leverage with your current broker.
           </p>
         </motion.div>
@@ -625,7 +626,7 @@ function Waitlist() {
               </h3>
               <p
                 className="mt-4 max-w-md text-[14px] leading-relaxed"
-                style={{ color: "rgba(255,255,255,0.75)" }}
+                style={{ color: "rgba(255,255,255,0.9)" }}
               >
                 Onboarding starts in chronological order. Earlier on the
                 list = earlier in the queue when binders go live.
@@ -749,14 +750,14 @@ function Process() {
       n: "01",
       title: "Join the waitlist",
       body:
-        "Two minutes. Aircraft type, pilot ratings, current carrier — that's it. No card.",
+        "Two minutes. Aircraft type, pilot ratings, current carrier. That's it. No card.",
       meta: "≈ 2 min",
     },
     {
       n: "02",
       title: "Binders go live",
       body:
-        "Q3 2026 — three Lloyd's syndicates and two North American aerospace specialists open quotes for the founder cohort.",
+        "Q3 2026: three Lloyd's syndicates and two North American aerospace specialists open quotes for the founder cohort.",
       meta: "Q3 2026",
     },
     {
@@ -819,14 +820,14 @@ function Process() {
                 letterSpacing: "-0.03em",
               }}
             >
-              Waitlist now —
+              Waitlist now,
               <br />
               <span className="text-cta">audit at launch.</span>
             </h2>
           </div>
           <p className="text-[15px] leading-relaxed text-text-secondary sm:col-span-5">
             From waitlist signup to a binder-ready audit. Founder pricing
-            is locked the day you accept — no renegotiation at year two.
+            is locked the day you accept, no renegotiation at year two.
           </p>
         </motion.div>
 
@@ -930,7 +931,7 @@ function SocialProof() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.85, ease }}
           className="font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-          style={{ color: CREAM_GOLD }}
+          style={{ color: CREAM_GOLD_TEXT }}
         >
           <span
             className="mr-3 inline-block h-px w-12 align-middle"
@@ -955,8 +956,8 @@ function SocialProof() {
           }}
         >
           &ldquo;AiM saved us{" "}
-          <span style={{ color: CREAM_GOLD }}>$8,400 a year</span> on the
-          yacht — I&rsquo;m on the jet waitlist before they even launch.
+          <span style={{ color: CREAM_GOLD_TEXT }}>$8,400 a year</span> on the
+          yacht. I&rsquo;m on the jet waitlist before they even launch.
           Founder pricing is a no-brainer.&rdquo;
         </motion.h2>
 
@@ -967,9 +968,9 @@ function SocialProof() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.85, ease, delay: 0.16 }}
           className="mx-auto mt-6 text-[14px] uppercase tracking-[0.24em]"
-          style={{ color: `${CREAM_INK}99` }}
+          style={{ color: `${CREAM_INK}cc` }}
         >
-          Alexander V. — Yacht client, future jet owner
+          Alexander V. · Yacht client, future jet owner
         </motion.p>
 
         <motion.div
@@ -995,15 +996,15 @@ function SocialProof() {
           </Link>
           <a
             href="tel:+16029102500"
-            className="inline-flex items-center gap-2 text-sm transition-colors"
-            style={{ color: CREAM_GOLD }}
+            className="inline-flex min-h-[44px] items-center gap-2 text-sm transition-colors"
+            style={{ color: CREAM_GOLD_TEXT }}
           >
             <ICONS.Phone className="size-4" aria-hidden />
             <span
               className="border-b pb-0.5"
               style={{ borderColor: CREAM_GOLD }}
             >
-              Call us — 602-910-2500
+              Call us 602-910-2500
             </span>
           </a>
         </motion.div>
@@ -1024,11 +1025,11 @@ function Faq() {
     },
     {
       q: "Does the waitlist commit me to anything?",
-      a: "No. Joining the waitlist secures founder pricing and priority onboarding when we launch — that's it. You can decline the audit, accept it, or use it as leverage with your current broker. No card, no contract.",
+      a: "No. Joining the waitlist secures founder pricing and priority onboarding when we launch. That's it. You can decline the audit, accept it, or use it as leverage with your current broker. No card, no contract.",
     },
     {
       q: "How does jet insurance pricing differ from boat or yacht?",
-      a: "Aviation premiums are driven by hull value, pilot experience, aircraft type and geographic territory — not annual mileage. Pilot training records, type ratings and recurrent-training currency are the biggest single levers we negotiate.",
+      a: "Aviation premiums are driven by hull value, pilot experience, aircraft type and geographic territory, not annual mileage. Pilot training records, type ratings and recurrent-training currency are the biggest single levers we negotiate.",
     },
   ];
   return (
@@ -1184,7 +1185,7 @@ function Cta() {
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-text-secondary sm:text-[15.5px]">
               Reserve a founder spot today. Onboarding starts in
-              chronological order — earlier you join, sooner you fly.
+              chronological order. Earlier you join, sooner you fly.
             </p>
             <div className="mt-9 flex flex-col gap-5 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
               <Link
@@ -1202,11 +1203,11 @@ function Cta() {
               </Link>
               <a
                 href="tel:+16029102500"
-                className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
+                className="group inline-flex min-h-[44px] items-center gap-2 text-sm text-white transition-colors hover:text-cta"
               >
                 <ICONS.Phone className="size-4" aria-hidden />
                 <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                  Or call — 602-910-2500
+                  Or call 602-910-2500
                 </span>
               </a>
             </div>

@@ -3,9 +3,9 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { HomePage } from "./home-page";
 
 const PAGE_URL = `${SITE_CONFIG.url}/home-insurance`;
-const TITLE = "Home Insurance — Same Coverage, Lower Premium";
+const TITLE = "Home Insurance: Same Coverage, Lower Premium";
 const DESCRIPTION =
-  "AiM monitors your home insurance to ensure you're getting the best premium for the same coverage — comparing rates across major providers so you never overpay.";
+  "AiM monitors your home insurance to ensure you're getting the best premium for the same coverage, comparing rates across major providers so you never overpay.";
 
 export const metadata: Metadata = {
   title: TITLE,

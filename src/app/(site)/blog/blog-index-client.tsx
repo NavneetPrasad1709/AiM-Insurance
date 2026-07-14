@@ -169,7 +169,7 @@ function Pagination({
 }) {
   const pages = pageList(currentPage, totalPages);
   const baseBtn =
-    "inline-flex h-10 min-w-10 items-center justify-center rounded-full border px-3 text-sm font-heading font-semibold transition-colors";
+    "inline-flex h-11 min-w-11 items-center justify-center rounded-full border px-3 text-sm font-heading font-semibold transition-colors";
   return (
     <nav
       aria-label="Pagination"
@@ -188,7 +188,7 @@ function Pagination({
         p === "…" ? (
           <span
             key={`gap-${i}`}
-            className="inline-flex h-10 min-w-6 items-center justify-center text-sm text-text-muted"
+            className="inline-flex h-11 min-w-6 items-center justify-center text-sm text-text-muted"
             aria-hidden
           >
             …

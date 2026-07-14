@@ -38,7 +38,7 @@ const TYPE_OPTIONS = [
 const STEPS = [
   { n: 1, title: "Choose your insurance", desc: "Pick what we’re negotiating" },
   { n: 2, title: "Current premium", desc: "What you pay today" },
-  { n: 3, title: "Policy details", desc: "Optional — sharpens the estimate" },
+  { n: 3, title: "Policy details", desc: "Optional, sharpens the estimate" },
   { n: 4, title: "Your savings", desc: "Live benchmark vs market" },
 ];
 
@@ -130,10 +130,10 @@ export function SavingsCalculator() {
         "shadow-[0_40px_100px_-30px_rgba(0,0,0,0.5)]"
       )}
     >
-      {/* LEFT — dark pitch panel */}
+      {/* LEFT - dark pitch panel */}
       <PitchPanel reduce={!!reduce} currentStep={step} />
 
-      {/* RIGHT — cream form panel */}
+      {/* RIGHT - cream form panel */}
       <div className="lg:col-span-7 relative bg-[#fbfaf5] p-6 sm:p-9 lg:p-10 flex flex-col min-h-[560px]">
         {/* Mobile dark ribbon header */}
         <MobilePitchRibbon currentStep={step} />
@@ -154,7 +154,7 @@ export function SavingsCalculator() {
                 <StepIntro
                   eyebrow={`Step 1 of 4`}
                   title="What are we negotiating?"
-                  description="Pick the insurance you want benchmarked. We support five categories — pick whichever fits."
+                  description="Pick the insurance you want benchmarked. We support five categories, pick whichever fits."
                 >
                   <PillGrid
                     value={form.insuranceType}
@@ -167,7 +167,7 @@ export function SavingsCalculator() {
                 <StepIntro
                   eyebrow="Step 2 of 4"
                   title="What do you pay today?"
-                  description="Your current annual premium — exactly the number on your renewal letter."
+                  description="Your current annual premium, exactly the number on your renewal letter."
                 >
                   <FloatingInput
                     label="Current annual premium"
@@ -185,7 +185,7 @@ export function SavingsCalculator() {
                 <StepIntro
                   eyebrow="Step 3 of 4"
                   title="Tell us about your policy"
-                  description="All optional — but the more we know, the tighter the estimate."
+                  description="All optional, but the more we know, the tighter the estimate."
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <FloatingInput
@@ -264,7 +264,7 @@ export function SavingsCalculator() {
 
         {step === 3 && isSuccess && (
           <p className="mt-2 text-xs text-[#059669] text-center">
-            ✓ Estimate saved — your details are with our team.
+            ✓ Estimate saved. Your details are with our team.
           </p>
         )}
       </div>
@@ -322,7 +322,7 @@ function PitchPanel({
         />
       </div>
 
-      {/* Top — logo + savings stat */}
+      {/* Top - logo + savings stat */}
       <div className="relative">
         <Image
           src="/brand/aim-logo.webp"
@@ -348,17 +348,17 @@ function PitchPanel({
             >
               $1,247
             </span>
-            <span className="text-base font-semibold text-white/70">/yr</span>
+            <span className="text-base font-semibold text-white/90">/yr</span>
           </div>
-          <p className="mt-3 text-sm text-white/70 leading-[1.55] max-w-[18rem]">
+          <p className="mt-3 text-sm text-white/90 leading-[1.55] max-w-[18rem]">
             Same coverage. Lower premium. Live benchmark against 50+ carriers.
           </p>
         </div>
       </div>
 
-      {/* Middle — step progression */}
+      {/* Middle - step progression */}
       <div className="relative my-10">
-        <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] text-white/55 mb-4">
+        <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90 mb-4">
           The 4-step audit
         </span>
         <ol className="flex flex-col gap-3">
@@ -384,7 +384,7 @@ function PitchPanel({
                       ? "bg-[#ffc83d] text-[#0a0a0a] shadow-[0_0_0_4px_rgba(255,200,61,0.18)]"
                       : done
                         ? "bg-[#10d889]/15 text-[#10d889] border border-[#10d889]/40"
-                        : "bg-white/5 text-white/55 border border-white/10"
+                        : "bg-white/5 text-white/90 border border-white/10"
                   )}
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
@@ -394,12 +394,12 @@ function PitchPanel({
                   <span
                     className={cn(
                       "text-sm font-semibold",
-                      active ? "text-white" : done ? "text-white/85" : "text-white/65"
+                      active ? "text-white" : done ? "text-white/90" : "text-white/90"
                     )}
                   >
                     {s.title}
                   </span>
-                  <span className="text-[11px] text-white/55 leading-[1.4]">
+                  <span className="text-[11px] text-white/90 leading-[1.4]">
                     {s.desc}
                   </span>
                 </span>
@@ -409,7 +409,7 @@ function PitchPanel({
         </ol>
       </div>
 
-      {/* Bottom — testimonial */}
+      {/* Bottom - testimonial */}
       <div className="relative rounded-2xl border border-white/8 bg-white/[0.03] backdrop-blur-md p-5">
         <div className="flex items-center gap-1" aria-label="5 stars">
           {Array.from({ length: 5 }).map((_, i) => (
@@ -420,12 +420,12 @@ function PitchPanel({
             />
           ))}
         </div>
-        <p className="mt-3 text-sm text-white/85 leading-[1.5]">
+        <p className="mt-3 text-sm text-white/90 leading-[1.5]">
           &ldquo;Estimate landed within 5% of the actual quote. We saved
           $1,400/yr.&rdquo;
         </p>
-        <p className="mt-3 text-xs text-white/55">
-          <span className="font-semibold text-white/85">Sarah M.</span>{" "}
+        <p className="mt-3 text-xs text-white/90">
+          <span className="font-semibold text-white/90">Sarah M.</span>{" "}
           · Toronto · saved{" "}
           <span className="text-[#ffc83d] font-bold tabular-nums">
             $1,400/yr
@@ -478,7 +478,7 @@ function Stepper({ step }: { step: number }) {
                   ? "bg-[#0a0a0a] text-[#ffc83d]"
                   : done
                     ? "bg-[#10d889]/15 text-[#059669] border border-[#10d889]/40"
-                    : "bg-white text-[#9a9aa3] border border-black/15"
+                    : "bg-white text-[#2e2e36] border border-black/15"
               )}
               style={{ fontFamily: "var(--font-inter)" }}
             >
@@ -513,7 +513,7 @@ function StepIntro({
   return (
     <div className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
-        <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a5a64]">
+        <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#2e2e36]">
           <span className="size-1.5 rounded-full bg-[#ffc83d]" />
           {eyebrow}
         </span>
@@ -529,7 +529,7 @@ function StepIntro({
         >
           {title}
         </h2>
-        <p className="text-[14px] text-[#5a5a64] leading-[1.55] max-w-md">
+        <p className="text-[14px] text-[#2e2e36] leading-[1.55] max-w-md">
           {description}
         </p>
       </div>
@@ -622,7 +622,7 @@ function FloatingInput({
             "peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-[10px] peer-focus:uppercase peer-focus:tracking-[0.16em] peer-focus:font-semibold",
             hasError
               ? "text-[#DC2626] peer-focus:text-[#DC2626]"
-              : "text-[#7a7a82] peer-focus:text-[#0a0a0a]"
+              : "text-[#2e2e36] peer-focus:text-[#0a0a0a]"
           )}
         >
           {label}
@@ -653,7 +653,7 @@ function FloatingInput({
             {error}
           </motion.p>
         ) : helper ? (
-          <p id={`${id}-hlp`} className="mt-1.5 text-[12px] text-[#7a7a82]">
+          <p id={`${id}-hlp`} className="mt-1.5 text-[12px] text-[#2e2e36]">
             {helper}
           </p>
         ) : null}
@@ -696,7 +696,7 @@ function PillGrid({
                 "relative flex flex-col items-center justify-center gap-1.5 rounded-xl border px-3 py-4 text-[12px] font-semibold uppercase tracking-[0.06em] transition-colors",
                 checked
                   ? "border-transparent text-[#0a0a0a]"
-                  : "border-black/10 bg-white text-[#5a5a64] hover:text-[#0a0a0a] hover:border-black/22"
+                  : "border-black/10 bg-white text-[#2e2e36] hover:text-[#0a0a0a] hover:border-black/22"
               )}
             >
               {checked && (
@@ -806,7 +806,7 @@ function ResultStep({ estimate, insuranceType, openModal }: ResultStepProps) {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-1">
-        <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#5a5a64]">
+        <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#2e2e36]">
           <span className="size-1.5 rounded-full bg-[#10d889]" />
           Step 4 of 4 · Result
         </span>
@@ -843,7 +843,7 @@ function ResultStep({ estimate, insuranceType, openModal }: ResultStepProps) {
         >
           <CountUp value={fmt(estimate.saved)} />
         </div>
-        <p className="mt-3 text-sm text-[#5a5a64]">
+        <p className="mt-3 text-sm text-[#2e2e36]">
           A{" "}
           <span className="font-bold text-[#0a0a0a] tabular-nums">
             {estimate.percent}%
@@ -858,7 +858,7 @@ function ResultStep({ estimate, insuranceType, openModal }: ResultStepProps) {
         newValue={estimate.newPremium}
       />
 
-      <p className="text-[11px] text-[#7a7a82] leading-[1.55]">
+      <p className="text-[11px] text-[#2e2e36] leading-[1.55]">
         Based on AiM benchmark data. Actual savings depend on carrier rate
         filings, underwriting, and your driver / property profile. We&rsquo;ll
         confirm the exact number in your audit.
@@ -920,19 +920,19 @@ function BeforeAfterBar({
   return (
     <div className="rounded-2xl border border-black/8 bg-white p-5">
       <div className="flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em]">
-        <span className="text-[#7a7a82]">Today</span>
+        <span className="text-[#2e2e36]">Today</span>
         <span className="text-[#0a0a0a]">With AiM</span>
       </div>
       <div className="mt-3 grid grid-cols-2 gap-4">
         <div>
           <div
-            className="text-2xl font-extrabold tabular-nums text-[#7a7a82] line-through decoration-[#7a7a82]/40"
+            className="text-2xl font-extrabold tabular-nums text-[#2e2e36] line-through decoration-[#7a7a82]/40"
             style={{ fontFamily: "var(--font-inter)" }}
           >
             $
             {new Intl.NumberFormat("en-US").format(oldValue)}
           </div>
-          <div className="text-[11px] text-[#9a9aa3] mt-0.5">/year</div>
+          <div className="text-[11px] text-[#2e2e36] mt-0.5">/year</div>
         </div>
         <div className="text-right">
           <div

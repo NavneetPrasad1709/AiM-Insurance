@@ -35,7 +35,7 @@ const STEPS = [
 export function WhyAimCream({
   className,
   heading = "Same coverage. Lower premium. Zero hassle.",
-  intro = "We're insurance negotiators — not agents. We work for you, fight your renewal, and only count it as a win if you actually save.",
+  intro = "We're insurance negotiators, not agents. We work for you, fight your renewal, and only count it as a win if you actually save.",
 }: WhyAimCreamProps) {
   const { openModal } = useQuoteModal();
 
@@ -138,7 +138,7 @@ export function WhyAimCream({
               </span>
             ))}
           </motion.h2>
-          <p className="mx-auto mt-5 max-w-xl text-lg leading-[1.6] text-[#3a3a44]">
+          <p className="mx-auto mt-5 max-w-xl text-lg leading-[1.6] text-[#1f1f26]">
             {intro}
           </p>
         </div>
@@ -172,7 +172,7 @@ export function WhyAimCream({
                 <h3 className="mt-5 font-heading text-xl font-bold text-[#0a0a0a] leading-snug">
                   {s.title}
                 </h3>
-                <p className="mt-3 text-base leading-[1.6] text-[#3a3a44]">
+                <p className="mt-3 text-base leading-[1.6] text-[#1f1f26]">
                   {s.desc}
                 </p>
               </motion.li>
@@ -204,7 +204,7 @@ export function WhyAimCream({
             Estimate savings
           </Link>
         </div>
-        <p className="mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-sm font-heading font-semibold tabular-nums text-[#5a5a64]">
+        <p className="mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-sm font-heading font-semibold tabular-nums text-[#2e2e36]">
           <span className="inline-flex items-center gap-1.5">
             <ICONS.CheckCircle2 className="size-4 text-[#4fe0b0]" aria-hidden />
             $0 if no savings

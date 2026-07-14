@@ -10,7 +10,7 @@ const RULES = [
   {
     num: "25%",
     title: "Success Based Fee",
-    body: "Of the annual savings we negotiate — new or renewed policies.",
+    body: "Of the annual savings we negotiate, on new or renewed policies.",
     featured: true,
   },
   {
@@ -105,7 +105,7 @@ export function PricingCalculator() {
             <span className="text-[#ffc83d]">Your Savings</span>
           </h2>
           <p
-            className="mx-auto mt-4 max-w-xl text-sm sm:text-base text-white/85 leading-[1.55]"
+            className="mx-auto mt-4 max-w-xl text-sm sm:text-base text-white/90 leading-[1.55]"
             style={{ fontFamily: "var(--font-inter)" }}
           >
             No hidden costs. No surprises. You only pay when we deliver real
@@ -145,7 +145,7 @@ export function PricingCalculator() {
                 >
                   {r.title}
                 </strong>
-                <p className="mt-1.5 text-xs sm:text-[13px] text-white/65 leading-[1.5]">
+                <p className="mt-1.5 text-xs sm:text-[13px] text-white/90 leading-[1.5]">
                   {r.body}
                 </p>
               </li>
@@ -202,10 +202,10 @@ export function PricingCalculator() {
                 <span className="text-[#ffc83d]">exact fee</span>
               </h3>
               <p
-                className="mt-2 text-xs sm:text-sm text-white/55"
+                className="mt-2 text-xs sm:text-sm text-white/90"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
-                Enter both premiums — the math runs live.
+                Enter both premiums. The math runs live.
               </p>
 
               <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3.5">
@@ -247,7 +247,7 @@ export function PricingCalculator() {
                   initial={{ opacity: 0, y: 4 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, ease: EASE }}
-                  className="mt-4 text-center text-[11px] sm:text-xs text-white/55 tabular-nums"
+                  className="mt-4 text-center text-[11px] sm:text-xs text-white/90 tabular-nums"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
                   {fmt(Number(initial) || 0)}
@@ -275,7 +275,7 @@ export function PricingCalculator() {
                       <ICONS.CreditCard className="size-4" aria-hidden />
                       Proceed with Payment
                     </Link>
-                    <p className="mt-2.5 text-center text-[11px] text-white/55">
+                    <p className="mt-2.5 text-center text-[11px] text-white/90">
                       🔒 Secured via PayPal · No commitment
                     </p>
                   </motion.div>
@@ -290,14 +290,14 @@ export function PricingCalculator() {
                     style={{ fontFamily: "var(--font-inter)" }}
                   >
                     <ICONS.CheckCircle2 className="size-4 shrink-0" aria-hidden />
-                    No savings detected — no fee applies
+                    No savings detected, no fee applies
                   </motion.div>
                 ) : (
                   <motion.p
                     key="hint"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="mt-6 text-center text-xs text-white/40"
+                    className="mt-6 text-center text-xs text-white/90"
                     style={{ fontFamily: "var(--font-inter)" }}
                   >
                     Enter your premiums above to see your fee instantly
@@ -312,7 +312,7 @@ export function PricingCalculator() {
         <ScrollReveal direction="up" delay={0.2}>
           <div className="mx-auto mt-8 max-w-2xl text-center">
             <p
-              className="text-[11px] sm:text-xs text-white/55 leading-relaxed"
+              className="text-[11px] sm:text-xs text-white/90 leading-relaxed"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               Fees payable once the new premium is shared. Our team handles
@@ -356,7 +356,7 @@ function CalcField({
   return (
     <label className="flex flex-col gap-1.5">
       <span
-        className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] font-semibold text-white/70"
+        className="text-[10px] sm:text-[11px] uppercase tracking-[0.18em] font-semibold text-white/90"
         style={{ fontFamily: "var(--font-inter)" }}
       >
         {label}
@@ -418,7 +418,7 @@ function ResultBlock({
       }}
     >
       <span
-        className="block text-[9px] sm:text-[10px] uppercase tracking-[0.2em] font-bold text-white/55"
+        className="block text-[9px] sm:text-[10px] uppercase tracking-[0.2em] font-bold text-white/90"
         style={{ fontFamily: "var(--font-inter)" }}
       >
         {label}
@@ -438,7 +438,7 @@ function ResultBlock({
       </motion.span>
       {hint && (
         <span
-          className="mt-1.5 block text-[10px] sm:text-[11px] text-white/45"
+          className="mt-1.5 block text-[10px] sm:text-[11px] text-white/90"
           style={{ fontFamily: "var(--font-inter)" }}
         >
           {hint}

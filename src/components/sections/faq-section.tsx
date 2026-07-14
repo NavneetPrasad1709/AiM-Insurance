@@ -53,7 +53,7 @@ export function FaqSection() {
               <span className="text-[#ffc83d]">know first.</span>
             </h2>
             <p className="mt-5 text-base sm:text-lg text-white max-w-xl leading-[1.55]">
-              The questions we hear most. Don&apos;t see yours? Reach out — we
+              The questions we hear most. Don&apos;t see yours? Reach out. We
               answer every email.
             </p>
 

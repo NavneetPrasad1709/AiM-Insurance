@@ -10,8 +10,8 @@ interface ComparisonRow {
 
 const ROWS: ComparisonRow[] = [
   {
-    traditional: "Sells policies — you're the product",
-    aim: "Negotiates for you — you're the client",
+    traditional: "Sells policies, you're the product",
+    aim: "Negotiates for you, you're the client",
   },
   {
     traditional: "Commission-driven recommendations",
@@ -70,7 +70,7 @@ export function AboutDifferent() {
           >
             How we&rsquo;re different
           </h2>
-          <p className="mt-5 text-lg sm:text-xl leading-[1.6] text-[#3a3a44]">
+          <p className="mt-5 text-lg sm:text-xl leading-[1.6] text-[#1f1f26]">
             A traditional agent works for a carrier. AiM works for you.
           </p>
         </div>
@@ -91,7 +91,7 @@ export function AboutDifferent() {
               >
                 <ICONS.X className="size-4" aria-hidden />
               </span>
-              <h3 className="font-heading text-lg font-bold text-[#5a5a64]">
+              <h3 className="font-heading text-lg font-bold text-[#2e2e36]">
                 Traditional Insurance Agent
               </h3>
             </div>
@@ -99,7 +99,7 @@ export function AboutDifferent() {
               {ROWS.map((row) => (
                 <li
                   key={`trad-${row.traditional}`}
-                  className="flex items-start gap-3 text-base leading-[1.6] text-[#3a3a44]"
+                  className="flex items-start gap-3 text-base leading-[1.6] text-[#1f1f26]"
                 >
                   <ICONS.X
                     className="mt-0.5 size-4 shrink-0 text-error"

@@ -4,7 +4,7 @@ import { useQuoteModal } from "@/lib/quote-modal-context";
 
 /**
  * Tiny client island for the hero's primary CTA. Kept out of the main
- * Hero component so Hero itself can stay a Server Component — no
+ * Hero component so Hero itself can stay a Server Component - no
  * framer-motion, no hooks in the LCP tree.
  */
 export function HeroQuoteButton() {

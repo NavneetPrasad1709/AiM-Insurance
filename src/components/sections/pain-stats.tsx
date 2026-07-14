@@ -13,7 +13,7 @@ const PAIN_POINTS = [
     suffix: "/yr",
     label: "Average overpayment",
     description:
-      "Every year people overpay by up to $2,000 on insurance — money that could fuel a vacation or family goal.",
+      "Every year people overpay by up to $2,000 on insurance, money that could fuel a vacation or family goal.",
     icon: "TrendingUp" as const,
     accent: "from-cta to-orange",
   },
@@ -95,7 +95,7 @@ export function PainStats() {
           </ScrollReveal>
           <ScrollReveal direction="up" delay={0.18}>
             <p className="mt-5 text-base sm:text-lg leading-[1.55] text-white">
-              Most people are paying hundreds — sometimes thousands — more than
+              Most people are paying hundreds, sometimes thousands, more than
               they should. Insurers know it. We fix it.
             </p>
           </ScrollReveal>
@@ -174,9 +174,9 @@ export function PainStats() {
         {/* Closer */}
         <ScrollReveal direction="up" delay={0.2}>
           <div className="mt-14 flex flex-col items-center text-center gap-4">
-            <p className="text-white/65 text-base sm:text-lg max-w-2xl">
+            <p className="text-white/90 text-base sm:text-lg max-w-2xl">
               We monitor your premium continuously, so the second a better deal
-              appears — we&apos;re on it. You stay paid less, forever.
+              appears, we&apos;re on it. You stay paid less, forever.
             </p>
           </div>
         </ScrollReveal>

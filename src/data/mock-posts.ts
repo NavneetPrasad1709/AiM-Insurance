@@ -2,7 +2,7 @@
  * Mock blog posts. Used as a fallback when Sanity is not configured
  * and as the source for /blog/[slug] static params during early dev.
  *
- * Content style: short, scannable paragraphs. Plain text — when Sanity
+ * Content style: short, scannable paragraphs. Plain text; when Sanity
  * is wired up, body becomes Portable Text. The renderer in
  * `components/blog/post-content` accepts either.
  */
@@ -36,7 +36,7 @@ export interface MockPost {
 const TEAM_AUTHOR: MockAuthor = {
   name: "AiM Team",
   role: "Insurance Negotiators",
-  bio: "Independent negotiators who fight for better insurance rates on behalf of 1000+ clients across the US, Canada, and UAE.",
+  bio: "Independent negotiators who fight for better insurance rates on behalf of 1100+ clients across the US, Canada, and UAE.",
 };
 
 const ANALYST_AUTHOR: MockAuthor = {
@@ -65,30 +65,30 @@ export const mockPosts: MockPost[] = [
     tags: ["car insurance", "savings", "case study", "auto"],
     content: `## The starting point
 
-The Reyes family came to us in February. Two parents, two teen drivers, three vehicles — a 2019 Honda Pilot, a 2017 Subaru Outback, and a 2014 Toyota Corolla used by their oldest at college. Their renewal notice had jumped from $4,210 to $4,820, a 14.5 percent increase with no claims, no tickets, and no household changes.
+The Reyes family came to us in February. Two parents, two teen drivers, three vehicles: a 2019 Honda Pilot, a 2017 Subaru Outback, and a 2014 Toyota Corolla used by their oldest at college. Their renewal notice had jumped from $4,210 to $4,820, a 14.5 percent increase with no claims, no tickets, and no household changes.
 
 ## What we found
 
-Their carrier had quietly re-tiered them after a state-wide loss-cost adjustment. The Corolla — driven less than 4,000 miles a year — was rated as a daily commuter. Both teens were rated against their highest-cost vehicle instead of the lowest. And the family was carrying 100/300/100 liability with comp-and-collision deductibles of $250, the carrier's most expensive default tier.
+Their carrier had quietly re-tiered them after a state-wide loss-cost adjustment. The Corolla, driven less than 4,000 miles a year, was rated as a daily commuter. Both teens were rated against their highest-cost vehicle instead of the lowest. And the family was carrying 100/300/100 liability with comp-and-collision deductibles of $250, the carrier's most expensive default tier.
 
 ## The negotiation
 
-We pulled three competing quotes from carriers we knew were aggressive in Travis County for multi-vehicle households. Two of them — once we corrected the usage classification on the Corolla and reassigned the youngest driver to the Outback — came in dramatically cheaper. We then went back to the existing carrier with those quotes and a written request for a re-rate. They matched within $90.
+We pulled three competing quotes from carriers we knew were aggressive in Travis County for multi-vehicle households. Two of them, once we corrected the usage classification on the Corolla and reassigned the youngest driver to the Outback, came in dramatically cheaper. We then went back to the existing carrier with those quotes and a written request for a re-rate. They matched within $90.
 
 ## The outcome
 
-Final premium: $3,310 a year, same 100/300/100 limits, same $250 collision deductible, same roadside and rental coverage. Annual savings: $1,510. Same carrier, same policy number, no lapse, no DMV paperwork — just a corrected usage classification and a competitive quote in writing.
+Final premium: $3,310 a year, same 100/300/100 limits, same $250 collision deductible, same roadside and rental coverage. Annual savings: $1,510. Same carrier, same policy number, no lapse, no DMV paperwork, just a corrected usage classification and a competitive quote in writing.
 
 ## Why this works
 
-Carriers will re-rate existing customers when shown evidence that they're losing the policy to a competitor. Most drivers never ask. The Reyes family had been a loyal customer for nine years. Loyalty, in auto insurance, is rarely rewarded — it's usually priced.`,
+Carriers will re-rate existing customers when shown evidence that they're losing the policy to a competitor. Most drivers never ask. The Reyes family had been a loyal customer for nine years. Loyalty, in auto insurance, is rarely rewarded. It's usually priced.`,
   },
   {
     _id: "post-2",
     title: "5 Common Car Insurance Mistakes You're Probably Making",
     slug: "5-common-car-insurance-mistakes",
     excerpt:
-      "Most drivers overpay because of five fixable mistakes — usage class, deductible math, coverage stacking, paid-in-full discounts, and bundling traps.",
+      "Most drivers overpay because of five fixable mistakes: usage class, deductible math, coverage stacking, paid-in-full discounts, and bundling traps.",
     category: "Insurance Tips",
     author: ANALYST_AUTHOR,
     publishedAt: "2026-04-22T09:00:00.000Z",
@@ -96,11 +96,11 @@ Carriers will re-rate existing customers when shown evidence that they're losing
     tags: ["car insurance", "tips", "premiums"],
     content: `## 1. Letting your usage classification go stale
 
-If you bought a policy when you were commuting 40 miles a day and you now work from home three days a week, you are paying for miles you no longer drive. Most carriers offer a "pleasure use" or low-mileage tier that runs 8 to 18 percent cheaper. Carriers will not move you into it automatically — you have to call and ask.
+If you bought a policy when you were commuting 40 miles a day and you now work from home three days a week, you are paying for miles you no longer drive. Most carriers offer a "pleasure use" or low-mileage tier that runs 8 to 18 percent cheaper. Carriers will not move you into it automatically. You have to call and ask.
 
 ## 2. Choosing the wrong deductible
 
-A $250 collision deductible feels safer than $1,000, but the premium difference is often $300 to $450 a year. If you go three years without a claim — and most drivers do — you have spent more on the lower deductible than a single claim would have cost you out of pocket. Run the math against your driving record before defaulting to the lowest deductible offered.
+A $250 collision deductible feels safer than $1,000, but the premium difference is often $300 to $450 a year. If you go three years without a claim, and most drivers do, you have spent more on the lower deductible than a single claim would have cost you out of pocket. Run the math against your driving record before defaulting to the lowest deductible offered.
 
 ## 3. Stacking coverage you already have elsewhere
 
@@ -108,18 +108,18 @@ Rental reimbursement, roadside assistance, and accidental death payouts are comm
 
 ## 4. Paying monthly instead of in full
 
-The "convenience" of monthly billing usually carries a 6 to 12 percent service charge baked into the premium. Paying in full at renewal — or even semi-annually — typically unlocks a discount that pays you back more than what you would earn parking that money in a high-yield savings account.
+The "convenience" of monthly billing usually carries a 6 to 12 percent service charge baked into the premium. Paying in full at renewal, or even semi-annually, typically unlocks a discount that pays you back more than what you would earn parking that money in a high-yield savings account.
 
 ## 5. Bundling without doing the math
 
-Multi-policy bundling discounts are real, but they are not always the cheapest path. We regularly see homeowners save $400 to $700 a year by splitting their auto and home across two carriers. The bundle discount is a marketing number — the only number that matters is the sum of the two final premiums.`,
+Multi-policy bundling discounts are real, but they are not always the cheapest path. We regularly see homeowners save $400 to $700 a year by splitting their auto and home across two carriers. The bundle discount is a marketing number: the only number that matters is the sum of the two final premiums.`,
   },
   {
     _id: "post-3",
     title: "Why Your Insurance Premium Keeps Going Up Every Year",
     slug: "why-insurance-premium-keeps-going-up",
     excerpt:
-      "Even with a clean record, your premium climbs. The reason is rarely you — it's loss cost adjustments, reinsurance pricing, and insurer churn.",
+      "Even with a clean record, your premium climbs. The reason is rarely you. It's loss cost adjustments, reinsurance pricing, and insurer churn.",
     category: "Industry News",
     author: ANALYST_AUTHOR,
     publishedAt: "2026-04-08T09:00:00.000Z",
@@ -127,11 +127,11 @@ Multi-policy bundling discounts are real, but they are not always the cheapest p
     tags: ["industry", "premiums", "rates"],
     content: `## The "loss cost" cycle nobody explains to consumers
 
-State insurance departments approve carrier rate filings based on the carrier's projected losses across an entire book of business. When repair costs spike — as they did 22 percent across collision claims in 2023 — every customer in that state gets re-priced, regardless of whether they had a claim. Your driving record protects you from surcharges. It does not protect you from the rate filing itself.
+State insurance departments approve carrier rate filings based on the carrier's projected losses across an entire book of business. When repair costs spike, as they did 22 percent across collision claims in 2023, every customer in that state gets re-priced, regardless of whether they had a claim. Your driving record protects you from surcharges. It does not protect you from the rate filing itself.
 
 ## Reinsurance pricing trickles down
 
-Carriers buy their own insurance from reinsurers in Bermuda, London, and Zurich. After back-to-back catastrophic loss years — the 2024 hurricane season alone drove $51 billion in insured losses — reinsurance rates rose roughly 18 percent. That cost is passed through to your monthly premium even if you live in a state that has never seen a hurricane.
+Carriers buy their own insurance from reinsurers in Bermuda, London, and Zurich. After back-to-back catastrophic loss years, the 2024 hurricane season alone drove $51 billion in insured losses, reinsurance rates rose roughly 18 percent. That cost is passed through to your monthly premium even if you live in a state that has never seen a hurricane.
 
 ## Vehicle technology is now a cost driver
 
@@ -139,11 +139,11 @@ Replacing a windshield on a 2015 sedan costs around $300. Replacing one on a 202
 
 ## The retention game
 
-Carriers count on customers staying. Internal studies — leaked across multiple class actions in 2022 — show that long-tenure customers are charged more than new customers for identical risk profiles. The industry calls this "price optimization." Twelve states have outlawed it; 38 still allow it. Shopping every two to three years is the only consumer-side defense.
+Carriers count on customers staying. Internal studies, leaked across multiple class actions in 2022, show that long-tenure customers are charged more than new customers for identical risk profiles. The industry calls this "price optimization." Twelve states have outlawed it; 38 still allow it. Shopping every two to three years is the only consumer-side defense.
 
 ## What you can actually do
 
-You cannot control loss cost filings or reinsurance pricing. You can control whether you accept the renewal at face value. A 15-minute negotiation — or a competitive quote that you bring to your existing carrier — is usually enough to neutralize one or two years of compounded increases.`,
+You cannot control loss cost filings or reinsurance pricing. You can control whether you accept the renewal at face value. A 15-minute negotiation, or a competitive quote that you bring to your existing carrier, is usually enough to neutralize one or two years of compounded increases.`,
   },
   {
     _id: "post-4",
@@ -158,11 +158,11 @@ You cannot control loss cost filings or reinsurance pricing. You can control whe
     tags: ["home insurance", "guide", "homeowner"],
     content: `## Replacement cost is not market value
 
-Your home's market value includes the land, the neighborhood, the school district. Your insurance dwelling coverage covers only the cost to rebuild the structure with current materials and labor. A $750,000 home in a hot market might rebuild for $380,000. A $300,000 home in a slow market might rebuild for $410,000. Get a current rebuild estimate — most agents will run one for free — and rate your dwelling coverage off that number, not your Zillow estimate.
+Your home's market value includes the land, the neighborhood, the school district. Your insurance dwelling coverage covers only the cost to rebuild the structure with current materials and labor. A $750,000 home in a hot market might rebuild for $380,000. A $300,000 home in a slow market might rebuild for $410,000. Get a current rebuild estimate, most agents will run one for free, and rate your dwelling coverage off that number, not your Zillow estimate.
 
 ## The 80 percent coinsurance trap
 
-Most homeowner policies require you to insure your dwelling for at least 80 percent of its replacement cost. If you fall below that threshold and file a partial claim, the carrier reduces your payout proportionally. A $50,000 kitchen fire on a home insured at 70 percent of replacement cost might pay out only $43,750 — and you discover the gap at the worst possible moment.
+Most homeowner policies require you to insure your dwelling for at least 80 percent of its replacement cost. If you fall below that threshold and file a partial claim, the carrier reduces your payout proportionally. A $50,000 kitchen fire on a home insured at 70 percent of replacement cost might pay out only $43,750, and you discover the gap at the worst possible moment.
 
 ## The four endorsements people miss
 
@@ -170,7 +170,7 @@ Standard policies often exclude four things homeowners assume are covered: water
 
 ## Personal property settlement matters
 
-Read whether your contents are covered at "actual cash value" or "replacement cost." Actual cash value depreciates everything — a five-year-old laptop pays out at its used resale value, not what a new one costs. Replacement cost coverage typically adds 10 to 15 percent to your premium and pays you back the first time you file.
+Read whether your contents are covered at "actual cash value" or "replacement cost." Actual cash value depreciates everything: a five-year-old laptop pays out at its used resale value, not what a new one costs. Replacement cost coverage typically adds 10 to 15 percent to your premium and pays you back the first time you file.
 
 ## Liability coverage is the cheapest part
 
@@ -189,7 +189,7 @@ Increasing your personal liability limit from $100,000 to $500,000 usually costs
     tags: ["boat insurance", "marine", "savings"],
     content: `## Use a lay-up period if your boat is seasonal
 
-Most marine carriers offer a "lay-up" credit for the months your boat is not in the water — typically November through March in northern latitudes. The discount runs 30 to 45 percent of your premium, prorated to the lay-up window. Many policies default to "all-year navigation" because it is easier for the agent to write. Always ask explicitly.
+Most marine carriers offer a "lay-up" credit for the months your boat is not in the water, typically November through March in northern latitudes. The discount runs 30 to 45 percent of your premium, prorated to the lay-up window. Many policies default to "all-year navigation" because it is easier for the agent to write. Always ask explicitly.
 
 ## Right-size your navigation territory
 
@@ -197,7 +197,7 @@ A policy that covers you "anywhere in coastal US waters" costs significantly mor
 
 ## Schedule the survey before you need it
 
-Boats over $75,000 in hull value, or over 25 years old, almost always require a fresh marine survey to get the best rates. Carriers accept surveys up to three to five years old. Get yours done in the off-season when surveyors are cheaper and faster — and time it so the survey is fresh going into your next two renewal cycles, not the one after.
+Boats over $75,000 in hull value, or over 25 years old, almost always require a fresh marine survey to get the best rates. Carriers accept surveys up to three to five years old. Get yours done in the off-season when surveyors are cheaper and faster, and time it so the survey is fresh going into your next two renewal cycles, not the one after.
 
 ## Bundle hull, liability, and tender separately
 
@@ -224,7 +224,7 @@ A driver who never shops their auto insurance for ten years effectively pays $9,
 
 ## The home insurance version is worse
 
-Homeowner policies have less price transparency than auto. Renewals can climb 12 to 28 percent in a single year without a claim, particularly in states with active wildfire or storm exposure. Most homeowners accept the renewal because the alternative — a fresh quote, a new application, a roof inspection, a possible re-rate of their mortgage escrow — feels like work. It usually takes 45 minutes and saves four figures.
+Homeowner policies have less price transparency than auto. Renewals can climb 12 to 28 percent in a single year without a claim, particularly in states with active wildfire or storm exposure. Most homeowners accept the renewal because the alternative (a fresh quote, a new application, a roof inspection, a possible re-rate of their mortgage escrow) feels like work. It usually takes 45 minutes and saves four figures.
 
 ## What "shopping" really means
 
@@ -241,23 +241,23 @@ You do not have to switch carriers to capture the savings. Pulling two or three 
     publishedAt: "2026-01-30T09:00:00.000Z",
     readingTime: 8,
     tags: ["how it works", "negotiation", "AiM"],
-    content: `## Step one — declarations page audit
+    content: `## Step one: declarations page audit
 
 Every negotiation starts with your current declarations page, the document that lists every coverage, limit, deductible, discount, and surcharge on your policy. We read it line by line looking for misclassifications: vehicle usage codes that no longer fit your routine, unmarried-driver flags that should have been removed when you got married, anti-theft discounts that were never applied, even garaging zip codes that are out of date. Roughly 1 in 4 audits finds at least one error worth correcting before we even shop.
 
-## Step two — carrier-side rate runs
+## Step two: carrier-side rate runs
 
-We have appointed access to underwriting tools at most major carriers, which means we can run quotes against your actual driving record, credit-based insurance score, and household composition — not the simplified online estimator that consumer-facing sites use. The quotes we generate are bind-ready, not marketing approximations.
+We have appointed access to underwriting tools at most major carriers, which means we can run quotes against your actual driving record, credit-based insurance score, and household composition, not the simplified online estimator that consumer-facing sites use. The quotes we generate are bind-ready, not marketing approximations.
 
-## Step three — the competitive set
+## Step three: the competitive set
 
-We pull three to five quotes from carriers known to be aggressive on your specific risk profile. A young driver in Phoenix and a retired homeowner in Tampa do not get the same shortlist. We choose carriers whose appetite — their internal preference for the kind of customer you are — actually matches what you are buying.
+We pull three to five quotes from carriers known to be aggressive on your specific risk profile. A young driver in Phoenix and a retired homeowner in Tampa do not get the same shortlist. We choose carriers whose appetite, their internal preference for the kind of customer you are, actually matches what you are buying.
 
-## Step four — the written counter
+## Step four: the written counter
 
 We present our findings to your existing carrier in writing, with the competitive quotes attached. Carriers rarely re-rate over the phone, but they almost always re-rate in response to a documented retention request. Roughly 60 percent of our negotiations result in a same-carrier discount with no policy switch.
 
-## Step five — the switch, only if it wins
+## Step five: the switch, only if it wins
 
 If the existing carrier will not match, we handle the switch end-to-end: bind the new policy, time the cancellation to avoid a coverage lapse, transfer any prepaid balances, and update your lender or DMV if required. Most clients see savings of $1,247 or more annually with no change in coverage limits or deductibles.`,
   },
@@ -274,11 +274,11 @@ If the existing carrier will not match, we handle the switch end-to-end: bind th
     tags: ["car insurance", "guide", "state requirements"],
     content: `## Minimums vs. recommended
 
-Every state sets a minimum liability limit drivers must carry to register a vehicle. Almost none of those minimums are enough to cover an actual accident. Florida's 10/20/10 minimum, for example, will pay $10,000 per injured person up to $20,000 per accident — numbers that have not been updated since 1971. A single ER visit today can exceed that. The minimum keeps you legal; it does not keep you protected.
+Every state sets a minimum liability limit drivers must carry to register a vehicle. Almost none of those minimums are enough to cover an actual accident. Florida's 10/20/10 minimum, for example, will pay $10,000 per injured person up to $20,000 per accident, numbers that have not been updated since 1971. A single ER visit today can exceed that. The minimum keeps you legal; it does not keep you protected.
 
 ## States that changed in 2025
 
-California raised minimums to 30/60/15 effective January 1, 2025. Utah moved to 30/65/25. Virginia eliminated the option to pay an "uninsured motor vehicle fee" in lieu of carrying insurance. If your renewal date crossed a state boundary, your premium likely rose to reflect the new floor — even if you were already carrying higher limits.
+California raised minimums to 30/60/15 effective January 1, 2025. Utah moved to 30/65/25. Virginia eliminated the option to pay an "uninsured motor vehicle fee" in lieu of carrying insurance. If your renewal date crossed a state boundary, your premium likely rose to reflect the new floor, even if you were already carrying higher limits.
 
 ## What we actually recommend
 
@@ -305,11 +305,11 @@ Roughly 14 percent of US drivers are uninsured. Another 30 percent carry only st
     tags: ["yacht insurance", "high net worth", "marine"],
     content: `## Agreed value vs. actual cash value
 
-For yachts above roughly $200,000 in hull value, always insure on an "agreed value" basis. The carrier and the owner agree at policy inception what the vessel is worth, and that figure is paid in the event of a total loss — full stop, no depreciation argument at the moment of greatest stress. Actual cash value policies, common at the lower end of the pleasure-craft market, leave you negotiating with an adjuster about depreciation after a constructive total loss. Not where you want to be.
+For yachts above roughly $200,000 in hull value, always insure on an "agreed value" basis. The carrier and the owner agree at policy inception what the vessel is worth, and that figure is paid in the event of a total loss. Full stop, no depreciation argument at the moment of greatest stress. Actual cash value policies, common at the lower end of the pleasure-craft market, leave you negotiating with an adjuster about depreciation after a constructive total loss. Not where you want to be.
 
 ## Protection and indemnity (P&I) limits
 
-P&I covers third-party bodily injury and property damage arising from operation of the vessel — the marine equivalent of liability. For yachts that carry guests, employ crew, or operate in busy harbors, $1M is the absolute floor; $5M to $10M is more appropriate. Larger vessels with paid crew should also consider Jones Act coverage for crew injuries, which is mandatory rather than optional.
+P&I covers third-party bodily injury and property damage arising from operation of the vessel, the marine equivalent of liability. For yachts that carry guests, employ crew, or operate in busy harbors, $1M is the absolute floor; $5M to $10M is more appropriate. Larger vessels with paid crew should also consider Jones Act coverage for crew injuries, which is mandatory rather than optional.
 
 ## Captain endorsements matter
 
@@ -328,7 +328,7 @@ Your homeowner umbrella does not extend over your yacht by default. You need eit
     title: "2025 Insurance Industry Trends That Affect Your Premiums",
     slug: "2025-insurance-industry-trends-premiums",
     excerpt:
-      "Telematics expansion, AI claims handling, climate re-rating, and the carrier consolidation wave — what each means for what you actually pay.",
+      "Telematics expansion, AI claims handling, climate re-rating, and the carrier consolidation wave: what each means for what you actually pay.",
     category: "Industry News",
     author: ANALYST_AUTHOR,
     publishedAt: "2025-11-25T09:00:00.000Z",
@@ -336,9 +336,9 @@ Your homeowner umbrella does not extend over your yacht by default. You need eit
     tags: ["industry", "trends", "2025", "premiums"],
     content: `## Telematics is no longer optional
 
-Twenty-eight states now allow carriers to offer mandatory telematics-based policies — programs that track your driving via a phone app or plug-in device and price your premium accordingly. Safe drivers can save 15 to 30 percent. Drivers flagged for hard braking, late-night trips, or phone-handling-while-moving can see surcharges that wipe out any savings. Read the program terms before opting in. You usually cannot opt back out at the next renewal.
+Twenty-eight states now allow carriers to offer mandatory telematics-based policies, programs that track your driving via a phone app or plug-in device and price your premium accordingly. Safe drivers can save 15 to 30 percent. Drivers flagged for hard braking, late-night trips, or phone-handling-while-moving can see surcharges that wipe out any savings. Read the program terms before opting in. You usually cannot opt back out at the next renewal.
 
-## AI-driven claims handling speeds up payouts — and disputes
+## AI-driven claims handling speeds up payouts, and disputes
 
 Most major carriers now route low-severity auto claims through automated estimation tools that produce a settlement offer within hours of a photo upload. This is good for legitimate small claims. It is bad when the algorithm undervalues your loss and offers you 60 percent of what a human adjuster would have written. The appeals process exists for a reason; use it.
 
@@ -348,7 +348,7 @@ Wildfire exposure is no longer just a California story. Colorado, Arizona, New M
 
 ## Carrier consolidation reduces choice
 
-Three of the top fifteen US property-casualty carriers were acquired or merged in the past 24 months. Consolidation typically means narrower underwriting appetites — the surviving carrier keeps the most profitable book and quietly stops writing the rest. If your carrier was acquired, your renewal terms may change materially even if your risk profile did not.
+Three of the top fifteen US property-casualty carriers were acquired or merged in the past 24 months. Consolidation typically means narrower underwriting appetites: the surviving carrier keeps the most profitable book and quietly stops writing the rest. If your carrier was acquired, your renewal terms may change materially even if your risk profile did not.
 
 ## What you should do
 

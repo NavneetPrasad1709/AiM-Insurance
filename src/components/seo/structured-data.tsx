@@ -24,7 +24,7 @@ export function StructuredData({ data }: StructuredDataProps) {
 }
 
 /* ──────────────────────────────────────────────────────────────────────────
-   Schema generators — pure functions, easy to test, easy to reuse.
+   Schema generators: pure functions, easy to test, easy to reuse.
    ────────────────────────────────────────────────────────────────────────── */
 
 export function organizationSchema() {

@@ -59,7 +59,7 @@ function CategoryMotif({
 
   switch (category) {
     case "Insurance Tips":
-      // Lightbulb glyph — idea, advice
+      // Lightbulb glyph - idea, advice
       return (
         <g>
           <path
@@ -74,7 +74,7 @@ function CategoryMotif({
         </g>
       );
     case "Savings Stories":
-      // Upward chart line with an arrow tip — gains, savings
+      // Upward chart line with an arrow tip - gains, savings
       return (
         <g>
           <path d="M12 48 h40" strokeWidth="1.4" {...common} />
@@ -91,7 +91,7 @@ function CategoryMotif({
         </g>
       );
     case "Guides":
-      // Compass — direction, walkthrough
+      // Compass - direction, walkthrough
       return (
         <g>
           <circle cx="32" cy="32" r="22" strokeWidth="1.4" {...common} />
@@ -102,7 +102,7 @@ function CategoryMotif({
         </g>
       );
     case "Industry News":
-      // Concentric pulse waves — broadcast, news
+      // Concentric pulse waves - broadcast, news
       return (
         <g>
           <circle cx="32" cy="32" r="3.5" fill={color} stroke="none" />
@@ -192,7 +192,7 @@ function CardArtwork({
         aria-hidden
       />
 
-      {/* Single soft radial — depth without busyness */}
+      {/* Single soft radial - depth without busyness */}
       <div
         aria-hidden
         className="absolute inset-0"
@@ -201,7 +201,7 @@ function CardArtwork({
         }}
       />
 
-      {/* Refined dot pattern — masked from edges */}
+      {/* Refined dot pattern - masked from edges */}
       <svg
         aria-hidden
         viewBox="0 0 200 100"
@@ -235,7 +235,7 @@ function CardArtwork({
         />
       </svg>
 
-      {/* Single sweeping arc — replaces the busy concentric arcs */}
+      {/* Single sweeping arc - replaces the busy concentric arcs */}
       <svg
         aria-hidden
         viewBox="0 0 200 100"
@@ -280,7 +280,7 @@ function CardArtwork({
         </motion.svg>
       </div>
 
-      {/* Three deliberate sparkles — golden-ratio positions */}
+      {/* Three deliberate sparkles - golden-ratio positions */}
       <svg
         aria-hidden
         viewBox="0 0 200 100"
@@ -319,7 +319,7 @@ function CardArtwork({
         ))}
       </svg>
 
-      {/* AiM logo pill — bottom right */}
+      {/* AiM logo pill - bottom right */}
       <div
         aria-hidden
         className="absolute bottom-3 right-3 inline-flex items-center gap-2 rounded-full border border-white/15 bg-background/55 px-2.5 py-1 backdrop-blur-md transition-all duration-300 group-hover:border-cta/40 group-hover:bg-background/75"

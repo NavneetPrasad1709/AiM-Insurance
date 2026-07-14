@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 /* ---------------------------------------------------------------------------
-   GuaranteeShield — bold premium emblem with dollar + sparkle.
+   GuaranteeShield - bold premium emblem with dollar + sparkle.
    Perfect for risk-reversal pills, pricing $0 tier, hero accents.
 --------------------------------------------------------------------------- */
 export function GuaranteeShield({
@@ -112,7 +112,7 @@ export function GuaranteeShield({
 }
 
 /* ---------------------------------------------------------------------------
-   CoinStack — abstract decreasing coin tower with downward arrow.
+   CoinStack - abstract decreasing coin tower with downward arrow.
    Use as section decoration, hero ornament, or pain-stats accent.
 --------------------------------------------------------------------------- */
 export function CoinStack({
@@ -146,7 +146,7 @@ export function CoinStack({
         </linearGradient>
       </defs>
 
-      {/* Tall (high premium) coin stack — left, dimmed */}
+      {/* Tall (high premium) coin stack, left, dimmed */}
       <g opacity="0.35">
         {[0, 1, 2, 3, 4, 5].map((i) => (
           <ellipse
@@ -173,7 +173,7 @@ export function CoinStack({
         </text>
       </g>
 
-      {/* Arrow — premium drops */}
+      {/* Arrow: premium drops */}
       <motion.g
         initial={{ pathLength: 0 }}
         whileInView={{ pathLength: 1 }}
@@ -197,7 +197,7 @@ export function CoinStack({
         />
       </motion.g>
 
-      {/* Short (low premium) coin stack — right, full color */}
+      {/* Short (low premium) coin stack, right, full color */}
       <g>
         {[0, 1, 2].map((i) => (
           <ellipse
@@ -242,7 +242,7 @@ export function CoinStack({
 }
 
 /* ---------------------------------------------------------------------------
-   PremiumGauge — semicircular dial showing premium reduction.
+   PremiumGauge - semicircular dial showing premium reduction.
    Composable, use as small accent.
 --------------------------------------------------------------------------- */
 export function PremiumGauge({
@@ -293,7 +293,7 @@ export function PremiumGauge({
         strokeLinecap="round"
       />
 
-      {/* Foreground arc — animated draw */}
+      {/* Foreground arc, animated draw */}
       <motion.path
         d={`M ${cx - r} ${cy} A ${r} ${r} 0 ${largeArc} 1 ${endX} ${endY}`}
         fill="none"
@@ -326,7 +326,7 @@ export function PremiumGauge({
         fontFamily="var(--font-inter)"
         fontSize="9"
         fontWeight="700"
-        fill="#9a9aa3"
+        fill="#e8e8ec"
         style={{ letterSpacing: "0.18em" }}
       >
         AVG REDUCTION
@@ -336,7 +336,7 @@ export function PremiumGauge({
 }
 
 /* ---------------------------------------------------------------------------
-   PressStrip — "AS FEATURED IN" wordmark row.
+   PressStrip - "AS FEATURED IN" wordmark row.
    Custom-styled text wordmarks, no images.
 --------------------------------------------------------------------------- */
 export function PressStrip({ className }: { className?: string }) {
@@ -357,7 +357,7 @@ export function PressStrip({ className }: { className?: string }) {
       {outlets.map((o) => (
         <span
           key={o.name}
-          className="text-base sm:text-lg font-bold text-white/45 hover:text-white/75 transition-colors duration-150"
+          className="text-base sm:text-lg font-bold text-white/90 hover:text-white transition-colors duration-150"
           style={{
             fontFamily: "var(--font-inter)",
             letterSpacing: o.tracking,

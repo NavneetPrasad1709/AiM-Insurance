@@ -15,6 +15,7 @@ import { ExploreMoreServices } from "@/components/sections/explore-more-services
 const CREAM = "#faf6ee";
 const CREAM_INK = "#0c1626";
 const CREAM_GOLD = "#b8842a";
+const CREAM_GOLD_TEXT = "#8a6410"; // AA-contrast gold for text on cream (>=4.6:1)
 
 const ASSET = {
   heroPoster: "/boat/boat-hero.jpg",
@@ -97,10 +98,10 @@ function Hero() {
       />
 
       <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-6 py-4 sm:px-12 sm:py-5">
-        <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/85">
+        <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white">
           AiM · Boat insurance
         </span>
-        <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/55 sm:block">
+        <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/90 sm:block">
           USA &amp; Canada · 85+ marine clients
         </span>
       </div>
@@ -139,7 +140,7 @@ function Hero() {
             transition={{ duration: 0.85, ease, delay: 0.32 }}
             className="mt-7 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg"
           >
-            Marine premiums are notoriously inflated — different carriers
+            Marine premiums are notoriously inflated. Different carriers
             price the same hull wildly differently. AiM benchmarks them
             and negotiates so you pay for protection, not paperwork.
           </motion.p>
@@ -165,11 +166,11 @@ function Hero() {
             </Link>
             <a
               href="tel:+16029102500"
-              className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
+              className="group inline-flex min-h-[44px] items-center gap-2 text-sm text-white transition-colors hover:text-cta"
             >
               <ICONS.Phone className="size-4" aria-hidden />
               <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                Or call — 602-910-2500
+                Or call: 602-910-2500
               </span>
             </a>
           </motion.div>
@@ -185,7 +186,7 @@ function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white/55"
+          className="flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white/90"
         >
           <span>Scroll</span>
           <span className="h-8 w-px bg-white/40" aria-hidden />
@@ -212,7 +213,7 @@ function TrustStrip() {
       <div className="mx-auto max-w-7xl px-6 pb-10 pt-14 sm:px-12 sm:pt-20">
         <p
           className="mb-7 text-center font-heading text-[10px] font-semibold uppercase tracking-[0.36em] sm:mb-9"
-          style={{ color: CREAM_GOLD }}
+          style={{ color: CREAM_GOLD_TEXT }}
         >
           <span
             aria-hidden
@@ -243,7 +244,7 @@ function TrustStrip() {
                 {Icon && (
                   <Icon
                     className="size-3.5 shrink-0 sm:size-4"
-                    style={{ color: CREAM_GOLD }}
+                    style={{ color: CREAM_GOLD_TEXT }}
                     aria-hidden
                   />
                 )}
@@ -312,7 +313,7 @@ function Coverage() {
       n: "01",
       title: "Hull cover that pays",
       body:
-        "Agreed-value protection for collision, sinking, fire, theft and storm — settled at the policy number, not depreciated.",
+        "Agreed-value protection for collision, sinking, fire, theft and storm, settled at the policy number, not depreciated.",
       image: ASSET.c1,
       alt: ALT.c1,
     },
@@ -320,7 +321,7 @@ function Coverage() {
       n: "02",
       title: "On-water liability",
       body:
-        "Bodily injury and property damage to other boaters, swimmers, marinas and waterfront property — including legal defence.",
+        "Bodily injury and property damage to other boaters, swimmers, marinas and waterfront property, including legal defence.",
       image: ASSET.c2,
       alt: ALT.c2,
     },
@@ -328,7 +329,7 @@ function Coverage() {
       n: "03",
       title: "Towing & emergencies",
       body:
-        "On-water towing, fuel delivery, soft ungrounding and trip interruption — most owners never realise this is negotiable.",
+        "On-water towing, fuel delivery, soft ungrounding and trip interruption. Most owners never realise this is negotiable.",
       image: ASSET.c3,
       alt: ALT.c3,
     },
@@ -336,7 +337,7 @@ function Coverage() {
       n: "04",
       title: "Gear & personal effects",
       body:
-        "Fishing equipment, electronics, watersports gear, dive equipment and personal property aboard — at replacement cost.",
+        "Fishing equipment, electronics, watersports gear, dive equipment and personal property aboard, at replacement cost.",
       image: ASSET.c4,
       alt: ALT.c4,
     },
@@ -383,7 +384,7 @@ function Coverage() {
             className="text-[15px] leading-relaxed text-text-secondary sm:col-span-5"
           >
             We benchmark twelve marine specialists on your exact navigation
-            territory and lay-up profile — same agreed value, same limits,
+            territory and lay-up profile: same agreed value, same limits,
             lower number on the bill.
           </motion.p>
         </div>
@@ -495,7 +496,7 @@ function WhyMatters() {
           >
             <p
               className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-              style={{ color: CREAM_GOLD }}
+              style={{ color: CREAM_GOLD_TEXT }}
             >
               <span
                 className="mr-3 inline-block h-px w-10 align-middle"
@@ -514,20 +515,20 @@ function WhyMatters() {
               }}
             >
               Marine carriers price the{" "}
-              <span style={{ color: CREAM_GOLD }}>
+              <span style={{ color: CREAM_GOLD_TEXT }}>
                 same hull wildly differently.
               </span>
             </h3>
             <p
               className="text-[15px] leading-relaxed"
-              style={{ color: `${CREAM_INK}b8` }}
+              style={{ color: `${CREAM_INK}e6` }}
             >
               Quotes from twelve marine specialists on the same boat can
               vary by{" "}
               <span className="font-semibold" style={{ color: CREAM_INK }}>
                 $1,200 to $3,400
               </span>{" "}
-              a year — and most owners only ever see one. AiM benchmarks
+              a year, and most owners only ever see one. AiM benchmarks
               them all so you stop guessing.
             </p>
             <span
@@ -550,7 +551,7 @@ function Pricing() {
       figureSuffix: "",
       title: "If we can't save you money",
       body:
-        "If we don't reduce your premium, you owe us nothing — no risk, no commitment.",
+        "If we don't reduce your premium, you owe us nothing, no risk, no commitment.",
       filled: false,
     },
     {
@@ -559,7 +560,7 @@ function Pricing() {
       figureSuffix: "",
       title: "A share of your savings",
       body:
-        "Only when we save you money, we keep a small portion of the negotiated savings on your annual premium — first year only. You always come out ahead.",
+        "Only when we save you money, we keep a small portion of the negotiated savings on your annual premium, first year only. You always come out ahead.",
       filled: true,
     },
   ];
@@ -580,7 +581,7 @@ function Pricing() {
         >
           <p
             className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-            style={{ color: CREAM_GOLD }}
+            style={{ color: CREAM_GOLD_TEXT }}
           >
             <span
               className="mr-3 inline-block h-px w-12 align-middle"
@@ -599,11 +600,11 @@ function Pricing() {
             }}
           >
             Aligned with{" "}
-            <span style={{ color: CREAM_GOLD }}>your savings.</span>
+            <span style={{ color: CREAM_GOLD_TEXT }}>your savings.</span>
           </h2>
           <p
             className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed"
-            style={{ color: `${CREAM_INK}b0` }}
+            style={{ color: `${CREAM_INK}e6` }}
           >
             Our pricing structure is designed around the savings we deliver.
             You only pay when you benefit.
@@ -628,7 +629,7 @@ function Pricing() {
             >
               <p
                 className="font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-                style={{ color: t.filled ? "#ffc83d" : CREAM_GOLD }}
+                style={{ color: t.filled ? "#ffc83d" : CREAM_GOLD_TEXT }}
               >
                 {t.tag}
               </p>
@@ -651,7 +652,7 @@ function Pricing() {
                     style={{
                       fontSize: "clamp(1.4rem, 2.8vw, 2.2rem)",
                       lineHeight: 1,
-                      color: t.filled ? "#ffc83d" : CREAM_GOLD,
+                      color: t.filled ? "#ffc83d" : CREAM_GOLD_TEXT,
                     }}
                   >
                     {t.figureSuffix}
@@ -673,8 +674,8 @@ function Pricing() {
                 className="mt-3 text-[15px] leading-relaxed"
                 style={{
                   color: t.filled
-                    ? "rgba(255,255,255,0.75)"
-                    : `${CREAM_INK}b0`,
+                    ? "rgba(255,255,255,0.92)"
+                    : `${CREAM_INK}e6`,
                 }}
               >
                 {t.body}
@@ -818,7 +819,7 @@ function Process() {
       title: "We benchmark 12 carriers",
       body:
         "We price your hull, navigation territory and lay-up profile against every major marine specialist.",
-      meta: "2 – 3 days",
+      meta: "2 to 3 days",
     },
     {
       n: "03",
@@ -880,7 +881,7 @@ function Process() {
                 letterSpacing: "-0.03em",
               }}
             >
-              Four steps —
+              Four steps,
               <br />
               <span className="text-cta">about a week.</span>
             </h2>
@@ -990,7 +991,7 @@ function SocialProof() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.85, ease }}
           className="font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
-          style={{ color: CREAM_GOLD }}
+          style={{ color: CREAM_GOLD_TEXT }}
         >
           <span
             className="mr-3 inline-block h-px w-12 align-middle"
@@ -1014,8 +1015,8 @@ function SocialProof() {
             color: CREAM_INK,
           }}
         >
-          <span style={{ color: CREAM_GOLD }}>85+</span> boat owners served
-          &mdash; and counting.
+          <span style={{ color: CREAM_GOLD_TEXT }}>85+</span> boat owners served,
+          and counting.
         </motion.h2>
 
         <motion.p
@@ -1025,11 +1026,11 @@ function SocialProof() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.85, ease, delay: 0.16 }}
           className="mx-auto mt-7 max-w-2xl text-[16px] leading-relaxed"
-          style={{ color: `${CREAM_INK}b8` }}
+          style={{ color: `${CREAM_INK}e6` }}
         >
-          Marine premiums climb every renewal — most owners only ever
+          Marine premiums climb every renewal. Most owners only ever
           see one quote. Owners across the USA and Canada are letting AiM
-          benchmark twelve carriers — quietly, every year.
+          benchmark twelve carriers, quietly, every year.
         </motion.p>
 
         <motion.div
@@ -1055,15 +1056,15 @@ function SocialProof() {
           </Link>
           <a
             href="tel:+16029102500"
-            className="inline-flex items-center gap-2 text-sm transition-colors"
-            style={{ color: CREAM_GOLD }}
+            className="inline-flex min-h-[44px] items-center gap-2 text-sm transition-colors"
+            style={{ color: CREAM_GOLD_TEXT }}
           >
             <ICONS.Phone className="size-4" aria-hidden />
             <span
               className="border-b pb-0.5"
               style={{ borderColor: CREAM_GOLD }}
             >
-              Call us — 602-910-2500
+              Call us: 602-910-2500
             </span>
           </a>
         </motion.div>
@@ -1076,19 +1077,19 @@ function Faq() {
   const items = [
     {
       q: "What size and type of boats do you cover?",
-      a: "Personal watercraft, bowriders, centre consoles, pontoons, sailboats, cabin cruisers and offshore sport-fishers up to 65 feet. Above 65 feet typically routes into our yacht programme — we'll tell you which makes more sense.",
+      a: "Personal watercraft, bowriders, centre consoles, pontoons, sailboats, cabin cruisers and offshore sport-fishers up to 65 feet. Above 65 feet typically routes into our yacht programme. We'll tell you which makes more sense.",
     },
     {
       q: "Does my boat policy cover trailering and storage?",
-      a: "Yes — most carriers cover the boat in transit on a trailer, in dry storage at marinas, and during winter haul-out. We confirm the navigation territory and lay-up provisions match how you actually use the boat.",
+      a: "Yes, most carriers cover the boat in transit on a trailer, in dry storage at marinas, and during winter haul-out. We confirm the navigation territory and lay-up provisions match how you actually use the boat.",
     },
     {
       q: "Will my boating record affect the rate?",
-      a: "Cleanly. We negotiate experience credits for completed boating safety courses, multi-year clean records and Coast Guard licences. Most carriers will knock 10–25% off if asked — they don't volunteer it.",
+      a: "Cleanly. We negotiate experience credits for completed boating safety courses, multi-year clean records and Coast Guard licences. Most carriers will knock 10 to 25% off if asked. They don't volunteer it.",
     },
     {
       q: "Do you handle saltwater and offshore navigation?",
-      a: "Yes. We negotiate extended navigation territories — coastal, Bahamas, Bermuda triangle and trans-Atlantic — with proper salvage and towing limits matched to where you actually run the boat.",
+      a: "Yes. We negotiate extended navigation territories: coastal, Bahamas, Bermuda triangle and trans-Atlantic, with proper salvage and towing limits matched to where you actually run the boat.",
     },
   ];
   return (
@@ -1244,7 +1245,7 @@ function Cta() {
             </h2>
             <p className="mt-6 max-w-md text-[15px] leading-relaxed text-text-secondary sm:text-[15.5px]">
               Send us your current marine policy and let AiM start
-              benchmarking — same agreed value, lower premium.
+              benchmarking: same agreed value, lower premium.
             </p>
             <div className="mt-9 flex flex-col gap-5 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
               <Link
@@ -1262,11 +1263,11 @@ function Cta() {
               </Link>
               <a
                 href="tel:+16029102500"
-                className="group inline-flex items-center gap-2 text-sm text-white/85 transition-colors hover:text-cta"
+                className="group inline-flex min-h-[44px] items-center gap-2 text-sm text-white transition-colors hover:text-cta"
               >
                 <ICONS.Phone className="size-4" aria-hidden />
                 <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
-                  Or call — 602-910-2500
+                  Or call: 602-910-2500
                 </span>
               </a>
             </div>

@@ -4,7 +4,7 @@ import { m as motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /* ---------------------------------------------------------------------------
-   FloatingOrbs — animated decorative overlays for illustrations.
+   FloatingOrbs - animated decorative overlays for illustrations.
    Place inside a relative parent. pointer-events-none so they don't block.
    Each variant has its own choreography of orbiting coins, sparkles, dots.
 --------------------------------------------------------------------------- */
@@ -13,7 +13,7 @@ type OrbType = "coin" | "sparkle" | "dot" | "ring" | "check";
 
 interface OrbSpec {
   type: OrbType;
-  /** position as % strings — e.g. "12%", "-4%" */
+  /** position as % strings, e.g. "12%", "-4%" */
   top: string;
   left?: string;
   right?: string;
@@ -21,7 +21,7 @@ interface OrbSpec {
   color?: string;
   delay?: number;
   duration?: number;
-  /** orbit radius in px — set for orbital motion, omit for floating-bob */
+  /** orbit radius in px: set for orbital motion, omit for floating-bob */
   orbit?: number;
 }
 
@@ -192,7 +192,7 @@ function Orb({
   );
 }
 
-/* SVG icons — inline so no asset loading */
+/* SVG icons: inline so no asset loading */
 
 function CoinSVG({ size }: { size: number }) {
   return (

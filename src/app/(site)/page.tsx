@@ -40,12 +40,12 @@ export const metadata: Metadata = {
     absolute: "AiM Insurance | Never Overpay Your Insurance Premiums",
   },
   description:
-    "AiM Insurance connects you with expert negotiators who fight for the best deal to lower your monthly insurance premiums. Serving 1000+ clients across USA, Canada & UAE.",
+    "AiM Insurance connects you with expert negotiators who fight for the best deal to lower your monthly insurance premiums. Serving 1100+ clients across USA, Canada & UAE.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "AiM Insurance | Never Overpay Your Insurance Premiums",
     description:
-      "Same coverage, lower premiums. AiM negotiates car, home, boat, yacht & jet insurance — averaging $1,247+ in annual savings per client.",
+      "Same coverage, lower premiums. AiM negotiates car, home, boat, yacht & jet insurance, averaging $1,247+ in annual savings per client.",
     url: SITE_CONFIG.url,
     siteName: SITE_CONFIG.name,
     type: "website",

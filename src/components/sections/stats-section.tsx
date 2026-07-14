@@ -35,7 +35,7 @@ export function StatsSection() {
               <div className="text-5xl lg:text-6xl font-heading font-extrabold text-primary leading-none">
                 <CountUp value={s.value} />
               </div>
-              <div className="mt-6 text-sm font-heading font-semibold text-primary/70 leading-relaxed">
+              <div className="mt-6 text-sm font-heading font-semibold text-primary/90 leading-relaxed">
                 {s.label}
               </div>
             </motion.div>

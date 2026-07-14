@@ -131,7 +131,7 @@ export function CalculatorPreview() {
               <ScrollReveal direction="up" delay={0.2}>
                 <p className="text-base sm:text-lg text-white leading-[1.55]">
                   Enter your current premium. We&apos;ll show you the savings
-                  and our fee — before you commit to anything.
+                  and our fee before you commit to anything.
                 </p>
               </ScrollReveal>
               <ScrollReveal direction="up" delay={0.3}>

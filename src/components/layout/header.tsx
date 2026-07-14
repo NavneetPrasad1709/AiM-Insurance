@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import { Logo } from "@/components/layout/logo";
 
 // MobileNav pulls in framer-motion for the slide-in drawer. Defer it
-// until the hamburger actually opens — keeps the header chunk lean.
+// until the hamburger actually opens, keeping the header chunk lean.
 const MobileNav = dynamic(
   () => import("@/components/layout/mobile-nav").then((m) => m.MobileNav),
   { ssr: false },
@@ -43,7 +43,7 @@ function PillLink({ href, active, children, onClick }: PillLinkProps) {
         "px-4 py-2.5 text-sm font-semibold rounded-full transition-colors",
         active
           ? "bg-cta text-background shadow-coral"
-          : "text-white/75 hover:bg-white/10 hover:text-white"
+          : "text-white/90 hover:bg-white/10 hover:text-white"
       )}
     >
       {children}
@@ -110,7 +110,7 @@ function PillDropdown({ link, pathname }: { link: NavLink; pathname: string }) {
           "inline-flex items-center gap-1 px-4 py-2.5 text-sm font-semibold rounded-full transition-colors",
           isAnyChildActive
             ? "bg-cta text-background shadow-coral"
-            : "text-white/75 hover:bg-white/10 hover:text-white"
+            : "text-white/90 hover:bg-white/10 hover:text-white"
         )}
       >
         {link.label}
@@ -162,7 +162,7 @@ function PillDropdown({ link, pathname }: { link: NavLink; pathname: string }) {
                     )}
                   </span>
                   {child.description && (
-                    <span className="text-sm text-white/60">
+                    <span className="text-sm text-white/90">
                       {child.description}
                     </span>
                   )}
@@ -243,7 +243,7 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href={`tel:${SITE_CONFIG.phone.replace(/[^+\d]/g, "")}`}
-              className="hidden xl:inline-flex items-center gap-2 text-sm font-semibold text-white/75 hover:text-white transition-colors"
+              className="hidden xl:inline-flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors"
             >
               <ICONS.Phone className="size-4 text-accent" aria-hidden />
               {SITE_CONFIG.phone}

@@ -9,7 +9,7 @@ interface GlobalErrorProps {
 
 /**
  * Replaces the root layout when the layout itself throws. Must include its
- * own <html> and <body>. Keep markup minimal — fonts/providers may be down.
+ * own <html> and <body>. Keep markup minimal, fonts/providers may be down.
  */
 export default function GlobalError({ error, reset }: GlobalErrorProps) {
   useEffect(() => {
@@ -62,10 +62,10 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
               marginTop: 16,
               fontSize: 18,
               lineHeight: 1.6,
-              color: "#d8d8de",
+              color: "#f4f4f8",
             }}
           >
-            Sorry — try reloading the page. If this keeps happening, email{" "}
+            Sorry, try reloading the page. If this keeps happening, email{" "}
             <a
               href="mailto:info@getaiminsurance.com"
               style={{ color: "#ffc83d" }}

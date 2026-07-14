@@ -48,7 +48,7 @@ export function AboutPreview() {
           className="mt-6 text-lg text-white max-w-2xl mx-auto leading-[1.55]"
         >
           Founded by Neel Mehta of Car Concierge Pro, AiM is built on a simple
-          idea — our negotiators work for you, not the carriers.
+          idea: our negotiators work for you, not the carriers.
         </motion.p>
 
         <motion.div

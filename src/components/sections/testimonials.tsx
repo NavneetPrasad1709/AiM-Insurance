@@ -21,7 +21,7 @@ const FEATURED: Testimonial = {
   role: "Family of four",
   location: "Austin, TX",
   quote:
-    "Thanks to AiM, I saved $1,236 annually on my auto insurance — same reliable, safe coverage. Painless switch.",
+    "Thanks to AiM, I saved $1,236 annually on my auto insurance. Same reliable, safe coverage. Painless switch.",
   saved: "$1,236/yr",
   carrier: "Switched from GEICO",
   verified: "Verified · Google Review",
@@ -132,12 +132,12 @@ export function Testimonials() {
               <span className="font-semibold text-[#ffc83d] tabular-nums">
                 $1,247/yr
               </span>{" "}
-              across 1000+ clients in USA, Canada, and UAE.
+              across 1100+ clients in USA, Canada, and UAE.
             </p>
           </ScrollReveal>
         </div>
 
-        {/* Featured — character + editorial blockquote */}
+        {/* Featured - character + editorial blockquote */}
         <ScrollReveal direction="up" delay={0.1} className="mt-14 lg:mt-20">
           <figure className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center rounded-[12px] border border-[#232328] bg-[#111113] p-7 sm:p-10 lg:p-14 overflow-hidden">
             {/* Warm gradient halo */}
@@ -177,7 +177,7 @@ export function Testimonials() {
                 <div className="illu-float">
                   <Image
                     src="/brand/illustrations/testimonial-client.webp"
-                    alt="Daniel R., AiM client — saved $1,236 a year on auto insurance"
+                    alt="Daniel R., AiM client who saved $1,236 a year on auto insurance"
                     width={1024}
                     height={1024}
                     sizes="(min-width: 1024px) 460px, 92vw"
@@ -230,7 +230,7 @@ export function Testimonials() {
                 </span>
                 , I saved{" "}
                 <span className="text-[#ffc83d] tabular-nums">$1,236</span>{" "}
-                annually on auto insurance — same reliable, safe coverage.
+                annually on auto insurance. Same reliable, safe coverage.
                 Painless switch.
               </blockquote>
 
