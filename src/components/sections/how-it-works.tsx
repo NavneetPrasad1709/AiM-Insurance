@@ -14,7 +14,7 @@ export function HowItWorks() {
     <section
       aria-labelledby="how-heading"
       id="how-it-works"
-      className="relative bg-background-cream py-24 sm:py-32 lg:py-40"
+      className="relative bg-background-cream py-20 sm:py-24 lg:py-28"
     >
       {/* Decorative arc divider entering this section */}
       <div className="pointer-events-none absolute inset-x-0 top-0">
@@ -93,8 +93,8 @@ export function HowItWorks() {
         </ScrollReveal>
 
         {/* Stacked cards - first 4 steps; later detail lives in /about + quote flow */}
-        <div className="mt-16 lg:mt-20 max-w-4xl mx-auto">
-          <ScrollStack topOffset="14vh" stepOffset={20} scaleStep={0.018} gap="14vh">
+        <div className="mt-12 lg:mt-14 max-w-4xl mx-auto">
+          <ScrollStack topOffset="12vh" stepOffset={16} scaleStep={0.018} gap="8vh">
             {PROCESS_STEPS.slice(0, 4).map((step) => {
               const Icon = getIcon(step.icon) ?? ICONS.Shield;
               return (
@@ -152,7 +152,7 @@ export function HowItWorks() {
         </div>
 
         {/* Closer CTA */}
-        <ScrollReveal direction="up" delay={0.1} className="mt-16 lg:mt-20">
+        <ScrollReveal direction="up" delay={0.1} className="mt-12 lg:mt-16">
           <div className="flex flex-col items-center gap-3 text-center">
             <button
               type="button"

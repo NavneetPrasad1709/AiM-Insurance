@@ -38,35 +38,58 @@ const transforms: Record<Direction, string> = {
   none: "none",
 };
 
-function useInViewOnce(
+/**
+ * SSR-visible reveal. Content renders VISIBLE on the server and first paint,
+ * so it is never blank before hydration, for no-JS clients, or in crawlers /
+ * screenshot tools. Only elements that mount genuinely BELOW the fold get
+ * "armed" (hidden off-screen) and animated in on scroll. Reduced-motion and
+ * missing-IntersectionObserver both stay visible. A 1.6s timeout guarantees
+ * nothing ever stays hidden.
+ */
+function useReveal(
   ref: React.RefObject<HTMLElement | null>,
   margin = "-80px",
   once = true,
 ) {
-  const [inView, setInView] = useState(false);
+  const [armed, setArmed] = useState(false);
+  const [revealed, setRevealed] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
-    }
+    const reduced = window.matchMedia?.(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (reduced || typeof IntersectionObserver === "undefined") return;
+
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight || 800;
+    // At or above the fold on mount: leave visible, skip the animation.
+    if (rect.top < vh) return;
+
+    setArmed(true);
     const obs = new IntersectionObserver(
       (entries) => {
         const e = entries[0];
         if (e?.isIntersecting) {
-          setInView(true);
+          setRevealed(true);
           if (once) obs.disconnect();
         } else if (!once) {
-          setInView(false);
+          setRevealed(false);
         }
       },
       { rootMargin: margin },
     );
     obs.observe(el);
-    return () => obs.disconnect();
+    const failOpen = window.setTimeout(() => {
+      setRevealed(true);
+      if (once) obs.disconnect();
+    }, 1600);
+    return () => {
+      obs.disconnect();
+      window.clearTimeout(failOpen);
+    };
   }, [ref, margin, once]);
-  return inView;
+  return { armed, revealed };
 }
 
 export function ScrollReveal({
@@ -79,7 +102,8 @@ export function ScrollReveal({
   once = true,
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInViewOnce(ref, "-80px", once);
+  const { armed, revealed } = useReveal(ref, "-80px", once);
+  const hidden = armed && !revealed;
 
   let hiddenTransform = transforms[direction];
   if (distance != null && direction !== "none") {
@@ -92,10 +116,12 @@ export function ScrollReveal({
   }
 
   const style: CSSProperties = {
-    opacity: inView ? 1 : 0,
-    transform: inView ? "none" : hiddenTransform,
-    transition: `opacity ${duration}s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform ${duration}s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
-    willChange: inView ? undefined : "opacity, transform",
+    opacity: hidden ? 0 : 1,
+    transform: hidden ? hiddenTransform : "none",
+    transition: armed
+      ? `opacity ${duration}s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform ${duration}s cubic-bezier(0.16,1,0.3,1) ${delay}s`
+      : undefined,
+    willChange: hidden ? "opacity, transform" : undefined,
   };
 
   return (
@@ -254,7 +280,7 @@ export function StaggerGroup({
   stagger = 0.08,
 }: StaggerGroupProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInViewOnce(ref, "-80px", true);
+  const { armed, revealed } = useReveal(ref, "-80px", true);
 
   const style = {
     "--stagger-delay-base": `${delay}s`,
@@ -264,7 +290,7 @@ export function StaggerGroup({
   return (
     <div
       ref={ref}
-      className={cn(className, inView && "is-revealed")}
+      className={cn(className, armed && "stagger-armed", revealed && "is-revealed")}
       style={style}
       data-stagger
     >
@@ -273,27 +299,16 @@ export function StaggerGroup({
   );
 }
 
+// Items are visible by default (SSR/no-JS safe). Only once the parent
+// StaggerGroup adds `.stagger-armed` (it mounted below the fold) do the CSS
+// rules in globals.css hide them and stagger them back in on `.is-revealed`.
 export function StaggerItem({
   children,
   className,
-  direction = "up",
 }: {
   children: ReactNode;
   className?: string;
   direction?: Direction;
 }) {
-  const hidden = transforms[direction];
-  return (
-    <div
-      className={cn("stagger-item", className)}
-      style={{
-        opacity: 0,
-        transform: hidden,
-        transition:
-          "opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1)",
-      }}
-    >
-      {children}
-    </div>
-  );
+  return <div className={cn("stagger-item", className)}>{children}</div>;
 }
