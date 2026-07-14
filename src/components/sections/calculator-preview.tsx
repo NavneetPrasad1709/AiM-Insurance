@@ -75,7 +75,7 @@ export function CalculatorPreview() {
   return (
     <section
       aria-labelledby="calculator-preview-heading"
-      className="relative bg-background py-24 sm:py-28 lg:py-36 overflow-hidden"
+      className="relative bg-background py-14 sm:py-18 lg:py-24 overflow-hidden"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div

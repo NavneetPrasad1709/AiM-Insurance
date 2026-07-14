@@ -18,7 +18,7 @@ export function CtaBanner() {
   return (
     <section
       aria-labelledby="cta-banner-heading"
-      className="relative bg-background py-28 sm:py-36 lg:py-48 overflow-hidden"
+      className="relative bg-background py-14 sm:py-20 lg:py-24 overflow-hidden"
     >
       {/* Single ambient - soft Ember radial */}
       <div aria-hidden className="pointer-events-none absolute inset-0">

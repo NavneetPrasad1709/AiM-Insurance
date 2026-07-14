@@ -48,7 +48,7 @@ export function AboutValues() {
   return (
     <section
       aria-labelledby="values-heading"
-      className="relative overflow-hidden bg-background border-t border-border py-24 sm:py-28"
+      className="relative overflow-hidden bg-background border-t border-border py-14 sm:py-18"
     >
       {/* Light accent washes */}
       <div

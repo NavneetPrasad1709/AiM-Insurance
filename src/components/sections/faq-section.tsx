@@ -13,7 +13,7 @@ export function FaqSection() {
   return (
     <section
       aria-labelledby="faq-heading"
-      className="relative bg-background-cream py-24 sm:py-32 lg:py-40 overflow-hidden"
+      className="relative bg-background-cream py-14 sm:py-20 lg:py-24 overflow-hidden"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div

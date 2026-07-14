@@ -7,7 +7,7 @@ export function AboutPreview() {
   return (
     <section
       aria-label="About AiM Insurance"
-      className="relative bg-background-cream py-24 sm:py-32 lg:py-48 border-y border-[#232328]"
+      className="relative bg-background-cream py-14 sm:py-20 lg:py-24 border-y border-[#232328]"
     >
       <div className="relative mx-auto max-w-3xl px-5 sm:px-8 lg:px-12 text-center">
         <motion.span

@@ -43,7 +43,7 @@ export function WhyAimCream({
     <section
       aria-labelledby="why-aim-cream-heading"
       className={cn(
-        "relative overflow-hidden bg-[#fbfaf5] py-24 sm:py-28",
+        "relative overflow-hidden bg-[#fbfaf5] py-14 sm:py-18",
         className,
       )}
     >

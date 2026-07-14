@@ -53,7 +53,7 @@ export function PricingCalculator() {
   return (
     <section
       aria-labelledby="pricing-calc-heading"
-      className="relative isolate overflow-hidden bg-background-cream py-16 sm:py-24 lg:py-28"
+      className="relative isolate overflow-hidden bg-background-cream py-14 sm:py-20 lg:py-24"
     >
       {/* Ambient gradients */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">

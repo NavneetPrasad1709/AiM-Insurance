@@ -39,7 +39,7 @@ export function AboutDifferent() {
   return (
     <section
       aria-labelledby="different-heading"
-      className="relative overflow-hidden bg-[#fbfaf5] py-24 sm:py-28"
+      className="relative overflow-hidden bg-[#fbfaf5] py-14 sm:py-18"
     >
       {/* Subtle warm washes */}
       <div

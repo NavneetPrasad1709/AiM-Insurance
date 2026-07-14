@@ -35,7 +35,7 @@ export function AboutStory() {
   return (
     <section
       aria-labelledby="story-heading"
-      className="relative overflow-hidden bg-[#fbfaf5] py-24 sm:py-28"
+      className="relative overflow-hidden bg-[#fbfaf5] py-14 sm:py-18"
     >
       {/* Subtle warm washes */}
       <div

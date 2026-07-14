@@ -14,7 +14,7 @@ export function HowItWorks() {
     <section
       aria-labelledby="how-heading"
       id="how-it-works"
-      className="relative bg-background-cream py-20 sm:py-24 lg:py-28"
+      className="relative bg-background-cream py-14 sm:py-20 lg:py-24"
     >
       {/* Decorative arc divider entering this section */}
       <div className="pointer-events-none absolute inset-x-0 top-0">

@@ -41,7 +41,7 @@ export function PainStats() {
   return (
     <section
       aria-labelledby="pain-heading"
-      className="relative bg-background py-24 sm:py-32 lg:py-40 overflow-hidden"
+      className="relative bg-background py-14 sm:py-20 lg:py-24 overflow-hidden"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div

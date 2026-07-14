@@ -53,7 +53,7 @@ export function AboutStats() {
   return (
     <section
       aria-labelledby="about-stats-heading"
-      className="relative overflow-hidden bg-background border-t border-border py-24 sm:py-28"
+      className="relative overflow-hidden bg-background border-t border-border py-14 sm:py-18"
     >
       {/* Subtle navy/dot pattern + ambient washes */}
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-dot-grid opacity-60" />

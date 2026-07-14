@@ -16,7 +16,7 @@ export function AboutCta() {
   return (
     <section
       aria-labelledby="about-cta-heading"
-      className="relative overflow-hidden bg-background border-t border-border py-24 sm:py-32"
+      className="relative overflow-hidden bg-background border-t border-border py-14 sm:py-20"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-1/2 h-[520px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-blob blur-3xl" />
