@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/hero";
 import { TrustBanner } from "@/components/sections/trust-banner";
 import { ServicesGrid } from "@/components/sections/services-grid";
+import { RevealObserver } from "@/components/ui/reveal";
 import { HOMEPAGE_FAQS } from "@/lib/homepage-faqs";
 import { SITE_CONFIG } from "@/lib/constants";
 import {
@@ -73,6 +74,7 @@ export default function HomePage() {
 
   return (
     <>
+      <RevealObserver />
       <StructuredData data={ld} />
       <Hero />
       <TrustBanner />

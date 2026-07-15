@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Accordion, AccordionItem } from "@/components/ui/accordion";
 import { CornerOrnament } from "@/components/illustrations/ambience";

@@ -1,7 +1,5 @@
-"use client";
-
 import Image from "next/image";
-import { ScrollReveal, ScrollZoom, StaggerGroup, StaggerItem } from "@/components/ui/scroll-effects";
+import { ScrollZoom } from "@/components/ui/scroll-effects";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
 import { CornerOrnament, QuoteMarkAccent } from "@/components/illustrations/ambience";
 import { ICONS } from "@/lib/icons";
@@ -102,15 +100,15 @@ export function Testimonials() {
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
         {/* Heading */}
         <div className="max-w-3xl">
-          <ScrollReveal direction="up">
+          <div data-reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-[#232328] bg-[#111113] px-3.5 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase text-white"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               <ICONS.Quote className="size-3.5 text-[#ffc83d]" aria-hidden />
               In their own words
             </span>
-          </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.1}>
+          </div>
+          <div data-reveal>
             <h2
               id="testimonials-heading"
               className="mt-5 text-white"
@@ -125,8 +123,8 @@ export function Testimonials() {
               Real clients. Real savings.{" "}
               <span className="text-[#ffc83d]">Same coverage.</span>
             </h2>
-          </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.18}>
+          </div>
+          <div data-reveal>
             <p className="mt-5 text-base sm:text-lg leading-[1.55] text-white">
               Average savings of{" "}
               <span className="font-semibold text-[#ffc83d] tabular-nums">
@@ -134,11 +132,11 @@ export function Testimonials() {
               </span>{" "}
               across 1100+ clients in USA, Canada, and UAE.
             </p>
-          </ScrollReveal>
+          </div>
         </div>
 
         {/* Featured - character + editorial blockquote */}
-        <ScrollReveal direction="up" delay={0.1} className="mt-14 lg:mt-20">
+        <div className="mt-14 lg:mt-20" data-reveal>
           <figure className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center rounded-[12px] border border-[#232328] bg-[#111113] p-7 sm:p-10 lg:p-14 overflow-hidden">
             {/* Warm gradient halo */}
             <div
@@ -262,12 +260,12 @@ export function Testimonials() {
               </p>
             </div>
           </figure>
-        </ScrollReveal>
+        </div>
 
         {/* Secondary cards */}
-        <StaggerGroup className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4" delay={0.05}>
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4" data-reveal>
           {SECONDARY.map((t) => (
-            <StaggerItem key={t.name}>
+            <div key={t.name}>
               <figure
                 className="card-hover group relative h-full rounded-[12px] border border-[#232328] bg-[#111113] p-7 flex flex-col"
               >
@@ -303,9 +301,9 @@ export function Testimonials() {
                   </div>
                 </figcaption>
               </figure>
-            </StaggerItem>
+            </div>
           ))}
-        </StaggerGroup>
+        </div>
       </div>
     </section>
   );

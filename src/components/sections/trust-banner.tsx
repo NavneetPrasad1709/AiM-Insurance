@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import { CountUp } from "@/components/ui/count-up";
-import { ScrollReveal, StaggerGroup, StaggerItem } from "@/components/ui/scroll-effects";
 import { ICONS } from "@/lib/icons";
 
 const STATS = [
@@ -19,7 +16,7 @@ export function TrustBanner() {
       className="relative bg-background-cream border-y border-[#232328]"
     >
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12 py-16 lg:py-24">
-        <ScrollReveal direction="up" className="text-center">
+        <div className="text-center" data-reveal>
           <p
             className="text-[11px] uppercase tracking-[0.22em] font-semibold text-white"
             style={{ fontFamily: "var(--font-inter)" }}
@@ -39,10 +36,10 @@ export function TrustBanner() {
             Real savings. Real clients.{" "}
             <span className="text-[#ffc83d]">Real receipts.</span>
           </h2>
-        </ScrollReveal>
+        </div>
 
         {/* Trust badges row */}
-        <ScrollReveal direction="up" delay={0.1} className="mt-10">
+        <div className="mt-10" data-reveal>
           <ul className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <li className="inline-flex items-center gap-3 rounded-[8px] border border-[#232328] bg-[#111113] px-5 py-3">
               <Image
@@ -114,17 +111,17 @@ export function TrustBanner() {
               </div>
             </li>
           </ul>
-        </ScrollReveal>
+        </div>
 
         {/* Stat cards */}
-        <StaggerGroup
+        <div
           className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4"
-          delay={0.1}
+          data-reveal
         >
           {STATS.map((s) => {
             const Icon = ICONS[s.icon];
             return (
-              <StaggerItem key={s.label}>
+              <div key={s.label}>
                 <div
                   className="card-hover group relative h-full rounded-[12px] border border-[#232328] bg-[#111113] p-5 sm:p-6"
                 >
@@ -139,10 +136,10 @@ export function TrustBanner() {
                     {s.label}
                   </div>
                 </div>
-              </StaggerItem>
+              </div>
             );
           })}
-        </StaggerGroup>
+        </div>
       </div>
     </section>
   );

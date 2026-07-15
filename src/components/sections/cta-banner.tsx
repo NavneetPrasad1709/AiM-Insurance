@@ -1,20 +1,16 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { m as motion } from "framer-motion";
-import { ScrollReveal, ScrollZoom } from "@/components/ui/scroll-effects";
+import { ScrollZoom } from "@/components/ui/scroll-effects";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
 import {
   GoldParticleField,
   CornerOrnament,
   GrainTexture,
 } from "@/components/illustrations/ambience";
-import { useQuoteModal } from "@/lib/quote-modal-context";
+import { QuoteButton } from "@/components/sections/quote-button";
 import { ICONS } from "@/lib/icons";
 
 export function CtaBanner() {
-  const { openModal } = useQuoteModal();
   return (
     <section
       aria-labelledby="cta-banner-heading"
@@ -52,7 +48,7 @@ export function CtaBanner() {
           <FloatingOrbs variant="cta" />
         </ScrollZoom>
 
-        <ScrollReveal direction="up">
+        <div data-reveal>
           <span
             className="inline-flex items-center gap-2 rounded-full border border-[#232328] bg-[#111113] px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white"
             style={{ fontFamily: "var(--font-inter)" }}
@@ -60,9 +56,9 @@ export function CtaBanner() {
             <span className="size-1.5 rounded-full bg-[#ffc83d]" />
             Ready to save?
           </span>
-        </ScrollReveal>
+        </div>
 
-        <ScrollReveal direction="up" delay={0.1}>
+        <div data-reveal>
           <h2
             id="cta-banner-heading"
             className="mt-5 text-white"
@@ -77,9 +73,9 @@ export function CtaBanner() {
             Stop overpaying.{" "}
             <span className="text-[#ffc83d]">Start saving today.</span>
           </h2>
-        </ScrollReveal>
+        </div>
 
-        <ScrollReveal direction="up" delay={0.2}>
+        <div data-reveal>
           <p className="mt-6 text-base sm:text-lg text-white leading-[1.55]">
             Join{" "}
             <span className="font-semibold text-white tabular-nums">
@@ -88,18 +84,13 @@ export function CtaBanner() {
             across US, Canada, and UAE who trust AiM to negotiate better rates,
             same coverage, lower cost.
           </p>
-        </ScrollReveal>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+        <div
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3"
+          data-reveal
         >
-          <button
-            type="button"
-            onClick={() => openModal()}
+          <QuoteButton
             className="btn-shine cta-primary inline-flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 text-base font-semibold"
             style={{ fontFamily: "var(--font-inter)" }}
           >
@@ -117,7 +108,7 @@ export function CtaBanner() {
             >
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
-          </button>
+          </QuoteButton>
           <Link
             href="/contact?intent=call"
             className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#232328] bg-[#111113] hover:border-[#9a9aa3]/40 hover:bg-[#1a1a1f] text-white px-7 py-4 text-base font-semibold transition-colors duration-150"
@@ -126,13 +117,13 @@ export function CtaBanner() {
             <ICONS.Phone className="size-4 text-[#ffc83d]" aria-hidden />
             Book a 15-min call
           </Link>
-        </motion.div>
+        </div>
 
-        <ScrollReveal direction="up" delay={0.4}>
+        <div data-reveal>
           <p className="mt-6 text-xs text-white font-semibold tabular-nums">
             $0 if no savings · No obligation · Results in 24 hours
           </p>
-        </ScrollReveal>
+        </div>
       </div>
     </section>
   );

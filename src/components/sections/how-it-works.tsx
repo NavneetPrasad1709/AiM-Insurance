@@ -1,15 +1,12 @@
-"use client";
-
 import Image from "next/image";
-import { ScrollReveal, ScrollStack } from "@/components/ui/scroll-effects";
+import { ScrollStack } from "@/components/ui/scroll-effects";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
 import { SectionDividerArc } from "@/components/illustrations/ambience";
-import { useQuoteModal } from "@/lib/quote-modal-context";
+import { QuoteButton } from "@/components/sections/quote-button";
 import { PROCESS_STEPS } from "@/lib/constants";
 import { ICONS, getIcon } from "@/lib/icons";
 
 export function HowItWorks() {
-  const { openModal } = useQuoteModal();
   return (
     <section
       aria-labelledby="how-heading"
@@ -45,7 +42,7 @@ export function HowItWorks() {
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
         {/* Heading */}
         <div className="max-w-3xl">
-          <ScrollReveal direction="up">
+          <div data-reveal>
             <span
               className="inline-flex items-center gap-2 rounded-full border border-[#232328] bg-[#111113] px-3.5 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase text-white"
               style={{ fontFamily: "var(--font-inter)" }}
@@ -53,8 +50,8 @@ export function HowItWorks() {
               <ICONS.Sparkles className="size-3.5 text-[#ffc83d]" aria-hidden />
               How it works
             </span>
-          </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.1}>
+          </div>
+          <div data-reveal>
             <h2
               id="how-heading"
               className="mt-5 text-white"
@@ -69,16 +66,16 @@ export function HowItWorks() {
               Four steps.{" "}
               <span className="text-[#ffc83d]">One lower premium.</span>
             </h2>
-          </ScrollReveal>
-          <ScrollReveal direction="up" delay={0.18}>
+          </div>
+          <div data-reveal>
             <p className="mt-5 text-base sm:text-lg text-white leading-[1.55]">
               Send your policy. We negotiate. You save.
             </p>
-          </ScrollReveal>
+          </div>
         </div>
 
         {/* Journey road illustration with floating coins */}
-        <ScrollReveal direction="up" delay={0.1}>
+        <div data-reveal>
           <div className="relative mt-12 lg:mt-16 mx-auto max-w-4xl">
             <Image
               src="/brand/illustrations/journey-road.webp"
@@ -90,7 +87,7 @@ export function HowItWorks() {
             />
             <FloatingOrbs variant="journey" />
           </div>
-        </ScrollReveal>
+        </div>
 
         {/* Stacked cards - first 4 steps; later detail lives in /about + quote flow */}
         <div className="mt-12 lg:mt-14 max-w-4xl mx-auto">
@@ -152,11 +149,9 @@ export function HowItWorks() {
         </div>
 
         {/* Closer CTA */}
-        <ScrollReveal direction="up" delay={0.1} className="mt-12 lg:mt-16">
+        <div className="mt-12 lg:mt-16" data-reveal>
           <div className="flex flex-col items-center gap-3 text-center">
-            <button
-              type="button"
-              onClick={() => openModal()}
+            <QuoteButton
               className="btn-shine cta-primary inline-flex items-center gap-2 px-7 py-4 font-semibold text-base"
               style={{ fontFamily: "var(--font-inter)" }}
             >
@@ -174,12 +169,12 @@ export function HowItWorks() {
               >
                 <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
-            </button>
+            </QuoteButton>
             <span className="text-sm text-white">
               5 min · No credit card · No commitment
             </span>
           </div>
-        </ScrollReveal>
+        </div>
       </div>
     </section>
   );

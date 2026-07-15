@@ -1,12 +1,9 @@
-"use client";
-
 import Image from "next/image";
-import { m as motion } from "framer-motion";
-import { ScrollReveal, ScrollZoom, StaggerGroup, StaggerItem } from "@/components/ui/scroll-effects";
+import { ScrollZoom } from "@/components/ui/scroll-effects";
 import { PremiumGauge } from "@/components/illustrations/decorations";
 import { FloatingOrbs } from "@/components/illustrations/floating-orbs";
 import { FloatingCardsBackdrop } from "@/components/illustrations/ambience";
-import { useQuoteModal } from "@/lib/quote-modal-context";
+import { QuoteButton } from "@/components/sections/quote-button";
 import { ICONS } from "@/lib/icons";
 
 interface SavingsRow {
@@ -33,7 +30,6 @@ function fmt(n: number) {
 }
 
 export function CarrierSavings() {
-  const { openModal } = useQuoteModal();
   return (
     <section
       aria-labelledby="savings-heading"
@@ -63,7 +59,7 @@ export function CarrierSavings() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* LEFT - copy + table */}
           <div className="lg:col-span-7 flex flex-col gap-7">
-            <ScrollReveal direction="up">
+            <div data-reveal>
               <span
                 className="inline-flex w-fit items-center gap-2 rounded-full border border-[#232328] bg-[#111113] px-3.5 py-1.5 text-[11px] font-semibold tracking-[0.18em] uppercase text-white"
                 style={{ fontFamily: "var(--font-inter)" }}
@@ -71,8 +67,8 @@ export function CarrierSavings() {
                 <ICONS.CheckCircle2 className="size-3.5 text-[#ffc83d]" aria-hidden />
                 Real client receipts
               </span>
-            </ScrollReveal>
-            <ScrollReveal direction="up" delay={0.08}>
+            </div>
+            <div data-reveal>
               <h2
                 id="savings-heading"
                 className="text-white"
@@ -97,16 +93,16 @@ export function CarrierSavings() {
                 </span>{" "}
                 Year after year.
               </h2>
-            </ScrollReveal>
-            <ScrollReveal direction="up" delay={0.16}>
+            </div>
+            <div data-reveal>
               <p className="text-white text-base sm:text-lg leading-[1.55] max-w-xl">
                 A snapshot of recent client wins, actual carriers, actual
                 annual savings, identical coverage.
               </p>
-            </ScrollReveal>
+            </div>
 
             {/* Summary gauge card */}
-            <ScrollReveal direction="up" delay={0.2}>
+            <div data-reveal>
               <div className="mt-4 flex items-center gap-5 rounded-[12px] border border-[#232328] bg-[#111113] p-5 max-w-md">
                 <PremiumGauge size={150} percent={31} />
                 <div className="flex flex-col">
@@ -130,10 +126,10 @@ export function CarrierSavings() {
                   </span>
                 </div>
               </div>
-            </ScrollReveal>
+            </div>
 
             {/* Savings rows */}
-            <StaggerGroup className="mt-2 flex flex-col gap-3">
+            <div className="mt-2 flex flex-col gap-3" data-reveal>
               {/* Header - desktop */}
               <div
                 className="hidden sm:grid grid-cols-12 gap-4 px-6 text-[10px] uppercase tracking-[0.22em] font-semibold text-white"
@@ -148,11 +144,10 @@ export function CarrierSavings() {
               {SAVINGS.map((s, i) => {
                 const pct = Math.round((s.saved / s.before) * 100);
                 return (
-                  <StaggerItem key={s.carrier}>
-                    <motion.div
-                      whileHover={{ y: -2 }}
-                      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  <div key={s.carrier}>
+                    <div
                       className="group relative grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-4 sm:items-center rounded-[12px] border border-[#232328] bg-gradient-to-br from-[#13131a] via-[#111113] to-[#0d0d10] px-5 py-4 sm:px-6 sm:py-5 hover:border-[#ffc83d]/40 hover:shadow-[0_18px_50px_-30px_rgba(255,200,61,0.45)] transition-[border-color,box-shadow,transform] duration-300 overflow-hidden"
+                      data-reveal
                     >
                       {/* Left accent strip on hover */}
                       <div
@@ -248,17 +243,15 @@ export function CarrierSavings() {
                           −{fmt(s.saved)}
                         </span>
                       </div>
-                    </motion.div>
-                  </StaggerItem>
+                    </div>
+                  </div>
                 );
               })}
-            </StaggerGroup>
+            </div>
 
-            <ScrollReveal direction="up" delay={0.2}>
+            <div data-reveal>
               <div className="mt-4 flex flex-wrap items-center gap-4">
-                <button
-                  type="button"
-                  onClick={() => openModal()}
+                <QuoteButton
                   className="btn-shine cta-primary inline-flex items-center gap-2 px-7 py-3.5 font-semibold"
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
@@ -276,12 +269,12 @@ export function CarrierSavings() {
                   >
                     <path d="M5 12h14M13 6l6 6-6 6" />
                   </svg>
-                </button>
+                </QuoteButton>
                 <span className="text-sm text-white">
                   5 min · No obligation
                 </span>
               </div>
-            </ScrollReveal>
+            </div>
           </div>
 
           {/* RIGHT - savings illustration */}
