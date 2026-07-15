@@ -21,7 +21,6 @@ const RESOURCE_LINKS = [
 const LEGAL_LINKS = [
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
-  { label: "Sitemap", href: "/sitemap.xml" },
 ];
 
 const CURRENT_YEAR = new Date().getFullYear();
