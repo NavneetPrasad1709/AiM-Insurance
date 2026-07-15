@@ -714,8 +714,8 @@ function Pricing() {
                 className="absolute right-6 top-6 font-heading text-[10px] font-bold tabular-nums tracking-[0.18em]"
                 style={{
                   color: t.filled
-                    ? "rgba(255,255,255,0.4)"
-                    : `${CREAM_INK}55`,
+                    ? "rgba(255,255,255,0.62)"
+                    : `${CREAM_INK}b3`,
                 }}
               >
                 0{i + 1}

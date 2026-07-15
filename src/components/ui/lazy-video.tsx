@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 export interface LazyVideoProps {
   /** MP4 source. Only fetched once the video is actually needed. */
@@ -37,6 +39,12 @@ export function LazyVideo({
     const el = ref.current;
     if (!el) return;
 
+    // Mobile: never download the clip. A decorative background video costs
+    // ~1.4MB and, because it repaints the same element, it becomes the LCP
+    // (poster paints at ~1.3s, video dragged LCP to 6.3s). The poster alone
+    // is the identical first frame, so phones get the visual for 110KB.
+    if (window.matchMedia?.("(max-width: 768px)").matches) return;
+
     // Reduced motion: keep the poster, never pull the video down.
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -69,20 +77,36 @@ export function LazyVideo({
   }, [eager]);
 
   return (
-    <video
-      ref={ref}
-      // `src` intentionally omitted until `load` flips: no bytes are fetched
-      // before that, and the poster carries the visual.
-      src={load ? src : undefined}
-      poster={poster}
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="none"
-      aria-label={ariaLabel}
-      className={className}
-    />
+    <>
+      {/*
+        The poster goes through next/image rather than the <video poster>
+        attribute: that attribute is a raw URL, so it shipped the full-size
+        JPG to every device and became a slow LCP. As an Image it is served
+        responsively as AVIF/WebP at the device's real width.
+      */}
+      <Image
+        src={poster}
+        alt={ariaLabel}
+        fill
+        priority={eager}
+        sizes="100vw"
+        className={cn("object-cover", className)}
+      />
+      <video
+        ref={ref}
+        // `src` intentionally omitted until `load` flips: no bytes are fetched
+        // before that, and the poster above carries the visual.
+        src={load ? src : undefined}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="none"
+        aria-hidden
+        tabIndex={-1}
+        className={cn(className, load ? "opacity-100" : "opacity-0")}
+      />
+    </>
   );
 }
 

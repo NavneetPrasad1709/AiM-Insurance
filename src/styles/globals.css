@@ -345,6 +345,28 @@
     transform-origin: 50% 0;
   }
 
+  /* ───────────────────────────────────────────────────────────────
+     [data-reveal] - CSS scroll reveal, zero framer-motion.
+     Visible by default; RevealObserver only adds `.reveal-armed` to
+     below-the-fold elements on desktop, then `.is-revealed` on scroll.
+     On mobile / reduced-motion the observer no-ops, so these rules never
+     apply and the content simply paints. Same curve as the old framer
+     tween (cubic-bezier(0.22, 1, 0.36, 1) @ 0.85s) so desktop looks identical.
+     ─────────────────────────────────────────────────────────────── */
+  [data-reveal].reveal-armed {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    transition:
+      opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  [data-reveal].reveal-armed.is-revealed {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
   /* Stagger reveal. Items are VISIBLE by default (SSR / no-JS / crawler safe).
      StaggerGroup only adds `.stagger-armed` when it mounts below the fold; that
      hides its items, and `.is-revealed` (on scroll-in) staggers them back in
