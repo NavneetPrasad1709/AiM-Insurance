@@ -395,14 +395,14 @@ export function ConciergeForm() {
                 I agree to AiM Insurance&rsquo;s{" "}
                 <Link
                   href="/terms"
-                  className="text-[#ffc83d] underline-offset-2 hover:underline"
+                  className="text-[#ffc83d] underline underline-offset-2 hover:no-underline"
                 >
                   terms
                 </Link>{" "}
                 and{" "}
                 <Link
                   href="/privacy"
-                  className="text-[#ffc83d] underline-offset-2 hover:underline"
+                  className="text-[#ffc83d] underline underline-offset-2 hover:no-underline"
                 >
                   privacy policy
                 </Link>

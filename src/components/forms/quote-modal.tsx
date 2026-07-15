@@ -470,7 +470,7 @@ function PitchPanel({ reduce, hidden }: { reduce: boolean; hidden: boolean }) {
           src="/brand/aim-logo.webp"
           alt="AiM"
           width={120}
-          height={42}
+          height={69}
           priority
           className="h-7 w-auto"
         />
@@ -521,7 +521,7 @@ function PitchPanel({ reduce, hidden }: { reduce: boolean; hidden: boolean }) {
           transition={{ duration: 0.4, ease: EASE, delay: 0.5 }}
           className="rounded-2xl border border-white/8 bg-white/[0.03] backdrop-blur-md p-5"
         >
-          <div className="flex items-center gap-1" aria-label="5 stars">
+          <div role="img" className="flex items-center gap-1" aria-label="5 stars">
             {Array.from({ length: 5 }).map((_, i) => (
               <Star
                 key={i}
@@ -583,7 +583,7 @@ function MobilePitchRibbon() {
         src="/brand/aim-logo.webp"
         alt="AiM"
         width={88}
-        height={32}
+        height={51}
         priority
         className="h-6 w-auto"
       />

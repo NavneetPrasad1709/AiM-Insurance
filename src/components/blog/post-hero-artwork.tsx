@@ -177,7 +177,7 @@ export function PostHeroArtwork({ category, mainImage, title }: PostHeroArtworkP
           src="/brand/aim-logo.webp"
           alt="AiM Insurance"
           width={92}
-          height={26}
+          height={53}
           className="h-5 w-auto md:h-6"
           style={{ width: "auto" }}
         />

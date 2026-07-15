@@ -11,11 +11,13 @@ export interface LogoProps {
   onClick?: () => void;
 }
 
-const SIZE_PX = {
-  sm: { w: 96, h: 56 },
-  md: { w: 128, h: 74 },
-  lg: { w: 168, h: 96 },
-};
+// Rendered height per size. Width is derived from the file's real aspect ratio
+// so the declared dimensions never disagree with the intrinsic ones (a mismatch
+// distorts the mark and trips Lighthouse's image-aspect-ratio audit).
+const SIZE_H = { sm: 56, md: 74, lg: 96 } as const;
+
+// Intrinsic ratios: aim-logo.webp is 600x347, aim-logo-black.webp is 600x316.
+const RATIO = { light: 600 / 347, dark: 600 / 316 } as const;
 
 export function Logo({
   variant = "light",
@@ -25,7 +27,8 @@ export function Logo({
 }: LogoProps) {
   const src =
     variant === "light" ? "/brand/aim-logo.webp" : "/brand/aim-logo-black.webp";
-  const dims = SIZE_PX[size];
+  const h = SIZE_H[size];
+  const w = Math.round(h * RATIO[variant]);
 
   return (
     <Link
@@ -40,11 +43,11 @@ export function Logo({
       <Image
         src={src}
         alt="AiM, a Car Concierge Pro product"
-        width={dims.w}
-        height={dims.h}
+        width={w}
+        height={h}
         priority
-        className="h-auto w-auto"
-        style={{ height: `${dims.h * 0.55}px`, width: "auto" }}
+        className="w-auto"
+        style={{ height: `${Math.round(h * 0.55)}px`, width: "auto" }}
       />
     </Link>
   );

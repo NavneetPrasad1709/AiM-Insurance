@@ -59,9 +59,13 @@ export function RevealObserver() {
       // Below the fold: hide (off-screen, so no visible flash) then reveal on scroll.
       el.classList.add("reveal-armed");
       io.observe(el);
-      // Safety net: never let content stay hidden.
+      // Safety net: never let content stay hidden. Snap it visible with the
+      // transition disabled rather than fading — a half-faded element reports
+      // a blended colour, which trips axe/Lighthouse colour-contrast.
       timers.push(
-        window.setTimeout(() => el.classList.add("is-revealed"), 4000),
+        window.setTimeout(() => {
+          el.classList.add("reveal-snap", "is-revealed");
+        }, 4000),
       );
     }
 

@@ -328,7 +328,7 @@ function CardArtwork({
           src="/brand/aim-logo.webp"
           alt=""
           width={isFeatured ? 56 : 44}
-          height={isFeatured ? 16 : 12}
+          height={isFeatured ? 32 : 25}
           className={cn(
             "h-auto w-auto opacity-85 transition-opacity duration-300 group-hover:opacity-100",
             isFeatured ? "h-4" : "h-3.5",

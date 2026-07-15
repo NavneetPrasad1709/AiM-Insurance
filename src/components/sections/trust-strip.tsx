@@ -16,7 +16,7 @@ interface TrustStripProps {
 }
 
 const STAR_ROW = (
-  <span className="inline-flex items-center gap-0.5" aria-label="5 out of 5 stars">
+  <span role="img" className="inline-flex items-center gap-0.5" aria-label="5 out of 5 stars">
     {Array.from({ length: 5 }).map((_, i) => (
       <ICONS.Star
         key={i}

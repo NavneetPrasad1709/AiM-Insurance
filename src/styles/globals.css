@@ -366,6 +366,11 @@
     transform: none;
     will-change: auto;
   }
+  /* Safety-net reveal: appear instantly. A mid-fade element reports a blended
+     colour to contrast checkers, so never leave it partially transparent. */
+  [data-reveal].reveal-snap {
+    transition: none !important;
+  }
 
   /* Stagger reveal. Items are VISIBLE by default (SSR / no-JS / crawler safe).
      StaggerGroup only adds `.stagger-armed` when it mounts below the fold; that

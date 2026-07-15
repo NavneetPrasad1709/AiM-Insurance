@@ -60,7 +60,8 @@ export function AboutDifferent() {
       />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="text-xs font-heading font-semibold uppercase tracking-[0.22em] text-cta">
+          {/* Deep gold: the brand #ffc83d is only 1.47:1 on this cream section. */}
+          <span className="text-xs font-heading font-semibold uppercase tracking-[0.22em] text-[#8a6410]">
             Side by side
           </span>
           <h2

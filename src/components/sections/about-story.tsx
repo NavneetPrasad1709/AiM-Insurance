@@ -63,7 +63,7 @@ export function AboutStory() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="text-xs font-heading font-semibold uppercase tracking-[0.22em] text-cta"
+            className="text-xs font-heading font-semibold uppercase tracking-[0.22em] text-[#8a6410]"
           >
             Our story
           </motion.span>
