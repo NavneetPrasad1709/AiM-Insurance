@@ -1,17 +1,10 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import {
-  m as motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import { useRef, useState } from "react";
 import { LazyVideo } from "@/components/ui/lazy-video";
+import { RevealObserver } from "@/components/ui/reveal";
 import { ICONS } from "@/lib/icons";
 import { ExploreMoreServices } from "@/components/sections/explore-more-services";
+import { FaqRow } from "./faq-row";
 
 const CREAM = "#faf6ee";
 const CREAM_INK = "#0c1626";
@@ -42,15 +35,10 @@ const ALT = {
 
 const WAITLIST_HREF = "/contact?intent=waitlist&service=jet-insurance";
 
-const ease = [0.22, 1, 0.36, 1] as const;
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0 },
-};
-
 export function JetPage() {
   return (
     <main className="bg-background text-white">
+      <RevealObserver />
       <Hero />
       <TrustStrip />
       <Stats />
@@ -67,7 +55,6 @@ export function JetPage() {
 }
 
 function Hero() {
-  const reduce = useReducedMotion();
   return (
     <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
       <LazyVideo
@@ -106,20 +93,12 @@ function Hero() {
 
       <div className="absolute inset-x-0 bottom-0 z-10 px-6 pb-20 sm:px-12 sm:pb-28">
         <div className="mx-auto max-w-7xl">
-          <motion.span
-            initial={{ opacity: 0, y: 16 }}
-            animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, ease, delay: 0.05 }}
-            className="inline-flex items-center gap-3 rounded-full bg-cta/15 px-4 py-1.5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em] text-cta backdrop-blur"
-          >
+          <span className="inline-flex items-center gap-3 rounded-full bg-cta/15 px-4 py-1.5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em] text-cta backdrop-blur">
             <span className="h-2 w-2 rounded-full bg-cta" aria-hidden />
             Coming soon · Q3 2026
-          </motion.span>
+          </span>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0 }}
-            transition={{ duration: 1.0, ease, delay: 0.16 }}
+          <h1
             className="mt-6 font-heading font-extrabold uppercase text-white text-balance"
             style={{
               fontSize: "clamp(1.85rem, 5vw, 4.2rem)",
@@ -130,26 +109,16 @@ function Hero() {
             Elite aviation cover.
             <br />
             <span className="text-cta">Founder pricing, first.</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, ease, delay: 0.32 }}
-            className="mt-7 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg"
-          >
+          <p className="mt-7 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg">
             We&rsquo;re onboarding global aviation underwriters: Lloyd&rsquo;s,
             AIG Aerospace, Global Aerospace, Allianz. Join the waitlist
             for founder pricing on hull, liability and worldwide flight
             cover.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, ease, delay: 0.42 }}
-            className="mt-9 flex flex-col items-start gap-5 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6"
-          >
+          <div className="mt-9 flex flex-col items-start gap-5 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:gap-6">
             <Link
               href={WAITLIST_HREF}
               className="group inline-flex items-center gap-3 rounded-full bg-cta px-9 py-4 font-heading text-[12px] font-bold uppercase tracking-[0.16em] text-background transition-transform duration-200 hover:-translate-y-0.5 hover:bg-cta-hover"
@@ -172,25 +141,16 @@ function Hero() {
                 Or call 602-910-2500
               </span>
             </a>
-          </motion.div>
+          </div>
         </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2, delay: 0.85 }}
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white"
-        >
+      <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
+        <div className="illu-float flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white">
           <span>Scroll</span>
           <span className="h-8 w-px bg-white/40" aria-hidden />
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }
@@ -270,14 +230,10 @@ function Stats() {
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-3 sm:gap-8">
-          {STATS.map((s, i) => (
-            <motion.div
+          {STATS.map((s) => (
+            <div
               key={s.label}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.85, ease, delay: i * 0.1 }}
+              data-reveal
               className="border-l pl-6"
               style={{ borderColor: `${CREAM_GOLD}80` }}
             >
@@ -298,7 +254,7 @@ function Stats() {
               >
                 {s.label}
               </span>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -346,14 +302,7 @@ function Coverage() {
     <section className="relative -mt-12 rounded-t-[48px] bg-background pb-28 pt-28 sm:rounded-t-[72px] sm:pb-36 sm:pt-32">
       <div className="mx-auto max-w-7xl px-6 sm:px-12">
         <div className="mb-16 grid items-end gap-8 sm:grid-cols-12">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.85, ease }}
-            className="sm:col-span-7"
-          >
+          <div data-reveal className="sm:col-span-7">
             <p className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em] text-cta">
               <span
                 className="mr-3 inline-block h-px w-12 align-middle bg-cta"
@@ -373,30 +322,22 @@ function Coverage() {
               <br />
               <span className="text-cta">worldwide territory.</span>
             </h2>
-          </motion.div>
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.85, ease, delay: 0.1 }}
+          </div>
+          <p
+            data-reveal
             className="text-[15px] leading-relaxed text-text-secondary sm:col-span-5"
           >
             Light, midsize and heavy business jets up to $40M hull. Owner-flown,
             fractional and managed-aircraft programmes: Part 91 to start,
             Part 135 charter in 2027.
-          </motion.p>
+          </p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((c, i) => (
-            <motion.article
+          {items.map((c) => (
+            <article
               key={c.n}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.7, ease, delay: i * 0.08 }}
+              data-reveal
               className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-surface transition-colors duration-300 hover:border-cta/50"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden">
@@ -426,7 +367,7 @@ function Coverage() {
                   className="mt-5 block h-px w-10 origin-left bg-cta transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-x-[3]"
                 />
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>
@@ -435,35 +376,16 @@ function Coverage() {
 }
 
 function WhyMatters() {
-  const ref = useRef<HTMLElement | null>(null);
-  const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [-40, 40]);
-
   return (
     <section
-      ref={ref as React.RefObject<HTMLElement>}
       className="relative -mt-12 overflow-hidden rounded-t-[48px] py-24 sm:rounded-t-[72px] sm:py-32"
       style={{ backgroundColor: CREAM, color: CREAM_INK }}
     >
       <div className="relative mx-auto max-w-7xl px-6 sm:px-12">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-20">
-          <motion.figure
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 1.0, ease }}
-            className="relative lg:col-span-7"
-          >
+          <figure data-reveal className="relative lg:col-span-7">
             <div className="relative aspect-[16/11] w-full overflow-hidden rounded-3xl sm:rounded-[40px]">
-              <motion.div
-                style={{ y }}
-                className="absolute inset-0"
-                aria-hidden
-              >
+              <div className="absolute inset-0" aria-hidden>
                 <div className="relative h-[120%] w-full">
                   <Image
                     src={ASSET.split1}
@@ -473,7 +395,7 @@ function WhyMatters() {
                     className="object-cover"
                   />
                 </div>
-              </motion.div>
+              </div>
               <span
                 aria-hidden
                 className="absolute inset-0"
@@ -483,16 +405,9 @@ function WhyMatters() {
                 }}
               />
             </div>
-          </motion.figure>
+          </figure>
 
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.85, ease, delay: 0.1 }}
-            className="lg:col-span-5"
-          >
+          <div data-reveal className="lg:col-span-5">
             <p
               className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
               style={{ color: CREAM_GOLD_TEXT }}
@@ -536,7 +451,7 @@ function WhyMatters() {
               style={{ backgroundColor: CREAM_GOLD }}
               aria-hidden
             />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
@@ -550,14 +465,7 @@ function Waitlist() {
       style={{ backgroundColor: CREAM, color: CREAM_INK }}
     >
       <div className="mx-auto max-w-5xl px-6 sm:px-12">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.85, ease }}
-          className="mx-auto mb-12 max-w-3xl text-center"
-        >
+        <div data-reveal className="mx-auto mb-12 max-w-3xl text-center">
           <p
             className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
             style={{ color: CREAM_GOLD_TEXT }}
@@ -589,14 +497,10 @@ function Waitlist() {
             onboarding when we launch. That&rsquo;s it. Decline the audit
             or use it as leverage with your current broker.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8, ease, delay: 0.1 }}
+        <div
+          data-reveal
           className="relative overflow-hidden rounded-3xl p-8 sm:rounded-[36px] sm:p-12"
           style={{ backgroundColor: "#0a0a0a", color: "#ffffff" }}
         >
@@ -644,7 +548,7 @@ function Waitlist() {
               </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -657,22 +561,15 @@ interface Step {
   meta: string;
 }
 
-function ProcessStepCard({ step: s, index: i }: { step: Step; index: number }) {
-  const reduce = useReducedMotion();
+function ProcessStepCard({ step: s }: { step: Step }) {
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.85, ease, delay: i * 0.12 }}
+    <article
+      data-reveal
       className="group relative flex flex-col rounded-3xl border border-border bg-surface p-7 transition-[transform,border-color,background-color,box-shadow] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-2 hover:border-cta/60 hover:bg-surface-2 sm:p-8"
     >
-      <motion.span
+      <span
         aria-hidden
-        initial={{ opacity: 0, scale: 0.7, y: 12 }}
-        whileInView={{ opacity: 1, scale: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.7, ease, delay: 0.18 + i * 0.12 }}
+        data-reveal
         className="font-heading font-extrabold tabular-nums text-cta"
         style={{
           fontSize: "clamp(2.7rem, 4vw, 3.6rem)",
@@ -682,20 +579,13 @@ function ProcessStepCard({ step: s, index: i }: { step: Step; index: number }) {
           transformOrigin: "left center",
         }}
       >
-        <motion.span
-          animate={reduce ? undefined : { y: [0, -4, 0, 3, 0] }}
-          transition={{
-            duration: 6 + i * 0.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: i * 0.4,
-          }}
+        <span
           className="inline-block transition-transform duration-300 group-hover:scale-110"
           style={{ transformOrigin: "left center" }}
         >
           {s.n}
-        </motion.span>
-      </motion.span>
+        </span>
+      </span>
 
       <p className="mt-5 font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-text-muted">
         Step {s.n}
@@ -736,7 +626,7 @@ function ProcessStepCard({ step: s, index: i }: { step: Step; index: number }) {
         aria-hidden
         className="pointer-events-none absolute right-5 top-5 h-4 w-4 -rotate-45 border-t-2 border-cta opacity-0 transition-opacity duration-300 group-hover:opacity-100"
       />
-    </motion.article>
+    </article>
   );
 }
 
@@ -792,14 +682,7 @@ function Process() {
       />
 
       <div className="relative mx-auto max-w-7xl px-6 sm:px-12">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.85, ease }}
-          className="mb-20 grid items-end gap-8 sm:grid-cols-12"
-        >
+        <div data-reveal className="mb-20 grid items-end gap-8 sm:grid-cols-12">
           <div className="sm:col-span-7">
             <p className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em] text-cta">
               <span
@@ -825,7 +708,7 @@ function Process() {
             From waitlist signup to a binder-ready audit. Founder pricing
             is locked the day you accept, no renegotiation at year two.
           </p>
-        </motion.div>
+        </div>
 
         <div className="relative">
           <svg
@@ -835,7 +718,7 @@ function Process() {
             preserveAspectRatio="none"
             viewBox="0 0 100 2"
           >
-            <motion.line
+            <line
               x1="2"
               y1="1"
               x2="98"
@@ -843,27 +726,18 @@ function Process() {
               stroke="#ffc83d"
               strokeOpacity="0.45"
               strokeWidth="0.5"
-              strokeDasharray="0.6 1.2"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.6, ease }}
             />
           </svg>
 
           <div className="relative grid gap-7 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-            {steps.map((s, i) => (
-              <ProcessStepCard key={s.n} step={s} index={i} />
+            {steps.map((s) => (
+              <ProcessStepCard key={s.n} step={s} />
             ))}
           </div>
         </div>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.85, ease, delay: 0.2 }}
+        <div
+          data-reveal
           className="relative mt-20 overflow-hidden rounded-3xl border border-cta/30 bg-surface p-8 sm:rounded-[36px] sm:p-12"
         >
           <span
@@ -907,7 +781,7 @@ function Process() {
               </Link>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -920,12 +794,8 @@ function SocialProof() {
       style={{ backgroundColor: CREAM, color: CREAM_INK }}
     >
       <div className="mx-auto max-w-5xl px-6 text-center sm:px-12">
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.85, ease }}
+        <p
+          data-reveal
           className="font-heading text-[10px] font-semibold uppercase tracking-[0.36em]"
           style={{ color: CREAM_GOLD_TEXT }}
         >
@@ -935,14 +805,10 @@ function SocialProof() {
             aria-hidden
           />
           From a founding client
-        </motion.p>
+        </p>
 
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.85, ease, delay: 0.08 }}
+        <h2
+          data-reveal
           className="mt-6 font-heading font-extrabold uppercase"
           style={{
             fontSize: "clamp(1.5rem, 3.4vw, 2.4rem)",
@@ -955,26 +821,18 @@ function SocialProof() {
           <span style={{ color: CREAM_GOLD_TEXT }}>$8,400 a year</span> on the
           yacht. I&rsquo;m on the jet waitlist before they even launch.
           Founder pricing is a no-brainer.&rdquo;
-        </motion.h2>
+        </h2>
 
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.85, ease, delay: 0.16 }}
+        <p
+          data-reveal
           className="mx-auto mt-6 text-[14px] uppercase tracking-[0.24em]"
           style={{ color: `${CREAM_INK}cc` }}
         >
           Alexander V. · Yacht client, future jet owner
-        </motion.p>
+        </p>
 
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.85, ease, delay: 0.24 }}
+        <div
+          data-reveal
           className="mt-10 flex flex-wrap items-center justify-center gap-5"
         >
           <Link
@@ -1003,7 +861,7 @@ function SocialProof() {
               Call us 602-910-2500
             </span>
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -1031,14 +889,7 @@ function Faq() {
   return (
     <section className="relative -mt-12 rounded-t-[48px] bg-background pb-28 pt-28 sm:rounded-t-[72px] sm:pb-36 sm:pt-32">
       <div className="mx-auto max-w-3xl px-6 sm:px-12">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.85, ease }}
-          className="mb-14"
-        >
+        <div data-reveal className="mb-14">
           <p className="mb-5 font-heading text-[10px] font-semibold uppercase tracking-[0.36em] text-cta">
             <span
               className="mr-3 inline-block h-px w-10 align-middle bg-cta"
@@ -1056,66 +907,15 @@ function Faq() {
           >
             Answers to <span className="text-cta">common questions.</span>
           </h2>
-        </motion.div>
+        </div>
 
         <div className="border-t border-border">
           {items.map((f, i) => (
-            <FaqRow key={i} q={f.q} a={f.a} index={i} />
+            <FaqRow key={i} q={f.q} a={f.a} />
           ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function FaqRow({ q, a, index }: { q: string; a: string; index: number }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <motion.div
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.7, ease, delay: index * 0.08 }}
-      className="border-b border-border"
-    >
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        aria-expanded={open}
-        className="group flex w-full items-center justify-between gap-6 py-6 text-left"
-      >
-        <span
-          className={[
-            "flex-1 font-heading font-bold uppercase transition-colors",
-            open ? "text-cta" : "text-white group-hover:text-cta",
-          ].join(" ")}
-          style={{
-            fontSize: "clamp(0.95rem, 1.2vw, 1.05rem)",
-            letterSpacing: "0.01em",
-          }}
-        >
-          {q}
-        </span>
-        <span
-          aria-hidden
-          className="grid size-9 shrink-0 place-items-center rounded-full border border-cta/40 text-sm text-cta transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
-          style={{ transform: open ? "rotate(45deg)" : "rotate(0deg)" }}
-        >
-          +
-        </span>
-      </button>
-      <motion.div
-        initial={false}
-        animate={{ height: open ? "auto" : 0, opacity: open ? 1 : 0 }}
-        transition={{ duration: 0.45, ease }}
-        style={{ overflow: "hidden" }}
-      >
-        <p className="pb-7 pr-12 text-[15px] leading-relaxed text-text-secondary">
-          {a}
-        </p>
-      </motion.div>
-    </motion.div>
   );
 }
 
@@ -1149,14 +949,7 @@ function Cta() {
 
       <div className="absolute inset-0 flex items-end pb-16 sm:items-center sm:pb-0">
         <div className="mx-auto w-full max-w-7xl px-6 sm:px-12">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.95, ease }}
-            className="max-w-2xl"
-          >
+          <div data-reveal className="max-w-2xl">
             <p className="mb-5 inline-flex items-center gap-3 font-heading text-[10px] font-semibold uppercase tracking-[0.36em] text-cta">
               <span className="h-px w-10 bg-cta sm:w-12" aria-hidden />
               Founder programme · Q3 2026
@@ -1201,7 +994,7 @@ function Cta() {
                 </span>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
