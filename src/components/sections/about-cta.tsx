@@ -87,7 +87,7 @@ export function AboutCta() {
           </Link>
         </motion.div>
 
-        <p className="mt-6 text-xs font-heading font-semibold tabular-nums text-white/90">
+        <p className="mt-6 text-xs font-heading font-semibold tabular-nums text-white">
           $0 if no savings · No obligation · Results in 24 hours
         </p>
       </div>

@@ -56,11 +56,11 @@ export function Footer() {
             <Logo variant="light" />
 
             {/* Tagline: short on mobile, full on lg */}
-            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white/90 lg:hidden">
+            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-white lg:hidden">
               Expert negotiators fight for the best deal: same coverage,
               lower premiums.
             </p>
-            <p className="mt-5 hidden max-w-md text-[15px] leading-relaxed text-white/90 lg:block">
+            <p className="mt-5 hidden max-w-md text-[15px] leading-relaxed text-white lg:block">
               {SITE_CONFIG.description}
             </p>
 
@@ -74,7 +74,7 @@ export function Footer() {
                   <ICONS.Phone className="size-4" aria-hidden />
                 </span>
                 <span className="flex min-w-0 flex-col">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
                     Call us
                   </span>
                   <span className="text-base font-semibold text-white tabular-nums">
@@ -90,7 +90,7 @@ export function Footer() {
                   <ICONS.Mail className="size-4" aria-hidden />
                 </span>
                 <span className="flex min-w-0 flex-col">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
                     Email us
                   </span>
                   <span className="truncate text-[15px] font-semibold text-white">
@@ -119,7 +119,7 @@ export function Footer() {
                   height={28}
                   className="h-6 w-auto opacity-80 sm:h-7"
                 />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
                   Accredited
                 </span>
               </li>
@@ -138,7 +138,7 @@ export function Footer() {
                     />
                   ))}
                 </span>
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
                   Google
                 </span>
               </li>
@@ -150,7 +150,7 @@ export function Footer() {
                 >
                   1100+
                 </span>
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/90">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white">
                   Clients
                 </span>
               </li>
@@ -173,7 +173,7 @@ export function Footer() {
               >
                 Insurance insights, monthly.
               </h3>
-              <p className="mt-2 text-[13px] leading-relaxed text-white/90 sm:mt-3 sm:text-[14px]">
+              <p className="mt-2 text-[13px] leading-relaxed text-white sm:mt-3 sm:text-[14px]">
                 Premium-saving plays and market shifts. Quietly delivered.
                 No spam.
               </p>
@@ -230,14 +230,14 @@ export function Footer() {
             <ColumnTitle>Get in touch</ColumnTitle>
             <a
               href={MAIL_HREF}
-              className="inline-flex items-start gap-2 text-[14px] text-white/90 transition-colors hover:text-cta"
+              className="inline-flex items-start gap-2 text-[14px] text-white transition-colors hover:text-cta"
             >
               <ICONS.Mail className="mt-0.5 size-4 shrink-0" aria-hidden />
               <span className="break-all">{SITE_CONFIG.email}</span>
             </a>
             <a
               href={TEL_HREF}
-              className="inline-flex items-center gap-2 text-[14px] text-white/90 transition-colors hover:text-cta"
+              className="inline-flex items-center gap-2 text-[14px] text-white transition-colors hover:text-cta"
             >
               <ICONS.Phone className="size-4 shrink-0" aria-hidden />
               {SITE_CONFIG.phone}
@@ -263,14 +263,14 @@ export function Footer() {
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className="text-[13px] font-medium text-white/90 transition-colors hover:text-cta sm:text-[12px]"
+                  className="text-[13px] font-medium text-white transition-colors hover:text-cta sm:text-[12px]"
                 >
                   {l.label}
                 </Link>
               </li>
             ))}
           </ul>
-          <p className="order-1 text-center text-[12px] leading-relaxed text-white/90 sm:order-1 sm:text-left">
+          <p className="order-1 text-center text-[12px] leading-relaxed text-white sm:order-1 sm:text-left">
             © {CURRENT_YEAR} {SITE_CONFIG.name}
             <span className="hidden sm:inline">
               {" "}· A Car Concierge Pro product. All rights reserved.
@@ -325,7 +325,7 @@ function FooterLink({
     <li>
       <Link
         href={href}
-        className="group inline-flex items-center gap-2 py-1 text-[15px] text-white/90 transition-colors hover:text-cta sm:text-[14px]"
+        className="group inline-flex items-center gap-2 py-1 text-[15px] text-white transition-colors hover:text-cta sm:text-[14px]"
       >
         <span
           aria-hidden
@@ -354,7 +354,7 @@ function SocialRow({ alignment }: { alignment: "start" | "center" }) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.label}
-            className="inline-flex size-11 items-center justify-center rounded-full border border-white/15 text-white/90 transition-all duration-200 hover:-translate-y-0.5 hover:border-cta hover:text-cta active:translate-y-0 sm:size-10"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-white/15 text-white transition-all duration-200 hover:-translate-y-0.5 hover:border-cta hover:text-cta active:translate-y-0 sm:size-10"
           >
             <Icon className="size-[18px] sm:size-4" aria-hidden />
           </a>

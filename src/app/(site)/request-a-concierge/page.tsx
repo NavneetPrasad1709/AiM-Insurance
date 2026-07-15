@@ -58,7 +58,7 @@ export default function RequestAConciergePage() {
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-10">
-          <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/90">
+          <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white">
             <li>
               <Link href="/" className="link-underline transition-colors hover:text-white">
                 Home
@@ -101,13 +101,13 @@ export default function RequestAConciergePage() {
                       >
                         {s.v}
                       </div>
-                      <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-white/90">
+                      <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-white">
                         {s.l}
                       </div>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-white/90">
+                <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-white">
                   <span className="inline-flex items-center gap-1.5">
                     <ICONS.Shield className="size-4 text-[#ffc83d]" aria-hidden />
                     BBB Accredited
@@ -144,7 +144,7 @@ export default function RequestAConciergePage() {
                   {WHAT_YOU_GET.map((line) => (
                     <li
                       key={line}
-                      className="flex items-start gap-2.5 text-sm text-white/90"
+                      className="flex items-start gap-2.5 text-sm text-white"
                     >
                       <ICONS.CheckCircle2
                         className="size-4 shrink-0 mt-0.5 text-[#ffc83d]"
@@ -172,7 +172,7 @@ export default function RequestAConciergePage() {
                 <div className="mt-4 flex items-center justify-between text-sm">
                   <span className="font-semibold text-white">
                     Sarah M.{" "}
-                    <span className="font-normal text-white/90">· Toronto</span>
+                    <span className="font-normal text-white">· Toronto</span>
                   </span>
                   <span
                     className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#ffc83d] tabular-nums"
@@ -215,7 +215,7 @@ export default function RequestAConciergePage() {
                       {SITE_CONFIG.email}
                     </a>
                   </li>
-                  <li className="text-white/90 mt-1">Mon-Fri · 9 AM to 6 PM EST</li>
+                  <li className="text-white mt-1">Mon-Fri · 9 AM to 6 PM EST</li>
                 </ul>
               </div>
             </div>

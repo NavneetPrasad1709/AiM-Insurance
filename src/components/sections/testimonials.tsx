@@ -281,7 +281,7 @@ export function Testimonials() {
                   </span>
                 </div>
 
-                <blockquote className="mt-4 text-[15px] leading-[1.55] text-[#e8e8ec] flex-1">
+                <blockquote className="mt-4 text-[15px] leading-[1.55] text-white flex-1">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
 

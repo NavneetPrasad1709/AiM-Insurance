@@ -500,13 +500,13 @@ function PitchPanel({ reduce, hidden }: { reduce: boolean; hidden: boolean }) {
           >
             $1,247
           </span>
-          <span className="text-base font-semibold text-white/90">/yr</span>
+          <span className="text-base font-semibold text-white">/yr</span>
         </motion.div>
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: EASE, delay: 0.42 }}
-          className="mt-3 text-[15px] text-white/90 leading-[1.55] max-w-[18rem]"
+          className="mt-3 text-[15px] text-white leading-[1.55] max-w-[18rem]"
         >
           Same coverage. Lower premium. Zero hassle. We negotiate with 50+
           carriers on your behalf.
@@ -530,11 +530,11 @@ function PitchPanel({ reduce, hidden }: { reduce: boolean; hidden: boolean }) {
               />
             ))}
           </div>
-          <p className="mt-3 text-sm text-white/90 leading-[1.5]">
+          <p className="mt-3 text-sm text-white leading-[1.5]">
             &ldquo;Same coverage I had with Allstate, $1,400 less per year. AiM
             handled everything.&rdquo;
           </p>
-          <p className="mt-3 text-xs text-white/90">
+          <p className="mt-3 text-xs text-white">
             <span className="font-semibold text-white">Sarah M.</span>{" "}
             · Toronto · saved{" "}
             <span className="text-[#ffc83d] font-bold tabular-nums">

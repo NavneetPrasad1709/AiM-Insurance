@@ -91,7 +91,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
 
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8 lg:px-12">
         <nav aria-label="Breadcrumb" className="mb-10">
-          <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/90">
+          <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-white">
             <li>
               <Link href="/" className="link-underline transition-colors hover:text-white">
                 Home
@@ -119,7 +119,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
             Let&rsquo;s talk{" "}
             <span className="text-[#ffc83d]">savings.</span>
           </h1>
-          <p className="relative mt-5 text-lg sm:text-xl text-white/90 leading-[1.55]">
+          <p className="relative mt-5 text-lg sm:text-xl text-white leading-[1.55]">
             Send us a message: quote, existing policy, partnership, anything. A
             real human replies within one business day.
           </p>
@@ -140,7 +140,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
           >
             Tell us where you&rsquo;re overpaying.
           </h2>
-          <p className="mt-3 text-lg leading-[1.6] text-white/90">
+          <p className="mt-3 text-lg leading-[1.6] text-white">
             Drop a few details below. Your declarations page is helpful but not
             required. We reply with a real human, not a bot.
           </p>
@@ -184,7 +184,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                         <ICONS.Phone className="size-4" aria-hidden />
                       </span>
                       <span className="flex flex-col">
-                        <span className="text-xs uppercase tracking-[0.18em] text-white/90">
+                        <span className="text-xs uppercase tracking-[0.18em] text-white">
                           Phone
                         </span>
                         <span className="text-[15px] font-semibold">
@@ -202,7 +202,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                         <ICONS.Mail className="size-4" aria-hidden />
                       </span>
                       <span className="flex flex-col">
-                        <span className="text-xs uppercase tracking-[0.18em] text-white/90">
+                        <span className="text-xs uppercase tracking-[0.18em] text-white">
                           Email
                         </span>
                         <span className="text-[15px] font-semibold">
@@ -216,7 +216,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                       <ICONS.MessageSquare className="size-4" aria-hidden />
                     </span>
                     <span className="flex flex-col">
-                      <span className="text-xs uppercase tracking-[0.18em] text-white/90">
+                      <span className="text-xs uppercase tracking-[0.18em] text-white">
                         Hours
                       </span>
                       <span className="text-[15px] font-semibold">
@@ -227,7 +227,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 </ul>
 
                 <div className="mt-6 pt-5 border-t border-[#232328]">
-                  <span className="text-xs uppercase tracking-[0.18em] text-white/90">
+                  <span className="text-xs uppercase tracking-[0.18em] text-white">
                     Follow us
                   </span>
                   <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -241,7 +241,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={s.label}
-                          className="inline-flex size-11 items-center justify-center rounded-full border border-[#232328] text-white/90 transition-colors hover:border-[#ffc83d]/40 hover:text-[#ffc83d]"
+                          className="inline-flex size-11 items-center justify-center rounded-full border border-[#232328] text-white transition-colors hover:border-[#ffc83d]/40 hover:text-[#ffc83d]"
                         >
                           <Icon className="size-4" aria-hidden />
                         </a>
@@ -272,7 +272,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                   <p className="mt-3 text-sm font-semibold text-white">
                     Serving USA · Canada · UAE
                   </p>
-                  <p className="mt-1 text-xs text-white/90">
+                  <p className="mt-1 text-xs text-white">
                     Remote-first concierge service
                   </p>
                 </div>

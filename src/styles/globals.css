@@ -17,10 +17,13 @@
   --color-border: #232328;             /* Hairline - 1px, only border color */
   --color-border-light: #1a1a1f;       /* alternative subtler border */
 
-  /* Text - bumped warmer/lighter for readability on dark */
-  --color-text-primary: #f4f4f8;       /* Bone+ - default body */
-  --color-text-secondary: #d8d8de;     /* Ash → near-white for body copy */
-  --color-text-muted: #c4c4ce;         /* Smoke+, high-contrast captions (~11:1 on black) */
+  /* Text - pure white across the site (21:1 on the black foundation).
+     Every token below is only ever used on dark surfaces; light/cream
+     sections use explicit dark inks (#0a0a0a / #1f1f26 / #2e2e36).
+     Hierarchy is carried by size and weight, not by dimming the color. */
+  --color-text-primary: #ffffff;       /* default body */
+  --color-text-secondary: #ffffff;     /* body copy */
+  --color-text-muted: #ffffff;         /* captions / labels */
   --color-primary: #ffffff;            /* White - H1 + stats only */
   --color-primary-hover: #e8e8ec;
   --color-primary-light: #9a9aa3;

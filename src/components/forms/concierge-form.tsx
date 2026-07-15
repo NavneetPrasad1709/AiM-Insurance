@@ -157,7 +157,7 @@ export function ConciergeForm() {
           Request your personal{" "}
           <span className="text-[#ffc83d]">insurance concierge.</span>
         </h2>
-        <p className="text-sm text-white/90 leading-[1.6]">
+        <p className="text-sm text-white leading-[1.6]">
           Tell us about yourself and your insurance needs. A dedicated concierge
           will be assigned to handle everything for you.
         </p>
@@ -253,7 +253,7 @@ export function ConciergeForm() {
                             "flex items-center gap-2 rounded-xl border px-4 py-3 cursor-pointer transition-colors",
                             checked
                               ? "border-[#ffc83d] bg-[#1a0e0a] text-white"
-                              : "border-[#232328] bg-[#0a0a0a] text-white/90 hover:border-[#ffc83d]/40"
+                              : "border-[#232328] bg-[#0a0a0a] text-white hover:border-[#ffc83d]/40"
                           )}
                         >
                           <input
@@ -391,7 +391,7 @@ export function ConciergeForm() {
                 {...register("consent")}
                 className="mt-1 size-4 shrink-0 rounded border-[#232328] bg-[#0a0a0a] text-[#ffc83d] focus:ring-2 focus:ring-[#ffc83d]/40"
               />
-              <span className="text-sm text-white/90 leading-snug">
+              <span className="text-sm text-white leading-snug">
                 I agree to AiM Insurance&rsquo;s{" "}
                 <Link
                   href="/terms"
@@ -445,7 +445,7 @@ export function ConciergeForm() {
               </>
             )}
           </button>
-          <p className="text-xs text-white/90 text-center">
+          <p className="text-xs text-white text-center">
             We&rsquo;ll assign a dedicated concierge within 24 hours. No obligation.
           </p>
         </div>
@@ -501,7 +501,7 @@ function ConciergeSuccess({ onAnother }: { onAnother: () => void }) {
       >
         You&rsquo;re all set!
       </h2>
-      <p className="mt-4 max-w-xl mx-auto text-base text-white/90 leading-[1.6]">
+      <p className="mt-4 max-w-xl mx-auto text-base text-white leading-[1.6]">
         A dedicated AiM concierge will be assigned to your case within 24 hours.
       </p>
 
@@ -525,7 +525,7 @@ function ConciergeSuccess({ onAnother }: { onAnother: () => void }) {
             >
               {s.t}
             </h3>
-            <p className="mt-1 text-sm text-white/90 leading-[1.55]">{s.d}</p>
+            <p className="mt-1 text-sm text-white leading-[1.55]">{s.d}</p>
           </div>
         ))}
       </div>

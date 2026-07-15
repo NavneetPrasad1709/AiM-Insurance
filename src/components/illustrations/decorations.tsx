@@ -357,7 +357,7 @@ export function PressStrip({ className }: { className?: string }) {
       {outlets.map((o) => (
         <span
           key={o.name}
-          className="text-base sm:text-lg font-bold text-white/90 hover:text-white transition-colors duration-150"
+          className="text-base sm:text-lg font-bold text-white hover:text-white transition-colors duration-150"
           style={{
             fontFamily: "var(--font-inter)",
             letterSpacing: o.tracking,

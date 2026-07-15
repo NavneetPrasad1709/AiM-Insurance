@@ -9,6 +9,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRef, useState } from "react";
+import { LazyVideo } from "@/components/ui/lazy-video";
 import { ICONS } from "@/lib/icons";
 import { ExploreMoreServices } from "@/components/sections/explore-more-services";
 
@@ -68,18 +69,13 @@ function Hero() {
   const reduce = useReducedMotion();
   return (
     <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
+      <LazyVideo
+        src={ASSET.heroVideo}
         poster={ASSET.heroPoster}
-        aria-label={ALT.hero}
+        ariaLabel={ALT.hero}
+        eager
         className="absolute inset-0 h-full w-full object-cover"
-      >
-        <source src={ASSET.heroVideo} type="video/mp4" />
-      </video>
+      />
 
       <div
         aria-hidden
@@ -99,10 +95,10 @@ function Hero() {
       />
 
       <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-6 py-4 sm:px-12 sm:py-5">
-        <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/90">
+        <span className="font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white">
           AiM · Car insurance
         </span>
-        <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white/90 sm:block">
+        <span className="hidden font-heading text-[10px] font-semibold uppercase tracking-[0.32em] text-white sm:block">
           USA &amp; Canada · 1100+ clients
         </span>
       </div>
@@ -167,7 +163,7 @@ function Hero() {
             </Link>
             <a
               href="tel:+16029102500"
-              className="group inline-flex items-center gap-2 text-sm text-white/90 transition-colors hover:text-cta"
+              className="group inline-flex items-center gap-2 text-sm text-white transition-colors hover:text-cta"
             >
               <ICONS.Phone className="size-4" aria-hidden />
               <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">
@@ -187,7 +183,7 @@ function Hero() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white/90"
+          className="flex flex-col items-center gap-2 font-heading text-[9px] uppercase tracking-[0.36em] text-white"
         >
           <span>Scroll</span>
           <span className="h-8 w-px bg-white/40" aria-hidden />
@@ -1188,18 +1184,12 @@ function Cta() {
   return (
     <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden sm:h-auto sm:min-h-0">
       <div className="absolute inset-0 sm:relative sm:aspect-[21/9] sm:h-auto">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
+        <LazyVideo
+          src={ASSET.ctaVideo}
           poster={ASSET.ctaPoster}
-          aria-label={ALT.cta}
+          ariaLabel={ALT.cta}
           className="absolute inset-0 h-full w-full object-cover"
-        >
-          <source src={ASSET.ctaVideo} type="video/mp4" />
-        </video>
+        />
         <div
           aria-hidden
           className="absolute inset-0 sm:hidden"
@@ -1264,7 +1254,7 @@ function Cta() {
               </Link>
               <a
                 href="tel:+16029102500"
-                className="group inline-flex items-center gap-2 text-sm text-white/90 transition-colors hover:text-cta"
+                className="group inline-flex items-center gap-2 text-sm text-white transition-colors hover:text-cta"
               >
                 <ICONS.Phone className="size-4" aria-hidden />
                 <span className="border-b border-white/30 pb-0.5 transition-colors group-hover:border-cta">

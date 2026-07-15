@@ -136,7 +136,7 @@ export function CarrierSavings() {
             <StaggerGroup className="mt-2 flex flex-col gap-3">
               {/* Header - desktop */}
               <div
-                className="hidden sm:grid grid-cols-12 gap-4 px-6 text-[10px] uppercase tracking-[0.22em] font-semibold text-white/90"
+                className="hidden sm:grid grid-cols-12 gap-4 px-6 text-[10px] uppercase tracking-[0.22em] font-semibold text-white"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
                 <div className="col-span-5">Former Carrier</div>
@@ -186,7 +186,7 @@ export function CarrierSavings() {
                           >
                             {s.carrier}
                           </span>
-                          <span className="text-[11px] sm:text-xs text-white/90 uppercase tracking-[0.16em] font-semibold">
+                          <span className="text-[11px] sm:text-xs text-white uppercase tracking-[0.16em] font-semibold">
                             Switched · {pct}% off
                           </span>
                         </div>
@@ -195,15 +195,15 @@ export function CarrierSavings() {
                       {/* Mobile: before/after/saved row */}
                       <div className="grid grid-cols-3 gap-3 sm:hidden border-t border-[#232328] pt-3">
                         <div className="flex flex-col gap-1">
-                          <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-white/90">
+                          <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-white">
                             Before
                           </span>
-                          <span className="text-white/90 line-through font-semibold tabular-nums text-sm">
+                          <span className="text-white line-through font-semibold tabular-nums text-sm">
                             {fmt(s.before)}
                           </span>
                         </div>
                         <div className="flex flex-col gap-1">
-                          <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-white/90">
+                          <span className="text-[9px] uppercase tracking-[0.18em] font-bold text-white">
                             After
                           </span>
                           <span className="text-white font-bold tabular-nums text-sm">
@@ -225,7 +225,7 @@ export function CarrierSavings() {
 
                       {/* Desktop: before */}
                       <div className="hidden sm:flex sm:col-span-2 justify-end">
-                        <span className="text-white/90 line-through font-semibold tabular-nums text-[15px]">
+                        <span className="text-white line-through font-semibold tabular-nums text-[15px]">
                           {fmt(s.before)}
                         </span>
                       </div>

@@ -43,7 +43,7 @@ function PillLink({ href, active, children, onClick }: PillLinkProps) {
         "px-4 py-2.5 text-sm font-semibold rounded-full transition-colors",
         active
           ? "bg-cta text-background shadow-coral"
-          : "text-white/90 hover:bg-white/10 hover:text-white"
+          : "text-white hover:bg-white/10 hover:text-white"
       )}
     >
       {children}
@@ -110,7 +110,7 @@ function PillDropdown({ link, pathname }: { link: NavLink; pathname: string }) {
           "inline-flex items-center gap-1 px-4 py-2.5 text-sm font-semibold rounded-full transition-colors",
           isAnyChildActive
             ? "bg-cta text-background shadow-coral"
-            : "text-white/90 hover:bg-white/10 hover:text-white"
+            : "text-white hover:bg-white/10 hover:text-white"
         )}
       >
         {link.label}
@@ -162,7 +162,7 @@ function PillDropdown({ link, pathname }: { link: NavLink; pathname: string }) {
                     )}
                   </span>
                   {child.description && (
-                    <span className="text-sm text-white/90">
+                    <span className="text-sm text-white">
                       {child.description}
                     </span>
                   )}
@@ -243,7 +243,7 @@ export function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href={`tel:${SITE_CONFIG.phone.replace(/[^+\d]/g, "")}`}
-              className="hidden xl:inline-flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white transition-colors"
+              className="hidden xl:inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-white transition-colors"
             >
               <ICONS.Phone className="size-4 text-accent" aria-hidden />
               {SITE_CONFIG.phone}

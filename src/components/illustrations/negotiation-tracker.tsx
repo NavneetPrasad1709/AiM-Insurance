@@ -65,7 +65,7 @@ export function NegotiationTracker({ className }: NegotiationTrackerProps) {
 
       {/* Status row */}
       <div className="mt-5 flex items-center gap-2 text-[12px]">
-        <span className="font-semibold text-[#e8e8ec]">Day 4</span>
+        <span className="font-semibold text-white">Day 4</span>
         <span className="text-white">·</span>
         <span className="text-white">Negotiating Allstate adjuster</span>
       </div>

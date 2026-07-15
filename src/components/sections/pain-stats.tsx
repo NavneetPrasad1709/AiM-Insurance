@@ -174,7 +174,7 @@ export function PainStats() {
         {/* Closer */}
         <ScrollReveal direction="up" delay={0.2}>
           <div className="mt-14 flex flex-col items-center text-center gap-4">
-            <p className="text-white/90 text-base sm:text-lg max-w-2xl">
+            <p className="text-white text-base sm:text-lg max-w-2xl">
               We monitor your premium continuously, so the second a better deal
               appears, we&apos;re on it. You stay paid less, forever.
             </p>

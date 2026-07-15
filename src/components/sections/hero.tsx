@@ -69,7 +69,7 @@ export function Hero() {
               </span>
             </h1>
 
-            <p className="max-w-xl text-[17px] leading-[1.55] text-white/90 sm:text-lg">
+            <p className="max-w-xl text-[17px] leading-[1.55] text-white sm:text-lg">
               A dedicated concierge that negotiates lower premiums while
               keeping the same coverage you already trust. Clients save{" "}
               <span className="font-semibold text-[#ffc83d] tabular-nums">
@@ -93,7 +93,7 @@ export function Hero() {
 
             <div className="inline-flex w-fit max-w-full items-center gap-2 rounded-full border border-[#4fe0b0]/30 bg-[#0a1612] px-4 py-2 text-[13px]">
               <ICONS.CheckCircle2 className="size-4 text-[#4fe0b0]" aria-hidden />
-              <span className="font-semibold tabular-nums text-[#e8e8ec]">
+              <span className="font-semibold tabular-nums text-white">
                 $0 if no savings · No upfront cost · Takes 5 min
               </span>
             </div>
@@ -113,7 +113,7 @@ export function Hero() {
                     />
                   ))}
                 </span>
-                <span className="text-sm font-semibold tabular-nums text-[#e8e8ec]">
+                <span className="text-sm font-semibold tabular-nums text-white">
                   1100+
                 </span>
                 <span className="text-sm text-white">

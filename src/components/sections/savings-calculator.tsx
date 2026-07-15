@@ -348,9 +348,9 @@ function PitchPanel({
             >
               $1,247
             </span>
-            <span className="text-base font-semibold text-white/90">/yr</span>
+            <span className="text-base font-semibold text-white">/yr</span>
           </div>
-          <p className="mt-3 text-sm text-white/90 leading-[1.55] max-w-[18rem]">
+          <p className="mt-3 text-sm text-white leading-[1.55] max-w-[18rem]">
             Same coverage. Lower premium. Live benchmark against 50+ carriers.
           </p>
         </div>
@@ -358,7 +358,7 @@ function PitchPanel({
 
       {/* Middle - step progression */}
       <div className="relative my-10">
-        <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] text-white/90 mb-4">
+        <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] text-white mb-4">
           The 4-step audit
         </span>
         <ol className="flex flex-col gap-3">
@@ -384,7 +384,7 @@ function PitchPanel({
                       ? "bg-[#ffc83d] text-[#0a0a0a] shadow-[0_0_0_4px_rgba(255,200,61,0.18)]"
                       : done
                         ? "bg-[#10d889]/15 text-[#10d889] border border-[#10d889]/40"
-                        : "bg-white/5 text-white/90 border border-white/10"
+                        : "bg-white/5 text-white border border-white/10"
                   )}
                   style={{ fontFamily: "var(--font-inter)" }}
                 >
@@ -394,12 +394,12 @@ function PitchPanel({
                   <span
                     className={cn(
                       "text-sm font-semibold",
-                      active ? "text-white" : done ? "text-white/90" : "text-white/90"
+                      active ? "text-white" : done ? "text-white" : "text-white"
                     )}
                   >
                     {s.title}
                   </span>
-                  <span className="text-[11px] text-white/90 leading-[1.4]">
+                  <span className="text-[11px] text-white leading-[1.4]">
                     {s.desc}
                   </span>
                 </span>
@@ -420,12 +420,12 @@ function PitchPanel({
             />
           ))}
         </div>
-        <p className="mt-3 text-sm text-white/90 leading-[1.5]">
+        <p className="mt-3 text-sm text-white leading-[1.5]">
           &ldquo;Estimate landed within 5% of the actual quote. We saved
           $1,400/yr.&rdquo;
         </p>
-        <p className="mt-3 text-xs text-white/90">
-          <span className="font-semibold text-white/90">Sarah M.</span>{" "}
+        <p className="mt-3 text-xs text-white">
+          <span className="font-semibold text-white">Sarah M.</span>{" "}
           · Toronto · saved{" "}
           <span className="text-[#ffc83d] font-bold tabular-nums">
             $1,400/yr

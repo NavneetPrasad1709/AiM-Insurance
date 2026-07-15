@@ -190,7 +190,7 @@ export function PricingSection() {
                   {t.bullets.map((b) => (
                     <li
                       key={b}
-                      className="flex items-start gap-2.5 text-[15px] text-[#e8e8ec]"
+                      className="flex items-start gap-2.5 text-[15px] text-white"
                     >
                       <span
                         className={`mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full ${

@@ -92,7 +92,7 @@ export function FaqSection() {
                 <li>
                   <a
                     href={`tel:${SITE_CONFIG.phone.replace(/[^+\d]/g, "")}`}
-                    className="link-underline inline-flex items-center gap-2 text-[#e8e8ec] hover:text-white transition-colors duration-150"
+                    className="link-underline inline-flex items-center gap-2 text-white hover:text-white transition-colors duration-150"
                   >
                     <ICONS.Phone className="size-4 text-[#ffc83d]" aria-hidden />
                     {SITE_CONFIG.phone}
@@ -101,7 +101,7 @@ export function FaqSection() {
                 <li>
                   <a
                     href={`mailto:${SITE_CONFIG.email}`}
-                    className="link-underline inline-flex items-center gap-2 text-[#e8e8ec] hover:text-white transition-colors duration-150"
+                    className="link-underline inline-flex items-center gap-2 text-white hover:text-white transition-colors duration-150"
                   >
                     <ICONS.Mail className="size-4 text-[#ffc83d]" aria-hidden />
                     {SITE_CONFIG.email}
